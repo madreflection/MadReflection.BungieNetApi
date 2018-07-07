@@ -1,0 +1,3 @@
+[submodule "submodules/bnetapi"]
+	path = submodules/bnetapi
+	url = https://github.com/Bungie-net/api
