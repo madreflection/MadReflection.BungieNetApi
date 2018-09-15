@@ -42,6 +42,9 @@ namespace BungieNet.Api
 		Destiny.Responses.DestinyVendorResponse GetVendor(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint vendorHash, Destiny.DestinyComponentType[] components);
 		Task<Destiny.Responses.DestinyVendorResponse> GetVendorAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint vendorHash, Destiny.DestinyComponentType[] components);
 
+		Destiny.Responses.DestinyCollectibleNodeDetailResponse GetCollectibleNodeDetails(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint collectiblePresentationNodeHash, Destiny.DestinyComponentType[] components);
+		Task<Destiny.Responses.DestinyCollectibleNodeDetailResponse> GetCollectibleNodeDetailsAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint collectiblePresentationNodeHash, Destiny.DestinyComponentType[] components);
+
 		int TransferItem();
 		Task<int> TransferItemAsync();
 
@@ -222,6 +225,18 @@ namespace BungieNet.Api
 			};
 			Uri uri = GetEndpointUri(pathSegments, queryItems);
 			return GetEntityAsync<Destiny.Responses.DestinyVendorResponse>(uri);
+		}
+
+		Destiny.Responses.DestinyCollectibleNodeDetailResponse IDestiny2Client.GetCollectibleNodeDetails(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint collectiblePresentationNodeHash, Destiny.DestinyComponentType[] components) => Destiny2.GetCollectibleNodeDetailsAsync(membershipType, destinyMembershipId, characterId, collectiblePresentationNodeHash, components).GetAwaiter().GetResult();
+		Task<Destiny.Responses.DestinyCollectibleNodeDetailResponse> IDestiny2Client.GetCollectibleNodeDetailsAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint collectiblePresentationNodeHash, Destiny.DestinyComponentType[] components)
+		{
+			string[] pathSegments = new string[] { "Destiny2", ((int)membershipType).ToString(), "Profile", destinyMembershipId.ToString(), "Character", characterId.ToString(), "Collectibles", collectiblePresentationNodeHash.ToString() };
+			System.Collections.Generic.List<QueryStringItem> queryItems = new System.Collections.Generic.List<QueryStringItem>()
+			{
+				new QueryStringItem("components", string.Join(",", components))
+			};
+			Uri uri = GetEndpointUri(pathSegments, queryItems);
+			return GetEntityAsync<Destiny.Responses.DestinyCollectibleNodeDetailResponse>(uri);
 		}
 
 		int IDestiny2Client.TransferItem() => Destiny2.TransferItemAsync().GetAwaiter().GetResult();

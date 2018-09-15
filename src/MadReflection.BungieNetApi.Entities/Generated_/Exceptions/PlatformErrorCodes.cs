@@ -1218,6 +1218,10 @@ namespace BungieNet.Exceptions
 
 		MissingEververseHistoryError = 2048,
 
+		BungieRewardEmailStateInvalid = 2049,
+
+		BungieRewardNotYetClaimable = 2050,
+
 		ApiExceededMaxKeys = 2100,
 
 		ApiInvalidOrExpiredKey = 2101,
@@ -1348,6 +1352,8 @@ namespace BungieNet.Exceptions
 
 		ClanFireteamAlreadyJoined = 3023,
 
-		ClanFireteamScheduledFireteamsRange = 3024
+		ClanFireteamScheduledFireteamsRange = 3024,
+
+		ClanFireteamPublicCreationRestrictionExtended = 3025
 	}
 }

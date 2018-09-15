@@ -26,6 +26,9 @@ namespace BungieNet.Destiny.Quests
 		[JsonProperty("progress")]
 		public int? Progress { get; set; }
 
+		[JsonProperty("completionValue")]
+		public int CompletionValue { get; set; }
+
 		[JsonProperty("complete")]
 		public bool Complete { get; set; }
 

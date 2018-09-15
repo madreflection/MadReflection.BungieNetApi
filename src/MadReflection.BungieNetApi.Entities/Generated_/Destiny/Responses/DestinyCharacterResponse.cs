@@ -38,6 +38,15 @@ namespace BungieNet.Destiny.Responses
 		[JsonProperty("plugSets")]
 		public SingleComponentResponseOfDestinyPlugSetsComponent PlugSets { get; set; }
 
+		[JsonProperty("presentationNodes")]
+		public SingleComponentResponseOfDestinyPresentationNodesComponent PresentationNodes { get; set; }
+
+		[JsonProperty("records")]
+		public SingleComponentResponseOfDestinyCharacterRecordsComponent Records { get; set; }
+
+		[JsonProperty("collectibles")]
+		public SingleComponentResponseOfDestinyCollectiblesComponent Collectibles { get; set; }
+
 		[JsonProperty("itemComponents")]
 		public DestinyItemComponentSetOfint64 ItemComponents { get; set; }
 

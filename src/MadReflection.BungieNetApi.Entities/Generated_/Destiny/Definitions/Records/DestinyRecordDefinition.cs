@@ -14,6 +14,9 @@ namespace BungieNet.Destiny.Definitions.Records
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
 
+		[JsonProperty("scope")]
+		public Destiny.DestinyScope Scope { get; set; }
+
 		[JsonProperty("presentationInfo")]
 		public Destiny.Definitions.Presentation.DestinyPresentationChildBlock PresentationInfo { get; set; }
 
