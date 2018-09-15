@@ -21,8 +21,17 @@ namespace BungieNet.Destiny.Definitions.Presentation
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
 
+		[JsonProperty("originalIcon")]
+		public string OriginalIcon { get; set; }
+
+		[JsonProperty("rootViewIcon")]
+		public string RootViewIcon { get; set; }
+
 		[JsonProperty("nodeType")]
 		public Destiny.DestinyPresentationNodeType NodeType { get; set; }
+
+		[JsonProperty("scope")]
+		public Destiny.DestinyScope Scope { get; set; }
 
 		[JsonProperty("objectiveHash")]
 		public uint? ObjectiveHash { get; set; }

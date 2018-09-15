@@ -35,6 +35,15 @@ namespace BungieNet.Destiny.Responses
 		[JsonProperty("profileProgression")]
 		public SingleComponentResponseOfDestinyProfileProgressionComponent ProfileProgression { get; set; }
 
+		[JsonProperty("profilePresentationNodes")]
+		public SingleComponentResponseOfDestinyPresentationNodesComponent ProfilePresentationNodes { get; set; }
+
+		[JsonProperty("profileRecords")]
+		public SingleComponentResponseOfDestinyProfileRecordsComponent ProfileRecords { get; set; }
+
+		[JsonProperty("profileCollectibles")]
+		public SingleComponentResponseOfDestinyProfileCollectiblesComponent ProfileCollectibles { get; set; }
+
 		[JsonProperty("characters")]
 		public DictionaryComponentResponseOfint64AndDestinyCharacterComponent Characters { get; set; }
 
@@ -61,6 +70,15 @@ namespace BungieNet.Destiny.Responses
 
 		[JsonProperty("characterUninstancedItemComponents")]
 		public System.Collections.Generic.Dictionary<long, DestinyBaseItemComponentSetOfuint32> CharacterUninstancedItemComponents { get; set; }
+
+		[JsonProperty("characterPresentationNodes")]
+		public DictionaryComponentResponseOfint64AndDestinyPresentationNodesComponent CharacterPresentationNodes { get; set; }
+
+		[JsonProperty("characterRecords")]
+		public DictionaryComponentResponseOfint64AndDestinyCharacterRecordsComponent CharacterRecords { get; set; }
+
+		[JsonProperty("characterCollectibles")]
+		public DictionaryComponentResponseOfint64AndDestinyCollectiblesComponent CharacterCollectibles { get; set; }
 
 		[JsonProperty("itemComponents")]
 		public DestinyItemComponentSetOfint64 ItemComponents { get; set; }

@@ -17,6 +17,9 @@ namespace BungieNet.Destiny.Definitions.Collectibles
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
 
+		[JsonProperty("scope")]
+		public Destiny.DestinyScope Scope { get; set; }
+
 		[JsonProperty("sourceString")]
 		public string SourceString { get; set; }
 

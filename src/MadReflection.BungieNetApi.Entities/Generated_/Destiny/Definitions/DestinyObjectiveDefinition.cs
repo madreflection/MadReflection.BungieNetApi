@@ -26,6 +26,9 @@ namespace BungieNet.Destiny.Definitions
 		[JsonProperty("completionValue")]
 		public int CompletionValue { get; set; }
 
+		[JsonProperty("scope")]
+		public Destiny.DestinyGatingScope Scope { get; set; }
+
 		[JsonProperty("locationHash")]
 		public uint LocationHash { get; set; }
 

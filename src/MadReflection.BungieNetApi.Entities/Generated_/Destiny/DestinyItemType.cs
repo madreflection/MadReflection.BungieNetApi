@@ -60,6 +60,8 @@ namespace BungieNet.Destiny
 
 		Ghost = 24,
 
-		Package = 25
+		Package = 25,
+
+		Bounty = 26
 	}
 }

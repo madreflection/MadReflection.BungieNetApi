@@ -5,23 +5,13 @@
 // -----------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json;
 
-namespace BungieNet.Fireteam
+namespace BungieNet.Destiny.Components.Presentation
 {
-	public enum FireteamActivityType
+	public partial class DestinyPresentationNodesComponent
 	{
-		All = 0,
-
-		Raid = 1,
-
-		Crucible = 2,
-
-		Trials = 3,
-
-		Nightfall = 4,
-
-		Anything = 5,
-
-		Gambit = 6
+		[JsonProperty("nodes")]
+		public System.Collections.Generic.Dictionary<uint, Destiny.Components.Presentation.DestinyPresentationNodeComponent> Nodes { get; set; }
 	}
 }

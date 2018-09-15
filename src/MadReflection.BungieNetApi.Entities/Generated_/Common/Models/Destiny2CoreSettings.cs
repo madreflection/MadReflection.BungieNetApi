@@ -11,8 +11,20 @@ namespace BungieNet.Common.Models
 {
 	public partial class Destiny2CoreSettings
 	{
-		[JsonProperty("presentationRootNodes")]
-		public CoreIdentifierOfuint32[] PresentationRootNodes { get; set; }
+		[JsonProperty("collectionRootNode")]
+		public uint CollectionRootNode { get; set; }
+
+		[JsonProperty("badgesRootNode")]
+		public uint BadgesRootNode { get; set; }
+
+		[JsonProperty("recordsRootNode")]
+		public uint RecordsRootNode { get; set; }
+
+		[JsonProperty("medalsRootNode")]
+		public uint MedalsRootNode { get; set; }
+
+		[JsonProperty("undiscoveredCollectibleImage")]
+		public string UndiscoveredCollectibleImage { get; set; }
 
 		[JsonProperty("ammoTypeHeavyIcon")]
 		public string AmmoTypeHeavyIcon { get; set; }

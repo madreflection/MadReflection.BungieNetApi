@@ -21,6 +21,9 @@ namespace BungieNet.Destiny.Entities.Vendors
 		[JsonProperty("itemHash")]
 		public uint ItemHash { get; set; }
 
+		[JsonProperty("overrideStyleItemHash")]
+		public uint? OverrideStyleItemHash { get; set; }
+
 		[JsonProperty("quantity")]
 		public int Quantity { get; set; }
 

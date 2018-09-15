@@ -40,5 +40,8 @@ namespace BungieNet.Destiny.Entities.Items
 
 		[JsonProperty("state")]
 		public Destiny.ItemState State { get; set; }
+
+		[JsonProperty("overrideStyleItemHash")]
+		public uint? OverrideStyleItemHash { get; set; }
 	}
 }
