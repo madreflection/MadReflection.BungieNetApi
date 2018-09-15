@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LibraryGenerator.ArrayBuilder" Collapsed="true">
+    <Position X="1" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builders_\ArrayBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryGenerator.Builder" Collapsed="true">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAQAAAAAAAAACAAAAAEAAAA=</HashCode>
+      <FileName>Builders_\Builder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryGenerator.ClassBuilder" Collapsed="true">
+    <Position X="7.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAECAAA=</HashCode>
+      <FileName>Builders_\ClassBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryGenerator.DictionaryBuilder" Collapsed="true">
+    <Position X="7.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAEAAgA=</HashCode>
+      <FileName>Builders_\DictionaryBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryGenerator.EnumBuilder" Collapsed="true">
+    <Position X="3.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEAgAA=</HashCode>
+      <FileName>Builders_\EnumBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryGenerator.EnumFieldBuilder" Collapsed="true">
+    <Position X="3.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAgAEAAAAA=</HashCode>
+      <FileName>Builders_\EnumFieldBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryGenerator.FileBuilder" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAQAAAAAEAAAAAAAFAAAA=</HashCode>
+      <FileName>Builders_\FileBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryGenerator.InterfaceBuilder" Collapsed="true">
+    <Position X="10" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAgAAAAAAAgQUAAEA=</HashCode>
+      <FileName>Builders_\InterfaceBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryGenerator.MethodBuilder" Collapsed="true">
+    <Position X="1" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAIAAAQEEAAQ=</HashCode>
+      <FileName>Builders_\MethodBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryGenerator.ParameterBuilder" Collapsed="true">
+    <Position X="10" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Builders_\ParameterBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryGenerator.PropertyBuilder" Collapsed="true">
+    <Position X="7.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Builders_\PropertyBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryGenerator.TypeBuilder" Collapsed="true">
+    <Position X="5.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builders_\TypeBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryGenerator.NullableEnumBuilder" Collapsed="true">
+    <Position X="5.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Builders_\NullableEnumBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryGenerator.AnonymousEnumBuilder" Collapsed="true">
+    <Position X="3.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builders_\AnonymousEnumBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
