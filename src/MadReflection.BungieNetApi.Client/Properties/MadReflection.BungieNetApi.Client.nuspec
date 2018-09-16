@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>MadReflection.BungieNetApi.Client</id>
+    <version>0.0.1</version>
+    <title>Bungie.net API Client</title>
+    <authors>Benn Benson</authors>
+    <owners>Benn Benson</owners>
+    <summary></summary>
+    <description></description>
+    <!--<releaseNotes></releaseNotes>-->
+    <language>en-US</language>
+    <projectUrl>https://github.com/madreflection/MadReflection.BungieNetApi</projectUrl>
+    <!--<iconUrl></iconUrl>-->
+    <licenseUrl>https://github.com/madreflection/MadReflection.BungieNetApi/blob/master/LICENSE.md</licenseUrl>
+    <copyright>Copyright (c) 2018 Benn Benson</copyright>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <dependencies>
+      <group targetFramework="netstandard2.0"></group>
+    </dependencies>
+    <!--<frameworkAssemblies></frameworkAssemblies>-->
+    <!--<references></references>-->
+    <tags>bungie destiny api</tags>
+  </metadata>
+  <files>
+    <file src="..\bin\Release\netstandard2.0\MadReflection.BungieNetApi.Client.dll" target="lib\netstandard2.0"/>
+    <file src="..\bin\Release\netstandard2.0\MadReflection.BungieNetApi.Client.xml" target="lib\netstandard2.0"/>
+  </files>
+</package>
