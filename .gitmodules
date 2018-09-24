@@ -1,3 +1,6 @@
 [submodule "submodules/bnetapi"]
 	path = submodules/bnetapi
 	url = https://github.com/Bungie-net/api
+[submodule "submodules/MadReflection.Shared"]
+	path = submodules/MadReflection.Shared
+	url = https://github.com/madreflection/MadReflection.Shared

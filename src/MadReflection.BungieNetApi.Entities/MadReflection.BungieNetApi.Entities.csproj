@@ -2,14 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <AssemblyName>MadReflection.BungieNetApi.Entities</AssemblyName>
     <RootNamespace>BungieNet</RootNamespace>
+    <AssemblyName>MadReflection.BungieNetApi.Entities</AssemblyName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="$(ProjectDir)..\Shared\CommonAssemblyInfo.cs" Link="Properties\CommonAssemblyInfo.cs" />
+    <Compile Include="$(ProjectDir)..\..\submodules\MadReflection.Shared\src\MadReflection.AssemblyInfo.cs" Link="Properties\MadReflection.AssemblyInfo.cs" />
   </ItemGroup>
 
 </Project>

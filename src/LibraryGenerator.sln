@@ -5,11 +5,6 @@ VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryGenerator", "LibraryGenerator\LibraryGenerator.csproj", "{806314DE-012A-4419-89E0-3D7E7A6DCF40}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Schemas", "Schemas", "{05DE513A-DCC1-4E7B-B032-A1BF1D9FBBB8}"
-	ProjectSection(SolutionItems) = preProject
-		..\submodules\bnetapi\openapi.json = ..\submodules\bnetapi\openapi.json
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
