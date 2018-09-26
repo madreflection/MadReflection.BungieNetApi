@@ -121,6 +121,11 @@ namespace BungieNet.Api
 		Task<Destiny.Advanced.AwaAuthorizationResult> AwaGetActionTokenAsync(string correlationId);
 	}
 
+	partial interface IBungieClient
+	{
+		IDestiny2Client Destiny2 { get; }
+	}
+
 	partial class BungieClient : IDestiny2Client
 	{
 		public IDestiny2Client Destiny2 => this;

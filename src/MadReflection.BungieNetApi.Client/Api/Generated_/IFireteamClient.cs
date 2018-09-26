@@ -31,6 +31,11 @@ namespace BungieNet.Api
 		Task<Fireteam.FireteamResponse> GetClanFireteamAsync(long groupId, long fireteamId);
 	}
 
+	partial interface IBungieClient
+	{
+		IFireteamClient Fireteam { get; }
+	}
+
 	partial class BungieClient : IFireteamClient
 	{
 		public IFireteamClient Fireteam => this;

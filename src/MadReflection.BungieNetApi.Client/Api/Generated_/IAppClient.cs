@@ -31,6 +31,11 @@ namespace BungieNet.Api
 		Task<GlobalAlert[]> GetGlobalAlertsAsync(bool includestreaming);
 	}
 
+	partial interface IBungieClient
+	{
+		IAppClient App { get; }
+	}
+
 	partial class BungieClient : IAppClient
 	{
 		public IAppClient App => this;

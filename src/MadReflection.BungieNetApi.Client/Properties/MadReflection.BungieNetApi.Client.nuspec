@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>MadReflection.BungieNetApi.Client</id>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <title>Bungie.net API Client</title>
     <authors>Benn Benson</authors>
     <owners>Benn Benson</owners>
-    <summary></summary>
-    <description></description>
+    <summary>REST client class for the Bungie.net API.</summary>
+    <description>This package provides a rest client class and related classes for the Bungie.net API, and provides a natural interface to the particulars of how that API works.</description>
     <!--<releaseNotes></releaseNotes>-->
     <language>en-US</language>
     <projectUrl>https://github.com/madreflection/MadReflection.BungieNetApi</projectUrl>
@@ -16,7 +16,10 @@
     <copyright>Copyright (c) 2018 Benn Benson</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
-      <group targetFramework="netstandard2.0"></group>
+      <group targetFramework="netstandard2.0">
+        <dependency id="Newtonsoft.Json" version="9.0.1"/>
+        <dependency id="MadReflection.BungieNetApi.Entities" version="0.0.2"/>
+      </group>
     </dependencies>
     <!--<frameworkAssemblies></frameworkAssemblies>-->
     <!--<references></references>-->

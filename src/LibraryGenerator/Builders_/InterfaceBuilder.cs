@@ -48,6 +48,13 @@ namespace LibraryGenerator
 
 			writer.WriteLine();
 
+			writer.WriteLine("\tpartial interface IBungieClient");
+			writer.WriteLine("\t{");
+			writer.WriteLine($"\t\t{Name} {Area} {{ get; }}");
+			writer.WriteLine("\t}");
+
+			writer.WriteLine();
+
 			writer.WriteLine($"\tpartial class BungieClient : {Name}");
 			writer.WriteLine("\t{");
 			writer.WriteLine($"\t\tpublic {Name} {Area} => this;");
