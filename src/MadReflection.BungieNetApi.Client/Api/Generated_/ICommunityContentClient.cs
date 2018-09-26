@@ -34,6 +34,11 @@ namespace BungieNet.Api
 		Task<Community.CommunityLiveStatus> GetStreamingStatusForMemberAsync(Partnerships.PartnershipType partnershipType, BungieMembershipType membershipType, long membershipId);
 	}
 
+	partial interface IBungieClient
+	{
+		ICommunityContentClient CommunityContent { get; }
+	}
+
 	partial class BungieClient : ICommunityContentClient
 	{
 		public ICommunityContentClient CommunityContent => this;

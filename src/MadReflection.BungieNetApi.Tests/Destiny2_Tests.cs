@@ -10,7 +10,7 @@ namespace MadReflection.BungieNetApi.Tests
 {
 	public class Destiny2_Tests
 	{
-		private BungieClient _client;
+		private IBungieClient _client;
 
 
 		[SetUp]

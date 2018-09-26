@@ -58,6 +58,11 @@ namespace BungieNet.Api
 		Task<Forum.ForumRecruitmentDetail[]> GetRecruitmentThreadSummariesAsync();
 	}
 
+	partial interface IBungieClient
+	{
+		IForumClient Forum { get; }
+	}
+
 	partial class BungieClient : IForumClient
 	{
 		public IForumClient Forum => this;

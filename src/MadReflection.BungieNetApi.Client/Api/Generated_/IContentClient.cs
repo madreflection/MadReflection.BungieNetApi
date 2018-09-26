@@ -31,6 +31,11 @@ namespace BungieNet.Api
 		Task<SearchResultOfContentItemPublicContract> SearchContentByTagAndTypeAsync(string tag, string type, string locale, int currentpage, bool head, int itemsperpage);
 	}
 
+	partial interface IBungieClient
+	{
+		IContentClient Content { get; }
+	}
+
 	partial class BungieClient : IContentClient
 	{
 		public IContentClient Content => this;

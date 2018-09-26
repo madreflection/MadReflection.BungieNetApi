@@ -25,6 +25,11 @@ namespace BungieNet.Api
 		Task<Trending.TrendingDetail> GetTrendingEntryDetailAsync(Trending.TrendingEntryType trendingEntryType, string identifier);
 	}
 
+	partial interface IBungieClient
+	{
+		ITrendingClient Trending { get; }
+	}
+
 	partial class BungieClient : ITrendingClient
 	{
 		public ITrendingClient Trending => this;

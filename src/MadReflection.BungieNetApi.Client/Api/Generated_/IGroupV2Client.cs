@@ -124,6 +124,11 @@ namespace BungieNet.Api
 		Task<GroupsV2.GroupApplicationResponse> IndividualGroupInviteCancelAsync(long groupId, BungieMembershipType membershipType, long membershipId);
 	}
 
+	partial interface IBungieClient
+	{
+		IGroupV2Client GroupV2 { get; }
+	}
+
 	partial class BungieClient : IGroupV2Client
 	{
 		public IGroupV2Client GroupV2 => this;

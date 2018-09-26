@@ -34,6 +34,11 @@ namespace BungieNet.Api
 		Task<Partnerships.PublicPartnershipDetail[]> GetPartnershipsAsync(long membershipId);
 	}
 
+	partial interface IBungieClient
+	{
+		IUserClient User { get; }
+	}
+
 	partial class BungieClient : IUserClient
 	{
 		public IUserClient User => this;

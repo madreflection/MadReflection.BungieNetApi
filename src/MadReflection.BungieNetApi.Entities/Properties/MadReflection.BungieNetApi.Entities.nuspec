@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>MadReflection.BungieNetApi.Entities</id>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <title>Bungie.net API Entities</title>
     <authors>Benn Benson</authors>
     <owners>Benn Benson</owners>
-    <summary></summary>
-    <description></description>
+    <summary>Data contract classes for the Bungie.net API.</summary>
+    <description>This package contains the data contract classes for the Bungie.net API. It can be used with MadReflection.BungieNetApi.Client or on its own to (de)serialize manifest database object graphs.</description>
     <!--<releaseNotes></releaseNotes>-->
     <language>en-US</language>
     <projectUrl>https://github.com/madreflection/MadReflection.BungieNetApi</projectUrl>
@@ -16,14 +16,16 @@
     <copyright>Copyright (c) 2018 Benn Benson</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
-      <group targetFramework="netstandard2.0"></group>
+      <group targetFramework="netstandard2.0">
+        <dependency id="Newtonsoft.Json" version="9.0.1"/>
+      </group>
     </dependencies>
     <!--<frameworkAssemblies></frameworkAssemblies>-->
     <!--<references></references>-->
     <tags>bungie destiny api</tags>
   </metadata>
   <files>
-    <file src="..\bin\Release\netstandard2.0\MadReflection.BungieNetApi.Client.dll" target="lib\netstandard2.0"/>
-    <file src="..\bin\Release\netstandard2.0\MadReflection.BungieNetApi.Client.xml" target="lib\netstandard2.0"/>
+    <file src="..\bin\Release\netstandard2.0\MadReflection.BungieNetApi.Entities.dll" target="lib\netstandard2.0"/>
+    <file src="..\bin\Release\netstandard2.0\MadReflection.BungieNetApi.Entities.xml" target="lib\netstandard2.0"/>
   </files>
 </package>
