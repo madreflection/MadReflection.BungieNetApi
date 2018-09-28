@@ -331,7 +331,7 @@ namespace LibraryGenerator
 			foreach (var jsonProperty in jsonProperties)
 			{
 				PropertyBuilder propertyBuilder = new PropertyBuilder();
-				propertyBuilder.Name = DotNetifyIdentifier(jsonProperty.Key);
+				propertyBuilder.Name = ConvertIdentifierToPascalCase(jsonProperty.Key);
 				propertyBuilder.JsonName = jsonProperty.Key;
 
 				propertyBuilder.Type = ProcessPropertyType(jsonProperty.Value);

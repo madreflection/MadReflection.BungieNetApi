@@ -117,7 +117,7 @@ namespace LibraryGenerator
 				{
 					JsonName = jsonParameter.Name,
 					Name = jsonParameter.Name,
-					Location = jsonParameter.In ?? throw new Exception("Null argument location."),
+					Location = (BuilderParameterLocation?)jsonParameter.In ?? throw new Exception("Null argument location."),
 					Description = jsonParameter.Description,
 					Type = EntitiesGenerator.ProcessPropertyType(jsonParameter.Schema),
 				}).ToList();
@@ -157,7 +157,7 @@ namespace LibraryGenerator
 					ParameterBuilder parameterBuilder = (
 						from p in parameterBuilders
 						where p.Name == parameterName
-						where p.Location == ParameterLocation.Path
+						where p.Location == BuilderParameterLocation.Path
 						select p
 						).FirstOrDefault();
 
@@ -187,6 +187,28 @@ namespace LibraryGenerator
 			foreach (var qi in queryItems)
 				finalParameterBuilders.Add(qi);
 
+			if (isPost)
+			{
+				if (method.RequestBody != null)
+				{
+					TypeReference typeReference = EntitiesGenerator.ProcessPropertyType(method.RequestBody.Content["application/json"].Schema);
+
+					string requestParameterName = "request";
+					if (typeReference.IsJsonPath && Program.GeneratedTypes.TryGetValue(typeReference.JsonPath, out TypeBuilder tb) && tb is ClassBuilder classBuilder)
+					{
+						requestParameterName = ConvertIdentifierToCamelCase(classBuilder.Name);
+					}
+
+					finalParameterBuilders.Insert(0, new ParameterBuilder()
+					{
+						Name = requestParameterName,
+						JsonName = requestParameterName,
+						Location = BuilderParameterLocation.Body,
+						Type = typeReference
+					});
+				}
+			}
+
 			return new MethodBuilder()
 			{
 				Name = name,
@@ -203,7 +225,6 @@ namespace LibraryGenerator
 
 		private static TypeReference GrokReturnType(OpenApiDocument document, OpenApiResponse responseRef)
 		{
-
 			string responseName = responseRef.Reference.ReferenceV3.Substring("#/components/responses/".Length);
 
 			OpenApiResponse response = document.Components.Responses[responseName];

@@ -54,8 +54,8 @@ namespace BungieNet.Api
 		Messages.Responses.SaveMessageResult ApproveFireteamThread(long topicId);
 		Task<Messages.Responses.SaveMessageResult> ApproveFireteamThreadAsync(long topicId);
 
-		Forum.ForumRecruitmentDetail[] GetRecruitmentThreadSummaries();
-		Task<Forum.ForumRecruitmentDetail[]> GetRecruitmentThreadSummariesAsync();
+		Forum.ForumRecruitmentDetail[] GetRecruitmentThreadSummaries(long[] request);
+		Task<Forum.ForumRecruitmentDetail[]> GetRecruitmentThreadSummariesAsync(long[] request);
 	}
 
 	partial interface IBungieClient
@@ -201,12 +201,12 @@ namespace BungieNet.Api
 			return PostEntityAsync<Messages.Responses.SaveMessageResult>(uri);
 		}
 
-		Forum.ForumRecruitmentDetail[] IForumClient.GetRecruitmentThreadSummaries() => Forum.GetRecruitmentThreadSummariesAsync().GetAwaiter().GetResult();
-		Task<Forum.ForumRecruitmentDetail[]> IForumClient.GetRecruitmentThreadSummariesAsync()
+		Forum.ForumRecruitmentDetail[] IForumClient.GetRecruitmentThreadSummaries(long[] request) => Forum.GetRecruitmentThreadSummariesAsync(request).GetAwaiter().GetResult();
+		Task<Forum.ForumRecruitmentDetail[]> IForumClient.GetRecruitmentThreadSummariesAsync(long[] request)
 		{
 			string[] pathSegments = new string[] { "Forum", "Recruit", "Summaries" };
 			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityArrayAsync<Forum.ForumRecruitmentDetail>(uri);
+			return PostEntityArrayAsync<long[], Forum.ForumRecruitmentDetail>(uri, request);
 		}
 	}
 }

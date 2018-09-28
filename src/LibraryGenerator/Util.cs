@@ -171,15 +171,26 @@ namespace LibraryGenerator
 			return Convert.ChangeType(numericValue, type);
 		}
 
-		public static string DotNetifyIdentifier(string jsonIdentifier)
+		public static string ConvertIdentifierToPascalCase(string identifier)
 		{
-			if (string.IsNullOrEmpty(jsonIdentifier))
-				throw new ArgumentNullException(nameof(jsonIdentifier));
+			if (string.IsNullOrEmpty(identifier))
+				throw new ArgumentNullException(nameof(identifier));
 
-			if (jsonIdentifier.StartsWith("ui"))
-				return jsonIdentifier.Substring(0, 2).ToUpper() + jsonIdentifier.Substring(2);
+			if (identifier.StartsWith("ui"))
+				return identifier.Substring(0, 2).ToUpperInvariant() + identifier.Substring(2);
 
-			return char.ToUpper(jsonIdentifier[0]) + jsonIdentifier.Substring(1);
+			return char.ToUpperInvariant(identifier[0]) + identifier.Substring(1);
+		}
+
+		public static string ConvertIdentifierToCamelCase(string identifier)
+		{
+			if (string.IsNullOrEmpty(identifier))
+				throw new ArgumentNullException(nameof(identifier));
+
+			if (identifier.StartsWith("UI"))
+				return identifier.Substring(0, 2).ToLowerInvariant() + identifier.Substring(2);
+
+			return char.ToLowerInvariant(identifier[0]) + identifier.Substring(1);
 		}
 
 		public static string SplitTypeName(string schemaName)

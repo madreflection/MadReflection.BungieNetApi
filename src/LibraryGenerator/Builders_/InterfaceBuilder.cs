@@ -126,14 +126,23 @@ namespace LibraryGenerator
 				{
 					var elementType = ((ArrayBuilder)methodBuilder.ReturnType.TypeBuilder).ElementType;
 					writer.Write($"{getOrPost}EntityArrayAsync");
-					writer.Write($"<{elementType.QualifiedName}>");
+					writer.Write("<");
+					if (methodBuilder.IsPost && methodBuilder.Parameters.Any() && methodBuilder.Parameters[0].Location == BuilderParameterLocation.Body)
+						writer.Write($"{methodBuilder.Parameters[0].Type.QualifiedName}, ");
+					writer.Write($"{elementType.QualifiedName}>");
 				}
 				else
 				{
 					writer.Write($"{getOrPost}EntityAsync");
-					writer.Write($"<{methodBuilder.ReturnType.QualifiedName}>");
+					writer.Write("<");
+					if (methodBuilder.IsPost && methodBuilder.Parameters.Any() && methodBuilder.Parameters[0].Location == BuilderParameterLocation.Body)
+						writer.Write($"{methodBuilder.Parameters[0].Type.QualifiedName}, ");
+					writer.Write($"{methodBuilder.ReturnType.QualifiedName}>");
 				}
-				writer.WriteLine($"(uri);");
+				writer.Write("(uri");
+				if (methodBuilder.IsPost && methodBuilder.Parameters.Any() && methodBuilder.Parameters[0].Location == BuilderParameterLocation.Body)
+					writer.Write($", {methodBuilder.Parameters[0].Name}");
+				writer.WriteLine(");");
 
 				writer.WriteLine("\t\t}");
 
@@ -148,7 +157,7 @@ namespace LibraryGenerator
 
 		private static void WriteParameterNullGuards(TextWriter writer, MethodBuilder methodBuilder)
 		{
-			foreach (var parameterBuilder in methodBuilder.Parameters.Where(p => p.Location == ParameterLocation.Path))
+			foreach (var parameterBuilder in methodBuilder.Parameters.Where(p => p.Location == BuilderParameterLocation.Path))
 			{
 				TypeReference parameterType = parameterBuilder.Type;
 
