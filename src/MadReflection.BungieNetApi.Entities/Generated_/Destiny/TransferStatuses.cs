@@ -11,10 +11,10 @@ using System;
 
 namespace BungieNet.Destiny
 {
-	[Flags]
 	/// <summary>
 	/// Whether you can transfer an item, and why not if you can't.
 	/// </summary>
+	[Flags]
 	public enum TransferStatuses
 	{
 		/// <summary>

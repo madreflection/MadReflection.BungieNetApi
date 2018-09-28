@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace BungieNet.Destiny.Definitions
 {
@@ -13,6 +10,6 @@ namespace BungieNet.Destiny.Definitions
 
 		[Undocumented]
 		[JsonProperty("unlockValueHash")]
-		public long UnlockValueHash { get; set; }
+		public uint UnlockValueHash { get; set; }
 	}
 }

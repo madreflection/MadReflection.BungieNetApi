@@ -20,7 +20,7 @@ namespace BungieNet.Destiny.Definitions
 	/// Activity Definitions tell a great deal of information about what *could* be relevant to a user: what rewards they can earn, what challenges could be performed, what modifiers could be applied. To figure out which of these properties is actually live, you'll need to combine the definition with "Live" data from one of the Destiny endpoints.
 	/// Activities also have Activity Types, but unfortunately in Destiny 2 these are even less reliable of a source of information than they were in Destiny 1. I will be looking into ways to provide more reliable sources for type information as time goes on, but for now we're going to have to deal with the limitations. See DestinyActivityTypeDefinition for more information.
 	/// </summary>
-	public partial class DestinyActivityDefinition
+	public partial class DestinyActivityDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
@@ -108,14 +108,5 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("activityLocationMappings")]
 		public Destiny.Constants.DestinyEnvironmentLocationMapping[] ActivityLocationMappings { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

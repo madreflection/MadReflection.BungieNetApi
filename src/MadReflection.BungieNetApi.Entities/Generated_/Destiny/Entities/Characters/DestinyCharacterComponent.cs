@@ -78,7 +78,7 @@ namespace BungieNet.Destiny.Entities.Characters
 		public int BaseCharacterLevel { get; set; }
 
 		[JsonProperty("percentToNextLevel")]
-		public float PercentToNextLevel { get; set; }
+		public decimal PercentToNextLevel { get; set; }
 
 		[JsonProperty("titleRecordHash")]
 		public uint? TitleRecordHash { get; set; }

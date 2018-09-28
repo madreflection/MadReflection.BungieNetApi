@@ -176,6 +176,9 @@ namespace LibraryGenerator
 			if (string.IsNullOrEmpty(jsonIdentifier))
 				throw new ArgumentNullException(nameof(jsonIdentifier));
 
+			if (jsonIdentifier.StartsWith("ui"))
+				return jsonIdentifier.Substring(0, 2).ToUpper() + jsonIdentifier.Substring(2);
+
 			return char.ToUpper(jsonIdentifier[0]) + jsonIdentifier.Substring(1);
 		}
 

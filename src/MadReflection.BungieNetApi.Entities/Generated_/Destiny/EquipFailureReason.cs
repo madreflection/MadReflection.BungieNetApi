@@ -11,10 +11,10 @@ using System;
 
 namespace BungieNet.Destiny
 {
-	[Flags]
 	/// <summary>
 	/// The reasons why an item cannot be equipped, if any. Many flags can be set, or "None" if
 	/// </summary>
+	[Flags]
 	public enum EquipFailureReason
 	{
 		/// <summary>

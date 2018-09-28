@@ -16,7 +16,7 @@ namespace BungieNet.Destiny.Definitions
 	/// So much of what you see in Destiny is actually an Item used in a new and creative way. This is the definition for Items in Destiny, which started off as just entities that could exist in your Inventory but ended up being the backing data for so much more: quests, reward previews, slots, and subclasses.
 	/// In practice, you will want to associate this data with "live" item data from a Bungie.Net Platform call: these definitions describe the item in generic, non-instanced terms: but an actual instance of an item can vary widely from these generic definitions.
 	/// </summary>
-	public partial class DestinyInventoryItemDefinition
+	public partial class DestinyInventoryItemDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
@@ -43,7 +43,7 @@ namespace BungieNet.Destiny.Definitions
 		public string ItemTypeDisplayName { get; set; }
 
 		[JsonProperty("uiItemDisplayStyle")]
-		public string UiItemDisplayStyle { get; set; }
+		public string UIItemDisplayStyle { get; set; }
 
 		[JsonProperty("itemTypeAndTierDisplayName")]
 		public string ItemTypeAndTierDisplayName { get; set; }
@@ -164,14 +164,5 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("defaultDamageTypeHash")]
 		public uint? DefaultDamageTypeHash { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

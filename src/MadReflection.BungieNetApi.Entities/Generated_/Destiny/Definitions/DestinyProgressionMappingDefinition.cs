@@ -16,21 +16,12 @@ namespace BungieNet.Destiny.Definitions
 	/// Aggregations of multiple progressions.
 	/// These are used to apply rewards to multiple progressions at once. They can sometimes have human readable data as well, but only extremely sporadically.
 	/// </summary>
-	public partial class DestinyProgressionMappingDefinition
+	public partial class DestinyProgressionMappingDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
 
 		[JsonProperty("displayUnits")]
 		public string DisplayUnits { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

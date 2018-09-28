@@ -18,6 +18,6 @@ namespace BungieNet.Applications
 		public DateTime Time { get; set; }
 
 		[JsonProperty("count")]
-		public double? Count { get; set; }
+		public decimal? Count { get; set; }
 	}
 }

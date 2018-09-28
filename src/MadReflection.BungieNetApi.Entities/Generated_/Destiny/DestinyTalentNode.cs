@@ -39,7 +39,7 @@ namespace BungieNet.Destiny
 		public int ActivationGridLevel { get; set; }
 
 		[JsonProperty("progressPercent")]
-		public float ProgressPercent { get; set; }
+		public decimal ProgressPercent { get; set; }
 
 		[JsonProperty("hidden")]
 		public bool Hidden { get; set; }

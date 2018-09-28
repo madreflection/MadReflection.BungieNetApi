@@ -15,7 +15,7 @@ namespace BungieNet.Destiny.Definitions.Collectibles
 	/// <summary>
 	/// Defines a
 	/// </summary>
-	public partial class DestinyCollectibleDefinition
+	public partial class DestinyCollectibleDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
@@ -40,14 +40,5 @@ namespace BungieNet.Destiny.Definitions.Collectibles
 
 		[JsonProperty("presentationInfo")]
 		public Destiny.Definitions.Presentation.DestinyPresentationChildBlock PresentationInfo { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

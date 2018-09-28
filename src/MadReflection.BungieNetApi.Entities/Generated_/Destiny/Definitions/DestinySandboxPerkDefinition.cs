@@ -20,7 +20,7 @@ namespace BungieNet.Destiny.Definitions
 	/// Anyways, I'm sure you can see why perks are so interesting.
 	/// What Perks often don't have is human readable information, so we attempt to reverse engineer that by pulling that data from places that uniquely refer to these perks: namely, Talent Nodes and Plugs. That only gives us a subset of perks that are human readable, but those perks are the ones people generally care about anyways. The others are left as a mystery, their true purpose mostly unknown and undocumented.
 	/// </summary>
-	public partial class DestinySandboxPerkDefinition
+	public partial class DestinySandboxPerkDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
@@ -39,14 +39,5 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("perkGroups")]
 		public Destiny.Definitions.DestinyTalentNodeStepGroups PerkGroups { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

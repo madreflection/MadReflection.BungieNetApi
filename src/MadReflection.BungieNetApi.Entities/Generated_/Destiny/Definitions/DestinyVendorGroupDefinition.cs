@@ -17,21 +17,12 @@ namespace BungieNet.Destiny.Definitions
 	/// These definitions represent the groups we've built. Unlike in Destiny 1, a Vendors' group may change dynamically as the game state changes: thus, you will want to check DestinyVendorComponent responses to find a vendor's currently active Group (if you care).
 	/// Using this will let you group your vendors in your UI in a similar manner to how we will do grouping in the Companion.
 	/// </summary>
-	public partial class DestinyVendorGroupDefinition
+	public partial class DestinyVendorGroupDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("order")]
 		public int Order { get; set; }
 
 		[JsonProperty("categoryName")]
 		public string CategoryName { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

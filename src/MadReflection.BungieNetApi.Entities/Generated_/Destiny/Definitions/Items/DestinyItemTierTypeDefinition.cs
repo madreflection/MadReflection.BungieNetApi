@@ -16,21 +16,12 @@ namespace BungieNet.Destiny.Definitions.Items
 	/// Defines the tier type of an item. Mostly this provides human readable properties for types like Common, Rare, etc...
 	/// It also provides some base data for infusion that could be useful.
 	/// </summary>
-	public partial class DestinyItemTierTypeDefinition
+	public partial class DestinyItemTierTypeDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
 
 		[JsonProperty("infusionProcess")]
 		public Destiny.Definitions.Items.DestinyItemTierTypeInfusionBlock InfusionProcess { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

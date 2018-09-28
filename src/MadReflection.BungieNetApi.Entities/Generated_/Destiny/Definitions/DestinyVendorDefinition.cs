@@ -23,7 +23,7 @@ namespace BungieNet.Destiny.Definitions
 	/// Where possible and time allows, we'll attempt to split those out into their own more digestible derived "Definitions": but often time does not allow that, as you can see from the above ways that vendors are used which we never split off from Vendor Definitions externally.
 	/// Since Vendors are so many things to so many parts of the game, the definition is understandably complex. You will want to combine this data with live Vendor information from the API when it is available.
 	/// </summary>
-	public partial class DestinyVendorDefinition
+	public partial class DestinyVendorDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.DestinyVendorDisplayPropertiesDefinition DisplayProperties { get; set; }
@@ -117,14 +117,5 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("ignoreSaleItemHashes")]
 		public uint[] IgnoreSaleItemHashes { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

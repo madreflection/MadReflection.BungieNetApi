@@ -6,7 +6,7 @@ namespace BungieNet.Destiny.Definitions
 	{
 		[Undocumented]
 		[JsonProperty("completionUnlockHash")]
-		public long CompletionUnlockHash { get; set; }
+		public uint CompletionUnlockHash { get; set; }
 
 		[Undocumented]
 		[JsonProperty("inheritFromFreeRoam")]

@@ -19,7 +19,7 @@ namespace BungieNet.Destiny.Definitions.Presentation
 	/// Part of me wants to break these into conceptual definitions per entity being collected, but the possibility of these different types being mixed in the same UI and the possibility that it could actually be more useful to return the "bare metal" presentation node concept has resulted in me deciding against that for the time being.
 	/// We'll see if I come to regret this as well.
 	/// </summary>
-	public partial class DestinyPresentationNodeDefinition
+	public partial class DestinyPresentationNodeDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
@@ -59,14 +59,5 @@ namespace BungieNet.Destiny.Definitions.Presentation
 
 		[JsonProperty("parentNodeHashes")]
 		public uint[] ParentNodeHashes { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

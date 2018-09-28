@@ -27,6 +27,6 @@ namespace BungieNet.Destiny.Definitions
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
 
 		[JsonProperty("weight")]
-		public double Weight { get; set; }
+		public decimal Weight { get; set; }
 	}
 }

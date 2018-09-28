@@ -15,7 +15,7 @@ namespace BungieNet.Destiny.Definitions.Items
 	public partial class DestinyItemTierTypeInfusionBlock
 	{
 		[JsonProperty("baseQualityTransferRatio")]
-		public float BaseQualityTransferRatio { get; set; }
+		public decimal BaseQualityTransferRatio { get; set; }
 
 		[JsonProperty("minimumQualityIncrement")]
 		public int MinimumQualityIncrement { get; set; }

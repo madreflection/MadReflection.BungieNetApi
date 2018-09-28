@@ -43,7 +43,7 @@ namespace BungieNet.Destiny.Definitions.Items
 		public Destiny.Definitions.Items.DestinyPlugRuleDefinition[] EnabledRules { get; set; }
 
 		[JsonProperty("uiPlugLabel")]
-		public string UiPlugLabel { get; set; }
+		public string UIPlugLabel { get; set; }
 
 		[JsonProperty("plugStyle")]
 		public Destiny.PlugUiStyles PlugStyle { get; set; }

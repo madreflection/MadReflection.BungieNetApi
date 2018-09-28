@@ -75,7 +75,7 @@ namespace BungieNet.Community
 		public DateTime? DateFeatured { get; set; }
 
 		[JsonProperty("trendingValue")]
-		public float TrendingValue { get; set; }
+		public decimal TrendingValue { get; set; }
 
 		[JsonProperty("isSubscribable")]
 		public bool IsSubscribable { get; set; }

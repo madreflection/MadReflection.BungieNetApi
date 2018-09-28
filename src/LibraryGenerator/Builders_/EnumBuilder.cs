@@ -23,9 +23,6 @@ namespace LibraryGenerator
 			writer.WriteLine($"namespace {JoinName(Constants.RootNamespace, Namespace)}");
 			writer.WriteLine("{");
 
-			if (IsFlags)
-				writer.WriteLine("\t[Flags]");
-
 			if (!string.IsNullOrEmpty(Description))
 			{
 				writer.WriteLine("\t/// <summary>");
@@ -33,6 +30,9 @@ namespace LibraryGenerator
 					writer.WriteLine($"\t/// {EscapeHtmlString(line)}");
 				writer.WriteLine("\t/// </summary>");
 			}
+
+			if (IsFlags)
+				writer.WriteLine("\t[Flags]");
 
 			writer.Write($"\tpublic enum {Name}");
 			if (UnderlyingType != typeof(int))

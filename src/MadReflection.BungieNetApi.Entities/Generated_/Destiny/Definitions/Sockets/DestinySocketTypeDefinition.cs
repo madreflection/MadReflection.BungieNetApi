@@ -16,7 +16,7 @@ namespace BungieNet.Destiny.Definitions.Sockets
 	/// All Sockets have a "Type": a set of common properties that determine when the socket allows Plugs to be inserted, what Categories of Plugs can be inserted, and whether the socket is even visible at all given the current game/character/account state.
 	/// See DestinyInventoryItemDefinition for more information about Socketed items and Plugs.
 	/// </summary>
-	public partial class DestinySocketTypeDefinition
+	public partial class DestinySocketTypeDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
@@ -50,14 +50,5 @@ namespace BungieNet.Destiny.Definitions.Sockets
 
 		[JsonProperty("currencyScalars")]
 		public Destiny.Definitions.Sockets.DestinySocketTypeScalarMaterialRequirementEntry[] CurrencyScalars { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

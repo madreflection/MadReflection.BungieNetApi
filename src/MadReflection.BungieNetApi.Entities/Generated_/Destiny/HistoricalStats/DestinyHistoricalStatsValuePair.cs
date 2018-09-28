@@ -15,7 +15,7 @@ namespace BungieNet.Destiny.HistoricalStats
 	public partial class DestinyHistoricalStatsValuePair
 	{
 		[JsonProperty("value")]
-		public double Value { get; set; }
+		public decimal Value { get; set; }
 
 		[JsonProperty("displayValue")]
 		public string DisplayValue { get; set; }

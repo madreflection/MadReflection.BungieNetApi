@@ -15,9 +15,9 @@ namespace BungieNet.Interpolation
 	public partial class InterpolationPointFloat
 	{
 		[JsonProperty("value")]
-		public float Value { get; set; }
+		public decimal Value { get; set; }
 
 		[JsonProperty("weight")]
-		public float Weight { get; set; }
+		public decimal Weight { get; set; }
 	}
 }

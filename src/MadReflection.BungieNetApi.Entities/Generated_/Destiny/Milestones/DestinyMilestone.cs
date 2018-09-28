@@ -27,7 +27,7 @@ namespace BungieNet.Destiny.Milestones
 		public Destiny.Milestones.DestinyMilestoneChallengeActivity[] Activities { get; set; }
 
 		[JsonProperty("values")]
-		public System.Collections.Generic.Dictionary<string, float> Values { get; set; }
+		public System.Collections.Generic.Dictionary<string, decimal> Values { get; set; }
 
 		[JsonProperty("vendorHashes")]
 		public uint[] VendorHashes { get; set; }

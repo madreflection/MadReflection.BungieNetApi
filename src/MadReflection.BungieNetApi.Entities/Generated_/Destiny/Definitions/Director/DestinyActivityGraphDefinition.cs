@@ -19,7 +19,7 @@ namespace BungieNet.Destiny.Definitions.Director
 	/// Unfortunately, activity graphs are combined at runtime with Game UI-only assets such as fragments of map images, various in-game special effects, decals etc... that we don't get in these definitions.
 	/// If we end up having time, we may end up trying to manually populate those here: but the last time we tried that, before the lead-up to D1, it proved to be unmaintainable as the game's content changed. So don't bet the farm on us providing that content in this definition.
 	/// </summary>
-	public partial class DestinyActivityGraphDefinition
+	public partial class DestinyActivityGraphDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("nodes")]
 		public Destiny.Definitions.Director.DestinyActivityGraphNodeDefinition[] Nodes { get; set; }
@@ -38,14 +38,5 @@ namespace BungieNet.Destiny.Definitions.Director
 
 		[JsonProperty("linkedGraphs")]
 		public Destiny.Definitions.Director.DestinyLinkedGraphDefinition[] LinkedGraphs { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

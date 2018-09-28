@@ -15,7 +15,7 @@ namespace BungieNet.Destiny.Definitions
 	/// <summary>
 	/// All damage types that are possible in the game are defined here, along with localized info and icons as needed.
 	/// </summary>
-	public partial class DestinyDamageTypeDefinition
+	public partial class DestinyDamageTypeDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
@@ -28,14 +28,5 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("enumValue")]
 		public Destiny.DamageType EnumValue { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

@@ -15,7 +15,7 @@ namespace BungieNet.Destiny.Definitions
 	/// <summary>
 	/// Defines a Character Class in Destiny 2. These are types of characters you can play, like Titan, Warlock, and Hunter.
 	/// </summary>
-	public partial class DestinyClassDefinition
+	public partial class DestinyClassDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("classType")]
 		public Destiny.DestinyClass ClassType { get; set; }
@@ -28,14 +28,5 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("mentorVendorHash")]
 		public uint? MentorVendorHash { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

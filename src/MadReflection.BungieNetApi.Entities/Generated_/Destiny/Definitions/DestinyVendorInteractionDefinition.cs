@@ -33,7 +33,7 @@ namespace BungieNet.Destiny.Definitions
 		public Destiny.Definitions.DestinyVendorInteractionSackEntryDefinition[] SackInteractionList { get; set; }
 
 		[JsonProperty("uiInteractionType")]
-		public uint UiInteractionType { get; set; }
+		public uint UIInteractionType { get; set; }
 
 		[JsonProperty("interactionType")]
 		public Destiny.VendorInteractionType InteractionType { get; set; }

@@ -18,7 +18,7 @@ namespace BungieNet.Destiny.Definitions.Checklists
 	/// Generally speaking, the items in a checklist can be completed in any order: we return an ordered list which only implies the way we are showing them in our own UI, and you can feel free to alter it as you wish.
 	/// Note that, in the future, there will be something resembling the old D1 Record Books in at least some vague form. When that is created, it may be that it will supercede much or all of this Checklist data. It remains to be seen if that will be the case, so for now assume that the Checklists will still exist even after the release of D2: Forsaken.
 	/// </summary>
-	public partial class DestinyChecklistDefinition
+	public partial class DestinyChecklistDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
@@ -31,14 +31,5 @@ namespace BungieNet.Destiny.Definitions.Checklists
 
 		[JsonProperty("entries")]
 		public Destiny.Definitions.Checklists.DestinyChecklistEntryDefinition[] Entries { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

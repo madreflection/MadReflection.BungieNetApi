@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using BungieNet;
+﻿using BungieNet;
 using BungieNet.Api;
 using BungieNet.Trending;
 using NUnit.Framework;
@@ -17,8 +14,7 @@ namespace MadReflection.BungieNetApi.Tests
 		[SetUp]
 		public void SetUp()
 		{
-			// This is the DEV application.  If something goes wrong with it, it's no big deal to sever it.
-			_client = new BungieClient(new BungieApiKey("77dd2016bdb346cf82751aae4a38661b"));
+			_client = new BungieClient(new BungieApiKey(Constants.TestApiKey));
 		}
 
 		[TearDown]
