@@ -17,7 +17,7 @@ namespace BungieNet.Destiny.Definitions
 	/// This heuristic is imperfect, however. If you find an item miscategorized, let us know on the Bungie API forums!
 	/// We then populate all of the categories that we think an item belongs to in its DestinyInventoryItemDefinition.itemCategoryHashes property. You can use that to provide your own custom item filtering, sorting, aggregating... go nuts on it! And let us know if you see more categories that you wish would be added!
 	/// </summary>
-	public partial class DestinyItemCategoryDefinition
+	public partial class DestinyItemCategoryDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
@@ -60,14 +60,5 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("groupCategoryOnly")]
 		public bool GroupCategoryOnly { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

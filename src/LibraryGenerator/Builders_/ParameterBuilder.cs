@@ -4,7 +4,7 @@ namespace LibraryGenerator
 {
 	public class ParameterBuilder : Builder
 	{
-		public ParameterLocation Location { get; set; }
+		public BuilderParameterLocation Location { get; set; }
 
 		public TypeReference Type { get; set; }
 
@@ -21,13 +21,13 @@ namespace LibraryGenerator
 
 					if (parameterType.Type == typeof(string))
 					{
-						if (Location == ParameterLocation.Query)
+						if (Location == BuilderParameterLocation.Query)
 							return $"({Name} ?? \"\")";
 
 						return Name;
 					}
 
-					if (!parameterType.Type.IsValueType && Location == ParameterLocation.Query)
+					if (!parameterType.Type.IsValueType && Location == BuilderParameterLocation.Query)
 						return $"({Name}?.ToString() ?? \"\")";
 
 					return Name + ".ToString()";
@@ -40,7 +40,7 @@ namespace LibraryGenerator
 
 					if (typeBuilder is ClassBuilder classBuilder)
 					{
-						if (Location == ParameterLocation.Query)
+						if (Location == BuilderParameterLocation.Query)
 							return $"({Name}?.ToString())";
 
 						return $"{Name}.ToString()";

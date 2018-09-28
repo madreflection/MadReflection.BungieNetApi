@@ -8,6 +8,10 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+
   <Import Project="$(ProjectDir)..\..\submodules\MadReflection.Shared\build\DocumentationFile.props" Condition="Exists('$(ProjectDir)..\..\submodules\MadReflection.Shared\build\DocumentationFile.props')" />
 
   <ItemGroup>

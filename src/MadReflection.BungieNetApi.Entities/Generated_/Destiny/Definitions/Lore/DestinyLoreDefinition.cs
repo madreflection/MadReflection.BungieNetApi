@@ -16,21 +16,12 @@ namespace BungieNet.Destiny.Definitions.Lore
 	/// These are definitions for in-game "Lore," meant to be narrative enhancements of the game experience.
 	/// DestinyInventoryItemDefinitions for interesting items point to these definitions, but nothing's stopping you from scraping all of these and doing something cool with them. If they end up having cool data.
 	/// </summary>
-	public partial class DestinyLoreDefinition
+	public partial class DestinyLoreDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
 
 		[JsonProperty("subtitle")]
 		public string Subtitle { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

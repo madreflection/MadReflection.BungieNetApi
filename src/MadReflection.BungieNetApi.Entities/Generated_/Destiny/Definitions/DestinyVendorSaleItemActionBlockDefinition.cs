@@ -18,7 +18,7 @@ namespace BungieNet.Destiny.Definitions
 	public partial class DestinyVendorSaleItemActionBlockDefinition
 	{
 		[JsonProperty("executeSeconds")]
-		public float ExecuteSeconds { get; set; }
+		public decimal ExecuteSeconds { get; set; }
 
 		[JsonProperty("isPositive")]
 		public bool IsPositive { get; set; }

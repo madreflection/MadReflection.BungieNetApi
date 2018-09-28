@@ -16,21 +16,12 @@ namespace BungieNet.Destiny.Definitions
 	/// A "Location" is a sort of shortcut for referring to a specific combination of Activity, Destination, Place, and even Bubble or NavPoint within a space.
 	/// Most of this data isn't intrinsically useful to us, but Objectives refer to locations, and through that we can at least infer the Activity, Destination, and Place being referred to by the Objective.
 	/// </summary>
-	public partial class DestinyLocationDefinition
+	public partial class DestinyLocationDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("vendorHash")]
 		public uint VendorHash { get; set; }
 
 		[JsonProperty("locationReleases")]
 		public Destiny.Definitions.DestinyLocationReleaseDefinition[] LocationReleases { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

@@ -1,13 +1,12 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("MadReflection.BungieNetApi")]
 [assembly: AssemblyProduct("Bungie.net API Client for .NET")]
 [assembly: AssemblyCopyright("Copyright © 2017-2018 Benn Benson")]
 [assembly: AssemblyCulture("")]
 
 [assembly: ComVisible(false)]
 
-[assembly: AssemblyVersion("0.0.2")]
-[assembly: AssemblyFileVersion("0.0.2")]
-[assembly: AssemblyInformationalVersion("0.0.2 for API version 2.3.2")]
+[assembly: AssemblyVersion("0.0.9")]
+[assembly: AssemblyFileVersion("0.0.9")]
+[assembly: AssemblyInformationalVersion("0.0.9 for API version 2.3.2")]

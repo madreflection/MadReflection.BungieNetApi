@@ -48,29 +48,29 @@ namespace BungieNet.Api
 		Destiny.Responses.DestinyCollectibleNodeDetailResponse GetCollectibleNodeDetails(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint collectiblePresentationNodeHash, Destiny.DestinyComponentType[] components);
 		Task<Destiny.Responses.DestinyCollectibleNodeDetailResponse> GetCollectibleNodeDetailsAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint collectiblePresentationNodeHash, Destiny.DestinyComponentType[] components);
 
-		int TransferItem();
-		Task<int> TransferItemAsync();
+		int TransferItem(Destiny.Requests.DestinyItemTransferRequest destinyItemTransferRequest);
+		Task<int> TransferItemAsync(Destiny.Requests.DestinyItemTransferRequest destinyItemTransferRequest);
 
-		int PullFromPostmaster();
-		Task<int> PullFromPostmasterAsync();
+		int PullFromPostmaster(Destiny.Requests.Actions.DestinyPostmasterTransferRequest destinyPostmasterTransferRequest);
+		Task<int> PullFromPostmasterAsync(Destiny.Requests.Actions.DestinyPostmasterTransferRequest destinyPostmasterTransferRequest);
 
-		int EquipItem();
-		Task<int> EquipItemAsync();
+		int EquipItem(Destiny.Requests.Actions.DestinyItemActionRequest destinyItemActionRequest);
+		Task<int> EquipItemAsync(Destiny.Requests.Actions.DestinyItemActionRequest destinyItemActionRequest);
 
-		Destiny.DestinyEquipItemResults EquipItems();
-		Task<Destiny.DestinyEquipItemResults> EquipItemsAsync();
+		Destiny.DestinyEquipItemResults EquipItems(Destiny.Requests.Actions.DestinyItemSetActionRequest destinyItemSetActionRequest);
+		Task<Destiny.DestinyEquipItemResults> EquipItemsAsync(Destiny.Requests.Actions.DestinyItemSetActionRequest destinyItemSetActionRequest);
 
-		int SetItemLockState();
-		Task<int> SetItemLockStateAsync();
+		int SetItemLockState(Destiny.Requests.Actions.DestinyItemStateRequest destinyItemStateRequest);
+		Task<int> SetItemLockStateAsync(Destiny.Requests.Actions.DestinyItemStateRequest destinyItemStateRequest);
 
-		Destiny.Responses.DestinyItemChangeResponse InsertSocketPlug();
-		Task<Destiny.Responses.DestinyItemChangeResponse> InsertSocketPlugAsync();
+		Destiny.Responses.DestinyItemChangeResponse InsertSocketPlug(Destiny.Requests.Actions.DestinyInsertPlugsActionRequest destinyInsertPlugsActionRequest);
+		Task<Destiny.Responses.DestinyItemChangeResponse> InsertSocketPlugAsync(Destiny.Requests.Actions.DestinyInsertPlugsActionRequest destinyInsertPlugsActionRequest);
 
 		Destiny.HistoricalStats.DestinyPostGameCarnageReportData GetPostGameCarnageReport(long activityId);
 		Task<Destiny.HistoricalStats.DestinyPostGameCarnageReportData> GetPostGameCarnageReportAsync(long activityId);
 
-		int ReportOffensivePostGameCarnageReportPlayer(long activityId);
-		Task<int> ReportOffensivePostGameCarnageReportPlayerAsync(long activityId);
+		int ReportOffensivePostGameCarnageReportPlayer(Destiny.Reporting.Requests.DestinyReportOffensePgcrRequest destinyReportOffensePgcrRequest, long activityId);
+		Task<int> ReportOffensivePostGameCarnageReportPlayerAsync(Destiny.Reporting.Requests.DestinyReportOffensePgcrRequest destinyReportOffensePgcrRequest, long activityId);
 
 		System.Collections.Generic.Dictionary<string, Destiny.HistoricalStats.Definitions.DestinyHistoricalStatsDefinition> GetHistoricalStatsDefinition();
 		Task<System.Collections.Generic.Dictionary<string, Destiny.HistoricalStats.Definitions.DestinyHistoricalStatsDefinition>> GetHistoricalStatsDefinitionAsync();
@@ -111,11 +111,11 @@ namespace BungieNet.Api
 		System.Collections.Generic.Dictionary<uint, Destiny.Milestones.DestinyPublicMilestone> GetPublicMilestones();
 		Task<System.Collections.Generic.Dictionary<uint, Destiny.Milestones.DestinyPublicMilestone>> GetPublicMilestonesAsync();
 
-		Destiny.Advanced.AwaInitializeResponse AwaInitializeRequest();
-		Task<Destiny.Advanced.AwaInitializeResponse> AwaInitializeRequestAsync();
+		Destiny.Advanced.AwaInitializeResponse AwaInitializeRequest(Destiny.Advanced.AwaPermissionRequested awaPermissionRequested);
+		Task<Destiny.Advanced.AwaInitializeResponse> AwaInitializeRequestAsync(Destiny.Advanced.AwaPermissionRequested awaPermissionRequested);
 
-		int AwaProvideAuthorizationResult();
-		Task<int> AwaProvideAuthorizationResultAsync();
+		int AwaProvideAuthorizationResult(Destiny.Advanced.AwaUserResponse awaUserResponse);
+		Task<int> AwaProvideAuthorizationResultAsync(Destiny.Advanced.AwaUserResponse awaUserResponse);
 
 		Destiny.Advanced.AwaAuthorizationResult AwaGetActionToken(string correlationId);
 		Task<Destiny.Advanced.AwaAuthorizationResult> AwaGetActionTokenAsync(string correlationId);
@@ -247,52 +247,52 @@ namespace BungieNet.Api
 			return GetEntityAsync<Destiny.Responses.DestinyCollectibleNodeDetailResponse>(uri);
 		}
 
-		int IDestiny2Client.TransferItem() => Destiny2.TransferItemAsync().GetAwaiter().GetResult();
-		Task<int> IDestiny2Client.TransferItemAsync()
+		int IDestiny2Client.TransferItem(Destiny.Requests.DestinyItemTransferRequest destinyItemTransferRequest) => Destiny2.TransferItemAsync(destinyItemTransferRequest).GetAwaiter().GetResult();
+		Task<int> IDestiny2Client.TransferItemAsync(Destiny.Requests.DestinyItemTransferRequest destinyItemTransferRequest)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Actions", "Items", "TransferItem" };
 			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityAsync<int>(uri);
+			return PostEntityAsync<Destiny.Requests.DestinyItemTransferRequest, int>(uri, destinyItemTransferRequest);
 		}
 
-		int IDestiny2Client.PullFromPostmaster() => Destiny2.PullFromPostmasterAsync().GetAwaiter().GetResult();
-		Task<int> IDestiny2Client.PullFromPostmasterAsync()
+		int IDestiny2Client.PullFromPostmaster(Destiny.Requests.Actions.DestinyPostmasterTransferRequest destinyPostmasterTransferRequest) => Destiny2.PullFromPostmasterAsync(destinyPostmasterTransferRequest).GetAwaiter().GetResult();
+		Task<int> IDestiny2Client.PullFromPostmasterAsync(Destiny.Requests.Actions.DestinyPostmasterTransferRequest destinyPostmasterTransferRequest)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Actions", "Items", "PullFromPostmaster" };
 			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityAsync<int>(uri);
+			return PostEntityAsync<Destiny.Requests.Actions.DestinyPostmasterTransferRequest, int>(uri, destinyPostmasterTransferRequest);
 		}
 
-		int IDestiny2Client.EquipItem() => Destiny2.EquipItemAsync().GetAwaiter().GetResult();
-		Task<int> IDestiny2Client.EquipItemAsync()
+		int IDestiny2Client.EquipItem(Destiny.Requests.Actions.DestinyItemActionRequest destinyItemActionRequest) => Destiny2.EquipItemAsync(destinyItemActionRequest).GetAwaiter().GetResult();
+		Task<int> IDestiny2Client.EquipItemAsync(Destiny.Requests.Actions.DestinyItemActionRequest destinyItemActionRequest)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Actions", "Items", "EquipItem" };
 			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityAsync<int>(uri);
+			return PostEntityAsync<Destiny.Requests.Actions.DestinyItemActionRequest, int>(uri, destinyItemActionRequest);
 		}
 
-		Destiny.DestinyEquipItemResults IDestiny2Client.EquipItems() => Destiny2.EquipItemsAsync().GetAwaiter().GetResult();
-		Task<Destiny.DestinyEquipItemResults> IDestiny2Client.EquipItemsAsync()
+		Destiny.DestinyEquipItemResults IDestiny2Client.EquipItems(Destiny.Requests.Actions.DestinyItemSetActionRequest destinyItemSetActionRequest) => Destiny2.EquipItemsAsync(destinyItemSetActionRequest).GetAwaiter().GetResult();
+		Task<Destiny.DestinyEquipItemResults> IDestiny2Client.EquipItemsAsync(Destiny.Requests.Actions.DestinyItemSetActionRequest destinyItemSetActionRequest)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Actions", "Items", "EquipItems" };
 			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityAsync<Destiny.DestinyEquipItemResults>(uri);
+			return PostEntityAsync<Destiny.Requests.Actions.DestinyItemSetActionRequest, Destiny.DestinyEquipItemResults>(uri, destinyItemSetActionRequest);
 		}
 
-		int IDestiny2Client.SetItemLockState() => Destiny2.SetItemLockStateAsync().GetAwaiter().GetResult();
-		Task<int> IDestiny2Client.SetItemLockStateAsync()
+		int IDestiny2Client.SetItemLockState(Destiny.Requests.Actions.DestinyItemStateRequest destinyItemStateRequest) => Destiny2.SetItemLockStateAsync(destinyItemStateRequest).GetAwaiter().GetResult();
+		Task<int> IDestiny2Client.SetItemLockStateAsync(Destiny.Requests.Actions.DestinyItemStateRequest destinyItemStateRequest)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Actions", "Items", "SetLockState" };
 			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityAsync<int>(uri);
+			return PostEntityAsync<Destiny.Requests.Actions.DestinyItemStateRequest, int>(uri, destinyItemStateRequest);
 		}
 
-		Destiny.Responses.DestinyItemChangeResponse IDestiny2Client.InsertSocketPlug() => Destiny2.InsertSocketPlugAsync().GetAwaiter().GetResult();
-		Task<Destiny.Responses.DestinyItemChangeResponse> IDestiny2Client.InsertSocketPlugAsync()
+		Destiny.Responses.DestinyItemChangeResponse IDestiny2Client.InsertSocketPlug(Destiny.Requests.Actions.DestinyInsertPlugsActionRequest destinyInsertPlugsActionRequest) => Destiny2.InsertSocketPlugAsync(destinyInsertPlugsActionRequest).GetAwaiter().GetResult();
+		Task<Destiny.Responses.DestinyItemChangeResponse> IDestiny2Client.InsertSocketPlugAsync(Destiny.Requests.Actions.DestinyInsertPlugsActionRequest destinyInsertPlugsActionRequest)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Actions", "Items", "InsertSocketPlug" };
 			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityAsync<Destiny.Responses.DestinyItemChangeResponse>(uri);
+			return PostEntityAsync<Destiny.Requests.Actions.DestinyInsertPlugsActionRequest, Destiny.Responses.DestinyItemChangeResponse>(uri, destinyInsertPlugsActionRequest);
 		}
 
 		Destiny.HistoricalStats.DestinyPostGameCarnageReportData IDestiny2Client.GetPostGameCarnageReport(long activityId) => Destiny2.GetPostGameCarnageReportAsync(activityId).GetAwaiter().GetResult();
@@ -303,12 +303,12 @@ namespace BungieNet.Api
 			return GetEntityAsync<Destiny.HistoricalStats.DestinyPostGameCarnageReportData>(uri);
 		}
 
-		int IDestiny2Client.ReportOffensivePostGameCarnageReportPlayer(long activityId) => Destiny2.ReportOffensivePostGameCarnageReportPlayerAsync(activityId).GetAwaiter().GetResult();
-		Task<int> IDestiny2Client.ReportOffensivePostGameCarnageReportPlayerAsync(long activityId)
+		int IDestiny2Client.ReportOffensivePostGameCarnageReportPlayer(Destiny.Reporting.Requests.DestinyReportOffensePgcrRequest destinyReportOffensePgcrRequest, long activityId) => Destiny2.ReportOffensivePostGameCarnageReportPlayerAsync(destinyReportOffensePgcrRequest, activityId).GetAwaiter().GetResult();
+		Task<int> IDestiny2Client.ReportOffensivePostGameCarnageReportPlayerAsync(Destiny.Reporting.Requests.DestinyReportOffensePgcrRequest destinyReportOffensePgcrRequest, long activityId)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Stats", "PostGameCarnageReport", activityId.ToString(), "Report" };
 			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityAsync<int>(uri);
+			return PostEntityAsync<Destiny.Reporting.Requests.DestinyReportOffensePgcrRequest, int>(uri, destinyReportOffensePgcrRequest);
 		}
 
 		System.Collections.Generic.Dictionary<string, Destiny.HistoricalStats.Definitions.DestinyHistoricalStatsDefinition> IDestiny2Client.GetHistoricalStatsDefinition() => Destiny2.GetHistoricalStatsDefinitionAsync().GetAwaiter().GetResult();
@@ -463,20 +463,20 @@ namespace BungieNet.Api
 			return GetEntityAsync<System.Collections.Generic.Dictionary<uint, Destiny.Milestones.DestinyPublicMilestone>>(uri);
 		}
 
-		Destiny.Advanced.AwaInitializeResponse IDestiny2Client.AwaInitializeRequest() => Destiny2.AwaInitializeRequestAsync().GetAwaiter().GetResult();
-		Task<Destiny.Advanced.AwaInitializeResponse> IDestiny2Client.AwaInitializeRequestAsync()
+		Destiny.Advanced.AwaInitializeResponse IDestiny2Client.AwaInitializeRequest(Destiny.Advanced.AwaPermissionRequested awaPermissionRequested) => Destiny2.AwaInitializeRequestAsync(awaPermissionRequested).GetAwaiter().GetResult();
+		Task<Destiny.Advanced.AwaInitializeResponse> IDestiny2Client.AwaInitializeRequestAsync(Destiny.Advanced.AwaPermissionRequested awaPermissionRequested)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Awa", "Initialize" };
 			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityAsync<Destiny.Advanced.AwaInitializeResponse>(uri);
+			return PostEntityAsync<Destiny.Advanced.AwaPermissionRequested, Destiny.Advanced.AwaInitializeResponse>(uri, awaPermissionRequested);
 		}
 
-		int IDestiny2Client.AwaProvideAuthorizationResult() => Destiny2.AwaProvideAuthorizationResultAsync().GetAwaiter().GetResult();
-		Task<int> IDestiny2Client.AwaProvideAuthorizationResultAsync()
+		int IDestiny2Client.AwaProvideAuthorizationResult(Destiny.Advanced.AwaUserResponse awaUserResponse) => Destiny2.AwaProvideAuthorizationResultAsync(awaUserResponse).GetAwaiter().GetResult();
+		Task<int> IDestiny2Client.AwaProvideAuthorizationResultAsync(Destiny.Advanced.AwaUserResponse awaUserResponse)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Awa", "AwaProvideAuthorizationResult" };
 			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityAsync<int>(uri);
+			return PostEntityAsync<Destiny.Advanced.AwaUserResponse, int>(uri, awaUserResponse);
 		}
 
 		Destiny.Advanced.AwaAuthorizationResult IDestiny2Client.AwaGetActionToken(string correlationId) => Destiny2.AwaGetActionTokenAsync(correlationId).GetAwaiter().GetResult();

@@ -15,18 +15,9 @@ namespace BungieNet.Destiny.Definitions.ActivityModifiers
 	/// <summary>
 	/// Modifiers - in Destiny 1, these were referred to as "Skulls" - are changes that can be applied to an Activity.
 	/// </summary>
-	public partial class DestinyActivityModifierDefinition
+	public partial class DestinyActivityModifierDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

@@ -7,8 +7,8 @@ namespace LibraryGenerator
 {
 	public class ClassBuilder : TypeBuilder
 	{
+		public TypeReference BaseType { get; set; }
 		public List<PropertyBuilder> Properties { get; } = new List<PropertyBuilder>();
-
 
 		public override void Write(TextWriter writer)
 		{
@@ -27,7 +27,10 @@ namespace LibraryGenerator
 				writer.WriteLine("\t/// </summary>");
 			}
 
-			writer.WriteLine($"\tpublic partial class {Name}");
+			writer.Write($"\tpublic partial class {Name}");
+			if (BaseType.IsValid)
+				writer.Write($" : {BaseType.QualifiedName}");
+			writer.WriteLine();
 			writer.WriteLine("\t{");
 
 			WriteProperties(writer);

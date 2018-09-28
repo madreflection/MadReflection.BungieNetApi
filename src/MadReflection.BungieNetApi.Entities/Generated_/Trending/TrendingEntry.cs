@@ -18,7 +18,7 @@ namespace BungieNet.Trending
 	public partial class TrendingEntry
 	{
 		[JsonProperty("weight")]
-		public double Weight { get; set; }
+		public decimal Weight { get; set; }
 
 		[JsonProperty("isFeatured")]
 		public bool IsFeatured { get; set; }

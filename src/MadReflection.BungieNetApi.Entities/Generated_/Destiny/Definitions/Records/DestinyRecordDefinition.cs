@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace BungieNet.Destiny.Definitions.Records
 {
-	public partial class DestinyRecordDefinition
+	public partial class DestinyRecordDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
@@ -43,14 +43,5 @@ namespace BungieNet.Destiny.Definitions.Records
 
 		[JsonProperty("requirements")]
 		public Destiny.Definitions.Presentation.DestinyPresentationNodeRequirementsBlock Requirements { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

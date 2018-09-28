@@ -6,10 +6,10 @@ namespace BungieNet.Destiny.Definitions
 	{
 		[Undocumented]
 		[JsonProperty("rewardSiteHash")]
-		public long RewardSiteHash { get; set; }
+		public uint RewardSiteHash { get; set; }
 
 		[Undocumented]
 		[JsonProperty("inhibitRewardsUnlockHash")]
-		public long InhibitRewardsUnlockHash { get; set; }
+		public uint InhibitRewardsUnlockHash { get; set; }
 	}
 }

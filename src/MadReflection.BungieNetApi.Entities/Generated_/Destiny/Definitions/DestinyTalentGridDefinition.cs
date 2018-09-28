@@ -20,7 +20,7 @@ namespace BungieNet.Destiny.Definitions
 	/// Now that Talent Grids are used exclusively by subclasses and builds, all of the properties within still apply: but there are additional visual elements on the Subclass/Build screens that are superimposed on top of the talent nodes. Unfortunately, BNet doesn't have this data: if you want to build a subclass screen, you will have to provide your own "decorative" assets, such as the visual connectors between nodes and the fancy colored-fire-bathed character standing behind the nodes.
 	/// DestinyInventoryItem.talentGrid.talentGridHash defines an item's linked Talent Grid, which brings you to this definition that contains enough satic data about talent grids to make your head spin. These *must* be combined with instanced data - found when live data returns DestinyItemTalentGridComponent - in order to derive meaning. The instanced data will reference nodes and steps within these definitions, which you will then have to look up in the definition and combine with the instanced data to give the user the visual representation of their item's talent grid.
 	/// </summary>
-	public partial class DestinyTalentGridDefinition
+	public partial class DestinyTalentGridDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("maxGridLevel")]
 		public int MaxGridLevel { get; set; }
@@ -45,14 +45,5 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("nodeCategories")]
 		public Destiny.Definitions.DestinyTalentNodeCategory[] NodeCategories { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

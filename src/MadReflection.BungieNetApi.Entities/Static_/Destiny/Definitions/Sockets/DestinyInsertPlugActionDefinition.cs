@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
-namespace BungieNet.Destiny.Definitions
+namespace BungieNet.Destiny.Definitions.Sockets
 {
 	partial class DestinyInsertPlugActionDefinition
 	{
 		[Undocumented]
 		[JsonProperty("actionSoundHash")]
-		public long ActionSoundHash { get; set; }
+		public uint ActionSoundHash { get; set; }
 
 		[Undocumented]
 		[JsonProperty("isPositiveAction")]

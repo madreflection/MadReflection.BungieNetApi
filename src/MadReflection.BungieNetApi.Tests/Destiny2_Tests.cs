@@ -8,6 +8,7 @@ using NUnit.Framework;
 
 namespace MadReflection.BungieNetApi.Tests
 {
+	[TestFixture]
 	public class Destiny2_Tests
 	{
 		private IBungieClient _client;
@@ -16,8 +17,7 @@ namespace MadReflection.BungieNetApi.Tests
 		[SetUp]
 		public void SetUp()
 		{
-			// This is the API key for the DEV application.  If something goes wrong with it, it's no big deal to sever it.
-			_client = new BungieClient(new BungieApiKey("77dd2016bdb346cf82751aae4a38661b"));
+			_client = new BungieClient(new BungieApiKey(Constants.TestApiKey));
 		}
 
 		[TearDown]
@@ -35,18 +35,18 @@ namespace MadReflection.BungieNetApi.Tests
 		[Test]
 		public void Test02_SearchDestinyPlayer()
 		{
-			UserInfoCard[] result = _client.Destiny2.SearchDestinyPlayer(BungieMembershipType.TigerPsn, "my_name_is_Byf");
+			UserInfoCard[] result = _client.Destiny2.SearchDestinyPlayer(BungieMembershipType.TigerPsn, Constants.APublicFigure_PsnId);
 		}
 
-		[TestCase(4611686018428388975L)]
+		[TestCase(Constants.APublicFigure_MembershipId)]
 		public void Test03_GetProfile(long destinyMembershipId)
 		{
 			DestinyProfileResponse profile = _client.Destiny2.GetProfile(BungieMembershipType.TigerPsn, destinyMembershipId, DestinyComponentTypes.Profile);
 		}
 
-		[TestCase(4611686018428388975L, 2305843009261963955L)]
-		[TestCase(4611686018428388975L, 2305843009285656339L)]
-		[TestCase(4611686018428388975L, 2305843009261963957L)]
+		[TestCase(Constants.APublicFigure_MembershipId, Constants.APublicFigure_Character1)]
+		[TestCase(Constants.APublicFigure_MembershipId, Constants.APublicFigure_Character2)]
+		[TestCase(Constants.APublicFigure_MembershipId, Constants.APublicFigure_Character3)]
 		public void Test04_GetCharacter(long destinyMembershipId, long characterId)
 		{
 			DestinyCharacterResponse character = _client.Destiny2.GetCharacter(BungieMembershipType.TigerPsn, destinyMembershipId, characterId, DestinyComponentTypes.Profile);

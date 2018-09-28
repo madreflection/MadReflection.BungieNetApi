@@ -21,7 +21,7 @@ namespace BungieNet.Destiny.Definitions
 	/// - Anything else that the designers decide to do later.
 	/// Objectives have progress, a notion of having been Completed, human readable data describing the task to be accomplished, and a lot of optional tack-on data that can enhance the information provided about the task.
 	/// </summary>
-	public partial class DestinyObjectiveDefinition
+	public partial class DestinyObjectiveDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
@@ -70,14 +70,5 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("inProgressValueStyle")]
 		public Destiny.DestinyUnlockValueUIStyle InProgressValueStyle { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

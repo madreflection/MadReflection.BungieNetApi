@@ -17,27 +17,18 @@ namespace BungieNet.Destiny.Definitions
 	/// See DestinyStatDefinition's documentation for information about the transformation of Stats, and the meaning of an Investment vs. a Display stat.
 	/// If you don't want to do these calculations on your own, fear not: pulling live data from the BNet endpoints will return display stat values pre-computed and ready for you to use. I highly recommend this approach, saves a lot of time and also accounts for certain stat modifiers that can't easily be accounted for without live data (such as stat modifiers on Talent Grids and Socket Plugs)
 	/// </summary>
-	public partial class DestinyStatGroupDefinition
+	public partial class DestinyStatGroupDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("maximumValue")]
 		public int MaximumValue { get; set; }
 
 		[JsonProperty("uiPosition")]
-		public int UiPosition { get; set; }
+		public int UIPosition { get; set; }
 
 		[JsonProperty("scaledStats")]
 		public Destiny.Definitions.DestinyStatDisplayDefinition[] ScaledStats { get; set; }
 
 		[JsonProperty("overrides")]
 		public System.Collections.Generic.Dictionary<uint, Destiny.Definitions.DestinyStatOverrideDefinition> Overrides { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

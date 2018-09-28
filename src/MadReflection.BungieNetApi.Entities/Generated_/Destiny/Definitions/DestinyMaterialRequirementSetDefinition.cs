@@ -16,18 +16,9 @@ namespace BungieNet.Destiny.Definitions
 	/// Represent a set of material requirements: Items that either need to be owned or need to be consumed in order to perform an action.
 	/// A variety of other entities refer to these as gatekeepers and payments for actions that can be performed in game.
 	/// </summary>
-	public partial class DestinyMaterialRequirementSetDefinition
+	public partial class DestinyMaterialRequirementSetDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("materials")]
 		public Destiny.Definitions.DestinyMaterialRequirement[] Materials { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

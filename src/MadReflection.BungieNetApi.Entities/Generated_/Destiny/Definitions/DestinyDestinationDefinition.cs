@@ -16,7 +16,7 @@ namespace BungieNet.Destiny.Definitions
 	/// On to one of the more confusing subjects of the API. What is a Destination, and what is the relationship between it, Activities, Locations, and Places?
 	/// A "Destination" is a specific region/city/area of a larger "Place". For instance, a Place might be Earth where a Destination might be Bellevue, Washington. (Please, pick a more interesting destination if you come to visit Earth).
 	/// </summary>
-	public partial class DestinyDestinationDefinition
+	public partial class DestinyDestinationDefinition : Destiny.Definitions.DestinyDefinition
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
@@ -35,14 +35,5 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("bubbles")]
 		public Destiny.Definitions.DestinyBubbleDefinition[] Bubbles { get; set; }
-
-		[JsonProperty("hash")]
-		public uint Hash { get; set; }
-
-		[JsonProperty("index")]
-		public int Index { get; set; }
-
-		[JsonProperty("redacted")]
-		public bool Redacted { get; set; }
 	}
 }

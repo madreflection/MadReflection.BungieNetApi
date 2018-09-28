@@ -93,6 +93,7 @@ namespace LibraryGenerator
 			}
 
 			ResolveJsonPathTypeReferences(Program.GeneratedTypes);
+			ResolveDefinitionBaseClass(Program.GeneratedTypes);
 
 			if (writeFiles)
 				WriteFiles(fileBuilders);
@@ -167,6 +168,33 @@ namespace LibraryGenerator
 
 						arrayBuilder.ElementType = newTypeBuilder;
 					}
+				}
+			}
+		}
+
+		private static void ResolveDefinitionBaseClass(Dictionary<string, TypeBuilder> typeBuilders)
+		{
+			foreach (var (typeName, typeBuilder) in typeBuilders)
+			{
+				if (typeName == "#/components/schemas/Destiny.Definitions.DestinyDefinition")
+					continue;
+
+				if (typeBuilder is ClassBuilder classBuilder)
+				{
+					var properties = classBuilder.Properties;
+
+					var hashProperty = properties.Where(p => p.Type.Type == typeof(uint) && p.Name == "Hash").FirstOrDefault();
+					var indexProperty = properties.Where(p => p.Type.Type == typeof(int) && p.Name == "Index").FirstOrDefault();
+					var redactedProperty = properties.Where(p => p.Type.Type == typeof(bool) && p.Name == "Redacted").FirstOrDefault();
+
+					if (hashProperty != null && indexProperty != null && redactedProperty != null)
+					{
+						properties.Remove(hashProperty);
+						properties.Remove(indexProperty);
+						properties.Remove(redactedProperty);
+						classBuilder.BaseType = "#/components/schemas/Destiny.Definitions.DestinyDefinition";
+					}
+
 				}
 			}
 		}
@@ -303,7 +331,7 @@ namespace LibraryGenerator
 			foreach (var jsonProperty in jsonProperties)
 			{
 				PropertyBuilder propertyBuilder = new PropertyBuilder();
-				propertyBuilder.Name = DotNetifyIdentifier(jsonProperty.Key);
+				propertyBuilder.Name = ConvertIdentifierToPascalCase(jsonProperty.Key);
 				propertyBuilder.JsonName = jsonProperty.Key;
 
 				propertyBuilder.Type = ProcessPropertyType(jsonProperty.Value);
@@ -363,9 +391,9 @@ namespace LibraryGenerator
 			else if (jsonType == "number")
 			{
 				if (jsonFormat == "float")
-					return jsonNullable ? typeof(float?) : typeof(float);
+					return jsonNullable ? typeof(decimal?) : typeof(decimal);  //return jsonNullable ? typeof(float?) : typeof(float);
 				else if (jsonFormat == "double")
-					return jsonNullable ? typeof(double?) : typeof(double);
+					return jsonNullable ? typeof(decimal?) : typeof(decimal);  //return jsonNullable ? typeof(double?) : typeof(double);
 				else //if (jsonFormat == "decimal")
 					return jsonNullable ? typeof(decimal?) : typeof(decimal);
 			}
