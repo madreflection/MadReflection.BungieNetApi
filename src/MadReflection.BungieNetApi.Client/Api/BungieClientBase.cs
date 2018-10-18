@@ -65,7 +65,7 @@ namespace BungieNet.Api
 			}
 		}
 
-		internal Uri GetEndpointUri(string[] pathSegments, IEnumerable<QueryStringItem> queryStringItems = null)
+		internal Uri GetEndpointUri(string[] pathSegments, IEnumerable<QueryStringItem> queryStringItems = null, bool d1 = false)
 		{
 			if (pathSegments == null)
 				throw new ArgumentNullException(nameof(pathSegments));
@@ -80,7 +80,7 @@ namespace BungieNet.Api
 					throw new ArgumentException("Array element is empty.", nameof(pathSegments));
 			}
 
-			UriBuilder builder = new UriBuilder(Constants.BaseUri);
+			UriBuilder builder = new UriBuilder(d1 ? Constants.BaseUriD1 : Constants.BaseUri);
 
 			builder.Path += string.Join("/", pathSegments) + "/";
 

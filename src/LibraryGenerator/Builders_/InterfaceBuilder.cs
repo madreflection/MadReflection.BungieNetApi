@@ -204,6 +204,8 @@ namespace LibraryGenerator
 
 				if (typeDeclaration)
 				{
+					if (parameterBuilder.IsParams)
+						writer.Write("params ");
 					writer.Write(parameterBuilder.Type.QualifiedName);
 					writer.Write(" ");
 				}

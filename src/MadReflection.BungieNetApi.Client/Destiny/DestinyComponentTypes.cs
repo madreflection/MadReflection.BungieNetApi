@@ -2,6 +2,13 @@
 {
 	public static class DestinyComponentTypes
 	{
+		/// <summary>
+		/// All components.  Combination of: Profiles, VendorReceipts, ProfileInventories,
+		/// ProfileCurrencies, Characters, CharacterInventories, CharacterProgressions,
+		/// CharacterRenderData, CharacterActivities, CharacterEquipment, ItemInstances,
+		/// ItemObjectives, ItemPerks, ItemRenderData, ItemStats, ItemSockets, ItemTalentGrids,
+		/// ItemCommonData, ItemPlugStates, Vendors, VendorCategories, VendorSales, and Kiosks
+		/// </summary>
 		public static readonly DestinyComponentType[] All = new DestinyComponentType[]
 			{
 				DestinyComponentType.Profiles,
@@ -29,6 +36,11 @@
 				DestinyComponentType.Kiosks
 			};
 
+		/// <summary>
+		/// Profile-related components.  Combination of: Profiles, VendorReceipts, ProfileInventories,
+		/// ProfileCurrencies, Characters, CharacterInventories, CharacterProgressions,
+		/// CharacterRenderData, CharacterActivities, CharacterEquipment, and Kiosks
+		/// </summary>
 		public static readonly DestinyComponentType[] Profile = new DestinyComponentType[]
 			{
 				DestinyComponentType.Profiles,
@@ -44,6 +56,10 @@
 				DestinyComponentType.Kiosks
 			};
 
+		/// <summary>
+		/// Character-related components.  Combination of: Characters, CharacterInventories,
+		/// CharacterProgressions, CharacterActivities, CharacterEquipment, and Kiosks
+		/// </summary>
 		public static readonly DestinyComponentType[] Character = new DestinyComponentType[]
 			{
 				DestinyComponentType.Characters,

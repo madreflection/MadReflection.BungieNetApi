@@ -187,6 +187,17 @@ namespace LibraryGenerator
 			foreach (var qi in queryItems)
 				finalParameterBuilders.Add(qi);
 
+			if (finalParameterBuilders.Any())
+			{
+				ParameterBuilder lastParameterBuilder = finalParameterBuilders.Last();
+				var typeReference = lastParameterBuilder.Type;
+				if (typeReference.IsTypeBuilder)
+				{
+					if (typeReference.TypeBuilder is ArrayBuilder arrayBuilder && arrayBuilder.ElementType.JsonPath == "#/components/schemas/Destiny.DestinyComponentType")
+						lastParameterBuilder.IsParams = true;
+				}
+			}
+
 			if (isPost)
 			{
 				if (method.RequestBody != null)
