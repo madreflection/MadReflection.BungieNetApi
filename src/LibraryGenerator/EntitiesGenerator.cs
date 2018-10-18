@@ -101,7 +101,7 @@ namespace LibraryGenerator
 
 		private static void ResolveJsonPathTypeReferences(Dictionary<string, TypeBuilder> typeBuilders)
 		{
-			foreach (var (typeName, typeBuilder) in typeBuilders)
+			foreach (var typeBuilder in typeBuilders.Values)
 			{
 				if (typeBuilder is ClassBuilder classBuilder)
 				{
