@@ -8,6 +8,8 @@ namespace LibraryGenerator
 
 		public TypeReference Type { get; set; }
 
+		public bool IsParams { get; set; }
+
 		public string StringExpression
 		{
 			get

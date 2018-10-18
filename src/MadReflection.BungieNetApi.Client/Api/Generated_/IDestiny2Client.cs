@@ -27,26 +27,26 @@ namespace BungieNet.Api
 		Destiny.Responses.DestinyLinkedProfilesResponse GetLinkedProfiles(BungieMembershipType membershipType, long membershipId);
 		Task<Destiny.Responses.DestinyLinkedProfilesResponse> GetLinkedProfilesAsync(BungieMembershipType membershipType, long membershipId);
 
-		Destiny.Responses.DestinyProfileResponse GetProfile(BungieMembershipType membershipType, long destinyMembershipId, Destiny.DestinyComponentType[] components);
-		Task<Destiny.Responses.DestinyProfileResponse> GetProfileAsync(BungieMembershipType membershipType, long destinyMembershipId, Destiny.DestinyComponentType[] components);
+		Destiny.Responses.DestinyProfileResponse GetProfile(BungieMembershipType membershipType, long destinyMembershipId, params Destiny.DestinyComponentType[] components);
+		Task<Destiny.Responses.DestinyProfileResponse> GetProfileAsync(BungieMembershipType membershipType, long destinyMembershipId, params Destiny.DestinyComponentType[] components);
 
-		Destiny.Responses.DestinyCharacterResponse GetCharacter(BungieMembershipType membershipType, long destinyMembershipId, long characterId, Destiny.DestinyComponentType[] components);
-		Task<Destiny.Responses.DestinyCharacterResponse> GetCharacterAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, Destiny.DestinyComponentType[] components);
+		Destiny.Responses.DestinyCharacterResponse GetCharacter(BungieMembershipType membershipType, long destinyMembershipId, long characterId, params Destiny.DestinyComponentType[] components);
+		Task<Destiny.Responses.DestinyCharacterResponse> GetCharacterAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, params Destiny.DestinyComponentType[] components);
 
 		Destiny.Milestones.DestinyMilestone GetClanWeeklyRewardState(long groupId);
 		Task<Destiny.Milestones.DestinyMilestone> GetClanWeeklyRewardStateAsync(long groupId);
 
-		Destiny.Responses.DestinyItemResponse GetItem(BungieMembershipType membershipType, long destinyMembershipId, long itemInstanceId, Destiny.DestinyComponentType[] components);
-		Task<Destiny.Responses.DestinyItemResponse> GetItemAsync(BungieMembershipType membershipType, long destinyMembershipId, long itemInstanceId, Destiny.DestinyComponentType[] components);
+		Destiny.Responses.DestinyItemResponse GetItem(BungieMembershipType membershipType, long destinyMembershipId, long itemInstanceId, params Destiny.DestinyComponentType[] components);
+		Task<Destiny.Responses.DestinyItemResponse> GetItemAsync(BungieMembershipType membershipType, long destinyMembershipId, long itemInstanceId, params Destiny.DestinyComponentType[] components);
 
-		Destiny.Responses.DestinyVendorsResponse GetVendors(BungieMembershipType membershipType, long destinyMembershipId, long characterId, Destiny.DestinyComponentType[] components);
-		Task<Destiny.Responses.DestinyVendorsResponse> GetVendorsAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, Destiny.DestinyComponentType[] components);
+		Destiny.Responses.DestinyVendorsResponse GetVendors(BungieMembershipType membershipType, long destinyMembershipId, long characterId, params Destiny.DestinyComponentType[] components);
+		Task<Destiny.Responses.DestinyVendorsResponse> GetVendorsAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, params Destiny.DestinyComponentType[] components);
 
-		Destiny.Responses.DestinyVendorResponse GetVendor(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint vendorHash, Destiny.DestinyComponentType[] components);
-		Task<Destiny.Responses.DestinyVendorResponse> GetVendorAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint vendorHash, Destiny.DestinyComponentType[] components);
+		Destiny.Responses.DestinyVendorResponse GetVendor(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint vendorHash, params Destiny.DestinyComponentType[] components);
+		Task<Destiny.Responses.DestinyVendorResponse> GetVendorAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint vendorHash, params Destiny.DestinyComponentType[] components);
 
-		Destiny.Responses.DestinyCollectibleNodeDetailResponse GetCollectibleNodeDetails(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint collectiblePresentationNodeHash, Destiny.DestinyComponentType[] components);
-		Task<Destiny.Responses.DestinyCollectibleNodeDetailResponse> GetCollectibleNodeDetailsAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint collectiblePresentationNodeHash, Destiny.DestinyComponentType[] components);
+		Destiny.Responses.DestinyCollectibleNodeDetailResponse GetCollectibleNodeDetails(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint collectiblePresentationNodeHash, params Destiny.DestinyComponentType[] components);
+		Task<Destiny.Responses.DestinyCollectibleNodeDetailResponse> GetCollectibleNodeDetailsAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint collectiblePresentationNodeHash, params Destiny.DestinyComponentType[] components);
 
 		int TransferItem(Destiny.Requests.DestinyItemTransferRequest destinyItemTransferRequest);
 		Task<int> TransferItemAsync(Destiny.Requests.DestinyItemTransferRequest destinyItemTransferRequest);
@@ -167,8 +167,8 @@ namespace BungieNet.Api
 			return GetEntityAsync<Destiny.Responses.DestinyLinkedProfilesResponse>(uri);
 		}
 
-		Destiny.Responses.DestinyProfileResponse IDestiny2Client.GetProfile(BungieMembershipType membershipType, long destinyMembershipId, Destiny.DestinyComponentType[] components) => Destiny2.GetProfileAsync(membershipType, destinyMembershipId, components).GetAwaiter().GetResult();
-		Task<Destiny.Responses.DestinyProfileResponse> IDestiny2Client.GetProfileAsync(BungieMembershipType membershipType, long destinyMembershipId, Destiny.DestinyComponentType[] components)
+		Destiny.Responses.DestinyProfileResponse IDestiny2Client.GetProfile(BungieMembershipType membershipType, long destinyMembershipId, params Destiny.DestinyComponentType[] components) => Destiny2.GetProfileAsync(membershipType, destinyMembershipId, components).GetAwaiter().GetResult();
+		Task<Destiny.Responses.DestinyProfileResponse> IDestiny2Client.GetProfileAsync(BungieMembershipType membershipType, long destinyMembershipId, params Destiny.DestinyComponentType[] components)
 		{
 			string[] pathSegments = new string[] { "Destiny2", ((int)membershipType).ToString(), "Profile", destinyMembershipId.ToString() };
 			System.Collections.Generic.List<QueryStringItem> queryItems = new System.Collections.Generic.List<QueryStringItem>()
@@ -179,8 +179,8 @@ namespace BungieNet.Api
 			return GetEntityAsync<Destiny.Responses.DestinyProfileResponse>(uri);
 		}
 
-		Destiny.Responses.DestinyCharacterResponse IDestiny2Client.GetCharacter(BungieMembershipType membershipType, long destinyMembershipId, long characterId, Destiny.DestinyComponentType[] components) => Destiny2.GetCharacterAsync(membershipType, destinyMembershipId, characterId, components).GetAwaiter().GetResult();
-		Task<Destiny.Responses.DestinyCharacterResponse> IDestiny2Client.GetCharacterAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, Destiny.DestinyComponentType[] components)
+		Destiny.Responses.DestinyCharacterResponse IDestiny2Client.GetCharacter(BungieMembershipType membershipType, long destinyMembershipId, long characterId, params Destiny.DestinyComponentType[] components) => Destiny2.GetCharacterAsync(membershipType, destinyMembershipId, characterId, components).GetAwaiter().GetResult();
+		Task<Destiny.Responses.DestinyCharacterResponse> IDestiny2Client.GetCharacterAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, params Destiny.DestinyComponentType[] components)
 		{
 			string[] pathSegments = new string[] { "Destiny2", ((int)membershipType).ToString(), "Profile", destinyMembershipId.ToString(), "Character", characterId.ToString() };
 			System.Collections.Generic.List<QueryStringItem> queryItems = new System.Collections.Generic.List<QueryStringItem>()
@@ -199,8 +199,8 @@ namespace BungieNet.Api
 			return GetEntityAsync<Destiny.Milestones.DestinyMilestone>(uri);
 		}
 
-		Destiny.Responses.DestinyItemResponse IDestiny2Client.GetItem(BungieMembershipType membershipType, long destinyMembershipId, long itemInstanceId, Destiny.DestinyComponentType[] components) => Destiny2.GetItemAsync(membershipType, destinyMembershipId, itemInstanceId, components).GetAwaiter().GetResult();
-		Task<Destiny.Responses.DestinyItemResponse> IDestiny2Client.GetItemAsync(BungieMembershipType membershipType, long destinyMembershipId, long itemInstanceId, Destiny.DestinyComponentType[] components)
+		Destiny.Responses.DestinyItemResponse IDestiny2Client.GetItem(BungieMembershipType membershipType, long destinyMembershipId, long itemInstanceId, params Destiny.DestinyComponentType[] components) => Destiny2.GetItemAsync(membershipType, destinyMembershipId, itemInstanceId, components).GetAwaiter().GetResult();
+		Task<Destiny.Responses.DestinyItemResponse> IDestiny2Client.GetItemAsync(BungieMembershipType membershipType, long destinyMembershipId, long itemInstanceId, params Destiny.DestinyComponentType[] components)
 		{
 			string[] pathSegments = new string[] { "Destiny2", ((int)membershipType).ToString(), "Profile", destinyMembershipId.ToString(), "Item", itemInstanceId.ToString() };
 			System.Collections.Generic.List<QueryStringItem> queryItems = new System.Collections.Generic.List<QueryStringItem>()
@@ -211,8 +211,8 @@ namespace BungieNet.Api
 			return GetEntityAsync<Destiny.Responses.DestinyItemResponse>(uri);
 		}
 
-		Destiny.Responses.DestinyVendorsResponse IDestiny2Client.GetVendors(BungieMembershipType membershipType, long destinyMembershipId, long characterId, Destiny.DestinyComponentType[] components) => Destiny2.GetVendorsAsync(membershipType, destinyMembershipId, characterId, components).GetAwaiter().GetResult();
-		Task<Destiny.Responses.DestinyVendorsResponse> IDestiny2Client.GetVendorsAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, Destiny.DestinyComponentType[] components)
+		Destiny.Responses.DestinyVendorsResponse IDestiny2Client.GetVendors(BungieMembershipType membershipType, long destinyMembershipId, long characterId, params Destiny.DestinyComponentType[] components) => Destiny2.GetVendorsAsync(membershipType, destinyMembershipId, characterId, components).GetAwaiter().GetResult();
+		Task<Destiny.Responses.DestinyVendorsResponse> IDestiny2Client.GetVendorsAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, params Destiny.DestinyComponentType[] components)
 		{
 			string[] pathSegments = new string[] { "Destiny2", ((int)membershipType).ToString(), "Profile", destinyMembershipId.ToString(), "Character", characterId.ToString(), "Vendors" };
 			System.Collections.Generic.List<QueryStringItem> queryItems = new System.Collections.Generic.List<QueryStringItem>()
@@ -223,8 +223,8 @@ namespace BungieNet.Api
 			return GetEntityAsync<Destiny.Responses.DestinyVendorsResponse>(uri);
 		}
 
-		Destiny.Responses.DestinyVendorResponse IDestiny2Client.GetVendor(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint vendorHash, Destiny.DestinyComponentType[] components) => Destiny2.GetVendorAsync(membershipType, destinyMembershipId, characterId, vendorHash, components).GetAwaiter().GetResult();
-		Task<Destiny.Responses.DestinyVendorResponse> IDestiny2Client.GetVendorAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint vendorHash, Destiny.DestinyComponentType[] components)
+		Destiny.Responses.DestinyVendorResponse IDestiny2Client.GetVendor(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint vendorHash, params Destiny.DestinyComponentType[] components) => Destiny2.GetVendorAsync(membershipType, destinyMembershipId, characterId, vendorHash, components).GetAwaiter().GetResult();
+		Task<Destiny.Responses.DestinyVendorResponse> IDestiny2Client.GetVendorAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint vendorHash, params Destiny.DestinyComponentType[] components)
 		{
 			string[] pathSegments = new string[] { "Destiny2", ((int)membershipType).ToString(), "Profile", destinyMembershipId.ToString(), "Character", characterId.ToString(), "Vendors", vendorHash.ToString() };
 			System.Collections.Generic.List<QueryStringItem> queryItems = new System.Collections.Generic.List<QueryStringItem>()
@@ -235,8 +235,8 @@ namespace BungieNet.Api
 			return GetEntityAsync<Destiny.Responses.DestinyVendorResponse>(uri);
 		}
 
-		Destiny.Responses.DestinyCollectibleNodeDetailResponse IDestiny2Client.GetCollectibleNodeDetails(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint collectiblePresentationNodeHash, Destiny.DestinyComponentType[] components) => Destiny2.GetCollectibleNodeDetailsAsync(membershipType, destinyMembershipId, characterId, collectiblePresentationNodeHash, components).GetAwaiter().GetResult();
-		Task<Destiny.Responses.DestinyCollectibleNodeDetailResponse> IDestiny2Client.GetCollectibleNodeDetailsAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint collectiblePresentationNodeHash, Destiny.DestinyComponentType[] components)
+		Destiny.Responses.DestinyCollectibleNodeDetailResponse IDestiny2Client.GetCollectibleNodeDetails(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint collectiblePresentationNodeHash, params Destiny.DestinyComponentType[] components) => Destiny2.GetCollectibleNodeDetailsAsync(membershipType, destinyMembershipId, characterId, collectiblePresentationNodeHash, components).GetAwaiter().GetResult();
+		Task<Destiny.Responses.DestinyCollectibleNodeDetailResponse> IDestiny2Client.GetCollectibleNodeDetailsAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint collectiblePresentationNodeHash, params Destiny.DestinyComponentType[] components)
 		{
 			string[] pathSegments = new string[] { "Destiny2", ((int)membershipType).ToString(), "Profile", destinyMembershipId.ToString(), "Character", characterId.ToString(), "Collectibles", collectiblePresentationNodeHash.ToString() };
 			System.Collections.Generic.List<QueryStringItem> queryItems = new System.Collections.Generic.List<QueryStringItem>()
