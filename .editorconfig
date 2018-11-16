@@ -1,12 +1,16 @@
-# Suppress: EC115 EC116
+# Suppress: EC103 EC115 EC116
+# EC103 can be ignored because this is a file designed for a broad range of projects that may not
+#    have all file types.
+# EC115 and EC116 are specious warnings that don't take the into account either the global
+#    configuration or how the two settings interact.
 
 root = true
 
 [*]
+charset = utf-8
 end_of_line = crlf
-indent_size = 3
-tab_width = 3
 insert_final_newline = true
+trim_trailing_whitespace = true
 
 [*.txt]
 indent_style = tab
@@ -18,9 +22,6 @@ dotnet_style_qualification_for_method = false:suggestion
 dotnet_style_qualification_for_event = false:suggestion
 dotnet_style_predefined_type_for_locals_parameters_members = true:warning
 dotnet_style_predefined_type_for_member_access = true:warning
-# >> Currently, this setting doesn't play well with partial classes, where the accessibility is
-# >> necessarily omitted in all but the one place where accessibility is controlled.  Until the
-# >> analyzer can be changed to support this, this rule will have to be disabled.
 #dotnet_style_require_accessibility_modifiers = for_non_interface_members:none
 dotnet_style_readonly_field = true:suggestion
 dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:none
@@ -31,7 +32,7 @@ dotnet_style_object_initializer = true:none
 dotnet_style_collection_initializer = true:none
 dotnet_style_explicit_tuple_names = true:suggestion
 dotnet_style_prefer_inferred_tuple_names = true:suggestion
-dotnet_style_prefer_inferred_anonymous_type_member_names = false:suggestion
+dotnet_style_prefer_inferred_anonymous_type_member_names = false:none
 dotnet_style_prefer_auto_properties = true:none
 dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
 dotnet_style_prefer_conditional_expression_over_assignment = true:none
@@ -42,9 +43,12 @@ dotnet_sort_system_directives_first = true
 
 [*.cs]
 indent_style = tab
+indent_size = 3
+tab_width = 3
+
 csharp_preferred_modifier_order = public,private,protected,internal,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,volatile,async:suggestion
 csharp_style_var_for_built_in_types = false:suggestion
-csharp_style_var_when_type_is_apparent = true:none
+csharp_style_var_when_type_is_apparent = false:none
 csharp_style_var_elsewhere = false:suggestion
 csharp_style_expression_bodied_methods = true:none
 csharp_style_expression_bodied_constructors = false:none
@@ -58,7 +62,7 @@ csharp_style_inlined_variable_declaration = true:suggestion
 csharp_prefer_simple_default_expression = true:none
 csharp_style_deconstructed_variable_declaration = true:suggestion
 csharp_style_pattern_local_over_anonymous_function = false:none
-csharp_style_throw_expression = false:none
+csharp_style_throw_expression = true:none
 csharp_style_conditional_delegate_call = true:suggestion
 csharp_prefer_braces = true:none
 csharp_new_line_before_open_brace = all
@@ -87,25 +91,34 @@ csharp_preserve_single_line_blocks = true
 
 [*.vb]
 indent_style = space
-visual_basic_preferred_modifier_order = Public,Private,Protected,Friend,Shared,Static,Shadows,Overridable,MustOverride,NotOverridable,Overloads,Overrides,MustInherit,NotInheritable,Default,ReadOnly,WriteOnly,Dim,Const,WithEvents,Widening,Narrowing,Custom,Async:suggestion
-
-[*.md]
-indent_style = space
 indent_size = 4
-trim_trailing_whitespace = false
+tab_width = 4
 
-[*.resx]
-indent_style = space
-indent_size = 2
-
-[*.{config,nuspec}]
-indent_style = space
-indent_size = 2
+visual_basic_preferred_modifier_order = Public,Private,Protected,Friend,Shared,Static,Shadows,Overridable,MustOverride,NotOverridable,Overloads,Overrides,MustInherit,NotInheritable,Default,ReadOnly,WriteOnly,Dim,Const,WithEvents,Widening,Narrowing,Custom,Async:suggestion
 
 [*.{*proj,vcxproj.filters,props,targets}]
 indent_style = space
 indent_size = 2
+tab_width = 2
+insert_final_newline = false
+
+[*.{xml,resx}]
+indent_style = space
+indent_size = 2
+tab_width = 2
+
+[*.{config,nuspec}]
+indent_style = space
+indent_size = 2
+tab_width = 2
 
 [*.cake]
 indent_style = tab
+indent_size = 3
 tab_width = 3
+
+[*.md]
+indent_style = space
+indent_size = 4
+tab_width = 4
+trim_trailing_whitespace = false

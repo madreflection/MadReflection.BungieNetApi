@@ -9,6 +9,7 @@
 ####################################################################################################
 
 # User-specific files
+*.rsuser
 *.suo
 *.user
 *.userosscache
@@ -19,15 +20,22 @@
 
 # Build results
 [Dd]ebug/
-[Dd]ebugPublic/
+[Dd]ebug[Pp]ublic/
 [Rr]elease/
 [Rr]eleases/
-x64/
-x86/
+[Xx]64/
+[Xx]86/
+[Aa][Mm][Dd]64
+[Bb]uild/
 bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+
+# To be deleted
+\!--*
+# Unused but retained
+~--*
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -65,12 +73,14 @@ StyleCopReport.xml
 # Files built by Visual Studio
 *_i.c
 *_p.c
-*_i.h
+*_h.h
 *.ilk
 *.meta
 *.obj
+*.iobj
 *.pch
 *.pdb
+*.ipdb
 *.pgc
 *.pgd
 *.rsp
@@ -80,6 +90,7 @@ StyleCopReport.xml
 *.tlh
 *.tmp
 *.tmp_proj
+*_wpftmp.csproj
 *.log
 *.vspscc
 *.vssscc
@@ -226,7 +237,7 @@ orleans.codegen.cs
 
 # Including strong name files can present a security risk
 # (https://github.com/github/gitignore/pull/2483#issue-259490424)
-#*.snk
+*.snk
 
 # Since there are multiple workflows, uncomment next line to ignore bower_components
 # (https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
@@ -242,6 +253,8 @@ _UpgradeReport_Files/
 Backup*/
 UpgradeLog*.XML
 UpgradeLog*.htm
+ServiceFabricBackup/
+*.rptproj.bak
 
 # SQL Server files
 *.mdf
@@ -252,6 +265,7 @@ UpgradeLog*.htm
 *.rdl.data
 *.bim.layout
 *.bim_*.settings
+*.rptproj.rsuser
 
 # Microsoft Fakes
 FakesAssemblies/
@@ -262,9 +276,6 @@ FakesAssemblies/
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
 node_modules/
-
-# TypeScript v1 declaration files
-typings/
 
 # Visual Studio 6 build log
 *.plg
@@ -294,16 +305,16 @@ paket-files/
 .idea/
 *.sln.iml
 
-# CodeRush
-.cr/
+# CodeRush personal settings
+.cr/personal
 
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
 
 # Cake - Uncomment if you are using it
-# tools/**
-# !tools/packages.config
+tools/**
+!tools/packages.config
 
 # Tabs Studio
 *.tss
@@ -325,3 +336,12 @@ ASALocalRun/
 
 # MSBuild Binary and Structured Log
 *.binlog
+
+# NVidia Nsight GPU debugger configuration file
+*.nvuser
+
+# MFractors (Xamarin productivity tool) working folder
+.mfractor/
+
+# Local History for Visual Studio
+.localhistory/
