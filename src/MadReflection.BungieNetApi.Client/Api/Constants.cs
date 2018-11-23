@@ -1,4 +1,4 @@
-namespace BungieNet.Api
+﻿namespace BungieNet.Api
 {
 	internal static class Constants
 	{

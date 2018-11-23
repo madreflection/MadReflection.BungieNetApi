@@ -25,5 +25,11 @@ namespace BungieNet.Destiny.Milestones
 
 		[JsonProperty("loadoutRequirementIndex")]
 		public int? LoadoutRequirementIndex { get; set; }
+
+		[JsonProperty("phaseHashes")]
+		public uint[] PhaseHashes { get; set; }
+
+		[JsonProperty("booleanActivityOptions")]
+		public System.Collections.Generic.Dictionary<uint, bool> BooleanActivityOptions { get; set; }
 	}
 }

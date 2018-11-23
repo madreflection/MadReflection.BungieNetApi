@@ -23,6 +23,9 @@ namespace BungieNet.Destiny.Milestones
 		[JsonProperty("modifierHashes")]
 		public uint[] ModifierHashes { get; set; }
 
+		[JsonProperty("booleanActivityOptions")]
+		public System.Collections.Generic.Dictionary<uint, bool> BooleanActivityOptions { get; set; }
+
 		[JsonProperty("loadoutRequirementIndex")]
 		public int? LoadoutRequirementIndex { get; set; }
 

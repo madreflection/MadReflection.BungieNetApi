@@ -19,7 +19,7 @@ namespace BungieNet.Destiny.Responses
 	public partial class DestinyLinkedProfilesResponse
 	{
 		[JsonProperty("profiles")]
-		public User.UserInfoCard[] Profiles { get; set; }
+		public Destiny.Responses.DestinyProfileUserInfoCard[] Profiles { get; set; }
 
 		[JsonProperty("bnetMembership")]
 		public User.UserInfoCard BnetMembership { get; set; }

@@ -26,6 +26,9 @@ namespace BungieNet.Destiny.Definitions
 		[JsonProperty("genderedClassNames")]
 		public System.Collections.Generic.Dictionary<Destiny.DestinyGender, string> GenderedClassNames { get; set; }
 
+		[JsonProperty("genderedClassNamesByGenderHash")]
+		public System.Collections.Generic.Dictionary<uint, string> GenderedClassNamesByGenderHash { get; set; }
+
 		[JsonProperty("mentorVendorHash")]
 		public uint? MentorVendorHash { get; set; }
 	}

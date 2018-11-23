@@ -39,6 +39,9 @@ namespace BungieNet.Api
 		GroupsV2.GroupResponse GetGroupByName(string groupName, GroupsV2.GroupType groupType);
 		Task<GroupsV2.GroupResponse> GetGroupByNameAsync(string groupName, GroupsV2.GroupType groupType);
 
+		GroupsV2.GroupResponse GetGroupByNameV2(GroupsV2.GroupNameSearchRequest groupNameSearchRequest);
+		Task<GroupsV2.GroupResponse> GetGroupByNameV2Async(GroupsV2.GroupNameSearchRequest groupNameSearchRequest);
+
 		GroupsV2.GroupOptionalConversation[] GetGroupOptionalConversations(long groupId);
 		Task<GroupsV2.GroupOptionalConversation[]> GetGroupOptionalConversationsAsync(long groupId);
 
@@ -198,6 +201,14 @@ namespace BungieNet.Api
 			string[] pathSegments = new string[] { "GroupV2", "Name", groupName, ((int)groupType).ToString() };
 			Uri uri = GetEndpointUri(pathSegments, null);
 			return GetEntityAsync<GroupsV2.GroupResponse>(uri);
+		}
+
+		GroupsV2.GroupResponse IGroupV2Client.GetGroupByNameV2(GroupsV2.GroupNameSearchRequest groupNameSearchRequest) => GroupV2.GetGroupByNameV2Async(groupNameSearchRequest).GetAwaiter().GetResult();
+		Task<GroupsV2.GroupResponse> IGroupV2Client.GetGroupByNameV2Async(GroupsV2.GroupNameSearchRequest groupNameSearchRequest)
+		{
+			string[] pathSegments = new string[] { "GroupV2", "NameV2" };
+			Uri uri = GetEndpointUri(pathSegments, null);
+			return PostEntityAsync<GroupsV2.GroupNameSearchRequest, GroupsV2.GroupResponse>(uri, groupNameSearchRequest);
 		}
 
 		GroupsV2.GroupOptionalConversation[] IGroupV2Client.GetGroupOptionalConversations(long groupId) => GroupV2.GetGroupOptionalConversationsAsync(groupId).GetAwaiter().GetResult();

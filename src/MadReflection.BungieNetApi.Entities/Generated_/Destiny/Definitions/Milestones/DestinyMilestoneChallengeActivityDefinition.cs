@@ -22,5 +22,8 @@ namespace BungieNet.Destiny.Definitions.Milestones
 
 		[JsonProperty("activityGraphNodes")]
 		public Destiny.Definitions.Milestones.DestinyMilestoneChallengeActivityGraphNodeEntry[] ActivityGraphNodes { get; set; }
+
+		[JsonProperty("phases")]
+		public Destiny.Definitions.Milestones.DestinyMilestoneChallengeActivityPhase[] Phases { get; set; }
 	}
 }

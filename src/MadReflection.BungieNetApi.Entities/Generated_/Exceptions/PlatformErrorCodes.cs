@@ -1225,6 +1225,18 @@ namespace BungieNet.Exceptions
 
 		BungieRewardNotYetClaimable = 2050,
 
+		MissingOfferConfig = 2051,
+
+		RAFQuestEntitlementRequiresBnet = 2052,
+
+		RAFQuestEntitlementTransportFailure = 2053,
+
+		RAFQuestEntitlementUnknownFailure = 2054,
+
+		RAFVeteranRewardUnknownFailure = 2055,
+
+		RAFTooEarlyToCancelBond = 2056,
+
 		ApiExceededMaxKeys = 2100,
 
 		ApiInvalidOrExpiredKey = 2101,

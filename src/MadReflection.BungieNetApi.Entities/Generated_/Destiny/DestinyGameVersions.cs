@@ -25,6 +25,8 @@ namespace BungieNet.Destiny
 
 		DLC2 = 0x4,
 
-		Forsaken = 0x8
+		Forsaken = 0x8,
+
+		YearTwoAnnualPass = 0x10
 	}
 }

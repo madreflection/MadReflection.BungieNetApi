@@ -19,5 +19,8 @@ namespace BungieNet.Destiny.Definitions.Records
 
 		[JsonProperty("titlesByGender")]
 		public System.Collections.Generic.Dictionary<Destiny.DestinyGender, string> TitlesByGender { get; set; }
+
+		[JsonProperty("titlesByGenderHash")]
+		public System.Collections.Generic.Dictionary<uint, string> TitlesByGenderHash { get; set; }
 	}
 }

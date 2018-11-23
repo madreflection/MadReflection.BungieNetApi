@@ -14,46 +14,47 @@ namespace BungieNet.Destiny
 	/// <summary>
 	/// A Flags enumeration where each bit represents a possible state that a Record/Triumph can be in.
 	/// </summary>
+	[Flags]
 	public enum DestinyRecordState
 	{
 		/// <summary>
 		/// If there are no flags set, the record is in a state where it *could* be redeemed, but it has not been yet.
 		/// </summary>
-		None = 0,
+		None = 0x0,
 
 		/// <summary>
 		/// If this is set, the completed record has been redeemed.
 		/// </summary>
-		RecordRedeemed = 1,
+		RecordRedeemed = 0x1,
 
 		/// <summary>
 		/// If this is set, there's a reward available from this Record but it's unavailable for redemption.
 		/// </summary>
-		RewardUnavailable = 2,
+		RewardUnavailable = 0x2,
 
 		/// <summary>
 		/// If this is set, the objective for this Record has not yet been completed.
 		/// </summary>
-		ObjectiveNotCompleted = 4,
+		ObjectiveNotCompleted = 0x4,
 
 		/// <summary>
 		/// If this is set, the game recommends that you replace the display text of this Record with DestinyRecordDefinition.stateInfo.obscuredString.
 		/// </summary>
-		Obscured = 8,
+		Obscured = 0x8,
 
 		/// <summary>
 		/// If this is set, the game recommends that you not show this record. Do what you will with this recommendation.
 		/// </summary>
-		Invisible = 16,
+		Invisible = 0x10,
 
 		/// <summary>
 		/// If this is set, you can't complete this record because you lack some permission that's required to complete it.
 		/// </summary>
-		EntitlementUnowned = 32,
+		EntitlementUnowned = 0x20,
 
 		/// <summary>
 		/// If this is set, the record has a title (check DestinyRecordDefinition for title info) and you can equip it.
 		/// </summary>
-		CanEquipTitle = 64
+		CanEquipTitle = 0x40
 	}
 }

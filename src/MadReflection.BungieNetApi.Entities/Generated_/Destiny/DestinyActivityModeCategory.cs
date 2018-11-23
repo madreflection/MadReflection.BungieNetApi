@@ -27,12 +27,12 @@ namespace BungieNet.Destiny
 		PvE = 1,
 
 		/// <summary>
-		/// PvP activities, where you teabag other humans in the face.
+		/// PvP activities, where you shoot your "friends".
 		/// </summary>
 		PvP = 2,
 
 		/// <summary>
-		/// PVE competitive activities.
+		/// PVE competitive activities, where you shoot whoever you want whenever you want. Or run around collecting small glowing triangles.
 		/// </summary>
 		PvECompetitive = 3
 	}

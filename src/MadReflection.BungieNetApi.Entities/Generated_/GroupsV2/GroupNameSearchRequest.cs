@@ -8,27 +8,16 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json;
 
-namespace BungieNet.Fireteam
+namespace BungieNet.GroupsV2
 {
-	public enum FireteamActivityType
+	public partial class GroupNameSearchRequest
 	{
-		All = 0,
+		[JsonProperty("groupName")]
+		public string GroupName { get; set; }
 
-		Raid = 1,
-
-		Crucible = 2,
-
-		Trials = 3,
-
-		Nightfall = 4,
-
-		Anything = 5,
-
-		Gambit = 6,
-
-		BlindWell = 7,
-
-		EscalationProtocol = 8
+		[JsonProperty("groupType")]
+		public GroupsV2.GroupType GroupType { get; set; }
 	}
 }

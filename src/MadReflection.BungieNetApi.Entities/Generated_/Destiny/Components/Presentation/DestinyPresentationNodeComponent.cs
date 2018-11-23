@@ -19,5 +19,11 @@ namespace BungieNet.Destiny.Components.Presentation
 
 		[JsonProperty("objective")]
 		public Destiny.Quests.DestinyObjectiveProgress Objective { get; set; }
+
+		[JsonProperty("progressValue")]
+		public int ProgressValue { get; set; }
+
+		[JsonProperty("completionValue")]
+		public int CompletionValue { get; set; }
 	}
 }

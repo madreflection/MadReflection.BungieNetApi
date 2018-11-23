@@ -8,27 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json;
 
-namespace BungieNet.Fireteam
+namespace BungieNet.Destiny.Definitions.Milestones
 {
-	public enum FireteamActivityType
+	public partial class DestinyMilestoneChallengeActivityPhase
 	{
-		All = 0,
-
-		Raid = 1,
-
-		Crucible = 2,
-
-		Trials = 3,
-
-		Nightfall = 4,
-
-		Anything = 5,
-
-		Gambit = 6,
-
-		BlindWell = 7,
-
-		EscalationProtocol = 8
+		[JsonProperty("phaseHash")]
+		public uint PhaseHash { get; set; }
 	}
 }
