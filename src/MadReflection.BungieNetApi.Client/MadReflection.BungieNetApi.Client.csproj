@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -8,8 +8,15 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <!-- Disable "Missing XML comment for publicly visible type or member" for Release builds -->
     <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release' And Exists('$(ProjectDir)..\Shared\MadReflection.snk')">
+    <DefineConstants>$(DefineConstants);SIGNED</DefineConstants>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(ProjectDir)..\Shared\MadReflection.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <Import Project="$(ProjectDir)..\..\submodules\MadReflection.Shared\build\DocumentationFile.props" Condition="Exists('$(ProjectDir)..\..\submodules\MadReflection.Shared\build\DocumentationFile.props')" />
