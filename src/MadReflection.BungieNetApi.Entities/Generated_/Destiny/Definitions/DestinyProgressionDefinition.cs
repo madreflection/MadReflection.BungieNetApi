@@ -41,5 +41,11 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("factionHash")]
 		public uint? FactionHash { get; set; }
+
+		[JsonProperty("color")]
+		public Destiny.Misc.DestinyColor Color { get; set; }
+
+		[JsonProperty("rankIcon")]
+		public string RankIcon { get; set; }
 	}
 }

@@ -9,7 +9,7 @@
 
 using System;
 
-namespace BungieNet.Forum
+namespace BungieNet.Forums
 {
 	[Flags]
 	public enum ForumFlagsEnum

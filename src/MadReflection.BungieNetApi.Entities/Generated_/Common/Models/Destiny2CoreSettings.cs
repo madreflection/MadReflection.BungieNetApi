@@ -26,6 +26,9 @@ namespace BungieNet.Common.Models
 		[JsonProperty("medalsRootNode")]
 		public uint MedalsRootNode { get; set; }
 
+		[JsonProperty("currentRankProgressionHashes")]
+		public uint[] CurrentRankProgressionHashes { get; set; }
+
 		[JsonProperty("undiscoveredCollectibleImage")]
 		public string UndiscoveredCollectibleImage { get; set; }
 

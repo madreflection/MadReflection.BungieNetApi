@@ -29,6 +29,9 @@ namespace BungieNet.Destiny.Config
 		[JsonProperty("mobileWorldContentPaths")]
 		public System.Collections.Generic.Dictionary<string, string> MobileWorldContentPaths { get; set; }
 
+		[JsonProperty("jsonWorldContentPaths")]
+		public System.Collections.Generic.Dictionary<string, string> JsonWorldContentPaths { get; set; }
+
 		[JsonProperty("mobileClanBannerDatabasePath")]
 		public string MobileClanBannerDatabasePath { get; set; }
 

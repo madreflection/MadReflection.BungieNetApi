@@ -133,6 +133,12 @@ namespace BungieNet.Destiny.HistoricalStats.Definitions
 
 		AllPvECompetitive = 64,
 
-		Breakthrough = 65
+		Breakthrough = 65,
+
+		BlackArmoryRun = 66,
+
+		Salvage = 67,
+
+		IronBannerSalvage = 68
 	}
 }

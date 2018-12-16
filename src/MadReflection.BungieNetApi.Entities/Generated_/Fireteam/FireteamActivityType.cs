@@ -29,6 +29,8 @@ namespace BungieNet.Fireteam
 
 		BlindWell = 7,
 
-		EscalationProtocol = 8
+		EscalationProtocol = 8,
+
+		Forge = 9
 	}
 }
