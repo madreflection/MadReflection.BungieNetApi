@@ -42,6 +42,7 @@ dotnet_style_null_propagation = true:suggestion
 dotnet_sort_system_directives_first = true
 
 [*.cs]
+charset = utf-8-bom
 indent_style = tab
 indent_size = 3
 tab_width = 3
@@ -90,6 +91,7 @@ csharp_preserve_single_line_statements = false
 csharp_preserve_single_line_blocks = true
 
 [*.vb]
+charset = utf-8-bom
 indent_style = space
 indent_size = 4
 tab_width = 4
@@ -97,10 +99,10 @@ tab_width = 4
 visual_basic_preferred_modifier_order = Public,Private,Protected,Friend,Shared,Static,Shadows,Overridable,MustOverride,NotOverridable,Overloads,Overrides,MustInherit,NotInheritable,Default,ReadOnly,WriteOnly,Dim,Const,WithEvents,Widening,Narrowing,Custom,Async:suggestion
 
 [*.{*proj,vcxproj.filters,props,targets}]
+charset = utf-8-bom
 indent_style = space
 indent_size = 2
 tab_width = 2
-insert_final_newline = false
 
 [*.{xml,resx}]
 indent_style = space

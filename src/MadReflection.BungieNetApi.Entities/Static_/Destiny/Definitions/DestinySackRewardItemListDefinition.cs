@@ -1,4 +1,4 @@
-namespace BungieNet.Destiny.Definitions
+﻿namespace BungieNet.Destiny.Definitions
 {
 	public class DestinySackRewardItemListDefinition : DestinyDefinition
 	{
