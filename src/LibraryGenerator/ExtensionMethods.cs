@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi.Readers;
 
 namespace LibraryGenerator
 {
@@ -27,6 +30,14 @@ namespace LibraryGenerator
 				if (item is TResult && item.GetType() == targetType)
 					yield return (TResult)item;
 			}
+		}
+
+		public static OpenApiDocument Read(this OpenApiStreamReader reader, Stream input)
+		{
+			if (reader is null)
+				throw new ArgumentNullException(nameof(reader));
+
+			return reader.Read(input, out OpenApiDiagnostic _);
 		}
 	}
 }

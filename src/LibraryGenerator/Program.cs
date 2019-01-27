@@ -17,11 +17,8 @@ namespace LibraryGenerator
 		{
 			try
 			{
-				OpenApiDocument openapi;
-				using (Stream stream = typeof(Program).Assembly.GetManifestResourceStream(typeof(Program).Namespace + ".Properties.openapi.json"))
-				{
-					openapi = new OpenApiStreamReader().Read(stream, out var _);
-				}
+				string resourceName = typeof(Program).Namespace + ".Properties.openapi.json";
+				OpenApiDocument openapi = LoadApiSpecification(resourceName);
 
 				EntitiesGenerator.GenerateEntities(openapi, true);
 
@@ -30,6 +27,14 @@ namespace LibraryGenerator
 			catch (Exception exception)
 			{
 				Console.Error.WriteLine(exception.Message + Environment.NewLine + exception.StackTrace);
+			}
+		}
+
+		private static OpenApiDocument LoadApiSpecification(string name)
+		{
+			using (Stream stream = typeof(Program).Assembly.GetManifestResourceStream(name))
+			{
+				return new OpenApiStreamReader().Read(stream);
 			}
 		}
 	}
