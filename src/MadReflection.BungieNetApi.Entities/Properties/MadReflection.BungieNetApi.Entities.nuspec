@@ -13,7 +13,7 @@
     <projectUrl>https://github.com/madreflection/MadReflection.BungieNetApi</projectUrl>
     <!--<iconUrl></iconUrl>-->
     <license type="expression">BSD-3-Clause</license>
-    <copyright>Copyright (c) 2018 Benn Benson</copyright>
+    <copyright>Copyright (c) 2018-2019 Benn Benson</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
       <group targetFramework="netstandard2.0">

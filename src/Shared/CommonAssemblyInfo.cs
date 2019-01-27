@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyProduct("Bungie.net API Client for .NET")]
-[assembly: AssemblyCopyright("Copyright © 2017-2018 Benn Benson")]
+[assembly: AssemblyCopyright("Copyright © 2018-2019 Benn Benson")]
 [assembly: AssemblyCulture("")]
 
 [assembly: ComVisible(false)]
