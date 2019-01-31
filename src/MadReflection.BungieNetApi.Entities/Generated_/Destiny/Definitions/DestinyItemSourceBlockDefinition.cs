@@ -25,5 +25,8 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("exclusive")]
 		public BungieMembershipType Exclusive { get; set; }
+
+		[JsonProperty("vendorSources")]
+		public Destiny.Definitions.DestinyItemVendorSourceReference[] VendorSources { get; set; }
 	}
 }

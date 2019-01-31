@@ -8,17 +8,16 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json;
 
-namespace BungieNet.Destiny
+namespace BungieNet
 {
-	/// <summary>
-	/// If the plug has a specific custom style, this enumeration will represent that style/those styles.
-	/// </summary>
-	[Flags]
-	public enum PlugUiStyles
+	public partial class DictionaryComponentResponseOfuint32AndDestinyPublicVendorComponent
 	{
-		None = 0x0,
+		[JsonProperty("data")]
+		public System.Collections.Generic.Dictionary<uint, Destiny.Components.Vendors.DestinyPublicVendorComponent> Data { get; set; }
 
-		Masterwork = 0x1
+		[JsonProperty("privacy")]
+		public Components.ComponentPrivacySetting Privacy { get; set; }
 	}
 }

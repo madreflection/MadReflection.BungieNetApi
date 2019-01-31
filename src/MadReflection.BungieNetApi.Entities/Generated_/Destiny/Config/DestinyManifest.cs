@@ -37,5 +37,8 @@ namespace BungieNet.Destiny.Config
 
 		[JsonProperty("mobileGearCDN")]
 		public System.Collections.Generic.Dictionary<string, string> MobileGearCDN { get; set; }
+
+		[JsonProperty("iconImagePyramidInfo")]
+		public Destiny.Config.ImagePyramidEntry[] IconImagePyramidInfo { get; set; }
 	}
 }

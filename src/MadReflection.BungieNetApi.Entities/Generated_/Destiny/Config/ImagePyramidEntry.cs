@@ -8,17 +8,16 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json;
 
-namespace BungieNet.Destiny
+namespace BungieNet.Destiny.Config
 {
-	/// <summary>
-	/// If the plug has a specific custom style, this enumeration will represent that style/those styles.
-	/// </summary>
-	[Flags]
-	public enum PlugUiStyles
+	public partial class ImagePyramidEntry
 	{
-		None = 0x0,
+		[JsonProperty("name")]
+		public string Name { get; set; }
 
-		Masterwork = 0x1
+		[JsonProperty("factor")]
+		public decimal Factor { get; set; }
 	}
 }

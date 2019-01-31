@@ -10,25 +10,13 @@
 using System;
 using Newtonsoft.Json;
 
-namespace BungieNet.Destiny.Entities.Vendors
+namespace BungieNet.Destiny.Components.Vendors
 {
 	/// <summary>
-	/// This component contains essential/summary information about the vendor.
+	/// This component contains essential/summary information about the vendor from the perspective of a character-agnostic view.
 	/// </summary>
-	public partial class DestinyVendorComponent
+	public partial class DestinyPublicVendorComponent
 	{
-		[JsonProperty("canPurchase")]
-		public bool CanPurchase { get; set; }
-
-		[JsonProperty("progression")]
-		public Destiny.DestinyProgression Progression { get; set; }
-
-		[JsonProperty("vendorLocationIndex")]
-		public int VendorLocationIndex { get; set; }
-
-		[JsonProperty("seasonalRank")]
-		public int? SeasonalRank { get; set; }
-
 		[JsonProperty("vendorHash")]
 		public uint VendorHash { get; set; }
 

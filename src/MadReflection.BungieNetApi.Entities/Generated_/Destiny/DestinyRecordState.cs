@@ -12,7 +12,7 @@ using System;
 namespace BungieNet.Destiny
 {
 	/// <summary>
-	/// A Flags enumeration where each bit represents a possible state that a Record/Triumph can be in.
+	/// A Flags enumeration/bitmask where each bit represents a possible state that a Record/Triumph can be in.
 	/// </summary>
 	[Flags]
 	public enum DestinyRecordState

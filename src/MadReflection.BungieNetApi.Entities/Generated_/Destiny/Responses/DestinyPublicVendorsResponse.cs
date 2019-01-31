@@ -13,26 +13,22 @@ using Newtonsoft.Json;
 namespace BungieNet.Destiny.Responses
 {
 	/// <summary>
-	/// A response containing all of the components for all requested vendors.
+	/// A response containing all valid components for the public Vendors endpoint.
+	///  It is a decisively smaller subset of data compared to what we can get when we know the specific user making the request.
+	///  If you want any of the other data - item details, whether or not you can buy it, etc... you'll have to call in the context of a character. I know, sad but true.
 	/// </summary>
-	public partial class DestinyVendorsResponse
+	public partial class DestinyPublicVendorsResponse
 	{
 		[JsonProperty("vendorGroups")]
 		public SingleComponentResponseOfDestinyVendorGroupComponent VendorGroups { get; set; }
 
 		[JsonProperty("vendors")]
-		public DictionaryComponentResponseOfuint32AndDestinyVendorComponent Vendors { get; set; }
+		public DictionaryComponentResponseOfuint32AndDestinyPublicVendorComponent Vendors { get; set; }
 
 		[JsonProperty("categories")]
 		public DictionaryComponentResponseOfuint32AndDestinyVendorCategoriesComponent Categories { get; set; }
 
 		[JsonProperty("sales")]
-		public DictionaryComponentResponseOfuint32AndPersonalDestinyVendorSaleItemSetComponent Sales { get; set; }
-
-		[JsonProperty("itemComponents")]
-		public System.Collections.Generic.Dictionary<uint, DestinyItemComponentSetOfint32> ItemComponents { get; set; }
-
-		[JsonProperty("currencyLookups")]
-		public SingleComponentResponseOfDestinyCurrenciesComponent CurrencyLookups { get; set; }
+		public DictionaryComponentResponseOfuint32AndPublicDestinyVendorSaleItemSetComponent Sales { get; set; }
 	}
 }

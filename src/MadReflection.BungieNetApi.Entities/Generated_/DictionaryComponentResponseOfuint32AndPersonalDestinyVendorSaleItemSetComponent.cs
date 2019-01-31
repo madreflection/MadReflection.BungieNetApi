@@ -12,10 +12,10 @@ using Newtonsoft.Json;
 
 namespace BungieNet
 {
-	public partial class DictionaryComponentResponseOfuint32AndDestinyVendorSaleItemSetComponent
+	public partial class DictionaryComponentResponseOfuint32AndPersonalDestinyVendorSaleItemSetComponent
 	{
 		[JsonProperty("data")]
-		public System.Collections.Generic.Dictionary<uint, Destiny.Components.Vendors.DestinyVendorSaleItemSetComponent> Data { get; set; }
+		public System.Collections.Generic.Dictionary<uint, Destiny.Responses.PersonalDestinyVendorSaleItemSetComponent> Data { get; set; }
 
 		[JsonProperty("privacy")]
 		public Components.ComponentPrivacySetting Privacy { get; set; }

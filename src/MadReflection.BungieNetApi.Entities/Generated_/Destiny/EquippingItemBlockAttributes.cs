@@ -11,10 +11,11 @@ using System;
 
 namespace BungieNet.Destiny
 {
+	[Flags]
 	public enum EquippingItemBlockAttributes
 	{
-		None = 0,
+		None = 0x0,
 
-		EquipOnAcquire = 1
+		EquipOnAcquire = 0x1
 	}
 }

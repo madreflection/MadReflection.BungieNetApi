@@ -43,5 +43,11 @@ namespace BungieNet.Destiny.Definitions.Records
 
 		[JsonProperty("requirements")]
 		public Destiny.Definitions.Presentation.DestinyPresentationNodeRequirementsBlock Requirements { get; set; }
+
+		[JsonProperty("expirationInfo")]
+		public Destiny.Definitions.Records.DestinyRecordExpirationBlock ExpirationInfo { get; set; }
+
+		[JsonProperty("rewardItems")]
+		public Destiny.DestinyItemQuantity[] RewardItems { get; set; }
 	}
 }

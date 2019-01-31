@@ -350,6 +350,10 @@ namespace BungieNet.Exceptions
 
 		UserFriendsTokenNeedsRefresh = 227,
 
+		UserEmailValidationUnknown = 228,
+
+		UserEmailValidationLimit = 229,
+
 		MessagingUnknownError = 300,
 
 		MessagingSelfError = 301,
@@ -761,6 +765,8 @@ namespace BungieNet.Exceptions
 		ActivityLoggingDisabled = 707,
 
 		ClanRequiresExistingDestinyAccount = 750,
+
+		ClanNameRestricted = 751,
 
 		ItemAlreadyFollowed = 801,
 
@@ -1369,6 +1375,8 @@ namespace BungieNet.Exceptions
 
 		ClanFireteamScheduledFireteamsRange = 3024,
 
-		ClanFireteamPublicCreationRestrictionExtended = 3025
+		ClanFireteamPublicCreationRestrictionExtended = 3025,
+
+		ClanFireteamExpired = 3026
 	}
 }

@@ -12,7 +12,7 @@ using System;
 namespace BungieNet.Destiny
 {
 	/// <summary>
-	/// A flags enumeration indicating the versions of the game that a given user has purchased.
+	/// A flags enumeration/bitmask indicating the versions of the game that a given user has purchased.
 	/// </summary>
 	[Flags]
 	public enum DestinyGameVersions

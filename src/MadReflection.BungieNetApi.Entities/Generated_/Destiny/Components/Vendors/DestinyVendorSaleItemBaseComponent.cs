@@ -10,29 +10,14 @@
 using System;
 using Newtonsoft.Json;
 
-namespace BungieNet.Destiny.Entities.Vendors
+namespace BungieNet.Destiny.Components.Vendors
 {
 	/// <summary>
-	/// Request this component if you want the details about an item being sold in relation to the character making the request: whether the character can buy it, whether they can afford it, and other data related to purchasing the item.
+	/// The base class for Vendor Sale Item data. Has a bunch of character-agnostic state about the item being sold.
 	/// Note that if you want instance, stats, etc... data for the item, you'll have to request additional components such as ItemInstances, ItemPerks etc... and acquire them from the DestinyVendorResponse's "items" property.
 	/// </summary>
-	public partial class DestinyVendorSaleItemComponent
+	public partial class DestinyVendorSaleItemBaseComponent
 	{
-		[JsonProperty("saleStatus")]
-		public Destiny.VendorItemStatus SaleStatus { get; set; }
-
-		[JsonProperty("requiredUnlocks")]
-		public uint[] RequiredUnlocks { get; set; }
-
-		[JsonProperty("unlockStatuses")]
-		public Destiny.DestinyUnlockStatus[] UnlockStatuses { get; set; }
-
-		[JsonProperty("failureIndexes")]
-		public int[] FailureIndexes { get; set; }
-
-		[JsonProperty("augments")]
-		public Destiny.DestinyVendorItemState Augments { get; set; }
-
 		[JsonProperty("vendorItemIndex")]
 		public int VendorItemIndex { get; set; }
 

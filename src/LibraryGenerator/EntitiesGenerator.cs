@@ -15,32 +15,6 @@ namespace LibraryGenerator
 {
 	public static class EntitiesGenerator
 	{
-		private static readonly List<string> _flags = new List<string>()
-		{
-			"Applications.ApplicationScopes",
-			"Destiny.Definitions.DestinyTalentNodeStepDamageTypes",
-			"Destiny.Definitions.DestinyTalentNodeStepGuardianAttributes",
-			"Destiny.Definitions.DestinyTalentNodeStepImpactEffects",
-			"Destiny.Definitions.DestinyTalentNodeStepLightAbilities",
-			"Destiny.Definitions.DestinyTalentNodeStepWeaponPerformances",
-			"Destiny.DestinyCollectibleState",
-			"Destiny.DestinyGameVersions",
-			"Destiny.DestinyPresentationNodeState",
-			"Destiny.DestinyRecordState",
-			"Destiny.DestinyVendorItemState",
-			"Destiny.EquipFailureReason",
-			"Destiny.ItemState",
-			"Destiny.SocketPlugSources",
-			"Destiny.TransferStatuses",
-			"Destiny.VendorItemStatus",
-			"Forums.ForumFlagsEnum",
-			"Forums.ForumPostCategoryEnums",
-			"Forum.ForumTopicsCategoryFiltersEnum",
-			"GroupsV2.Capabilities",
-			"Ignores.IgnoreStatus",
-			"BungieMembershipType"
-		};
-
 		public static void GenerateEntities(OpenApiDocument openapi, bool writeFiles)
 		{
 			List<FileBuilder> fileBuilders = new List<FileBuilder>();
@@ -60,10 +34,7 @@ namespace LibraryGenerator
 				{
 					var jsonValueObject = jsonTypeProperty.Value;
 
-					var jsonEnum = jsonValueObject.Enum;
-					var jsonEnumValues = jsonValueObject.Extensions["x-enum-values"];
-
-					if (jsonEnum != null && jsonEnumValues != null)
+					if (jsonValueObject.Enum != null && jsonValueObject.Extensions.ContainsKey("x-enum-values"))
 						typeBuilder = ProcessEnumType(jsonValueObject, @namespace, jsonTypeName, typeName, typeDescription);
 				}
 				else if (jsonType == "object")
@@ -261,13 +232,15 @@ namespace LibraryGenerator
 		{
 			string jsonFormat = jsonType.Format;
 
+			bool isFlags = jsonType.Extensions.TryGetValue("x-enum-is-bitmask", out var isFlagsTemp) && isFlagsTemp is OpenApiBoolean isFlagsBoolean && isFlagsBoolean.Value;
+
 			EnumBuilder enumBuilder = new EnumBuilder();
 			enumBuilder.Namespace = @namespace;
 			enumBuilder.Name = typeName;
 			enumBuilder.JsonName = jsonTypeName;
 			enumBuilder.Description = typeDescription;
 			enumBuilder.UnderlyingType = GetEnumUnderlyingType(jsonFormat);
-			enumBuilder.IsFlags = _flags.Contains($"{@namespace}.{typeName}");
+			enumBuilder.IsFlags = isFlags;
 
 			ProcessEnumFields(jsonType, enumBuilder);
 
@@ -354,6 +327,7 @@ namespace LibraryGenerator
 			var jsonType = jsonPropertyValue.Type;
 			var jsonFormat = jsonPropertyValue.Format;
 			var jsonNullable = jsonPropertyValue.Nullable;
+			jsonPropertyValue.Extensions.TryGetValue("x-enum-reference", out var enumReferenceTemp);
 
 			if (jsonType == "boolean")
 				return jsonNullable ? typeof(bool?) : typeof(bool);
@@ -372,6 +346,12 @@ namespace LibraryGenerator
 						return new NullableEnumBuilder() { EnumBuilder = enumBuilder };
 
 					return enumBuilder;
+				}
+
+				if (enumReferenceTemp is OpenApiObject enumReference)
+				{
+					jsonDollarRef = ((OpenApiString)enumReference["$ref"]).Value;
+					return new TypeReference(jsonDollarRef);
 				}
 
 				if (jsonFormat == "byte")

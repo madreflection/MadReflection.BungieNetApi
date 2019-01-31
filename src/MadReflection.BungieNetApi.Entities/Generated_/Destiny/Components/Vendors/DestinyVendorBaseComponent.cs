@@ -8,17 +8,22 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json;
 
-namespace BungieNet.Destiny
+namespace BungieNet.Destiny.Components.Vendors
 {
 	/// <summary>
-	/// If the plug has a specific custom style, this enumeration will represent that style/those styles.
+	/// This component contains essential/summary information about the vendor.
 	/// </summary>
-	[Flags]
-	public enum PlugUiStyles
+	public partial class DestinyVendorBaseComponent
 	{
-		None = 0x0,
+		[JsonProperty("vendorHash")]
+		public uint VendorHash { get; set; }
 
-		Masterwork = 0x1
+		[JsonProperty("nextRefreshDate")]
+		public DateTime NextRefreshDate { get; set; }
+
+		[JsonProperty("enabled")]
+		public bool Enabled { get; set; }
 	}
 }

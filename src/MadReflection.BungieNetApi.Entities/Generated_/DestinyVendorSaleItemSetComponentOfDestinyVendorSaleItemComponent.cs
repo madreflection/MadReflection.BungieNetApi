@@ -8,17 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json;
 
-namespace BungieNet.Destiny
+namespace BungieNet
 {
-	/// <summary>
-	/// If the plug has a specific custom style, this enumeration will represent that style/those styles.
-	/// </summary>
-	[Flags]
-	public enum PlugUiStyles
+	public partial class DestinyVendorSaleItemSetComponentOfDestinyVendorSaleItemComponent
 	{
-		None = 0x0,
-
-		Masterwork = 0x1
+		[JsonProperty("saleItems")]
+		public System.Collections.Generic.Dictionary<int, Destiny.Entities.Vendors.DestinyVendorSaleItemComponent> SaleItems { get; set; }
 	}
 }

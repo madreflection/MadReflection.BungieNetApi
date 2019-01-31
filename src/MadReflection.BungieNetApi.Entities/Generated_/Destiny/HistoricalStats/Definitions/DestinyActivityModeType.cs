@@ -139,6 +139,18 @@ namespace BungieNet.Destiny.HistoricalStats.Definitions
 
 		Salvage = 67,
 
-		IronBannerSalvage = 68
+		IronBannerSalvage = 68,
+
+		PvPCompetitive = 69,
+
+		PvPQuickplay = 70,
+
+		ClashQuickplay = 71,
+
+		ClashCompetitive = 72,
+
+		ControlQuickplay = 73,
+
+		ControlCompetitive = 74
 	}
 }

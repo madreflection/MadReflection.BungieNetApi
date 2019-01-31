@@ -12,7 +12,7 @@ using System;
 namespace BungieNet.Destiny
 {
 	/// <summary>
-	/// Indicates how a socket is populated, and where you should look for valid plug data. This is a flags enumeration field, as you may have to look in multiple sources across multiple components for valid plugs.
+	/// Indicates how a socket is populated, and where you should look for valid plug data. This is a flags enumeration/bitmask field, as you may have to look in multiple sources across multiple components for valid plugs.
 	/// </summary>
 	[Flags]
 	public enum SocketPlugSources

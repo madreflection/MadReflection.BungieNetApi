@@ -10,12 +10,9 @@
 using System;
 using Newtonsoft.Json;
 
-namespace BungieNet.Destiny.Components.Vendors
+namespace BungieNet.Destiny.Responses
 {
-	/// <summary>
-	/// The collection of all items currently being sold by a specific Vendor and visible to the given character for which the request was made.
-	/// </summary>
-	public partial class DestinyVendorSaleItemSetComponent
+	public partial class PersonalDestinyVendorSaleItemSetComponent
 	{
 		[JsonProperty("saleItems")]
 		public System.Collections.Generic.Dictionary<int, Destiny.Entities.Vendors.DestinyVendorSaleItemComponent> SaleItems { get; set; }

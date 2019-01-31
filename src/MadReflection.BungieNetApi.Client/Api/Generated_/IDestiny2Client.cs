@@ -45,6 +45,9 @@ namespace BungieNet.Api
 		Destiny.Responses.DestinyVendorResponse GetVendor(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint vendorHash, params Destiny.DestinyComponentType[] components);
 		Task<Destiny.Responses.DestinyVendorResponse> GetVendorAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint vendorHash, params Destiny.DestinyComponentType[] components);
 
+		Destiny.Responses.DestinyPublicVendorsResponse GetPublicVendors(params Destiny.DestinyComponentType[] components);
+		Task<Destiny.Responses.DestinyPublicVendorsResponse> GetPublicVendorsAsync(params Destiny.DestinyComponentType[] components);
+
 		Destiny.Responses.DestinyCollectibleNodeDetailResponse GetCollectibleNodeDetails(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint collectiblePresentationNodeHash, params Destiny.DestinyComponentType[] components);
 		Task<Destiny.Responses.DestinyCollectibleNodeDetailResponse> GetCollectibleNodeDetailsAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint collectiblePresentationNodeHash, params Destiny.DestinyComponentType[] components);
 
@@ -233,6 +236,18 @@ namespace BungieNet.Api
 			};
 			Uri uri = GetEndpointUri(pathSegments, queryItems);
 			return GetEntityAsync<Destiny.Responses.DestinyVendorResponse>(uri);
+		}
+
+		Destiny.Responses.DestinyPublicVendorsResponse IDestiny2Client.GetPublicVendors(params Destiny.DestinyComponentType[] components) => Destiny2.GetPublicVendorsAsync(components).GetAwaiter().GetResult();
+		Task<Destiny.Responses.DestinyPublicVendorsResponse> IDestiny2Client.GetPublicVendorsAsync(params Destiny.DestinyComponentType[] components)
+		{
+			string[] pathSegments = new string[] { "Destiny2", "Vendors" };
+			System.Collections.Generic.List<QueryStringItem> queryItems = new System.Collections.Generic.List<QueryStringItem>()
+			{
+				new QueryStringItem("components", string.Join(",", components))
+			};
+			Uri uri = GetEndpointUri(pathSegments, queryItems);
+			return GetEntityAsync<Destiny.Responses.DestinyPublicVendorsResponse>(uri);
 		}
 
 		Destiny.Responses.DestinyCollectibleNodeDetailResponse IDestiny2Client.GetCollectibleNodeDetails(BungieMembershipType membershipType, long destinyMembershipId, long characterId, uint collectiblePresentationNodeHash, params Destiny.DestinyComponentType[] components) => Destiny2.GetCollectibleNodeDetailsAsync(membershipType, destinyMembershipId, characterId, collectiblePresentationNodeHash, components).GetAwaiter().GetResult();
