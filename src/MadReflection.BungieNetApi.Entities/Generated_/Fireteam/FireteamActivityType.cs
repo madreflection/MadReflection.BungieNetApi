@@ -31,6 +31,8 @@ namespace BungieNet.Fireteam
 
 		EscalationProtocol = 8,
 
-		Forge = 9
+		Forge = 9,
+
+		Reckoning = 10
 	}
 }

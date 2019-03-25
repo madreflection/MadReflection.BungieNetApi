@@ -151,6 +151,10 @@ namespace BungieNet.Destiny.HistoricalStats.Definitions
 
 		ControlQuickplay = 73,
 
-		ControlCompetitive = 74
+		ControlCompetitive = 74,
+
+		GambitPrime = 75,
+
+		Reckoning = 76
 	}
 }

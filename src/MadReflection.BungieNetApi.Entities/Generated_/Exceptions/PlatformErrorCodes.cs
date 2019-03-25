@@ -354,6 +354,8 @@ namespace BungieNet.Exceptions
 
 		UserEmailValidationLimit = 229,
 
+		TransactionEmailSendFailure = 230,
+
 		MessagingUnknownError = 300,
 
 		MessagingSelfError = 301,

@@ -42,18 +42,6 @@ namespace BungieNet.Api
 		Forum.PostSearchResponse GetPoll(long topicId);
 		Task<Forum.PostSearchResponse> GetPollAsync(long topicId);
 
-		Forum.ForumRecruitmentDetail JoinFireteamThread(long topicId);
-		Task<Forum.ForumRecruitmentDetail> JoinFireteamThreadAsync(long topicId);
-
-		Forum.ForumRecruitmentDetail LeaveFireteamThread(long topicId);
-		Task<Forum.ForumRecruitmentDetail> LeaveFireteamThreadAsync(long topicId);
-
-		Forum.ForumRecruitmentDetail KickBanFireteamApplicant(long topicId, long targetMembershipId);
-		Task<Forum.ForumRecruitmentDetail> KickBanFireteamApplicantAsync(long topicId, long targetMembershipId);
-
-		Messages.Responses.SaveMessageResult ApproveFireteamThread(long topicId);
-		Task<Messages.Responses.SaveMessageResult> ApproveFireteamThreadAsync(long topicId);
-
 		Forum.ForumRecruitmentDetail[] GetRecruitmentThreadSummaries(long[] request);
 		Task<Forum.ForumRecruitmentDetail[]> GetRecruitmentThreadSummariesAsync(long[] request);
 	}
@@ -167,38 +155,6 @@ namespace BungieNet.Api
 			string[] pathSegments = new string[] { "Forum", "Poll", topicId.ToString() };
 			Uri uri = GetEndpointUri(pathSegments, null);
 			return GetEntityAsync<Forum.PostSearchResponse>(uri);
-		}
-
-		Forum.ForumRecruitmentDetail IForumClient.JoinFireteamThread(long topicId) => Forum.JoinFireteamThreadAsync(topicId).GetAwaiter().GetResult();
-		Task<Forum.ForumRecruitmentDetail> IForumClient.JoinFireteamThreadAsync(long topicId)
-		{
-			string[] pathSegments = new string[] { "Forum", "Recruit", "Join", topicId.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityAsync<Forum.ForumRecruitmentDetail>(uri);
-		}
-
-		Forum.ForumRecruitmentDetail IForumClient.LeaveFireteamThread(long topicId) => Forum.LeaveFireteamThreadAsync(topicId).GetAwaiter().GetResult();
-		Task<Forum.ForumRecruitmentDetail> IForumClient.LeaveFireteamThreadAsync(long topicId)
-		{
-			string[] pathSegments = new string[] { "Forum", "Recruit", "Leave", topicId.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityAsync<Forum.ForumRecruitmentDetail>(uri);
-		}
-
-		Forum.ForumRecruitmentDetail IForumClient.KickBanFireteamApplicant(long topicId, long targetMembershipId) => Forum.KickBanFireteamApplicantAsync(topicId, targetMembershipId).GetAwaiter().GetResult();
-		Task<Forum.ForumRecruitmentDetail> IForumClient.KickBanFireteamApplicantAsync(long topicId, long targetMembershipId)
-		{
-			string[] pathSegments = new string[] { "Forum", "Recruit", "KickBan", topicId.ToString(), targetMembershipId.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityAsync<Forum.ForumRecruitmentDetail>(uri);
-		}
-
-		Messages.Responses.SaveMessageResult IForumClient.ApproveFireteamThread(long topicId) => Forum.ApproveFireteamThreadAsync(topicId).GetAwaiter().GetResult();
-		Task<Messages.Responses.SaveMessageResult> IForumClient.ApproveFireteamThreadAsync(long topicId)
-		{
-			string[] pathSegments = new string[] { "Forum", "Recruit", "Approve", topicId.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityAsync<Messages.Responses.SaveMessageResult>(uri);
 		}
 
 		Forum.ForumRecruitmentDetail[] IForumClient.GetRecruitmentThreadSummaries(long[] request) => Forum.GetRecruitmentThreadSummariesAsync(request).GetAwaiter().GetResult();

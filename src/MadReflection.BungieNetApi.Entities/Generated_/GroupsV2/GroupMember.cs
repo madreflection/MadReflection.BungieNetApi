@@ -20,6 +20,9 @@ namespace BungieNet.GroupsV2
 		[JsonProperty("isOnline")]
 		public bool IsOnline { get; set; }
 
+		[JsonProperty("lastOnlineStatusChange")]
+		public long LastOnlineStatusChange { get; set; }
+
 		[JsonProperty("groupId")]
 		public long GroupId { get; set; }
 

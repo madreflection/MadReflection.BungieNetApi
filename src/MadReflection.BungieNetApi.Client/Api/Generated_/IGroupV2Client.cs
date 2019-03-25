@@ -24,9 +24,6 @@ namespace BungieNet.Api
 		bool GetUserClanInviteSetting(BungieMembershipType mType);
 		Task<bool> GetUserClanInviteSettingAsync(BungieMembershipType mType);
 
-		int SetUserClanInviteSetting(BungieMembershipType mType, bool allowInvites);
-		Task<int> SetUserClanInviteSettingAsync(BungieMembershipType mType, bool allowInvites);
-
 		GroupsV2.GroupV2Card[] GetRecommendedGroups(GroupsV2.GroupType groupType, GroupsV2.GroupDateRange createDateRange);
 		Task<GroupsV2.GroupV2Card[]> GetRecommendedGroupsAsync(GroupsV2.GroupType groupType, GroupsV2.GroupDateRange createDateRange);
 
@@ -44,9 +41,6 @@ namespace BungieNet.Api
 
 		GroupsV2.GroupOptionalConversation[] GetGroupOptionalConversations(long groupId);
 		Task<GroupsV2.GroupOptionalConversation[]> GetGroupOptionalConversationsAsync(long groupId);
-
-		GroupsV2.GroupCreationResponse CreateGroup(GroupsV2.GroupAction groupAction);
-		Task<GroupsV2.GroupCreationResponse> CreateGroupAsync(GroupsV2.GroupAction groupAction);
 
 		int EditGroup(GroupsV2.GroupEditAction groupEditAction, long groupId);
 		Task<int> EditGroupAsync(GroupsV2.GroupEditAction groupEditAction, long groupId);
@@ -87,17 +81,11 @@ namespace BungieNet.Api
 		bool AbdicateFoundership(long groupId, BungieMembershipType membershipType, long founderIdNew);
 		Task<bool> AbdicateFoundershipAsync(long groupId, BungieMembershipType membershipType, long founderIdNew);
 
-		GroupsV2.GroupApplicationResponse RequestGroupMembership(GroupsV2.GroupApplicationRequest groupApplicationRequest, long groupId, BungieMembershipType membershipType);
-		Task<GroupsV2.GroupApplicationResponse> RequestGroupMembershipAsync(GroupsV2.GroupApplicationRequest groupApplicationRequest, long groupId, BungieMembershipType membershipType);
-
 		SearchResultOfGroupMemberApplication GetPendingMemberships(long groupId, int currentpage);
 		Task<SearchResultOfGroupMemberApplication> GetPendingMembershipsAsync(long groupId, int currentpage);
 
 		SearchResultOfGroupMemberApplication GetInvitedIndividuals(long groupId, int currentpage);
 		Task<SearchResultOfGroupMemberApplication> GetInvitedIndividualsAsync(long groupId, int currentpage);
-
-		GroupsV2.GroupMemberLeaveResult RescindGroupMembership(long groupId, BungieMembershipType membershipType);
-		Task<GroupsV2.GroupMemberLeaveResult> RescindGroupMembershipAsync(long groupId, BungieMembershipType membershipType);
 
 		Entities.EntityActionResult[] ApproveAllPending(GroupsV2.GroupApplicationRequest groupApplicationRequest, long groupId);
 		Task<Entities.EntityActionResult[]> ApproveAllPendingAsync(GroupsV2.GroupApplicationRequest groupApplicationRequest, long groupId);
@@ -161,14 +149,6 @@ namespace BungieNet.Api
 			return GetEntityAsync<bool>(uri);
 		}
 
-		int IGroupV2Client.SetUserClanInviteSetting(BungieMembershipType mType, bool allowInvites) => GroupV2.SetUserClanInviteSettingAsync(mType, allowInvites).GetAwaiter().GetResult();
-		Task<int> IGroupV2Client.SetUserClanInviteSettingAsync(BungieMembershipType mType, bool allowInvites)
-		{
-			string[] pathSegments = new string[] { "GroupV2", "SetUserClanInviteSetting", ((int)mType).ToString(), allowInvites.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityAsync<int>(uri);
-		}
-
 		GroupsV2.GroupV2Card[] IGroupV2Client.GetRecommendedGroups(GroupsV2.GroupType groupType, GroupsV2.GroupDateRange createDateRange) => GroupV2.GetRecommendedGroupsAsync(groupType, createDateRange).GetAwaiter().GetResult();
 		Task<GroupsV2.GroupV2Card[]> IGroupV2Client.GetRecommendedGroupsAsync(GroupsV2.GroupType groupType, GroupsV2.GroupDateRange createDateRange)
 		{
@@ -217,14 +197,6 @@ namespace BungieNet.Api
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "OptionalConversations" };
 			Uri uri = GetEndpointUri(pathSegments, null);
 			return GetEntityArrayAsync<GroupsV2.GroupOptionalConversation>(uri);
-		}
-
-		GroupsV2.GroupCreationResponse IGroupV2Client.CreateGroup(GroupsV2.GroupAction groupAction) => GroupV2.CreateGroupAsync(groupAction).GetAwaiter().GetResult();
-		Task<GroupsV2.GroupCreationResponse> IGroupV2Client.CreateGroupAsync(GroupsV2.GroupAction groupAction)
-		{
-			string[] pathSegments = new string[] { "GroupV2", "Create" };
-			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityAsync<GroupsV2.GroupAction, GroupsV2.GroupCreationResponse>(uri, groupAction);
 		}
 
 		int IGroupV2Client.EditGroup(GroupsV2.GroupEditAction groupEditAction, long groupId) => GroupV2.EditGroupAsync(groupEditAction, groupId).GetAwaiter().GetResult();
@@ -345,14 +317,6 @@ namespace BungieNet.Api
 			return PostEntityAsync<bool>(uri);
 		}
 
-		GroupsV2.GroupApplicationResponse IGroupV2Client.RequestGroupMembership(GroupsV2.GroupApplicationRequest groupApplicationRequest, long groupId, BungieMembershipType membershipType) => GroupV2.RequestGroupMembershipAsync(groupApplicationRequest, groupId, membershipType).GetAwaiter().GetResult();
-		Task<GroupsV2.GroupApplicationResponse> IGroupV2Client.RequestGroupMembershipAsync(GroupsV2.GroupApplicationRequest groupApplicationRequest, long groupId, BungieMembershipType membershipType)
-		{
-			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "Members", "Apply", ((int)membershipType).ToString() };
-			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityAsync<GroupsV2.GroupApplicationRequest, GroupsV2.GroupApplicationResponse>(uri, groupApplicationRequest);
-		}
-
 		SearchResultOfGroupMemberApplication IGroupV2Client.GetPendingMemberships(long groupId, int currentpage) => GroupV2.GetPendingMembershipsAsync(groupId, currentpage).GetAwaiter().GetResult();
 		Task<SearchResultOfGroupMemberApplication> IGroupV2Client.GetPendingMembershipsAsync(long groupId, int currentpage)
 		{
@@ -375,14 +339,6 @@ namespace BungieNet.Api
 			};
 			Uri uri = GetEndpointUri(pathSegments, queryItems);
 			return GetEntityAsync<SearchResultOfGroupMemberApplication>(uri);
-		}
-
-		GroupsV2.GroupMemberLeaveResult IGroupV2Client.RescindGroupMembership(long groupId, BungieMembershipType membershipType) => GroupV2.RescindGroupMembershipAsync(groupId, membershipType).GetAwaiter().GetResult();
-		Task<GroupsV2.GroupMemberLeaveResult> IGroupV2Client.RescindGroupMembershipAsync(long groupId, BungieMembershipType membershipType)
-		{
-			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "Members", "Rescind", ((int)membershipType).ToString() };
-			Uri uri = GetEndpointUri(pathSegments, null);
-			return PostEntityAsync<GroupsV2.GroupMemberLeaveResult>(uri);
 		}
 
 		Entities.EntityActionResult[] IGroupV2Client.ApproveAllPending(GroupsV2.GroupApplicationRequest groupApplicationRequest, long groupId) => GroupV2.ApproveAllPendingAsync(groupApplicationRequest, groupId).GetAwaiter().GetResult();
