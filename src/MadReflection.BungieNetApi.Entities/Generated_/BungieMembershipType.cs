@@ -22,7 +22,11 @@ namespace BungieNet
 
 		TigerPsn = 2,
 
+		TigerSteam = 3,
+
 		TigerBlizzard = 4,
+
+		TigerStadia = 5,
 
 		TigerDemon = 10,
 

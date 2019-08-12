@@ -49,5 +49,8 @@ namespace BungieNet.Destiny.Entities.Items
 
 		[JsonProperty("expirationDate")]
 		public DateTime? ExpirationDate { get; set; }
+
+		[JsonProperty("isWrapper")]
+		public bool IsWrapper { get; set; }
 	}
 }

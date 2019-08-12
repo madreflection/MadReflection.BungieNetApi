@@ -15,6 +15,8 @@ namespace LibraryGenerator
 
 		public List<PathSegment> PathSegments { get; set; } = new List<PathSegment>();
 
+		public bool IncludeTrailingSlash { get; set; }
+
 		public List<ParameterBuilder> QueryItems { get; set; } = new List<ParameterBuilder>();
 
 

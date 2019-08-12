@@ -9,26 +9,21 @@
 
 using System;
 
-namespace BungieNet.Destiny
+namespace BungieNet.User
 {
-	/// <summary>
-	/// A flags enumeration/bitmask indicating the versions of the game that a given user has purchased.
-	/// </summary>
 	[Flags]
-	public enum DestinyGameVersions
+	public enum OptInFlags : long
 	{
-		None = 0x0,
+		Newsletter = 0x1,
 
-		Destiny2 = 0x1,
+		System = 0x2,
 
-		DLC1 = 0x2,
+		Marketing = 0x4,
 
-		DLC2 = 0x4,
+		UserResearch = 0x8,
 
-		Forsaken = 0x8,
+		CustomerService = 0x10,
 
-		YearTwoAnnualPass = 0x10,
-
-		Shadowkeep = 0x20
+		Social = 0x20
 	}
 }

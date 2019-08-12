@@ -33,6 +33,8 @@ namespace BungieNet.Fireteam
 
 		Forge = 9,
 
-		Reckoning = 10
+		Reckoning = 10,
+
+		Menagerie = 11
 	}
 }

@@ -106,8 +106,10 @@ namespace LibraryGenerator
 
 		public static MethodBuilder GenerateMethod(OpenApiDocument document, OpenApiOperation method, bool isPost, string path, string area, string name, string description)
 		{
-			if (!path.StartsWith("/") || !path.EndsWith("/"))
+			if (!path.StartsWith("/"))
 				throw new ArgumentException("Path must start and end with a slash.", nameof(path));
+
+			bool includeTrailingSlash = path.EndsWith("/");
 
 			TypeReference returnType = GrokReturnType(document, method.Responses["200"]);
 
@@ -230,13 +232,31 @@ namespace LibraryGenerator
 				ReturnType = returnType,
 				Parameters = finalParameterBuilders,
 				PathSegments = pathSegments,
+				IncludeTrailingSlash = includeTrailingSlash,
 				QueryItems = queryItems
 			};
 		}
 
 		private static TypeReference GrokReturnType(OpenApiDocument document, OpenApiResponse responseRef)
 		{
+			const string prefixIReadOnlyCollectionOf = "IReadOnlyCollectionOf";
+
 			string responseName = responseRef.Reference.ReferenceV3.Substring("#/components/responses/".Length);
+
+			if (responseName.StartsWith(prefixIReadOnlyCollectionOf))
+			{
+				string typeName = responseName.Substring(prefixIReadOnlyCollectionOf.Length);
+
+				string @namespace = Program.GeneratedTypes.Values.Where(v => v.Name == typeName).FirstOrDefault()?.Namespace ?? "";
+				string qualifiedTypeName = @namespace + "." + typeName;
+
+				document.Components.Schemas.TryGetValue(qualifiedTypeName, out var schemaType);
+
+				return new ArrayBuilder()
+				{
+					ElementType = schemaType.Reference.ReferenceV3
+				};
+			}
 
 			OpenApiResponse response = document.Components.Responses[responseName];
 

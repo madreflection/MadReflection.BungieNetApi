@@ -55,5 +55,11 @@ namespace BungieNet.Destiny.Progression
 
 		[JsonProperty("nextLevelAt")]
 		public int NextLevelAt { get; set; }
+
+		[JsonProperty("currentResetCount")]
+		public int? CurrentResetCount { get; set; }
+
+		[JsonProperty("seasonResets")]
+		public Destiny.DestinyProgressionResetEntry[] SeasonResets { get; set; }
 	}
 }

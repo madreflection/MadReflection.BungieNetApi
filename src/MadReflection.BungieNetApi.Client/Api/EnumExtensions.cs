@@ -8,16 +8,16 @@ namespace BungieNet
 	internal static class EnumExtensions
 	{
 		public static object GetUnderlyingValue<TEnum>(this TEnum value)
-			where TEnum : Enum
+			where TEnum : struct, Enum
 		{
 			FieldInfo[] fields = value.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
 			return fields[0].GetValue(value);
 		}
 
-		public static string ToNumericString<TEnum>(this TEnum value) where TEnum : Enum => GetUnderlyingValue(value).ToString();
+		public static string ToNumericString<TEnum>(this TEnum value) where TEnum : struct, Enum => GetUnderlyingValue(value).ToString();
 
 		public static string ToNumericCsv<TEnum>(this IEnumerable<TEnum> values)
-			where TEnum : Enum
+			where TEnum : struct, Enum
 		{
 			if (values == null)
 				throw new ArgumentNullException(nameof(values));
@@ -26,7 +26,7 @@ namespace BungieNet
 		}
 
 		public static string ToStringCsv<TEnum>(this IEnumerable<TEnum> values)
-			where TEnum : Enum
+			where TEnum : struct, Enum
 		{
 			if (values == null)
 				return "";

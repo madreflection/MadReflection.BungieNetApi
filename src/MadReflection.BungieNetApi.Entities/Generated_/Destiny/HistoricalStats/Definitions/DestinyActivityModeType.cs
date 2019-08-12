@@ -155,6 +155,8 @@ namespace BungieNet.Destiny.HistoricalStats.Definitions
 
 		GambitPrime = 75,
 
-		Reckoning = 76
+		Reckoning = 76,
+
+		Menagerie = 77
 	}
 }

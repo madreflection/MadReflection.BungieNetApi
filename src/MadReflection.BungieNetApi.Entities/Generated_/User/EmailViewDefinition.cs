@@ -10,26 +10,17 @@
 using System;
 using Newtonsoft.Json;
 
-namespace BungieNet.Destiny.Definitions
+namespace BungieNet.User
 {
-	public partial class DestinyProgressionDisplayPropertiesDefinition
+	/// <summary>
+	/// Represents a data-driven view for Email settings. Web/Mobile UI can use this data to show new EMail settings consistently without further manual work.
+	/// </summary>
+	public partial class EmailViewDefinition
 	{
-		[JsonProperty("displayUnitsName")]
-		public string DisplayUnitsName { get; set; }
-
-		[JsonProperty("description")]
-		public string Description { get; set; }
-
 		[JsonProperty("name")]
 		public string Name { get; set; }
 
-		[JsonProperty("icon")]
-		public string Icon { get; set; }
-
-		[JsonProperty("highResIcon")]
-		public string HighResIcon { get; set; }
-
-		[JsonProperty("hasIcon")]
-		public bool HasIcon { get; set; }
+		[JsonProperty("viewSettings")]
+		public User.EmailViewDefinitionSetting[] ViewSettings { get; set; }
 	}
 }

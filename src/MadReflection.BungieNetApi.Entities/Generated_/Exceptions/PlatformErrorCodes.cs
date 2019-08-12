@@ -356,6 +356,10 @@ namespace BungieNet.Exceptions
 
 		TransactionEmailSendFailure = 230,
 
+		MailHookPermissionFailure = 231,
+
+		MailServiceRateLimit = 232,
+
 		MessagingUnknownError = 300,
 
 		MessagingSelfError = 301,
@@ -1379,6 +1383,46 @@ namespace BungieNet.Exceptions
 
 		ClanFireteamPublicCreationRestrictionExtended = 3025,
 
-		ClanFireteamExpired = 3026
+		ClanFireteamExpired = 3026,
+
+		ClanFireteamInvalidAuthProvider = 3027,
+
+		CrossSaveOverriddenAccountNotFound = 3200,
+
+		CrossSaveTooManyOverriddenPlatforms = 3201,
+
+		CrossSaveNoOverriddenPlatforms = 3202,
+
+		CrossSavePrimaryAccountNotFound = 3203,
+
+		CrossSaveRequestInvalid = 3204,
+
+		CrossSaveBungieAccountValidationFailure = 3206,
+
+		CrossSaveOverriddenPlatformNotAllowed = 3207,
+
+		CrossSaveThresholdExceeded = 3208,
+
+		CrossSaveIncompatibleMembershipType = 3209,
+
+		CrossSaveCouldNotFindLinkedAccountForMembershipType = 3210,
+
+		CrossSaveCouldNotCreateDestinyProfileForMembershipType = 3211,
+
+		CrossSaveErrorCreatingDestinyProfileForMembershipType = 3212,
+
+		CrossSaveCannotOverrideSelf = 3213,
+
+		CrossSaveRecentSilverPurchase = 3214,
+
+		CrossSaveSilverBalanceNegative = 3215,
+
+		CrossSaveAccountNotAuthenticated = 3216,
+
+		ErrorOneAccountAlreadyActive = 3217,
+
+		ErrorOneAccountDestinyRestriction = 3218,
+
+		AuthVerificationNotLinkedToAccount = 3300
 	}
 }

@@ -29,6 +29,9 @@ namespace BungieNet.Destiny.Responses
 		[JsonProperty("profile")]
 		public SingleComponentResponseOfDestinyProfileComponent Profile { get; set; }
 
+		[JsonProperty("platformSilver")]
+		public SingleComponentResponseOfDestinyPlatformSilverComponent PlatformSilver { get; set; }
+
 		[JsonProperty("profileKiosks")]
 		public SingleComponentResponseOfDestinyKiosksComponent ProfileKiosks { get; set; }
 

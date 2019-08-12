@@ -65,6 +65,8 @@ namespace BungieNet.Destiny
 
 		Package = 25,
 
-		Bounty = 26
+		Bounty = 26,
+
+		Wrapper = 27
 	}
 }

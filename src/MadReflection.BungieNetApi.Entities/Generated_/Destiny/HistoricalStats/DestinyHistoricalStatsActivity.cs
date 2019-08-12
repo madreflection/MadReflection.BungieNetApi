@@ -34,5 +34,8 @@ namespace BungieNet.Destiny.HistoricalStats
 
 		[JsonProperty("isPrivate")]
 		public bool IsPrivate { get; set; }
+
+		[JsonProperty("membershipType")]
+		public BungieMembershipType MembershipType { get; set; }
 	}
 }

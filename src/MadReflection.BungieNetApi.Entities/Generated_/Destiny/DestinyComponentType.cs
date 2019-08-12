@@ -45,6 +45,12 @@ namespace BungieNet.Destiny
 		ProfileProgression = 104,
 
 		/// <summary>
+		/// This will get you information about the silver that this profile has on every platform on which it plays.
+		///  You may only request this component for the logged in user's Profile, and will not recieve it if you request it for another Profile.
+		/// </summary>
+		PlatformSilver = 105,
+
+		/// <summary>
 		/// This will get you summary info about each of the characters in the profile.
 		/// </summary>
 		Characters = 200,

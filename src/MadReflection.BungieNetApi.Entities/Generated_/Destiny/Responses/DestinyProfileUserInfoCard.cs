@@ -17,6 +17,15 @@ namespace BungieNet.Destiny.Responses
 		[JsonProperty("dateLastPlayed")]
 		public DateTime DateLastPlayed { get; set; }
 
+		[JsonProperty("applicableMembershipTypes")]
+		public BungieMembershipType[] ApplicableMembershipTypes { get; set; }
+
+		[JsonProperty("isOverridden")]
+		public bool IsOverridden { get; set; }
+
+		[JsonProperty("isCrossSavePrimary")]
+		public bool IsCrossSavePrimary { get; set; }
+
 		[JsonProperty("supplementalDisplayName")]
 		public string SupplementalDisplayName { get; set; }
 

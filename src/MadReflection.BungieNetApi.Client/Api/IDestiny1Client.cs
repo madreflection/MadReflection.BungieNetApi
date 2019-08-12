@@ -28,7 +28,7 @@ namespace BungieNet.Api
 		Task<DestinyManifest> IDestiny1Client.GetDestinyManifestAsync()
 		{
 			string[] pathSegments = new string[] { "Destiny", "Manifest" };
-			Uri uri = GetEndpointUri(pathSegments, null, d1: true);
+			Uri uri = GetEndpointUri(pathSegments, true, null, d1: true);
 			return GetEntityAsync<DestinyManifest>(uri);
 		}
 	}

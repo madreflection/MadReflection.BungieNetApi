@@ -93,6 +93,7 @@ namespace LibraryGenerator
 				}
 				writer.WriteLine(" };");
 
+				string includeTrailingSlashExpression = methodBuilder.IncludeTrailingSlash.ToString().ToLower();
 				string queryItemsExpression = "null";
 				if (methodBuilder.QueryItems.Any())
 				{
@@ -118,7 +119,7 @@ namespace LibraryGenerator
 					queryItemsExpression = "queryItems";
 				}
 
-				writer.WriteLine($"\t\t\tUri uri = GetEndpointUri(pathSegments, {queryItemsExpression});");
+				writer.WriteLine($"\t\t\tUri uri = GetEndpointUri(pathSegments, {includeTrailingSlashExpression}, {queryItemsExpression});");
 
 				writer.Write("\t\t\treturn ");
 				string getOrPost = methodBuilder.IsPost ? "Post" : "Get";

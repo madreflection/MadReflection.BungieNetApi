@@ -8,27 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json;
 
-namespace BungieNet.Destiny
+namespace BungieNet.Destiny.Components.Inventory
 {
-	/// <summary>
-	/// A flags enumeration/bitmask indicating the versions of the game that a given user has purchased.
-	/// </summary>
-	[Flags]
-	public enum DestinyGameVersions
+	public partial class DestinyPlatformSilverComponent
 	{
-		None = 0x0,
-
-		Destiny2 = 0x1,
-
-		DLC1 = 0x2,
-
-		DLC2 = 0x4,
-
-		Forsaken = 0x8,
-
-		YearTwoAnnualPass = 0x10,
-
-		Shadowkeep = 0x20
+		[JsonProperty("platformSilver")]
+		public System.Collections.Generic.Dictionary<BungieMembershipType, Destiny.Entities.Items.DestinyItemComponent> PlatformSilver { get; set; }
 	}
 }

@@ -164,5 +164,11 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("defaultDamageTypeHash")]
 		public uint? DefaultDamageTypeHash { get; set; }
+
+		[JsonProperty("seasonHash")]
+		public uint? SeasonHash { get; set; }
+
+		[JsonProperty("isWrapper")]
+		public bool IsWrapper { get; set; }
 	}
 }

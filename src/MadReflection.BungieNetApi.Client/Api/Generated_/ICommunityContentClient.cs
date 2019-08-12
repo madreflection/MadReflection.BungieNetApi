@@ -48,7 +48,7 @@ namespace BungieNet.Api
 		Task<Forum.PostSearchResponse> ICommunityContentClient.GetCommunityContentAsync(Forum.CommunityContentSortMode sort, Forum.ForumTopicsCategoryFiltersEnum mediaFilter, int page)
 		{
 			string[] pathSegments = new string[] { "CommunityContent", "Get", ((byte)sort).ToString(), ((int)mediaFilter).ToString(), page.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, null);
+			Uri uri = GetEndpointUri(pathSegments, true, null);
 			return GetEntityAsync<Forum.PostSearchResponse>(uri);
 		}
 
@@ -61,7 +61,7 @@ namespace BungieNet.Api
 				new QueryStringItem("modeHash", modeHash.ToString()),
 				new QueryStringItem("streamLocale", (streamLocale ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, queryItems);
+			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
 			return GetEntityAsync<SearchResultOfCommunityLiveStatus>(uri);
 		}
 
@@ -69,7 +69,7 @@ namespace BungieNet.Api
 		Task<SearchResultOfCommunityLiveStatus> ICommunityContentClient.GetCommunityLiveStatusesForClanmatesAsync(Partnerships.PartnershipType partnershipType, Community.CommunityStatusSort sort, int page)
 		{
 			string[] pathSegments = new string[] { "CommunityContent", "Live", "Clan", ((int)partnershipType).ToString(), ((int)sort).ToString(), page.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, null);
+			Uri uri = GetEndpointUri(pathSegments, true, null);
 			return GetEntityAsync<SearchResultOfCommunityLiveStatus>(uri);
 		}
 
@@ -77,7 +77,7 @@ namespace BungieNet.Api
 		Task<SearchResultOfCommunityLiveStatus> ICommunityContentClient.GetCommunityLiveStatusesForFriendsAsync(Partnerships.PartnershipType partnershipType, Community.CommunityStatusSort sort, int page)
 		{
 			string[] pathSegments = new string[] { "CommunityContent", "Live", "Friends", ((int)partnershipType).ToString(), ((int)sort).ToString(), page.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, null);
+			Uri uri = GetEndpointUri(pathSegments, true, null);
 			return GetEntityAsync<SearchResultOfCommunityLiveStatus>(uri);
 		}
 
@@ -89,7 +89,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("streamLocale", (streamLocale ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, queryItems);
+			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
 			return GetEntityAsync<SearchResultOfCommunityLiveStatus>(uri);
 		}
 
@@ -97,7 +97,7 @@ namespace BungieNet.Api
 		Task<Community.CommunityLiveStatus> ICommunityContentClient.GetStreamingStatusForMemberAsync(Partnerships.PartnershipType partnershipType, BungieMembershipType membershipType, long membershipId)
 		{
 			string[] pathSegments = new string[] { "CommunityContent", "Live", "Users", ((int)partnershipType).ToString(), ((int)membershipType).ToString(), membershipId.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, null);
+			Uri uri = GetEndpointUri(pathSegments, true, null);
 			return GetEntityAsync<Community.CommunityLiveStatus>(uri);
 		}
 	}

@@ -29,6 +29,9 @@ namespace BungieNet.Api
 
 		SearchResultOfContentItemPublicContract SearchContentByTagAndType(string tag, string type, string locale, int currentpage, bool head, int itemsperpage);
 		Task<SearchResultOfContentItemPublicContract> SearchContentByTagAndTypeAsync(string tag, string type, string locale, int currentpage, bool head, int itemsperpage);
+
+		Content.ContentItemPublicContract[] SearchHelpArticles(string searchtext, string size);
+		Task<Content.ContentItemPublicContract[]> SearchHelpArticlesAsync(string searchtext, string size);
 	}
 
 	partial interface IBungieClient
@@ -47,7 +50,7 @@ namespace BungieNet.Api
 			if (type is null)
 				throw new ArgumentNullException(nameof(type));
 			string[] pathSegments = new string[] { "Content", "GetContentType", type };
-			Uri uri = GetEndpointUri(pathSegments, null);
+			Uri uri = GetEndpointUri(pathSegments, true, null);
 			return GetEntityAsync<Content.Models.ContentTypeDescription>(uri);
 		}
 
@@ -61,7 +64,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("head", head.ToString().ToLower())
 			};
-			Uri uri = GetEndpointUri(pathSegments, queryItems);
+			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
 			return GetEntityAsync<Content.ContentItemPublicContract>(uri);
 		}
 
@@ -79,7 +82,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("head", head.ToString().ToLower())
 			};
-			Uri uri = GetEndpointUri(pathSegments, queryItems);
+			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
 			return GetEntityAsync<Content.ContentItemPublicContract>(uri);
 		}
 
@@ -98,7 +101,7 @@ namespace BungieNet.Api
 				new QueryStringItem("source", (source ?? "")),
 				new QueryStringItem("tag", (tag ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, queryItems);
+			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
 			return GetEntityAsync<SearchResultOfContentItemPublicContract>(uri);
 		}
 
@@ -118,8 +121,20 @@ namespace BungieNet.Api
 				new QueryStringItem("head", head.ToString().ToLower()),
 				new QueryStringItem("itemsperpage", itemsperpage.ToString())
 			};
-			Uri uri = GetEndpointUri(pathSegments, queryItems);
+			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
 			return GetEntityAsync<SearchResultOfContentItemPublicContract>(uri);
+		}
+
+		Content.ContentItemPublicContract[] IContentClient.SearchHelpArticles(string searchtext, string size) => Content.SearchHelpArticlesAsync(searchtext, size).GetAwaiter().GetResult();
+		Task<Content.ContentItemPublicContract[]> IContentClient.SearchHelpArticlesAsync(string searchtext, string size)
+		{
+			if (searchtext is null)
+				throw new ArgumentNullException(nameof(searchtext));
+			if (size is null)
+				throw new ArgumentNullException(nameof(size));
+			string[] pathSegments = new string[] { "Content", "SearchHelpArticles", searchtext, size };
+			Uri uri = GetEndpointUri(pathSegments, false, null);
+			return GetEntityArrayAsync<Content.ContentItemPublicContract>(uri);
 		}
 	}
 }

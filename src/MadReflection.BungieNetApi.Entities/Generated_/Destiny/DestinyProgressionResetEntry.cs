@@ -8,27 +8,20 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json;
 
 namespace BungieNet.Destiny
 {
 	/// <summary>
-	/// A flags enumeration/bitmask indicating the versions of the game that a given user has purchased.
+	/// Represents a season and the number of resets you had in that season.
+	///  We do not necessarily - even for progressions with resets - track it over all seasons. So be careful and check the season numbers being returned.
 	/// </summary>
-	[Flags]
-	public enum DestinyGameVersions
+	public partial class DestinyProgressionResetEntry
 	{
-		None = 0x0,
+		[JsonProperty("season")]
+		public int Season { get; set; }
 
-		Destiny2 = 0x1,
-
-		DLC1 = 0x2,
-
-		DLC2 = 0x4,
-
-		Forsaken = 0x8,
-
-		YearTwoAnnualPass = 0x10,
-
-		Shadowkeep = 0x20
+		[JsonProperty("resets")]
+		public int Resets { get; set; }
 	}
 }

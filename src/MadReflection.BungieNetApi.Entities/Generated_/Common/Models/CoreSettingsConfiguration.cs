@@ -14,6 +14,9 @@ namespace BungieNet.Common.Models
 {
 	public partial class CoreSettingsConfiguration
 	{
+		[JsonProperty("environment")]
+		public string Environment { get; set; }
+
 		[JsonProperty("systems")]
 		public System.Collections.Generic.Dictionary<string, Common.Models.CoreSystem> Systems { get; set; }
 
@@ -67,5 +70,8 @@ namespace BungieNet.Common.Models
 
 		[JsonProperty("destiny2CoreSettings")]
 		public Common.Models.Destiny2CoreSettings Destiny2CoreSettings { get; set; }
+
+		[JsonProperty("emailSettings")]
+		public User.EmailSettings EmailSettings { get; set; }
 	}
 }

@@ -10,26 +10,17 @@
 using System;
 using Newtonsoft.Json;
 
-namespace BungieNet.Destiny.Definitions
+namespace BungieNet.User
 {
-	public partial class DestinyProgressionDisplayPropertiesDefinition
+	/// <summary>
+	/// Localized text relevant to a given EMail setting in a given localization.
+	/// </summary>
+	public partial class EMailSettingLocalization
 	{
-		[JsonProperty("displayUnitsName")]
-		public string DisplayUnitsName { get; set; }
+		[JsonProperty("title")]
+		public string Title { get; set; }
 
 		[JsonProperty("description")]
 		public string Description { get; set; }
-
-		[JsonProperty("name")]
-		public string Name { get; set; }
-
-		[JsonProperty("icon")]
-		public string Icon { get; set; }
-
-		[JsonProperty("highResIcon")]
-		public string HighResIcon { get; set; }
-
-		[JsonProperty("hasIcon")]
-		public bool HasIcon { get; set; }
 	}
 }

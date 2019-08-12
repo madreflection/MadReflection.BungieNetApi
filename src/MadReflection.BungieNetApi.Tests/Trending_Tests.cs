@@ -8,7 +8,7 @@ namespace MadReflection.BungieNetApi.Tests
 	[TestFixture]
 	public class Trending_Tests
 	{
-		private BungieClient _client;
+		private IBungieClient _client;
 
 
 		[SetUp]

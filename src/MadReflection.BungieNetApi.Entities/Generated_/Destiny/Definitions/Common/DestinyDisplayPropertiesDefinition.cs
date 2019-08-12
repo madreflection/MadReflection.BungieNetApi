@@ -26,6 +26,9 @@ namespace BungieNet.Destiny.Definitions.Common
 		[JsonProperty("icon")]
 		public string Icon { get; set; }
 
+		[JsonProperty("highResIcon")]
+		public string HighResIcon { get; set; }
+
 		[JsonProperty("hasIcon")]
 		public bool HasIcon { get; set; }
 	}
