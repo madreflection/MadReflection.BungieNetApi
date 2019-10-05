@@ -3,11 +3,6 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-####################################################################################################
-## [custom]
-## [/custom]
-####################################################################################################
-
 # User-specific files
 *.rsuser
 *.suo
@@ -18,6 +13,9 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+# Mono auto generated files
+mono_crash.*
+
 # Build results
 [Dd]ebug/
 [Dd]ebug[Pp]ublic/
@@ -25,17 +23,13 @@
 [Rr]eleases/
 [Xx]64/
 [Xx]86/
-[Aa][Mm][Dd]64
-[Bb]uild/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
 bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
-
-# To be deleted
-\!--*
-# Unused but retained
-~--*
+[Ll]ogs/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -49,9 +43,10 @@ Generated\ Files/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
-# NUNIT
+# NUnit
 *.VisualState.xml
 TestResult.xml
+nunit-*.xml
 
 # Build Results of an ATL Project
 [Dd]ebugPS/
@@ -65,7 +60,6 @@ BenchmarkDotNet.Artifacts/
 project.lock.json
 project.fragment.lock.json
 artifacts/
-**/Properties/launchSettings.json
 
 # StyleCop
 StyleCopReport.xml
@@ -133,9 +127,6 @@ _ReSharper*/
 *.[Rr]e[Ss]harper
 *.DotSettings.user
 
-# JustCode is a .NET coding add-in
-.JustCode
-
 # TeamCity is a build add-in
 _TeamCity*
 
@@ -193,6 +184,8 @@ PublishScripts/
 
 # NuGet Packages
 *.nupkg
+# NuGet Symbol Packages
+*.snupkg
 # The packages folder can be ignored because of Package Restore
 **/[Pp]ackages/*
 # except build/, which is used as an MSBuild target.
@@ -217,12 +210,14 @@ BundleArtifacts/
 Package.StoreAssociation.xml
 _pkginfo.txt
 *.appx
+*.appxbundle
+*.appxupload
 
 # Visual Studio cache files
 # files ending in .cache can be ignored
 *.[Cc]ache
 # but keep track of directories ending in .cache
-!*.[Cc]ache/
+!?*.[Cc]ache/
 
 # Others
 ClientBin/
@@ -266,6 +261,9 @@ ServiceFabricBackup/
 *.bim.layout
 *.bim_*.settings
 *.rptproj.rsuser
+*- [Bb]ackup.rdl
+*- [Bb]ackup ([0-9]).rdl
+*- [Bb]ackup ([0-9][0-9]).rdl
 
 # Microsoft Fakes
 FakesAssemblies/
@@ -301,10 +299,6 @@ paket-files/
 # FAKE - F# Make
 .fake/
 
-# JetBrains Rider
-.idea/
-*.sln.iml
-
 # CodeRush personal settings
 .cr/personal
 
@@ -313,8 +307,8 @@ __pycache__/
 *.pyc
 
 # Cake - Uncomment if you are using it
-tools/**
-!tools/packages.config
+# tools/**
+# !tools/packages.config
 
 # Tabs Studio
 *.tss
@@ -345,3 +339,27 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+# BeatPulse healthcheck temp database
+healthchecksdb
+
+# Backup folder for Package Reference Convert tool in Visual Studio 2017
+MigrationBackup/
+
+# Ionide (cross platform F# VS Code tools) working folder
+.ionide/
+
+####################################################################################################
+## [custom]
+
+# To be deleted
+\!--*
+# Unused but retained
+~--*
+
+VisualStudio.gitignore
+
+**/Properties/launchSettings.json
+
+## [/custom]
+####################################################################################################
