@@ -18,11 +18,11 @@ namespace BungieNet.Destiny.Components.Items
 	/// </summary>
 	public partial class DestinyItemPlugComponent
 	{
-		[JsonProperty("plugItemHash")]
-		public uint PlugItemHash { get; set; }
-
 		[JsonProperty("plugObjectives")]
 		public Destiny.Quests.DestinyObjectiveProgress[] PlugObjectives { get; set; }
+
+		[JsonProperty("plugItemHash")]
+		public uint PlugItemHash { get; set; }
 
 		[JsonProperty("canInsert")]
 		public bool CanInsert { get; set; }

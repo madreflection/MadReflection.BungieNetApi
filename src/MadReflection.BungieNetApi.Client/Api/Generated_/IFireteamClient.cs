@@ -18,11 +18,11 @@ namespace BungieNet.Api
 		int GetActivePrivateClanFireteamCount(long groupId);
 		Task<int> GetActivePrivateClanFireteamCountAsync(long groupId);
 
-		SearchResultOfFireteamSummary GetAvailableClanFireteams(long groupId, Fireteam.FireteamPlatform platform, Fireteam.FireteamActivityType activityType, Fireteam.FireteamDateRange dateRange, Fireteam.FireteamSlotSearch slotFilter, Fireteam.FireteamPublicSearchOption publicOnly, int page, string langFilter);
-		Task<SearchResultOfFireteamSummary> GetAvailableClanFireteamsAsync(long groupId, Fireteam.FireteamPlatform platform, Fireteam.FireteamActivityType activityType, Fireteam.FireteamDateRange dateRange, Fireteam.FireteamSlotSearch slotFilter, Fireteam.FireteamPublicSearchOption publicOnly, int page, string langFilter);
+		SearchResultOfFireteamSummary GetAvailableClanFireteams(long groupId, Fireteam.FireteamPlatform platform, int activityType, Fireteam.FireteamDateRange dateRange, Fireteam.FireteamSlotSearch slotFilter, Fireteam.FireteamPublicSearchOption publicOnly, int page, string langFilter);
+		Task<SearchResultOfFireteamSummary> GetAvailableClanFireteamsAsync(long groupId, Fireteam.FireteamPlatform platform, int activityType, Fireteam.FireteamDateRange dateRange, Fireteam.FireteamSlotSearch slotFilter, Fireteam.FireteamPublicSearchOption publicOnly, int page, string langFilter);
 
-		SearchResultOfFireteamSummary SearchPublicAvailableClanFireteams(Fireteam.FireteamPlatform platform, Fireteam.FireteamActivityType activityType, Fireteam.FireteamDateRange dateRange, Fireteam.FireteamSlotSearch slotFilter, int page, string langFilter);
-		Task<SearchResultOfFireteamSummary> SearchPublicAvailableClanFireteamsAsync(Fireteam.FireteamPlatform platform, Fireteam.FireteamActivityType activityType, Fireteam.FireteamDateRange dateRange, Fireteam.FireteamSlotSearch slotFilter, int page, string langFilter);
+		SearchResultOfFireteamSummary SearchPublicAvailableClanFireteams(Fireteam.FireteamPlatform platform, int activityType, Fireteam.FireteamDateRange dateRange, Fireteam.FireteamSlotSearch slotFilter, int page, string langFilter);
+		Task<SearchResultOfFireteamSummary> SearchPublicAvailableClanFireteamsAsync(Fireteam.FireteamPlatform platform, int activityType, Fireteam.FireteamDateRange dateRange, Fireteam.FireteamSlotSearch slotFilter, int page, string langFilter);
 
 		SearchResultOfFireteamResponse GetMyClanFireteams(long groupId, Fireteam.FireteamPlatform platform, bool includeClosed, int page, bool groupFilter, string langFilter);
 		Task<SearchResultOfFireteamResponse> GetMyClanFireteamsAsync(long groupId, Fireteam.FireteamPlatform platform, bool includeClosed, int page, bool groupFilter, string langFilter);
@@ -49,10 +49,10 @@ namespace BungieNet.Api
 			return GetEntityAsync<int>(uri);
 		}
 
-		SearchResultOfFireteamSummary IFireteamClient.GetAvailableClanFireteams(long groupId, Fireteam.FireteamPlatform platform, Fireteam.FireteamActivityType activityType, Fireteam.FireteamDateRange dateRange, Fireteam.FireteamSlotSearch slotFilter, Fireteam.FireteamPublicSearchOption publicOnly, int page, string langFilter) => Fireteam.GetAvailableClanFireteamsAsync(groupId, platform, activityType, dateRange, slotFilter, publicOnly, page, langFilter).GetAwaiter().GetResult();
-		Task<SearchResultOfFireteamSummary> IFireteamClient.GetAvailableClanFireteamsAsync(long groupId, Fireteam.FireteamPlatform platform, Fireteam.FireteamActivityType activityType, Fireteam.FireteamDateRange dateRange, Fireteam.FireteamSlotSearch slotFilter, Fireteam.FireteamPublicSearchOption publicOnly, int page, string langFilter)
+		SearchResultOfFireteamSummary IFireteamClient.GetAvailableClanFireteams(long groupId, Fireteam.FireteamPlatform platform, int activityType, Fireteam.FireteamDateRange dateRange, Fireteam.FireteamSlotSearch slotFilter, Fireteam.FireteamPublicSearchOption publicOnly, int page, string langFilter) => Fireteam.GetAvailableClanFireteamsAsync(groupId, platform, activityType, dateRange, slotFilter, publicOnly, page, langFilter).GetAwaiter().GetResult();
+		Task<SearchResultOfFireteamSummary> IFireteamClient.GetAvailableClanFireteamsAsync(long groupId, Fireteam.FireteamPlatform platform, int activityType, Fireteam.FireteamDateRange dateRange, Fireteam.FireteamSlotSearch slotFilter, Fireteam.FireteamPublicSearchOption publicOnly, int page, string langFilter)
 		{
-			string[] pathSegments = new string[] { "Fireteam", "Clan", groupId.ToString(), "Available", ((byte)platform).ToString(), ((int)activityType).ToString(), ((byte)dateRange).ToString(), ((byte)slotFilter).ToString(), ((byte)publicOnly).ToString(), page.ToString() };
+			string[] pathSegments = new string[] { "Fireteam", "Clan", groupId.ToString(), "Available", ((byte)platform).ToString(), activityType.ToString(), ((byte)dateRange).ToString(), ((byte)slotFilter).ToString(), ((byte)publicOnly).ToString(), page.ToString() };
 			System.Collections.Generic.List<QueryStringItem> queryItems = new System.Collections.Generic.List<QueryStringItem>()
 			{
 				new QueryStringItem("langFilter", (langFilter ?? ""))
@@ -61,10 +61,10 @@ namespace BungieNet.Api
 			return GetEntityAsync<SearchResultOfFireteamSummary>(uri);
 		}
 
-		SearchResultOfFireteamSummary IFireteamClient.SearchPublicAvailableClanFireteams(Fireteam.FireteamPlatform platform, Fireteam.FireteamActivityType activityType, Fireteam.FireteamDateRange dateRange, Fireteam.FireteamSlotSearch slotFilter, int page, string langFilter) => Fireteam.SearchPublicAvailableClanFireteamsAsync(platform, activityType, dateRange, slotFilter, page, langFilter).GetAwaiter().GetResult();
-		Task<SearchResultOfFireteamSummary> IFireteamClient.SearchPublicAvailableClanFireteamsAsync(Fireteam.FireteamPlatform platform, Fireteam.FireteamActivityType activityType, Fireteam.FireteamDateRange dateRange, Fireteam.FireteamSlotSearch slotFilter, int page, string langFilter)
+		SearchResultOfFireteamSummary IFireteamClient.SearchPublicAvailableClanFireteams(Fireteam.FireteamPlatform platform, int activityType, Fireteam.FireteamDateRange dateRange, Fireteam.FireteamSlotSearch slotFilter, int page, string langFilter) => Fireteam.SearchPublicAvailableClanFireteamsAsync(platform, activityType, dateRange, slotFilter, page, langFilter).GetAwaiter().GetResult();
+		Task<SearchResultOfFireteamSummary> IFireteamClient.SearchPublicAvailableClanFireteamsAsync(Fireteam.FireteamPlatform platform, int activityType, Fireteam.FireteamDateRange dateRange, Fireteam.FireteamSlotSearch slotFilter, int page, string langFilter)
 		{
-			string[] pathSegments = new string[] { "Fireteam", "Search", "Available", ((byte)platform).ToString(), ((int)activityType).ToString(), ((byte)dateRange).ToString(), ((byte)slotFilter).ToString(), page.ToString() };
+			string[] pathSegments = new string[] { "Fireteam", "Search", "Available", ((byte)platform).ToString(), activityType.ToString(), ((byte)dateRange).ToString(), ((byte)slotFilter).ToString(), page.ToString() };
 			System.Collections.Generic.List<QueryStringItem> queryItems = new System.Collections.Generic.List<QueryStringItem>()
 			{
 				new QueryStringItem("langFilter", (langFilter ?? ""))

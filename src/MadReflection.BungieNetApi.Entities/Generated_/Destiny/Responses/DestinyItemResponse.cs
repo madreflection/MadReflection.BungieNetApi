@@ -43,5 +43,11 @@ namespace BungieNet.Destiny.Responses
 
 		[JsonProperty("sockets")]
 		public SingleComponentResponseOfDestinyItemSocketsComponent Sockets { get; set; }
+
+		[JsonProperty("reusablePlugs")]
+		public SingleComponentResponseOfDestinyItemReusablePlugsComponent ReusablePlugs { get; set; }
+
+		[JsonProperty("plugObjectives")]
+		public SingleComponentResponseOfDestinyItemPlugObjectivesComponent PlugObjectives { get; set; }
 	}
 }

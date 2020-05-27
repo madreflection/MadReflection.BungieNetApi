@@ -19,5 +19,8 @@ namespace BungieNet.Components
 	{
 		[JsonProperty("privacy")]
 		public Components.ComponentPrivacySetting Privacy { get; set; }
+
+		[JsonProperty("disabled")]
+		public bool? Disabled { get; set; }
 	}
 }

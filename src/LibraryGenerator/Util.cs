@@ -11,12 +11,12 @@ namespace LibraryGenerator
 		{
 			{ typeof(long),   new EnumFieldTypeMetadata("long",   "0x{0:X}", "0x{0:x}") },
 			{ typeof(ulong),  new EnumFieldTypeMetadata("ulong",  "0x{0:X}", "0x{0:x}") },
-			{ typeof(int),    new EnumFieldTypeMetadata("int",    "0x{0:X}",  "0x{0:x}")  },
-			{ typeof(uint),   new EnumFieldTypeMetadata("uint",   "0x{0:X}",  "0x{0:x}")  },
-			{ typeof(short),  new EnumFieldTypeMetadata("short",  "0x{0:X}",  "0x{0:x}")  },
-			{ typeof(ushort), new EnumFieldTypeMetadata("ushort", "0x{0:X}",  "0x{0:x}")  },
-			{ typeof(byte),   new EnumFieldTypeMetadata("byte",   "0x{0:X}",  "0x{0:x}")  },
-			{ typeof(sbyte),  new EnumFieldTypeMetadata("sbyte",  "0x{0:X}",  "0x{0:x}")  }
+			{ typeof(int),    new EnumFieldTypeMetadata("int",    "0x{0:X}", "0x{0:x}") },
+			{ typeof(uint),   new EnumFieldTypeMetadata("uint",   "0x{0:X}", "0x{0:x}") },
+			{ typeof(short),  new EnumFieldTypeMetadata("short",  "0x{0:X}", "0x{0:x}") },
+			{ typeof(ushort), new EnumFieldTypeMetadata("ushort", "0x{0:X}", "0x{0:x}") },
+			{ typeof(byte),   new EnumFieldTypeMetadata("byte",   "0x{0:X}", "0x{0:x}") },
+			{ typeof(sbyte),  new EnumFieldTypeMetadata("sbyte",  "0x{0:X}", "0x{0:x}") }
 		};
 		#endregion
 
@@ -48,25 +48,10 @@ namespace LibraryGenerator
 			if (underlyingType == null)
 				throw new ArgumentNullException(nameof(underlyingType));
 
-			if (underlyingType == typeof(int))
-				return "int";
-			if (underlyingType == typeof(long))
-				return "long";
-			if (underlyingType == typeof(short))
-				return "short";
-			if (underlyingType == typeof(byte))
-				return "byte";
-			if (underlyingType == typeof(uint))
-				return "uint";
-			if (underlyingType == typeof(ulong))
-				return "ulong";
-			if (underlyingType == typeof(ushort))
-				return "ushort";
-			if (underlyingType == typeof(sbyte))
-				return "sbyte";
+			if (_enumUnderlyingTypes.TryGetValue(underlyingType, out EnumFieldTypeMetadata meta))
+				return meta.Keyword;
 
 			throw new ArgumentException("Invalid field type for an enum.", nameof(underlyingType));
-			//return "int";
 		}
 
 		public static Type GetEnumUnderlyingType(string format)

@@ -17,6 +17,9 @@ namespace BungieNet.Content.Models
 		[JsonProperty("name")]
 		public string Name { get; set; }
 
+		[JsonProperty("rootPropertyName")]
+		public string RootPropertyName { get; set; }
+
 		[JsonProperty("readableName")]
 		public string ReadableName { get; set; }
 

@@ -47,7 +47,22 @@ namespace BungieNet.Destiny.Definitions.Records
 		[JsonProperty("expirationInfo")]
 		public Destiny.Definitions.Records.DestinyRecordExpirationBlock ExpirationInfo { get; set; }
 
+		[JsonProperty("intervalInfo")]
+		public Destiny.Definitions.Records.DestinyRecordIntervalBlock IntervalInfo { get; set; }
+
 		[JsonProperty("rewardItems")]
 		public Destiny.DestinyItemQuantity[] RewardItems { get; set; }
+
+		[JsonProperty("presentationNodeType")]
+		public Destiny.DestinyPresentationNodeType PresentationNodeType { get; set; }
+
+		[JsonProperty("traitIds")]
+		public string[] TraitIds { get; set; }
+
+		[JsonProperty("traitHashes")]
+		public uint[] TraitHashes { get; set; }
+
+		[JsonProperty("parentNodeHashes")]
+		public uint[] ParentNodeHashes { get; set; }
 	}
 }

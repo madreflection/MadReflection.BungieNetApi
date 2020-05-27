@@ -16,5 +16,11 @@ namespace BungieNet.Destiny.Components.Collectibles
 	{
 		[JsonProperty("collectibles")]
 		public System.Collections.Generic.Dictionary<uint, Destiny.Components.Collectibles.DestinyCollectibleComponent> Collectibles { get; set; }
+
+		[JsonProperty("collectionCategoriesRootNodeHash")]
+		public uint CollectionCategoriesRootNodeHash { get; set; }
+
+		[JsonProperty("collectionBadgesRootNodeHash")]
+		public uint CollectionBadgesRootNodeHash { get; set; }
 	}
 }

@@ -67,6 +67,10 @@ namespace BungieNet.Destiny
 
 		Bounty = 26,
 
-		Wrapper = 27
+		Wrapper = 27,
+
+		SeasonalArtifact = 28,
+
+		Finisher = 29
 	}
 }

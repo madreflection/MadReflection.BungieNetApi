@@ -32,6 +32,9 @@ namespace BungieNet.GroupsV2
 		[JsonProperty("groupJoinInviteCount")]
 		public int GroupJoinInviteCount { get; set; }
 
+		[JsonProperty("currentUserMembershipsInactiveForDestiny")]
+		public bool CurrentUserMembershipsInactiveForDestiny { get; set; }
+
 		[JsonProperty("currentUserMemberMap")]
 		public System.Collections.Generic.Dictionary<BungieMembershipType, GroupsV2.GroupMember> CurrentUserMemberMap { get; set; }
 

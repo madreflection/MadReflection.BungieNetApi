@@ -126,6 +126,19 @@ namespace BungieNet.Destiny
 		ItemPlugStates = 308,
 
 		/// <summary>
+		/// Sometimes, plugs have objectives on them. This data can get really large, so we split it into its own component. Please, don't grab it unless you need it.
+		/// </summary>
+		ItemPlugObjectives = 309,
+
+		/// <summary>
+		/// Sometimes, designers create thousands of reusable plugs and suddenly your response sizes are almost 3MB, and something has to give.
+		///  Reusable Plugs were split off as their own component, away from ItemSockets, as a result of the Plug changes in Shadowkeep that made plug data infeasibly large for the most common use cases.
+		///  Request this component if and only if you need to know what plugs *could* be inserted into a socket, and need to know it before "drilling" into the details of an item in your application (for instance, if you're doing some sort of interesting sorting or aggregation based on available plugs.
+		///  When you get this, you will also need to combine it with "Plug Sets" data if you want a full picture of all of the available plugs: this component will only return plugs that have state data that is per-item. See Plug Sets for available plugs that have Character, Profile, or no state-specific restrictions.
+		/// </summary>
+		ItemReusablePlugs = 310,
+
+		/// <summary>
 		/// When obtaining vendor information, this will return summary information about the Vendor or Vendors being returned.
 		/// </summary>
 		Vendors = 400,
@@ -163,6 +176,16 @@ namespace BungieNet.Destiny
 		/// <summary>
 		/// Returns summary status information about all "Records" (also known in the game as "Triumphs". I know, it's confusing because there's also "Moments of Triumph" that will themselves be represented as "Triumphs.")
 		/// </summary>
-		Records = 900
+		Records = 900,
+
+		/// <summary>
+		/// Returns information that Bungie considers to be "Transitory": data that may change too frequently or come from a non-authoritative source such that we don't consider the data to be fully trustworthy, but that might prove useful for some limited use cases. We can provide no guarantee of timeliness nor consistency for this data: buyer beware with the Transitory component.
+		/// </summary>
+		Transitory = 1000,
+
+		/// <summary>
+		/// Returns summary status information about all "Metrics" (also known in the game as "Stat Trackers").
+		/// </summary>
+		Metrics = 1100
 	}
 }

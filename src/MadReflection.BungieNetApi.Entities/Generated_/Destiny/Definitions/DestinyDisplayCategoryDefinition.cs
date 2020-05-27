@@ -17,6 +17,9 @@ namespace BungieNet.Destiny.Definitions
 	/// </summary>
 	public partial class DestinyDisplayCategoryDefinition
 	{
+		[JsonProperty("index")]
+		public int Index { get; set; }
+
 		[JsonProperty("identifier")]
 		public string Identifier { get; set; }
 

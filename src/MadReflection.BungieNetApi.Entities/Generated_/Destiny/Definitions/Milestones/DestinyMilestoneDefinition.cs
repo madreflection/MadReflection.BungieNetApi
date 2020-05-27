@@ -31,6 +31,9 @@ namespace BungieNet.Destiny.Definitions.Milestones
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
 
+		[JsonProperty("displayPreference")]
+		public Destiny.Definitions.Milestones.DestinyMilestoneDisplayPreference DisplayPreference { get; set; }
+
 		[JsonProperty("image")]
 		public string Image { get; set; }
 

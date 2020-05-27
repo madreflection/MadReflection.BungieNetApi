@@ -36,7 +36,7 @@ namespace BungieNet.GroupsV2
 		public string ResolveMessage { get; set; }
 
 		[JsonProperty("destinyUserInfo")]
-		public User.UserInfoCard DestinyUserInfo { get; set; }
+		public GroupsV2.GroupUserInfoCard DestinyUserInfo { get; set; }
 
 		[JsonProperty("bungieNetUserInfo")]
 		public User.UserInfoCard BungieNetUserInfo { get; set; }

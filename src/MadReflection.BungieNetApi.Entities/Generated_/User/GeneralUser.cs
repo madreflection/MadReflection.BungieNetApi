@@ -103,5 +103,14 @@ namespace BungieNet.User
 
 		[JsonProperty("blizzardDisplayName")]
 		public string BlizzardDisplayName { get; set; }
+
+		[JsonProperty("steamDisplayName")]
+		public string SteamDisplayName { get; set; }
+
+		[JsonProperty("stadiaDisplayName")]
+		public string StadiaDisplayName { get; set; }
+
+		[JsonProperty("twitchDisplayName")]
+		public string TwitchDisplayName { get; set; }
 	}
 }

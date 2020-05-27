@@ -34,5 +34,8 @@ namespace BungieNet.Destiny.Entities.Characters
 
 		[JsonProperty("checklists")]
 		public System.Collections.Generic.Dictionary<uint, System.Collections.Generic.Dictionary<uint, bool>> Checklists { get; set; }
+
+		[JsonProperty("seasonalArtifact")]
+		public Destiny.Artifacts.DestinyArtifactCharacterScoped SeasonalArtifact { get; set; }
 	}
 }

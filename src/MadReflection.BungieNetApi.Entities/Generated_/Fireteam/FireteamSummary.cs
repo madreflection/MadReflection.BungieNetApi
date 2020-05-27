@@ -24,7 +24,7 @@ namespace BungieNet.Fireteam
 		public Fireteam.FireteamPlatform Platform { get; set; }
 
 		[JsonProperty("activityType")]
-		public Fireteam.FireteamActivityType ActivityType { get; set; }
+		public int ActivityType { get; set; }
 
 		[JsonProperty("isImmediate")]
 		public bool IsImmediate { get; set; }
@@ -67,5 +67,8 @@ namespace BungieNet.Fireteam
 
 		[JsonProperty("datePlayerModified")]
 		public DateTime DatePlayerModified { get; set; }
+
+		[JsonProperty("titleBeforeModeration")]
+		public string TitleBeforeModeration { get; set; }
 	}
 }

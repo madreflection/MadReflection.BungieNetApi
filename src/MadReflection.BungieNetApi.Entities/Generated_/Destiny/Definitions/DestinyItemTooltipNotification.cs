@@ -8,16 +8,16 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json;
 
-namespace BungieNet.Partnerships
+namespace BungieNet.Destiny.Definitions
 {
-	/// <summary>
-	/// Representing external partners to which BNet users can link accounts, but that are not Account System credentials: partnerships that BNet uses exclusively for data.
-	/// </summary>
-	public enum PartnershipType
+	public partial class DestinyItemTooltipNotification
 	{
-		None = 0,
+		[JsonProperty("displayString")]
+		public string DisplayString { get; set; }
 
-		Twitch = 1
+		[JsonProperty("displayStyle")]
+		public string DisplayStyle { get; set; }
 	}
 }

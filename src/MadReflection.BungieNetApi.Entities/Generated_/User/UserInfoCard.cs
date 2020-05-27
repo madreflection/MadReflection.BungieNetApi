@@ -23,6 +23,15 @@ namespace BungieNet.User
 		[JsonProperty("iconPath")]
 		public string IconPath { get; set; }
 
+		[JsonProperty("crossSaveOverride")]
+		public BungieMembershipType CrossSaveOverride { get; set; }
+
+		[JsonProperty("applicableMembershipTypes")]
+		public BungieMembershipType[] ApplicableMembershipTypes { get; set; }
+
+		[JsonProperty("isPublic")]
+		public bool IsPublic { get; set; }
+
 		[JsonProperty("membershipType")]
 		public BungieMembershipType MembershipType { get; set; }
 

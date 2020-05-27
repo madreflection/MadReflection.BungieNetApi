@@ -40,5 +40,17 @@ namespace BungieNet.Destiny.Definitions.Collectibles
 
 		[JsonProperty("presentationInfo")]
 		public Destiny.Definitions.Presentation.DestinyPresentationChildBlock PresentationInfo { get; set; }
+
+		[JsonProperty("presentationNodeType")]
+		public Destiny.DestinyPresentationNodeType PresentationNodeType { get; set; }
+
+		[JsonProperty("traitIds")]
+		public string[] TraitIds { get; set; }
+
+		[JsonProperty("traitHashes")]
+		public uint[] TraitHashes { get; set; }
+
+		[JsonProperty("parentNodeHashes")]
+		public uint[] ParentNodeHashes { get; set; }
 	}
 }

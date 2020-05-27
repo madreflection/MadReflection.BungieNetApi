@@ -214,7 +214,7 @@ namespace LibraryGenerator
 		{
 			foreach (var (typeName, typeBuilder) in _generatedTypes)
 			{
-				if (typeName == "#/components/schemas/Destiny.Definitions.DestinyDefinition")
+				if (typeName == TypeReference.ComponentsSchemasRootPath + "Destiny.Definitions.DestinyDefinition")
 					continue;
 
 				if (typeBuilder is ClassBuilder classBuilder)
@@ -230,9 +230,8 @@ namespace LibraryGenerator
 						properties.Remove(hashProperty);
 						properties.Remove(indexProperty);
 						properties.Remove(redactedProperty);
-						classBuilder.BaseType = "#/components/schemas/Destiny.Definitions.DestinyDefinition";
+						classBuilder.BaseType = TypeReference.ComponentsSchemasRootPath + "Destiny.Definitions.DestinyDefinition";
 					}
-
 				}
 			}
 		}
@@ -700,7 +699,7 @@ namespace LibraryGenerator
 				var typeReference = lastParameterBuilder.Type;
 				if (typeReference.IsTypeBuilder)
 				{
-					if (typeReference.TypeBuilder is ArrayBuilder arrayBuilder && arrayBuilder.ElementType.JsonPath == "#/components/schemas/Destiny.DestinyComponentType")
+					if (typeReference.TypeBuilder is ArrayBuilder arrayBuilder && arrayBuilder.ElementType.JsonPath == TypeReference.ComponentsSchemasRootPath + "Destiny.DestinyComponentType")
 						lastParameterBuilder.IsParams = true;
 				}
 			}

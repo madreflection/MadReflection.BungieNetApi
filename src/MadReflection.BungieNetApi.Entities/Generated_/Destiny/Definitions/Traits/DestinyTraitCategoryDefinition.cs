@@ -10,20 +10,17 @@
 using System;
 using Newtonsoft.Json;
 
-namespace BungieNet.Trending
+namespace BungieNet.Destiny.Definitions.Traits
 {
-	public partial class TrendingEntryCommunityStream
+	public partial class DestinyTraitCategoryDefinition : Destiny.Definitions.DestinyDefinition
 	{
-		[JsonProperty("image")]
-		public string Image { get; set; }
+		[JsonProperty("traitCategoryId")]
+		public string TraitCategoryId { get; set; }
 
-		[JsonProperty("title")]
-		public string Title { get; set; }
+		[JsonProperty("traitHashes")]
+		public uint[] TraitHashes { get; set; }
 
-		[JsonProperty("partnershipIdentifier")]
-		public string PartnershipIdentifier { get; set; }
-
-		[JsonProperty("partnershipType")]
-		public Partnerships.PartnershipType PartnershipType { get; set; }
+		[JsonProperty("traitIds")]
+		public string[] TraitIds { get; set; }
 	}
 }

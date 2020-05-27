@@ -21,6 +21,9 @@ namespace BungieNet.Destiny.Definitions
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
 
+		[JsonProperty("tooltipNotifications")]
+		public Destiny.Definitions.DestinyItemTooltipNotification[] TooltipNotifications { get; set; }
+
 		[JsonProperty("collectibleHash")]
 		public uint? CollectibleHash { get; set; }
 
@@ -90,6 +93,9 @@ namespace BungieNet.Destiny.Definitions
 		[JsonProperty("objectives")]
 		public Destiny.Definitions.DestinyItemObjectiveBlockDefinition Objectives { get; set; }
 
+		[JsonProperty("metrics")]
+		public Destiny.Definitions.DestinyItemMetricBlockDefinition Metrics { get; set; }
+
 		[JsonProperty("plug")]
 		public Destiny.Definitions.Items.DestinyItemPlugDefinition Plug { get; set; }
 
@@ -150,6 +156,12 @@ namespace BungieNet.Destiny.Definitions
 		[JsonProperty("classType")]
 		public Destiny.DestinyClass ClassType { get; set; }
 
+		[JsonProperty("breakerType")]
+		public Destiny.DestinyBreakerType BreakerType { get; set; }
+
+		[JsonProperty("breakerTypeHash")]
+		public uint? BreakerTypeHash { get; set; }
+
 		[JsonProperty("equippable")]
 		public bool Equippable { get; set; }
 
@@ -170,5 +182,8 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("isWrapper")]
 		public bool IsWrapper { get; set; }
+
+		[JsonProperty("traitIds")]
+		public string[] TraitIds { get; set; }
 	}
 }

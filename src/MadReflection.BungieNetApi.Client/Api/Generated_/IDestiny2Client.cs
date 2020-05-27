@@ -21,8 +21,8 @@ namespace BungieNet.Api
 		Destiny.Definitions.DestinyDefinition GetDestinyEntityDefinition(string entityType, uint hashIdentifier);
 		Task<Destiny.Definitions.DestinyDefinition> GetDestinyEntityDefinitionAsync(string entityType, uint hashIdentifier);
 
-		User.UserInfoCard[] SearchDestinyPlayer(BungieMembershipType membershipType, string displayName);
-		Task<User.UserInfoCard[]> SearchDestinyPlayerAsync(BungieMembershipType membershipType, string displayName);
+		User.UserInfoCard[] SearchDestinyPlayer(BungieMembershipType membershipType, string displayName, bool returnOriginalProfile);
+		Task<User.UserInfoCard[]> SearchDestinyPlayerAsync(BungieMembershipType membershipType, string displayName, bool returnOriginalProfile);
 
 		Destiny.Responses.DestinyLinkedProfilesResponse GetLinkedProfiles(BungieMembershipType membershipType, long membershipId, bool getAllMemberships);
 		Task<Destiny.Responses.DestinyLinkedProfilesResponse> GetLinkedProfilesAsync(BungieMembershipType membershipType, long membershipId, bool getAllMemberships);
@@ -152,13 +152,17 @@ namespace BungieNet.Api
 			return GetEntityAsync<Destiny.Definitions.DestinyDefinition>(uri);
 		}
 
-		User.UserInfoCard[] IDestiny2Client.SearchDestinyPlayer(BungieMembershipType membershipType, string displayName) => Destiny2.SearchDestinyPlayerAsync(membershipType, displayName).GetAwaiter().GetResult();
-		Task<User.UserInfoCard[]> IDestiny2Client.SearchDestinyPlayerAsync(BungieMembershipType membershipType, string displayName)
+		User.UserInfoCard[] IDestiny2Client.SearchDestinyPlayer(BungieMembershipType membershipType, string displayName, bool returnOriginalProfile) => Destiny2.SearchDestinyPlayerAsync(membershipType, displayName, returnOriginalProfile).GetAwaiter().GetResult();
+		Task<User.UserInfoCard[]> IDestiny2Client.SearchDestinyPlayerAsync(BungieMembershipType membershipType, string displayName, bool returnOriginalProfile)
 		{
 			if (displayName is null)
 				throw new ArgumentNullException(nameof(displayName));
 			string[] pathSegments = new string[] { "Destiny2", "SearchDestinyPlayer", ((int)membershipType).ToString(), displayName };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			System.Collections.Generic.List<QueryStringItem> queryItems = new System.Collections.Generic.List<QueryStringItem>()
+			{
+				new QueryStringItem("returnOriginalProfile", returnOriginalProfile.ToString().ToLower())
+			};
+			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
 			return GetEntityArrayAsync<User.UserInfoCard>(uri);
 		}
 

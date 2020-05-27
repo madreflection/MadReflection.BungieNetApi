@@ -55,5 +55,8 @@ namespace BungieNet.Destiny
 
 		[JsonProperty("seasonResets")]
 		public Destiny.DestinyProgressionResetEntry[] SeasonResets { get; set; }
+
+		[JsonProperty("rewardItemStates")]
+		public Destiny.DestinyProgressionRewardItemState[] RewardItemStates { get; set; }
 	}
 }

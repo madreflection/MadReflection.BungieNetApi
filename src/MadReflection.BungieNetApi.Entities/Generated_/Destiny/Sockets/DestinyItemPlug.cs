@@ -14,11 +14,11 @@ namespace BungieNet.Destiny.Sockets
 {
 	public partial class DestinyItemPlug
 	{
-		[JsonProperty("plugItemHash")]
-		public uint PlugItemHash { get; set; }
-
 		[JsonProperty("plugObjectives")]
 		public Destiny.Quests.DestinyObjectiveProgress[] PlugObjectives { get; set; }
+
+		[JsonProperty("plugItemHash")]
+		public uint PlugItemHash { get; set; }
 
 		[JsonProperty("canInsert")]
 		public bool CanInsert { get; set; }

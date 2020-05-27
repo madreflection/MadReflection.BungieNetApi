@@ -19,6 +19,8 @@ namespace BungieNet.Destiny
 
 		Collectibles = 2,
 
-		Records = 3
+		Records = 3,
+
+		Metric = 4
 	}
 }

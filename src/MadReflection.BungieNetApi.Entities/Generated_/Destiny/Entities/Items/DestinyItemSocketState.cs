@@ -29,14 +29,5 @@ namespace BungieNet.Destiny.Entities.Items
 
 		[JsonProperty("enableFailIndexes")]
 		public int[] EnableFailIndexes { get; set; }
-
-		[JsonProperty("reusablePlugHashes")]
-		public uint[] ReusablePlugHashes { get; set; }
-
-		[JsonProperty("plugObjectives")]
-		public Destiny.Quests.DestinyObjectiveProgress[] PlugObjectives { get; set; }
-
-		[JsonProperty("reusablePlugs")]
-		public Destiny.Sockets.DestinyItemPlug[] ReusablePlugs { get; set; }
 	}
 }

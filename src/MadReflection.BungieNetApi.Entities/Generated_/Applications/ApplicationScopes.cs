@@ -35,7 +35,7 @@ namespace BungieNet.Applications
 		AdminGroups = 0x8,
 
 		/// <summary>
-		/// Create new groups, clans, and forum posts.
+		/// Create new groups, clans, and forum posts, along with other actions that are reserved for Bungie.net elevated scope: not meant to be used by third party applications.
 		/// </summary>
 		BnetWrite = 0x10,
 
@@ -72,6 +72,11 @@ namespace BungieNet.Applications
 		/// <summary>
 		/// Can perform actions that will result in a prompt to the user via the Destiny app.
 		/// </summary>
-		AdvancedWriteActions = 0x800
+		AdvancedWriteActions = 0x800,
+
+		/// <summary>
+		/// Can user the partner offer api to claim rewards defined for a partner
+		/// </summary>
+		PartnerOfferGrant = 0x1000
 	}
 }

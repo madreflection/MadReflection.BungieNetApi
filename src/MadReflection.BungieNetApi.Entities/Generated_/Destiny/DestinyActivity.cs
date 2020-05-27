@@ -44,5 +44,17 @@ namespace BungieNet.Destiny
 
 		[JsonProperty("difficultyTier")]
 		public Destiny.DestinyActivityDifficultyTier DifficultyTier { get; set; }
+
+		[JsonProperty("challenges")]
+		public Destiny.Challenges.DestinyChallengeStatus[] Challenges { get; set; }
+
+		[JsonProperty("modifierHashes")]
+		public uint[] ModifierHashes { get; set; }
+
+		[JsonProperty("booleanActivityOptions")]
+		public System.Collections.Generic.Dictionary<uint, bool> BooleanActivityOptions { get; set; }
+
+		[JsonProperty("loadoutRequirementIndex")]
+		public int? LoadoutRequirementIndex { get; set; }
 	}
 }

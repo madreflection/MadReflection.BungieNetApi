@@ -19,5 +19,11 @@ namespace BungieNet.Destiny.Components.Records
 
 		[JsonProperty("objectives")]
 		public Destiny.Quests.DestinyObjectiveProgress[] Objectives { get; set; }
+
+		[JsonProperty("intervalObjectives")]
+		public Destiny.Quests.DestinyObjectiveProgress[] IntervalObjectives { get; set; }
+
+		[JsonProperty("intervalsRedeemedCount")]
+		public int IntervalsRedeemedCount { get; set; }
 	}
 }

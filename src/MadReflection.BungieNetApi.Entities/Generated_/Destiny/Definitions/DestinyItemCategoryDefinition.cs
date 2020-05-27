@@ -34,6 +34,9 @@ namespace BungieNet.Destiny.Definitions
 		[JsonProperty("itemTypeRegex")]
 		public string ItemTypeRegex { get; set; }
 
+		[JsonProperty("grantDestinyBreakerType")]
+		public Destiny.DestinyBreakerType GrantDestinyBreakerType { get; set; }
+
 		[JsonProperty("plugCategoryIdentifier")]
 		public string PlugCategoryIdentifier { get; set; }
 
@@ -51,6 +54,9 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("grantDestinyClass")]
 		public Destiny.DestinyClass GrantDestinyClass { get; set; }
+
+		[JsonProperty("traitId")]
+		public string TraitId { get; set; }
 
 		[JsonProperty("groupedCategoryHashes")]
 		public uint[] GroupedCategoryHashes { get; set; }

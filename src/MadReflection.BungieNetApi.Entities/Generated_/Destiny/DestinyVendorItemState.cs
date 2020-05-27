@@ -64,6 +64,21 @@ namespace BungieNet.Destiny
 		/// <summary>
 		/// This indicates that you should show some kind of attention-requesting indicator on the item, in a similar manner to items in the nexus that have such notifications.
 		/// </summary>
-		NexusAttention = 0x200
+		NexusAttention = 0x200,
+
+		/// <summary>
+		/// This indicates that the item has some sort of a 'set' discount.
+		/// </summary>
+		SetDiscount = 0x400,
+
+		/// <summary>
+		/// This indicates that the item has a price drop.
+		/// </summary>
+		PriceDrop = 0x800,
+
+		/// <summary>
+		/// This indicates that the item is a daily offer.
+		/// </summary>
+		DailyOffer = 0x1000
 	}
 }

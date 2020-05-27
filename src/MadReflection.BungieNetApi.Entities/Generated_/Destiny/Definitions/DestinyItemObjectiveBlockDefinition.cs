@@ -44,5 +44,8 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("perObjectiveDisplayProperties")]
 		public Destiny.Definitions.DestinyObjectiveDisplayProperties[] PerObjectiveDisplayProperties { get; set; }
+
+		[JsonProperty("displayAsStatTracker")]
+		public bool DisplayAsStatTracker { get; set; }
 	}
 }

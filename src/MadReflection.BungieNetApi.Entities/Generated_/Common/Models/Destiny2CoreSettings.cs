@@ -26,6 +26,9 @@ namespace BungieNet.Common.Models
 		[JsonProperty("medalsRootNode")]
 		public uint MedalsRootNode { get; set; }
 
+		[JsonProperty("metricsRootNode")]
+		public uint MetricsRootNode { get; set; }
+
 		[JsonProperty("currentRankProgressionHashes")]
 		public uint[] CurrentRankProgressionHashes { get; set; }
 
@@ -40,5 +43,17 @@ namespace BungieNet.Common.Models
 
 		[JsonProperty("ammoTypePrimaryIcon")]
 		public string AmmoTypePrimaryIcon { get; set; }
+
+		[JsonProperty("currentSeasonalArtifactHash")]
+		public uint CurrentSeasonalArtifactHash { get; set; }
+
+		[JsonProperty("currentSeasonHash")]
+		public uint? CurrentSeasonHash { get; set; }
+
+		[JsonProperty("futureSeasonHashes")]
+		public uint[] FutureSeasonHashes { get; set; }
+
+		[JsonProperty("pastSeasonHashes")]
+		public uint[] PastSeasonHashes { get; set; }
 	}
 }

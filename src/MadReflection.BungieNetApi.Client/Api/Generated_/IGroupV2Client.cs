@@ -102,8 +102,8 @@ namespace BungieNet.Api
 		Entities.EntityActionResult[] DenyPendingForList(GroupsV2.GroupApplicationListRequest groupApplicationListRequest, long groupId);
 		Task<Entities.EntityActionResult[]> DenyPendingForListAsync(GroupsV2.GroupApplicationListRequest groupApplicationListRequest, long groupId);
 
-		GroupsV2.GroupMembershipSearchResponse GetGroupsForMember(BungieMembershipType membershipType, long membershipId, GroupsV2.GroupsForMemberFilter filter, GroupsV2.GroupType groupType);
-		Task<GroupsV2.GroupMembershipSearchResponse> GetGroupsForMemberAsync(BungieMembershipType membershipType, long membershipId, GroupsV2.GroupsForMemberFilter filter, GroupsV2.GroupType groupType);
+		GroupsV2.GetGroupsForMemberResponse GetGroupsForMember(BungieMembershipType membershipType, long membershipId, GroupsV2.GroupsForMemberFilter filter, GroupsV2.GroupType groupType);
+		Task<GroupsV2.GetGroupsForMemberResponse> GetGroupsForMemberAsync(BungieMembershipType membershipType, long membershipId, GroupsV2.GroupsForMemberFilter filter, GroupsV2.GroupType groupType);
 
 		GroupsV2.GroupMembershipSearchResponse RecoverGroupForFounder(BungieMembershipType membershipType, long membershipId, GroupsV2.GroupType groupType);
 		Task<GroupsV2.GroupMembershipSearchResponse> RecoverGroupForFounderAsync(BungieMembershipType membershipType, long membershipId, GroupsV2.GroupType groupType);
@@ -384,12 +384,12 @@ namespace BungieNet.Api
 			return PostEntityArrayAsync<GroupsV2.GroupApplicationListRequest, Entities.EntityActionResult>(uri, groupApplicationListRequest);
 		}
 
-		GroupsV2.GroupMembershipSearchResponse IGroupV2Client.GetGroupsForMember(BungieMembershipType membershipType, long membershipId, GroupsV2.GroupsForMemberFilter filter, GroupsV2.GroupType groupType) => GroupV2.GetGroupsForMemberAsync(membershipType, membershipId, filter, groupType).GetAwaiter().GetResult();
-		Task<GroupsV2.GroupMembershipSearchResponse> IGroupV2Client.GetGroupsForMemberAsync(BungieMembershipType membershipType, long membershipId, GroupsV2.GroupsForMemberFilter filter, GroupsV2.GroupType groupType)
+		GroupsV2.GetGroupsForMemberResponse IGroupV2Client.GetGroupsForMember(BungieMembershipType membershipType, long membershipId, GroupsV2.GroupsForMemberFilter filter, GroupsV2.GroupType groupType) => GroupV2.GetGroupsForMemberAsync(membershipType, membershipId, filter, groupType).GetAwaiter().GetResult();
+		Task<GroupsV2.GetGroupsForMemberResponse> IGroupV2Client.GetGroupsForMemberAsync(BungieMembershipType membershipType, long membershipId, GroupsV2.GroupsForMemberFilter filter, GroupsV2.GroupType groupType)
 		{
 			string[] pathSegments = new string[] { "GroupV2", "User", ((int)membershipType).ToString(), membershipId.ToString(), ((int)filter).ToString(), ((int)groupType).ToString() };
 			Uri uri = GetEndpointUri(pathSegments, true, null);
-			return GetEntityAsync<GroupsV2.GroupMembershipSearchResponse>(uri);
+			return GetEntityAsync<GroupsV2.GetGroupsForMemberResponse>(uri);
 		}
 
 		GroupsV2.GroupMembershipSearchResponse IGroupV2Client.RecoverGroupForFounder(BungieMembershipType membershipType, long membershipId, GroupsV2.GroupType groupType) => GroupV2.RecoverGroupForFounderAsync(membershipType, membershipId, groupType).GetAwaiter().GetResult();

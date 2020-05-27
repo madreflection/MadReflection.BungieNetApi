@@ -15,7 +15,10 @@ namespace BungieNet.User
 	public partial class UserMembershipData
 	{
 		[JsonProperty("destinyMemberships")]
-		public User.UserInfoCard[] DestinyMemberships { get; set; }
+		public GroupsV2.GroupUserInfoCard[] DestinyMemberships { get; set; }
+
+		[JsonProperty("primaryMembershipId")]
+		public long? PrimaryMembershipId { get; set; }
 
 		[JsonProperty("bungieNetUser")]
 		public User.GeneralUser BungieNetUser { get; set; }

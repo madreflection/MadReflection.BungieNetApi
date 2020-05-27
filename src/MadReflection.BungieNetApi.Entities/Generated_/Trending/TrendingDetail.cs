@@ -37,8 +37,5 @@ namespace BungieNet.Trending
 
 		[JsonProperty("creation")]
 		public Trending.TrendingEntryCommunityCreation Creation { get; set; }
-
-		[JsonProperty("stream")]
-		public Trending.TrendingEntryCommunityStream Stream { get; set; }
 	}
 }

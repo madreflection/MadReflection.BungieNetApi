@@ -8,17 +8,16 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json;
 
-namespace BungieNet.Community
+namespace BungieNet.Destiny.Definitions
 {
-	public enum CommunityStatusSort
+	/// <summary>
+	/// The metrics available for display and selection on an item.
+	/// </summary>
+	public partial class DestinyItemMetricBlockDefinition
 	{
-		Viewers = 0,
-
-		Trending = 1,
-
-		OverallViewers = 2,
-
-		Followers = 3
+		[JsonProperty("availableMetricCategoryNodeHashes")]
+		public uint[] AvailableMetricCategoryNodeHashes { get; set; }
 	}
 }

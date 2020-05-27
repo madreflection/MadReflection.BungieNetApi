@@ -35,7 +35,7 @@ namespace MadReflection.BungieNetApi.Tests
 		[Test]
 		public void Test02_SearchDestinyPlayer()
 		{
-			UserInfoCard[] result = _client.Destiny2.SearchDestinyPlayer(BungieMembershipType.TigerPsn, Constants.APublicFigure_PsnId);
+			UserInfoCard[] result = _client.Destiny2.SearchDestinyPlayer(BungieMembershipType.TigerPsn, Constants.APublicFigure_PsnId, false);
 		}
 
 		[TestCase(Constants.APublicFigure_MembershipId)]

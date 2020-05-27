@@ -28,5 +28,11 @@ namespace BungieNet.Destiny.Entities.Profiles
 
 		[JsonProperty("characterIds")]
 		public long[] CharacterIds { get; set; }
+
+		[JsonProperty("seasonHashes")]
+		public uint[] SeasonHashes { get; set; }
+
+		[JsonProperty("currentSeasonHash")]
+		public uint? CurrentSeasonHash { get; set; }
 	}
 }

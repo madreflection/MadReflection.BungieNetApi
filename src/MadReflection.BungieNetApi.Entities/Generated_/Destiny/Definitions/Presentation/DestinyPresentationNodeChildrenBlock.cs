@@ -25,5 +25,8 @@ namespace BungieNet.Destiny.Definitions.Presentation
 
 		[JsonProperty("records")]
 		public Destiny.Definitions.Presentation.DestinyPresentationNodeRecordChildEntry[] Records { get; set; }
+
+		[JsonProperty("metrics")]
+		public Destiny.Definitions.Presentation.DestinyPresentationNodeMetricChildEntry[] Metrics { get; set; }
 	}
 }

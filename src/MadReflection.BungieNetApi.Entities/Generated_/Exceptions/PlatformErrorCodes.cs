@@ -122,6 +122,18 @@ namespace BungieNet.Exceptions
 
 		ExPlatformStringValidationError = 53,
 
+		PerApplicationThrottleExceeded = 54,
+
+		PerApplicationAnonymousThrottleExceeded = 55,
+
+		PerApplicationAuthenticatedThrottleExceeded = 56,
+
+		PerUserThrottleExceeded = 57,
+
+		PayloadSignatureVerificationFailure = 58,
+
+		InvalidServiceAuthContext = 59,
+
 		ObsoleteCredentialType = 89,
 
 		UnableToUnPairMobileApp = 90,
@@ -359,6 +371,12 @@ namespace BungieNet.Exceptions
 		MailHookPermissionFailure = 231,
 
 		MailServiceRateLimit = 232,
+
+		UserEmailMustBeVerified = 233,
+
+		UserMustAllowCustomerServiceEmails = 234,
+
+		NonTransactionalEmailSendFailure = 235,
 
 		MessagingUnknownError = 300,
 
@@ -1093,6 +1111,16 @@ namespace BungieNet.Exceptions
 
 		DestinyPublicAccountNotAccessible = 1682,
 
+		DestinyClaimsItemAlreadyClaimed = 1683,
+
+		DestinyClaimsNoInventorySpace = 1684,
+
+		DestinyClaimsRequiredLevelNotMet = 1685,
+
+		DestinyClaimsInvalidState = 1686,
+
+		DestinyNotEnoughRoomForMultipleRewards = 1687,
+
 		FbInvalidRequest = 1800,
 
 		FbRedirectMismatch = 1801,
@@ -1249,6 +1277,24 @@ namespace BungieNet.Exceptions
 
 		RAFTooEarlyToCancelBond = 2056,
 
+		LoyaltyRewardAlreadyRedeemed = 2057,
+
+		UnclaimedLoyaltyRewardEntryNotFound = 2058,
+
+		PartnerOfferPartialFailure = 2059,
+
+		PartnerOfferAlreadyClaimed = 2060,
+
+		PartnerOfferSkuNotFound = 2061,
+
+		PartnerOfferSkuExpired = 2062,
+
+		PartnerOfferPermissionFailure = 2063,
+
+		PartnerOfferNoDestinyAccount = 2064,
+
+		PartnerOfferApplyDataNotFound = 2065,
+
 		ApiExceededMaxKeys = 2100,
 
 		ApiInvalidOrExpiredKey = 2101,
@@ -1281,6 +1327,8 @@ namespace BungieNet.Exceptions
 
 		OAuthAccessTokenExpired = 2115,
 
+		ApplicationTokenKeyIdDoesNotExist = 2116,
+
 		PartnershipInvalidType = 2200,
 
 		PartnershipValidationError = 2201,
@@ -1304,6 +1352,10 @@ namespace BungieNet.Exceptions
 		TwitchAccountNotFound = 2501,
 
 		TwitchCouldNotLoadDestinyInfo = 2502,
+
+		TwitchCouldNotRegisterUser = 2503,
+
+		TwitchCouldNotUnregisterUser = 2504,
 
 		TrendingCategoryNotFound = 2600,
 
@@ -1330,6 +1382,10 @@ namespace BungieNet.Exceptions
 		AwaWriteRequestTokenExpired = 2805,
 
 		AwaWriteRequestTokenUsageLimitReached = 2806,
+
+		SteamWebApiError = 2900,
+
+		SteamWebNullResponseError = 2901,
 
 		ClanFireteamNotFound = 3000,
 
@@ -1387,6 +1443,8 @@ namespace BungieNet.Exceptions
 
 		ClanFireteamInvalidAuthProvider = 3027,
 
+		ClanFireteamInvalidAuthProviderXuid = 3028,
+
 		CrossSaveOverriddenAccountNotFound = 3200,
 
 		CrossSaveTooManyOverriddenPlatforms = 3201,
@@ -1423,6 +1481,48 @@ namespace BungieNet.Exceptions
 
 		ErrorOneAccountDestinyRestriction = 3218,
 
-		AuthVerificationNotLinkedToAccount = 3300
+		CrossSaveMustMigrateToSteam = 3219,
+
+		CrossSaveSteamAlreadyPaired = 3220,
+
+		CrossSaveCannotPairJustSteamAndBlizzard = 3221,
+
+		CrossSaveCannotPairSteamAloneBeforeShadowkeep = 3222,
+
+		AuthVerificationNotLinkedToAccount = 3300,
+
+		PCMigrationMissingBlizzard = 3400,
+
+		PCMigrationMissingSteam = 3401,
+
+		PCMigrationInvalidBlizzard = 3402,
+
+		PCMigrationInvalidSteam = 3403,
+
+		PCMigrationUnknownFailure = 3404,
+
+		PCMigrationUnknownException = 3405,
+
+		PCMigrationNotLinked = 3406,
+
+		PCMigrationAccountsAlreadyUsed = 3407,
+
+		PCMigrationStepFailed = 3408,
+
+		PCMigrationInvalidBlizzardCrossSaveState = 3409,
+
+		PCMigrationDestinationBanned = 3410,
+
+		PCMigrationDestinyFailure = 3411,
+
+		PCMigrationSilverTransferFailed = 3412,
+
+		PCMigrationEntitlementTransferFailed = 3413,
+
+		PCMigrationCannotStompClanFounder = 3414,
+
+		UnsupportedBrowser = 3500,
+
+		StadiaAccountRequired = 3600
 	}
 }

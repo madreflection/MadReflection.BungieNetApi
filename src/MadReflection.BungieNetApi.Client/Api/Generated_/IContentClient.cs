@@ -133,7 +133,7 @@ namespace BungieNet.Api
 			if (size is null)
 				throw new ArgumentNullException(nameof(size));
 			string[] pathSegments = new string[] { "Content", "SearchHelpArticles", searchtext, size };
-			Uri uri = GetEndpointUri(pathSegments, false, null);
+			Uri uri = GetEndpointUri(pathSegments, true, null);
 			return GetEntityArrayAsync<Content.ContentItemPublicContract>(uri);
 		}
 	}

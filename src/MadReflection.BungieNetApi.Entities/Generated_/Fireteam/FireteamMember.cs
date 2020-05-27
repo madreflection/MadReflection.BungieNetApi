@@ -15,7 +15,7 @@ namespace BungieNet.Fireteam
 	public partial class FireteamMember
 	{
 		[JsonProperty("destinyUserInfo")]
-		public User.UserInfoCard DestinyUserInfo { get; set; }
+		public Fireteam.FireteamUserInfoCard DestinyUserInfo { get; set; }
 
 		[JsonProperty("bungieNetUserInfo")]
 		public User.UserInfoCard BungieNetUserInfo { get; set; }

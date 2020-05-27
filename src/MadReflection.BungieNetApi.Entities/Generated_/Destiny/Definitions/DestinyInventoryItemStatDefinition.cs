@@ -29,5 +29,8 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("maximum")]
 		public int Maximum { get; set; }
+
+		[JsonProperty("displayMaximum")]
+		public int? DisplayMaximum { get; set; }
 	}
 }

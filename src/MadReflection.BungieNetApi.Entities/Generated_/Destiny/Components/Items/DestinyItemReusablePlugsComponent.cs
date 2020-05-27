@@ -8,33 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json;
 
-namespace BungieNet.Fireteam
+namespace BungieNet.Destiny.Components.Items
 {
-	public enum FireteamActivityType
+	public partial class DestinyItemReusablePlugsComponent
 	{
-		All = 0,
-
-		Raid = 1,
-
-		Crucible = 2,
-
-		Trials = 3,
-
-		Nightfall = 4,
-
-		Anything = 5,
-
-		Gambit = 6,
-
-		BlindWell = 7,
-
-		EscalationProtocol = 8,
-
-		Forge = 9,
-
-		Reckoning = 10,
-
-		Menagerie = 11
+		[JsonProperty("plugs")]
+		public System.Collections.Generic.Dictionary<int, Destiny.Sockets.DestinyItemPlugBase[]> Plugs { get; set; }
 	}
 }

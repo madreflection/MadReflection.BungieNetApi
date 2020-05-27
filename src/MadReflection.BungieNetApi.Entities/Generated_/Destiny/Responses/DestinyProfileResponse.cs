@@ -50,6 +50,12 @@ namespace BungieNet.Destiny.Responses
 		[JsonProperty("profileCollectibles")]
 		public SingleComponentResponseOfDestinyProfileCollectiblesComponent ProfileCollectibles { get; set; }
 
+		[JsonProperty("profileTransitoryData")]
+		public SingleComponentResponseOfDestinyProfileTransitoryComponent ProfileTransitoryData { get; set; }
+
+		[JsonProperty("metrics")]
+		public SingleComponentResponseOfDestinyMetricsComponent Metrics { get; set; }
+
 		[JsonProperty("characters")]
 		public DictionaryComponentResponseOfint64AndDestinyCharacterComponent Characters { get; set; }
 

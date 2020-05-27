@@ -48,9 +48,6 @@ namespace BungieNet.Destiny.Definitions.Items
 		[JsonProperty("plugStyle")]
 		public Destiny.PlugUiStyles PlugStyle { get; set; }
 
-		[JsonProperty("isPseudoPlug")]
-		public bool IsPseudoPlug { get; set; }
-
 		[JsonProperty("plugAvailability")]
 		public Destiny.PlugAvailabilityMode PlugAvailability { get; set; }
 
@@ -65,5 +62,11 @@ namespace BungieNet.Destiny.Definitions.Items
 
 		[JsonProperty("parentItemOverride")]
 		public Destiny.Definitions.Items.DestinyParentItemOverride ParentItemOverride { get; set; }
+
+		[JsonProperty("energyCapacity")]
+		public Destiny.Definitions.Items.DestinyEnergyCapacityEntry EnergyCapacity { get; set; }
+
+		[JsonProperty("energyCost")]
+		public Destiny.Definitions.Items.DestinyEnergyCostEntry EnergyCost { get; set; }
 	}
 }

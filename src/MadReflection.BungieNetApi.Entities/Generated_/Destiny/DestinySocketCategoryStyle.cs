@@ -24,6 +24,10 @@ namespace BungieNet.Destiny
 
 		Unlockable = 3,
 
-		Intrinsic = 4
+		Intrinsic = 4,
+
+		EnergyMeter = 5,
+
+		LargePerk = 6
 	}
 }

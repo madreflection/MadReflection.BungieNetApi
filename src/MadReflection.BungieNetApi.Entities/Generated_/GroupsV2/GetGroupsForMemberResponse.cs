@@ -10,12 +10,15 @@
 using System;
 using Newtonsoft.Json;
 
-namespace BungieNet
+namespace BungieNet.GroupsV2
 {
-	public partial class SearchResultOfCommunityLiveStatus
+	public partial class GetGroupsForMemberResponse
 	{
+		[JsonProperty("areAllMembershipsInactive")]
+		public System.Collections.Generic.Dictionary<long, bool> AreAllMembershipsInactive { get; set; }
+
 		[JsonProperty("results")]
-		public Community.CommunityLiveStatus[] Results { get; set; }
+		public GroupsV2.GroupMembership[] Results { get; set; }
 
 		[JsonProperty("totalResults")]
 		public int TotalResults { get; set; }

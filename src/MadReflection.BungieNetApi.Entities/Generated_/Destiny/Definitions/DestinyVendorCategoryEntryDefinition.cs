@@ -20,9 +20,6 @@ namespace BungieNet.Destiny.Definitions
 		[JsonProperty("categoryIndex")]
 		public int CategoryIndex { get; set; }
 
-		[JsonProperty("categoryId")]
-		public string CategoryId { get; set; }
-
 		[JsonProperty("sortValue")]
 		public int SortValue { get; set; }
 

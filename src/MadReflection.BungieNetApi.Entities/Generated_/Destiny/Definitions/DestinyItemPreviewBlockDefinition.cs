@@ -24,6 +24,9 @@ namespace BungieNet.Destiny.Definitions
 		[JsonProperty("previewVendorHash")]
 		public uint PreviewVendorHash { get; set; }
 
+		[JsonProperty("artifactHash")]
+		public uint? ArtifactHash { get; set; }
+
 		[JsonProperty("previewActionString")]
 		public string PreviewActionString { get; set; }
 

@@ -14,6 +14,8 @@ namespace BungieNet.User
 	[Flags]
 	public enum OptInFlags : long
 	{
+		None = 0x0,
+
 		Newsletter = 0x1,
 
 		System = 0x2,
@@ -24,6 +26,10 @@ namespace BungieNet.User
 
 		CustomerService = 0x10,
 
-		Social = 0x20
+		Social = 0x20,
+
+		PlayTests = 0x40,
+
+		PlayTestsLocal = 0x80
 	}
 }

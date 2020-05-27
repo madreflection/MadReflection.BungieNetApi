@@ -73,5 +73,8 @@ namespace BungieNet.Common.Models
 
 		[JsonProperty("emailSettings")]
 		public User.EmailSettings EmailSettings { get; set; }
+
+		[JsonProperty("fireteamActivities")]
+		public Common.Models.CoreSetting[] FireteamActivities { get; set; }
 	}
 }

@@ -44,6 +44,9 @@ namespace BungieNet.Destiny.Definitions
 		[JsonProperty("icon")]
 		public string Icon { get; set; }
 
+		[JsonProperty("iconSequences")]
+		public Destiny.Definitions.Common.DestinyIconSequenceDefinition[] IconSequences { get; set; }
+
 		[JsonProperty("highResIcon")]
 		public string HighResIcon { get; set; }
 

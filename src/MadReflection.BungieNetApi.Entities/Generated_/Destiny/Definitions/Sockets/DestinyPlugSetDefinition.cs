@@ -14,7 +14,9 @@ namespace BungieNet.Destiny.Definitions.Sockets
 {
 	/// <summary>
 	/// Sometimes, we have large sets of reusable plugs that are defined identically and thus can (and in some cases, are so large that they *must*) be shared across the places where they are used. These are the definitions for those reusable sets of plugs. 
-	/// See DestinyItemSocketEntryDefinition.plugSource and reusablePlugSetHash for the relationship between these reusable plug sets and the sockets that leverage them (for starters, Emotes).
+	///  See DestinyItemSocketEntryDefinition.plugSource and reusablePlugSetHash for the relationship between these reusable plug sets and the sockets that leverage them (for starters, Emotes).
+	///  As of the release of Shadowkeep (Late 2019), these will begin to be sourced from game content directly - which means there will be many more of them, but it also means we may not get all data that we used to get for them.
+	///  DisplayProperties, in particular, will no longer be guaranteed to contain valid information. We will make a best effort to guess what ought to be populated there where possible, but it will be invalid for many/most plug sets.
 	/// </summary>
 	public partial class DestinyPlugSetDefinition : Destiny.Definitions.DestinyDefinition
 	{
@@ -22,6 +24,9 @@ namespace BungieNet.Destiny.Definitions.Sockets
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
 
 		[JsonProperty("reusablePlugItems")]
-		public Destiny.Definitions.DestinyItemSocketEntryPlugItemDefinition[] ReusablePlugItems { get; set; }
+		public Destiny.Definitions.DestinyItemSocketEntryPlugItemRandomizedDefinition[] ReusablePlugItems { get; set; }
+
+		[JsonProperty("isFakePlugSet")]
+		public bool IsFakePlugSet { get; set; }
 	}
 }

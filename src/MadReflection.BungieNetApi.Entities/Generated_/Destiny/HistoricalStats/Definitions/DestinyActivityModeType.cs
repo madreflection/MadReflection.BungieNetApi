@@ -157,6 +157,20 @@ namespace BungieNet.Destiny.HistoricalStats.Definitions
 
 		Reckoning = 76,
 
-		Menagerie = 77
+		Menagerie = 77,
+
+		VexOffensive = 78,
+
+		NightmareHunt = 79,
+
+		Elimination = 80,
+
+		Momentum = 81,
+
+		Dungeon = 82,
+
+		Sundial = 83,
+
+		TrialsOfOsiris = 84
 	}
 }

@@ -22,8 +22,5 @@ namespace BungieNet.Destiny
 
 		[JsonProperty("value")]
 		public int Value { get; set; }
-
-		[JsonProperty("maximumValue")]
-		public int MaximumValue { get; set; }
 	}
 }

@@ -20,7 +20,28 @@ namespace BungieNet.Destiny.Definitions.Seasons
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
 
+		[JsonProperty("backgroundImagePath")]
+		public string BackgroundImagePath { get; set; }
+
 		[JsonProperty("seasonNumber")]
 		public int SeasonNumber { get; set; }
+
+		[JsonProperty("startDate")]
+		public DateTime? StartDate { get; set; }
+
+		[JsonProperty("endDate")]
+		public DateTime? EndDate { get; set; }
+
+		[JsonProperty("seasonPassHash")]
+		public uint? SeasonPassHash { get; set; }
+
+		[JsonProperty("seasonPassProgressionHash")]
+		public uint? SeasonPassProgressionHash { get; set; }
+
+		[JsonProperty("artifactItemHash")]
+		public uint? ArtifactItemHash { get; set; }
+
+		[JsonProperty("sealPresentationNodeHash")]
+		public uint? SealPresentationNodeHash { get; set; }
 	}
 }

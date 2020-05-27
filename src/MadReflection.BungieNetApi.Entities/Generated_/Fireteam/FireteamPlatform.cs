@@ -19,6 +19,10 @@ namespace BungieNet.Fireteam
 
 		XboxOne = 2,
 
-		Blizzard = 3
+		Blizzard = 3,
+
+		Steam = 4,
+
+		Stadia = 5
 	}
 }

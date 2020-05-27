@@ -17,20 +17,32 @@ namespace BungieNet.Destiny.Responses
 		[JsonProperty("dateLastPlayed")]
 		public DateTime DateLastPlayed { get; set; }
 
-		[JsonProperty("applicableMembershipTypes")]
-		public BungieMembershipType[] ApplicableMembershipTypes { get; set; }
-
 		[JsonProperty("isOverridden")]
 		public bool IsOverridden { get; set; }
 
 		[JsonProperty("isCrossSavePrimary")]
 		public bool IsCrossSavePrimary { get; set; }
 
+		[JsonProperty("platformSilver")]
+		public Destiny.Components.Inventory.DestinyPlatformSilverComponent PlatformSilver { get; set; }
+
+		[JsonProperty("unpairedGameVersions")]
+		public UnpairedGameVersions? UnpairedGameVersions { get; set; }
+
 		[JsonProperty("supplementalDisplayName")]
 		public string SupplementalDisplayName { get; set; }
 
 		[JsonProperty("iconPath")]
 		public string IconPath { get; set; }
+
+		[JsonProperty("crossSaveOverride")]
+		public BungieMembershipType CrossSaveOverride { get; set; }
+
+		[JsonProperty("applicableMembershipTypes")]
+		public BungieMembershipType[] ApplicableMembershipTypes { get; set; }
+
+		[JsonProperty("isPublic")]
+		public bool IsPublic { get; set; }
 
 		[JsonProperty("membershipType")]
 		public BungieMembershipType MembershipType { get; set; }

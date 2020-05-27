@@ -29,6 +29,12 @@ namespace BungieNet
 		[JsonProperty("sockets")]
 		public DictionaryComponentResponseOfuint32AndDestinyItemSocketsComponent Sockets { get; set; }
 
+		[JsonProperty("reusablePlugs")]
+		public DictionaryComponentResponseOfuint32AndDestinyItemReusablePlugsComponent ReusablePlugs { get; set; }
+
+		[JsonProperty("plugObjectives")]
+		public DictionaryComponentResponseOfuint32AndDestinyItemPlugObjectivesComponent PlugObjectives { get; set; }
+
 		[JsonProperty("talentGrids")]
 		public DictionaryComponentResponseOfuint32AndDestinyItemTalentGridComponent TalentGrids { get; set; }
 

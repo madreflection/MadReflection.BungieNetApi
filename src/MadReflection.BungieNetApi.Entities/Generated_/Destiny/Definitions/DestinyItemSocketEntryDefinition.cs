@@ -38,8 +38,8 @@ namespace BungieNet.Destiny.Definitions
 		[JsonProperty("reusablePlugSetHash")]
 		public uint? ReusablePlugSetHash { get; set; }
 
-		[JsonProperty("randomizedPlugItems")]
-		public Destiny.Definitions.DestinyItemSocketEntryPlugItemRandomizedDefinition[] RandomizedPlugItems { get; set; }
+		[JsonProperty("randomizedPlugSetHash")]
+		public uint? RandomizedPlugSetHash { get; set; }
 
 		[JsonProperty("defaultVisible")]
 		public bool DefaultVisible { get; set; }

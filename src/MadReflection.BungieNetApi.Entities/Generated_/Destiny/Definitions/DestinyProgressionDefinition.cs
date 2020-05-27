@@ -47,5 +47,8 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("rankIcon")]
 		public string RankIcon { get; set; }
+
+		[JsonProperty("rewardItems")]
+		public Destiny.Definitions.DestinyProgressionRewardItemQuantity[] RewardItems { get; set; }
 	}
 }

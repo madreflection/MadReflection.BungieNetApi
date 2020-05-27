@@ -61,6 +61,29 @@ namespace BungieNet.Destiny
 		/// </summary>
 		Hidden = 8,
 
-		Multiplier = 9
+		/// <summary>
+		/// Example: "1.5x"
+		/// </summary>
+		Multiplier = 9,
+
+		/// <summary>
+		/// Show the value as a series of green pips, like the wins in a Trials of Osiris score card.
+		/// </summary>
+		GreenPips = 10,
+
+		/// <summary>
+		/// Show the value as a series of red pips, like the losses in a Trials of Osiris score card.
+		/// </summary>
+		RedPips = 11,
+
+		/// <summary>
+		/// Show the value as a percentage. For example: "51%" - Does no division, only appends '%'
+		/// </summary>
+		ExplicitPercentage = 12,
+
+		/// <summary>
+		/// Show the value as a floating-point number. For example: "4.52" NOTE: Passed along from Investment as whole number with last two digits as decimal values (452 -&gt; 4.52)
+		/// </summary>
+		RawFloat = 13
 	}
 }

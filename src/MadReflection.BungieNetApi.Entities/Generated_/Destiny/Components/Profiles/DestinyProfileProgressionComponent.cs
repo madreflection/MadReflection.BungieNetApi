@@ -20,5 +20,8 @@ namespace BungieNet.Destiny.Components.Profiles
 	{
 		[JsonProperty("checklists")]
 		public System.Collections.Generic.Dictionary<uint, System.Collections.Generic.Dictionary<uint, bool>> Checklists { get; set; }
+
+		[JsonProperty("seasonalArtifact")]
+		public Destiny.Artifacts.DestinyArtifactProfileScoped SeasonalArtifact { get; set; }
 	}
 }

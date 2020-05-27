@@ -48,5 +48,14 @@ namespace BungieNet.Destiny.Entities.Items
 
 		[JsonProperty("cannotEquipReason")]
 		public Destiny.EquipFailureReason CannotEquipReason { get; set; }
+
+		[JsonProperty("breakerType")]
+		public Destiny.DestinyBreakerType? BreakerType { get; set; }
+
+		[JsonProperty("breakerTypeHash")]
+		public uint? BreakerTypeHash { get; set; }
+
+		[JsonProperty("energy")]
+		public Destiny.Entities.Items.DestinyItemInstanceEnergy Energy { get; set; }
 	}
 }

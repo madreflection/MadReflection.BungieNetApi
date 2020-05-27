@@ -16,5 +16,11 @@ namespace BungieNet.Destiny.Components.Records
 	{
 		[JsonProperty("records")]
 		public System.Collections.Generic.Dictionary<uint, Destiny.Components.Records.DestinyRecordComponent> Records { get; set; }
+
+		[JsonProperty("recordCategoriesRootNodeHash")]
+		public uint RecordCategoriesRootNodeHash { get; set; }
+
+		[JsonProperty("recordSealsRootNodeHash")]
+		public uint RecordSealsRootNodeHash { get; set; }
 	}
 }
