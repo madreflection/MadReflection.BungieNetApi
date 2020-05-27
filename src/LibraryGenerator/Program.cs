@@ -10,6 +10,7 @@ namespace LibraryGenerator
 	{
 		private const string OpenApiJsonFile = @"submodules\bnetapi\openapi.json";
 
+		[Obsolete("Moved to internals of CodeGenerator")]
 		public static readonly Dictionary<string, TypeBuilder> GeneratedTypes = new Dictionary<string, TypeBuilder>();
 
 
@@ -17,12 +18,11 @@ namespace LibraryGenerator
 		{
 			try
 			{
-				string resourceName = typeof(Program).Namespace + ".Properties.openapi.json";
-				OpenApiDocument openapi = LoadApiSpecification(resourceName);
+				OpenApiDocument openapi = LoadApiSpecification(typeof(Program).Namespace + ".Properties.openapi.json");
 
-				EntitiesGenerator.GenerateEntities(openapi, true);
-
-				ClientGenerator.GenerateClient(openapi, true);
+				CodeGenerator generator = new CodeGenerator(openapi);
+				generator.GenerateEntities(writeFiles: true);
+				generator.GenerateClient(writeFiles: true);
 			}
 			catch (Exception exception)
 			{
