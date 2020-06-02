@@ -9,6 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MadReflection.BungieNetApi.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MadReflection.BungieNetApi.Tests", "MadReflection.BungieNetApi.Tests\MadReflection.BungieNetApi.Tests.csproj", "{36D77E71-9002-4A1B-B1B6-7AAB7D9E0CDD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{A55C2399-376D-44B6-A0E8-C654E141DE27}"
+	ProjectSection(SolutionItems) = preProject
+		..\submodules\bnetapi\openapi.json = ..\submodules\bnetapi\openapi.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
