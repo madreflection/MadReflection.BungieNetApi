@@ -8,12 +8,6 @@ namespace LibraryGenerator
 {
 	public static class Program
 	{
-		private const string OpenApiJsonFile = @"submodules\bnetapi\openapi.json";
-
-		[Obsolete("Moved to internals of CodeGenerator")]
-		public static readonly Dictionary<string, TypeBuilder> GeneratedTypes = new Dictionary<string, TypeBuilder>();
-
-
 		public static void Main(string[] args)
 		{
 			try
