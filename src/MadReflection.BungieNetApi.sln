@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2043
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MadReflection.BungieNetApi.Entities", "MadReflection.BungieNetApi.Entities\MadReflection.BungieNetApi.Entities.csproj", "{CD1AF043-906D-4BFA-8A1F-38D2022FE772}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MadReflection.BungieNetApi.Client", "MadReflection.BungieNetApi.Client\MadReflection.BungieNetApi.Client.csproj", "{5A910002-56C4-4FAE-AA0C-0CCB1361F025}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadReflection.BungieNetApi.Tests", "MadReflection.BungieNetApi.Tests\MadReflection.BungieNetApi.Tests.csproj", "{36D77E71-9002-4A1B-B1B6-7AAB7D9E0CDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MadReflection.BungieNetApi.Tests", "MadReflection.BungieNetApi.Tests\MadReflection.BungieNetApi.Tests.csproj", "{36D77E71-9002-4A1B-B1B6-7AAB7D9E0CDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
