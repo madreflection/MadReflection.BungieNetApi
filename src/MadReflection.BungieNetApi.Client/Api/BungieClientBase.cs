@@ -74,7 +74,7 @@ namespace BungieNet.Api
 			}
 		}
 
-		internal Uri GetEndpointUri(string[] pathSegments, bool includeTrailingSlash, IEnumerable<QueryStringItem> queryStringItems = null, bool d1 = false)
+		internal Uri GetEndpointUri(BungieEndpointBase endpointBase, string[] pathSegments, bool includeTrailingSlash, IEnumerable<QueryStringItem> queryStringItems = null)
 		{
 			if (pathSegments == null)
 				throw new ArgumentNullException(nameof(pathSegments));
@@ -89,7 +89,13 @@ namespace BungieNet.Api
 					throw new ArgumentException("Array element is empty.", nameof(pathSegments));
 			}
 
-			UriBuilder builder = new UriBuilder(d1 ? Constants.BaseUriD1 : Constants.BaseUri);
+			UriBuilder builder = new UriBuilder(
+				endpointBase switch
+				{
+					BungieEndpointBase.Destiny1 => Constants.BaseUriD1,
+					BungieEndpointBase.Stats => Constants.BaseUriStats,
+					_ => Constants.BaseUri
+				});
 
 			builder.Path += string.Join("/", pathSegments);
 			if (includeTrailingSlash)

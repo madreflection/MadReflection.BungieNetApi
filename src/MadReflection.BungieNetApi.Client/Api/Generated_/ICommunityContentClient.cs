@@ -33,7 +33,7 @@ namespace BungieNet.Api
 		Task<Forum.PostSearchResponse> ICommunityContentClient.GetCommunityContentAsync(Forum.CommunityContentSortMode sort, Forum.ForumTopicsCategoryFiltersEnum mediaFilter, int page)
 		{
 			string[] pathSegments = new string[] { "CommunityContent", "Get", ((byte)sort).ToString(), ((int)mediaFilter).ToString(), page.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<Forum.PostSearchResponse>(uri);
 		}
 	}

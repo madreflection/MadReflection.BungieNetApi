@@ -39,7 +39,7 @@ namespace BungieNet.Api
 		Task<Trending.TrendingCategories> ITrendingClient.GetTrendingCategoriesAsync()
 		{
 			string[] pathSegments = new string[] { "Trending", "Categories" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<Trending.TrendingCategories>(uri);
 		}
 
@@ -49,7 +49,7 @@ namespace BungieNet.Api
 			if (categoryId is null)
 				throw new ArgumentNullException(nameof(categoryId));
 			string[] pathSegments = new string[] { "Trending", "Categories", categoryId, pageNumber.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<SearchResultOfTrendingEntry>(uri);
 		}
 
@@ -59,7 +59,7 @@ namespace BungieNet.Api
 			if (identifier is null)
 				throw new ArgumentNullException(nameof(identifier));
 			string[] pathSegments = new string[] { "Trending", "Details", ((int)trendingEntryType).ToString(), identifier };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<Trending.TrendingDetail>(uri);
 		}
 	}

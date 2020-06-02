@@ -17,6 +17,11 @@ namespace LibraryGenerator
 	{
 		private readonly Dictionary<string, TypeBuilder> _generatedTypes = new Dictionary<string, TypeBuilder>();
 		private readonly OpenApiDocument _openapi;
+		private static readonly HashSet<string> _statsOperations = new HashSet<string>()
+		{
+			// There's no metadata in the JSON that indicates this so it's hard-coded here.
+			"Destiny2.GetPostGameCarnageReport"
+		};
 
 
 		public CodeGenerator(OpenApiDocument openapi)
@@ -27,8 +32,6 @@ namespace LibraryGenerator
 
 		public void GenerateEntities(bool writeFiles)
 		{
-			//List<FileBuilder> fileBuilders = new List<FileBuilder>();
-
 			foreach (var jsonTypeProperty in _openapi.Components.Schemas)
 			{
 				string @namespace = SplitNamespace(jsonTypeProperty.Key);
@@ -64,16 +67,7 @@ namespace LibraryGenerator
 				}
 
 				if (typeBuilder != null)
-				{
 					_generatedTypes.Add(TypeReference.ComponentsSchemasRootPath + jsonTypeProperty.Key, typeBuilder);
-
-					//fileBuilders.Add(new FileBuilder()
-					//{
-					//	FolderPaths = SplitNamespace(jsonTypeProperty.Key).Split('.'),
-					//	FileName = jsonTypeName + ".cs",
-					//	Builder = typeBuilder
-					//});
-				}
 			}
 
 			ResolveJsonPathTypeReferences();
@@ -260,17 +254,6 @@ namespace LibraryGenerator
 			}
 
 			return enumBuilder;
-		}
-
-		private TypeBuilder GetTypeBuilder(string jsonPath)
-		{
-			if (jsonPath == null)
-				throw new ArgumentNullException(nameof(jsonPath));
-
-			if (!_generatedTypes.TryGetValue(jsonPath, out TypeBuilder typeBuilder))
-				throw new ArgumentException($"JSON type reference not found: '{jsonPath}'.", nameof(jsonPath));
-
-			return typeBuilder;
 		}
 
 		public void WriteEntityFiles(IEnumerable<FileBuilder> fileBuilders)
@@ -508,13 +491,6 @@ namespace LibraryGenerator
 			}
 		}
 
-
-
-
-
-
-
-
 		public void GenerateClient(bool writeFiles)
 		{
 			List<MethodBuilder> methodBuilders = new List<MethodBuilder>();
@@ -535,14 +511,18 @@ namespace LibraryGenerator
 					string operationId = get.OperationId;
 					var (area, name) = ParseOperationIdToMethodName(operationId);
 
-					methodBuilder = GenerateMethod(_openapi, get, false, path, area, name, description);
+					bool isStatsEndpoint = _statsOperations.Contains(operationId);
+
+					methodBuilder = GenerateMethod(_openapi, get, false, isStatsEndpoint, path, area, name, description);
 				}
 				else if (post != null)
 				{
 					string operationId = post.OperationId;
 					var (area, name) = ParseOperationIdToMethodName(operationId);
 
-					methodBuilder = GenerateMethod(_openapi, post, true, path, area, name, description);
+					bool isStatsEndpoint = _statsOperations.Contains(operationId);
+
+					methodBuilder = GenerateMethod(_openapi, post, true, isStatsEndpoint, path, area, name, description);
 				}
 
 				if (methodBuilder != null)
@@ -608,7 +588,7 @@ namespace LibraryGenerator
 			return (area, name);
 		}
 
-		public MethodBuilder GenerateMethod(OpenApiDocument document, OpenApiOperation method, bool isPost, string path, string area, string name, string description)
+		public MethodBuilder GenerateMethod(OpenApiDocument document, OpenApiOperation method, bool isPost, bool isStatsEndpoint, string path, string area, string name, string description)
 		{
 			if (!path.StartsWith("/"))
 				throw new ArgumentException("Path must start and end with a slash.", nameof(path));
@@ -733,6 +713,7 @@ namespace LibraryGenerator
 				Description = description,
 				Area = area,
 				IsPost = isPost,
+				IsStatsEndpoint = isStatsEndpoint,
 				ReturnType = returnType,
 				Parameters = finalParameterBuilders,
 				PathSegments = pathSegments,
@@ -773,6 +754,5 @@ namespace LibraryGenerator
 
 			return result;
 		}
-
 	}
 }

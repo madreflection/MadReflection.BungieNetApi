@@ -50,7 +50,7 @@ namespace BungieNet.Api
 				new QueryStringItem("end", end.ToString()),
 				new QueryStringItem("start", start.ToString())
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Applications.ApiUsage>(uri);
 		}
 
@@ -58,7 +58,7 @@ namespace BungieNet.Api
 		Task<Applications.Application[]> IAppClient.GetBungieApplicationsAsync()
 		{
 			string[] pathSegments = new string[] { "App", "FirstParty" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityArrayAsync<Applications.Application>(uri);
 		}
 
@@ -66,7 +66,7 @@ namespace BungieNet.Api
 		Task<System.Collections.Generic.Dictionary<string, string>> IAppClient.GetAvailableLocalesAsync()
 		{
 			string[] pathSegments = new string[] { "GetAvailableLocales" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<System.Collections.Generic.Dictionary<string, string>>(uri);
 		}
 
@@ -74,7 +74,7 @@ namespace BungieNet.Api
 		Task<Common.Models.CoreSettingsConfiguration> IAppClient.GetCommonSettingsAsync()
 		{
 			string[] pathSegments = new string[] { "Settings" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<Common.Models.CoreSettingsConfiguration>(uri);
 		}
 
@@ -86,7 +86,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("includestreaming", includestreaming.ToString().ToLower())
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityArrayAsync<GlobalAlert>(uri);
 		}
 	}

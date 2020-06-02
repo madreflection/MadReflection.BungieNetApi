@@ -138,7 +138,7 @@ namespace BungieNet.Api
 		Task<Destiny.Config.DestinyManifest> IDestiny2Client.GetDestinyManifestAsync()
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Manifest" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<Destiny.Config.DestinyManifest>(uri);
 		}
 
@@ -148,7 +148,7 @@ namespace BungieNet.Api
 			if (entityType is null)
 				throw new ArgumentNullException(nameof(entityType));
 			string[] pathSegments = new string[] { "Destiny2", "Manifest", entityType, hashIdentifier.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<Destiny.Definitions.DestinyDefinition>(uri);
 		}
 
@@ -162,7 +162,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("returnOriginalProfile", returnOriginalProfile.ToString().ToLower())
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityArrayAsync<User.UserInfoCard>(uri);
 		}
 
@@ -174,7 +174,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("getAllMemberships", getAllMemberships.ToString().ToLower())
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Destiny.Responses.DestinyLinkedProfilesResponse>(uri);
 		}
 
@@ -186,7 +186,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("components", string.Join(",", components))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Destiny.Responses.DestinyProfileResponse>(uri);
 		}
 
@@ -198,7 +198,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("components", string.Join(",", components))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Destiny.Responses.DestinyCharacterResponse>(uri);
 		}
 
@@ -206,7 +206,7 @@ namespace BungieNet.Api
 		Task<Destiny.Milestones.DestinyMilestone> IDestiny2Client.GetClanWeeklyRewardStateAsync(long groupId)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Clan", groupId.ToString(), "WeeklyRewardState" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<Destiny.Milestones.DestinyMilestone>(uri);
 		}
 
@@ -218,7 +218,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("components", string.Join(",", components))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Destiny.Responses.DestinyItemResponse>(uri);
 		}
 
@@ -230,7 +230,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("components", string.Join(",", components))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Destiny.Responses.DestinyVendorsResponse>(uri);
 		}
 
@@ -242,7 +242,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("components", string.Join(",", components))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Destiny.Responses.DestinyVendorResponse>(uri);
 		}
 
@@ -254,7 +254,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("components", string.Join(",", components))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Destiny.Responses.DestinyPublicVendorsResponse>(uri);
 		}
 
@@ -266,7 +266,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("components", string.Join(",", components))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Destiny.Responses.DestinyCollectibleNodeDetailResponse>(uri);
 		}
 
@@ -274,7 +274,7 @@ namespace BungieNet.Api
 		Task<int> IDestiny2Client.TransferItemAsync(Destiny.Requests.DestinyItemTransferRequest destinyItemTransferRequest)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Actions", "Items", "TransferItem" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<Destiny.Requests.DestinyItemTransferRequest, int>(uri, destinyItemTransferRequest);
 		}
 
@@ -282,7 +282,7 @@ namespace BungieNet.Api
 		Task<int> IDestiny2Client.PullFromPostmasterAsync(Destiny.Requests.Actions.DestinyPostmasterTransferRequest destinyPostmasterTransferRequest)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Actions", "Items", "PullFromPostmaster" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<Destiny.Requests.Actions.DestinyPostmasterTransferRequest, int>(uri, destinyPostmasterTransferRequest);
 		}
 
@@ -290,7 +290,7 @@ namespace BungieNet.Api
 		Task<int> IDestiny2Client.EquipItemAsync(Destiny.Requests.Actions.DestinyItemActionRequest destinyItemActionRequest)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Actions", "Items", "EquipItem" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<Destiny.Requests.Actions.DestinyItemActionRequest, int>(uri, destinyItemActionRequest);
 		}
 
@@ -298,7 +298,7 @@ namespace BungieNet.Api
 		Task<Destiny.DestinyEquipItemResults> IDestiny2Client.EquipItemsAsync(Destiny.Requests.Actions.DestinyItemSetActionRequest destinyItemSetActionRequest)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Actions", "Items", "EquipItems" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<Destiny.Requests.Actions.DestinyItemSetActionRequest, Destiny.DestinyEquipItemResults>(uri, destinyItemSetActionRequest);
 		}
 
@@ -306,7 +306,7 @@ namespace BungieNet.Api
 		Task<int> IDestiny2Client.SetItemLockStateAsync(Destiny.Requests.Actions.DestinyItemStateRequest destinyItemStateRequest)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Actions", "Items", "SetLockState" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<Destiny.Requests.Actions.DestinyItemStateRequest, int>(uri, destinyItemStateRequest);
 		}
 
@@ -314,7 +314,7 @@ namespace BungieNet.Api
 		Task<Destiny.Responses.DestinyItemChangeResponse> IDestiny2Client.InsertSocketPlugAsync(Destiny.Requests.Actions.DestinyInsertPlugsActionRequest destinyInsertPlugsActionRequest)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Actions", "Items", "InsertSocketPlug" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<Destiny.Requests.Actions.DestinyInsertPlugsActionRequest, Destiny.Responses.DestinyItemChangeResponse>(uri, destinyInsertPlugsActionRequest);
 		}
 
@@ -322,7 +322,7 @@ namespace BungieNet.Api
 		Task<Destiny.HistoricalStats.DestinyPostGameCarnageReportData> IDestiny2Client.GetPostGameCarnageReportAsync(long activityId)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Stats", "PostGameCarnageReport", activityId.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Stats, pathSegments, true, null);
 			return GetEntityAsync<Destiny.HistoricalStats.DestinyPostGameCarnageReportData>(uri);
 		}
 
@@ -330,7 +330,7 @@ namespace BungieNet.Api
 		Task<int> IDestiny2Client.ReportOffensivePostGameCarnageReportPlayerAsync(Destiny.Reporting.Requests.DestinyReportOffensePgcrRequest destinyReportOffensePgcrRequest, long activityId)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Stats", "PostGameCarnageReport", activityId.ToString(), "Report" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<Destiny.Reporting.Requests.DestinyReportOffensePgcrRequest, int>(uri, destinyReportOffensePgcrRequest);
 		}
 
@@ -338,7 +338,7 @@ namespace BungieNet.Api
 		Task<System.Collections.Generic.Dictionary<string, Destiny.HistoricalStats.Definitions.DestinyHistoricalStatsDefinition>> IDestiny2Client.GetHistoricalStatsDefinitionAsync()
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Stats", "Definition" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<System.Collections.Generic.Dictionary<string, Destiny.HistoricalStats.Definitions.DestinyHistoricalStatsDefinition>>(uri);
 		}
 
@@ -352,7 +352,7 @@ namespace BungieNet.Api
 				new QueryStringItem("modes", (modes ?? "")),
 				new QueryStringItem("statid", (statid ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<System.Collections.Generic.Dictionary<string, System.Collections.Generic.Dictionary<string, Destiny.HistoricalStats.DestinyLeaderboard>>>(uri);
 		}
 
@@ -364,7 +364,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("modes", (modes ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityArrayAsync<Destiny.HistoricalStats.DestinyClanAggregateStat>(uri);
 		}
 
@@ -378,7 +378,7 @@ namespace BungieNet.Api
 				new QueryStringItem("modes", (modes ?? "")),
 				new QueryStringItem("statid", (statid ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<System.Collections.Generic.Dictionary<string, System.Collections.Generic.Dictionary<string, Destiny.HistoricalStats.DestinyLeaderboard>>>(uri);
 		}
 
@@ -392,7 +392,7 @@ namespace BungieNet.Api
 				new QueryStringItem("modes", (modes ?? "")),
 				new QueryStringItem("statid", (statid ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<System.Collections.Generic.Dictionary<string, System.Collections.Generic.Dictionary<string, Destiny.HistoricalStats.DestinyLeaderboard>>>(uri);
 		}
 
@@ -408,7 +408,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("page", page.ToString())
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Destiny.Definitions.DestinyEntitySearchResult>(uri);
 		}
 
@@ -424,7 +424,7 @@ namespace BungieNet.Api
 				new QueryStringItem("modes", string.Join(",", modes)),
 				new QueryStringItem("periodType", ((int)periodType).ToString())
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<System.Collections.Generic.Dictionary<string, Destiny.HistoricalStats.DestinyHistoricalStatsByPeriod>>(uri);
 		}
 
@@ -436,7 +436,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("groups", string.Join(",", groups))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Destiny.HistoricalStats.DestinyHistoricalStatsAccountResult>(uri);
 		}
 
@@ -450,7 +450,7 @@ namespace BungieNet.Api
 				new QueryStringItem("mode", ((int)mode).ToString()),
 				new QueryStringItem("page", page.ToString())
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Destiny.HistoricalStats.DestinyActivityHistoryResults>(uri);
 		}
 
@@ -458,7 +458,7 @@ namespace BungieNet.Api
 		Task<Destiny.HistoricalStats.DestinyHistoricalWeaponStatsData> IDestiny2Client.GetUniqueWeaponHistoryAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId)
 		{
 			string[] pathSegments = new string[] { "Destiny2", ((int)membershipType).ToString(), "Account", destinyMembershipId.ToString(), "Character", characterId.ToString(), "Stats", "UniqueWeapons" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<Destiny.HistoricalStats.DestinyHistoricalWeaponStatsData>(uri);
 		}
 
@@ -466,7 +466,7 @@ namespace BungieNet.Api
 		Task<Destiny.HistoricalStats.DestinyAggregateActivityResults> IDestiny2Client.GetDestinyAggregateActivityStatsAsync(BungieMembershipType membershipType, long destinyMembershipId, long characterId)
 		{
 			string[] pathSegments = new string[] { "Destiny2", ((int)membershipType).ToString(), "Account", destinyMembershipId.ToString(), "Character", characterId.ToString(), "Stats", "AggregateActivityStats" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<Destiny.HistoricalStats.DestinyAggregateActivityResults>(uri);
 		}
 
@@ -474,7 +474,7 @@ namespace BungieNet.Api
 		Task<Destiny.Milestones.DestinyMilestoneContent> IDestiny2Client.GetPublicMilestoneContentAsync(uint milestoneHash)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Milestones", milestoneHash.ToString(), "Content" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<Destiny.Milestones.DestinyMilestoneContent>(uri);
 		}
 
@@ -482,7 +482,7 @@ namespace BungieNet.Api
 		Task<System.Collections.Generic.Dictionary<uint, Destiny.Milestones.DestinyPublicMilestone>> IDestiny2Client.GetPublicMilestonesAsync()
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Milestones" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<System.Collections.Generic.Dictionary<uint, Destiny.Milestones.DestinyPublicMilestone>>(uri);
 		}
 
@@ -490,7 +490,7 @@ namespace BungieNet.Api
 		Task<Destiny.Advanced.AwaInitializeResponse> IDestiny2Client.AwaInitializeRequestAsync(Destiny.Advanced.AwaPermissionRequested awaPermissionRequested)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Awa", "Initialize" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<Destiny.Advanced.AwaPermissionRequested, Destiny.Advanced.AwaInitializeResponse>(uri, awaPermissionRequested);
 		}
 
@@ -498,7 +498,7 @@ namespace BungieNet.Api
 		Task<int> IDestiny2Client.AwaProvideAuthorizationResultAsync(Destiny.Advanced.AwaUserResponse awaUserResponse)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Awa", "AwaProvideAuthorizationResult" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<Destiny.Advanced.AwaUserResponse, int>(uri, awaUserResponse);
 		}
 
@@ -508,7 +508,7 @@ namespace BungieNet.Api
 			if (correlationId is null)
 				throw new ArgumentNullException(nameof(correlationId));
 			string[] pathSegments = new string[] { "Destiny2", "Awa", "GetActionToken", correlationId };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<Destiny.Advanced.AwaAuthorizationResult>(uri);
 		}
 	}

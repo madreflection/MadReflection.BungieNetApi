@@ -119,7 +119,9 @@ namespace LibraryGenerator
 					queryItemsExpression = "queryItems";
 				}
 
-				writer.WriteLine($"\t\t\tUri uri = GetEndpointUri(pathSegments, {includeTrailingSlashExpression}, {queryItemsExpression});");
+				string bungieEndpointBaseMember = methodBuilder.IsStatsEndpoint ? "Stats" : "Default";
+
+				writer.WriteLine($"\t\t\tUri uri = GetEndpointUri(BungieEndpointBase.{bungieEndpointBaseMember}, pathSegments, {includeTrailingSlashExpression}, {queryItemsExpression});");
 
 				writer.Write("\t\t\treturn ");
 				string getOrPost = methodBuilder.IsPost ? "Post" : "Get";

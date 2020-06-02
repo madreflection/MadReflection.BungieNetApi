@@ -9,6 +9,8 @@ namespace LibraryGenerator
 
 		public bool IsPost { get; set; }
 
+		public bool IsStatsEndpoint { get; set; }
+
 		public TypeReference ReturnType { get; set; }
 
 		public List<ParameterBuilder> Parameters { get; set; } = new List<ParameterBuilder>();
@@ -18,7 +20,6 @@ namespace LibraryGenerator
 		public bool IncludeTrailingSlash { get; set; }
 
 		public List<ParameterBuilder> QueryItems { get; set; } = new List<ParameterBuilder>();
-
 
 		public override void Write(TextWriter writer)
 		{

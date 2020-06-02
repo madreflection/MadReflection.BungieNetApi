@@ -50,7 +50,7 @@ namespace BungieNet.Api
 			if (type is null)
 				throw new ArgumentNullException(nameof(type));
 			string[] pathSegments = new string[] { "Content", "GetContentType", type };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<Content.Models.ContentTypeDescription>(uri);
 		}
 
@@ -64,7 +64,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("head", head.ToString().ToLower())
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Content.ContentItemPublicContract>(uri);
 		}
 
@@ -82,7 +82,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("head", head.ToString().ToLower())
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Content.ContentItemPublicContract>(uri);
 		}
 
@@ -101,7 +101,7 @@ namespace BungieNet.Api
 				new QueryStringItem("source", (source ?? "")),
 				new QueryStringItem("tag", (tag ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<SearchResultOfContentItemPublicContract>(uri);
 		}
 
@@ -121,7 +121,7 @@ namespace BungieNet.Api
 				new QueryStringItem("head", head.ToString().ToLower()),
 				new QueryStringItem("itemsperpage", itemsperpage.ToString())
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<SearchResultOfContentItemPublicContract>(uri);
 		}
 
@@ -133,7 +133,7 @@ namespace BungieNet.Api
 			if (size is null)
 				throw new ArgumentNullException(nameof(size));
 			string[] pathSegments = new string[] { "Content", "SearchHelpArticles", searchtext, size };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityArrayAsync<Content.ContentItemPublicContract>(uri);
 		}
 	}

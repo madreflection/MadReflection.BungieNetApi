@@ -132,7 +132,7 @@ namespace BungieNet.Api
 		Task<System.Collections.Generic.Dictionary<int, string>> IGroupV2Client.GetAvailableAvatarsAsync()
 		{
 			string[] pathSegments = new string[] { "GroupV2", "GetAvailableAvatars" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<System.Collections.Generic.Dictionary<int, string>>(uri);
 		}
 
@@ -140,7 +140,7 @@ namespace BungieNet.Api
 		Task<Config.GroupTheme[]> IGroupV2Client.GetAvailableThemesAsync()
 		{
 			string[] pathSegments = new string[] { "GroupV2", "GetAvailableThemes" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityArrayAsync<Config.GroupTheme>(uri);
 		}
 
@@ -148,7 +148,7 @@ namespace BungieNet.Api
 		Task<bool> IGroupV2Client.GetUserClanInviteSettingAsync(BungieMembershipType mType)
 		{
 			string[] pathSegments = new string[] { "GroupV2", "GetUserClanInviteSetting", ((int)mType).ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<bool>(uri);
 		}
 
@@ -156,7 +156,7 @@ namespace BungieNet.Api
 		Task<GroupsV2.GroupV2Card[]> IGroupV2Client.GetRecommendedGroupsAsync(GroupsV2.GroupType groupType, GroupsV2.GroupDateRange createDateRange)
 		{
 			string[] pathSegments = new string[] { "GroupV2", "Recommended", ((int)groupType).ToString(), ((int)createDateRange).ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityArrayAsync<GroupsV2.GroupV2Card>(uri);
 		}
 
@@ -164,7 +164,7 @@ namespace BungieNet.Api
 		Task<GroupsV2.GroupSearchResponse> IGroupV2Client.GroupSearchAsync(GroupsV2.GroupQuery groupQuery)
 		{
 			string[] pathSegments = new string[] { "GroupV2", "Search" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<GroupsV2.GroupQuery, GroupsV2.GroupSearchResponse>(uri, groupQuery);
 		}
 
@@ -172,7 +172,7 @@ namespace BungieNet.Api
 		Task<GroupsV2.GroupResponse> IGroupV2Client.GetGroupAsync(long groupId)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<GroupsV2.GroupResponse>(uri);
 		}
 
@@ -182,7 +182,7 @@ namespace BungieNet.Api
 			if (groupName is null)
 				throw new ArgumentNullException(nameof(groupName));
 			string[] pathSegments = new string[] { "GroupV2", "Name", groupName, ((int)groupType).ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<GroupsV2.GroupResponse>(uri);
 		}
 
@@ -190,7 +190,7 @@ namespace BungieNet.Api
 		Task<GroupsV2.GroupResponse> IGroupV2Client.GetGroupByNameV2Async(GroupsV2.GroupNameSearchRequest groupNameSearchRequest)
 		{
 			string[] pathSegments = new string[] { "GroupV2", "NameV2" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<GroupsV2.GroupNameSearchRequest, GroupsV2.GroupResponse>(uri, groupNameSearchRequest);
 		}
 
@@ -198,7 +198,7 @@ namespace BungieNet.Api
 		Task<GroupsV2.GroupOptionalConversation[]> IGroupV2Client.GetGroupOptionalConversationsAsync(long groupId)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "OptionalConversations" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityArrayAsync<GroupsV2.GroupOptionalConversation>(uri);
 		}
 
@@ -206,7 +206,7 @@ namespace BungieNet.Api
 		Task<int> IGroupV2Client.EditGroupAsync(GroupsV2.GroupEditAction groupEditAction, long groupId)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "Edit" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<GroupsV2.GroupEditAction, int>(uri, groupEditAction);
 		}
 
@@ -214,7 +214,7 @@ namespace BungieNet.Api
 		Task<int> IGroupV2Client.EditClanBannerAsync(GroupsV2.ClanBanner clanBanner, long groupId)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "EditClanBanner" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<GroupsV2.ClanBanner, int>(uri, clanBanner);
 		}
 
@@ -222,7 +222,7 @@ namespace BungieNet.Api
 		Task<int> IGroupV2Client.EditFounderOptionsAsync(GroupsV2.GroupOptionsEditAction groupOptionsEditAction, long groupId)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "EditFounderOptions" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<GroupsV2.GroupOptionsEditAction, int>(uri, groupOptionsEditAction);
 		}
 
@@ -230,7 +230,7 @@ namespace BungieNet.Api
 		Task<long> IGroupV2Client.AddOptionalConversationAsync(GroupsV2.GroupOptionalConversationAddRequest groupOptionalConversationAddRequest, long groupId)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "OptionalConversations", "Add" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<GroupsV2.GroupOptionalConversationAddRequest, long>(uri, groupOptionalConversationAddRequest);
 		}
 
@@ -238,7 +238,7 @@ namespace BungieNet.Api
 		Task<long> IGroupV2Client.EditOptionalConversationAsync(GroupsV2.GroupOptionalConversationEditRequest groupOptionalConversationEditRequest, long groupId, long conversationId)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "OptionalConversations", "Edit", conversationId.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<GroupsV2.GroupOptionalConversationEditRequest, long>(uri, groupOptionalConversationEditRequest);
 		}
 
@@ -252,7 +252,7 @@ namespace BungieNet.Api
 				new QueryStringItem("memberType", ((int)memberType).ToString()),
 				new QueryStringItem("nameSearch", (nameSearch ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<SearchResultOfGroupMember>(uri);
 		}
 
@@ -264,7 +264,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("currentpage", currentpage.ToString())
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<SearchResultOfGroupMember>(uri);
 		}
 
@@ -272,7 +272,7 @@ namespace BungieNet.Api
 		Task<int> IGroupV2Client.EditGroupMembershipAsync(long groupId, BungieMembershipType membershipType, long membershipId, GroupsV2.RuntimeGroupMemberType memberType)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "Members", ((int)membershipType).ToString(), membershipId.ToString(), "SetMembershipType", ((int)memberType).ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<int>(uri);
 		}
 
@@ -280,7 +280,7 @@ namespace BungieNet.Api
 		Task<GroupsV2.GroupMemberLeaveResult> IGroupV2Client.KickMemberAsync(long groupId, BungieMembershipType membershipType, long membershipId)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "Members", ((int)membershipType).ToString(), membershipId.ToString(), "Kick" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<GroupsV2.GroupMemberLeaveResult>(uri);
 		}
 
@@ -288,7 +288,7 @@ namespace BungieNet.Api
 		Task<int> IGroupV2Client.BanMemberAsync(GroupsV2.GroupBanRequest groupBanRequest, long groupId, BungieMembershipType membershipType, long membershipId)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "Members", ((int)membershipType).ToString(), membershipId.ToString(), "Ban" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<GroupsV2.GroupBanRequest, int>(uri, groupBanRequest);
 		}
 
@@ -296,7 +296,7 @@ namespace BungieNet.Api
 		Task<int> IGroupV2Client.UnbanMemberAsync(long groupId, BungieMembershipType membershipType, long membershipId)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "Members", ((int)membershipType).ToString(), membershipId.ToString(), "Unban" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<int>(uri);
 		}
 
@@ -308,7 +308,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("currentpage", currentpage.ToString())
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<SearchResultOfGroupBan>(uri);
 		}
 
@@ -316,7 +316,7 @@ namespace BungieNet.Api
 		Task<bool> IGroupV2Client.AbdicateFoundershipAsync(long groupId, BungieMembershipType membershipType, long founderIdNew)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "Admin", "AbdicateFoundership", ((int)membershipType).ToString(), founderIdNew.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<bool>(uri);
 		}
 
@@ -328,7 +328,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("currentpage", currentpage.ToString())
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<SearchResultOfGroupMemberApplication>(uri);
 		}
 
@@ -340,7 +340,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("currentpage", currentpage.ToString())
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<SearchResultOfGroupMemberApplication>(uri);
 		}
 
@@ -348,7 +348,7 @@ namespace BungieNet.Api
 		Task<Entities.EntityActionResult[]> IGroupV2Client.ApproveAllPendingAsync(GroupsV2.GroupApplicationRequest groupApplicationRequest, long groupId)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "Members", "ApproveAll" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityArrayAsync<GroupsV2.GroupApplicationRequest, Entities.EntityActionResult>(uri, groupApplicationRequest);
 		}
 
@@ -356,7 +356,7 @@ namespace BungieNet.Api
 		Task<Entities.EntityActionResult[]> IGroupV2Client.DenyAllPendingAsync(GroupsV2.GroupApplicationRequest groupApplicationRequest, long groupId)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "Members", "DenyAll" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityArrayAsync<GroupsV2.GroupApplicationRequest, Entities.EntityActionResult>(uri, groupApplicationRequest);
 		}
 
@@ -364,7 +364,7 @@ namespace BungieNet.Api
 		Task<Entities.EntityActionResult[]> IGroupV2Client.ApprovePendingForListAsync(GroupsV2.GroupApplicationListRequest groupApplicationListRequest, long groupId)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "Members", "ApproveList" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityArrayAsync<GroupsV2.GroupApplicationListRequest, Entities.EntityActionResult>(uri, groupApplicationListRequest);
 		}
 
@@ -372,7 +372,7 @@ namespace BungieNet.Api
 		Task<bool> IGroupV2Client.ApprovePendingAsync(GroupsV2.GroupApplicationRequest groupApplicationRequest, long groupId, BungieMembershipType membershipType, long membershipId)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "Members", "Approve", ((int)membershipType).ToString(), membershipId.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<GroupsV2.GroupApplicationRequest, bool>(uri, groupApplicationRequest);
 		}
 
@@ -380,7 +380,7 @@ namespace BungieNet.Api
 		Task<Entities.EntityActionResult[]> IGroupV2Client.DenyPendingForListAsync(GroupsV2.GroupApplicationListRequest groupApplicationListRequest, long groupId)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "Members", "DenyList" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityArrayAsync<GroupsV2.GroupApplicationListRequest, Entities.EntityActionResult>(uri, groupApplicationListRequest);
 		}
 
@@ -388,7 +388,7 @@ namespace BungieNet.Api
 		Task<GroupsV2.GetGroupsForMemberResponse> IGroupV2Client.GetGroupsForMemberAsync(BungieMembershipType membershipType, long membershipId, GroupsV2.GroupsForMemberFilter filter, GroupsV2.GroupType groupType)
 		{
 			string[] pathSegments = new string[] { "GroupV2", "User", ((int)membershipType).ToString(), membershipId.ToString(), ((int)filter).ToString(), ((int)groupType).ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<GroupsV2.GetGroupsForMemberResponse>(uri);
 		}
 
@@ -396,7 +396,7 @@ namespace BungieNet.Api
 		Task<GroupsV2.GroupMembershipSearchResponse> IGroupV2Client.RecoverGroupForFounderAsync(BungieMembershipType membershipType, long membershipId, GroupsV2.GroupType groupType)
 		{
 			string[] pathSegments = new string[] { "GroupV2", "Recover", ((int)membershipType).ToString(), membershipId.ToString(), ((int)groupType).ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<GroupsV2.GroupMembershipSearchResponse>(uri);
 		}
 
@@ -404,7 +404,7 @@ namespace BungieNet.Api
 		Task<GroupsV2.GroupPotentialMembershipSearchResponse> IGroupV2Client.GetPotentialGroupsForMemberAsync(BungieMembershipType membershipType, long membershipId, GroupsV2.GroupPotentialMemberStatus filter, GroupsV2.GroupType groupType)
 		{
 			string[] pathSegments = new string[] { "GroupV2", "User", "Potential", ((int)membershipType).ToString(), membershipId.ToString(), ((int)filter).ToString(), ((int)groupType).ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<GroupsV2.GroupPotentialMembershipSearchResponse>(uri);
 		}
 
@@ -412,7 +412,7 @@ namespace BungieNet.Api
 		Task<GroupsV2.GroupApplicationResponse> IGroupV2Client.IndividualGroupInviteAsync(GroupsV2.GroupApplicationRequest groupApplicationRequest, long groupId, BungieMembershipType membershipType, long membershipId)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "Members", "IndividualInvite", ((int)membershipType).ToString(), membershipId.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<GroupsV2.GroupApplicationRequest, GroupsV2.GroupApplicationResponse>(uri, groupApplicationRequest);
 		}
 
@@ -420,7 +420,7 @@ namespace BungieNet.Api
 		Task<GroupsV2.GroupApplicationResponse> IGroupV2Client.IndividualGroupInviteCancelAsync(long groupId, BungieMembershipType membershipType, long membershipId)
 		{
 			string[] pathSegments = new string[] { "GroupV2", groupId.ToString(), "Members", "IndividualInviteCancel", ((int)membershipType).ToString(), membershipId.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<GroupsV2.GroupApplicationResponse>(uri);
 		}
 	}

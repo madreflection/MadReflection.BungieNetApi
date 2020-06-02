@@ -45,7 +45,7 @@ namespace BungieNet.Api
 		Task<int> IFireteamClient.GetActivePrivateClanFireteamCountAsync(long groupId)
 		{
 			string[] pathSegments = new string[] { "Fireteam", "Clan", groupId.ToString(), "ActiveCount" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<int>(uri);
 		}
 
@@ -57,7 +57,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("langFilter", (langFilter ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<SearchResultOfFireteamSummary>(uri);
 		}
 
@@ -69,7 +69,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("langFilter", (langFilter ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<SearchResultOfFireteamSummary>(uri);
 		}
 
@@ -82,7 +82,7 @@ namespace BungieNet.Api
 				new QueryStringItem("groupFilter", groupFilter.ToString().ToLower()),
 				new QueryStringItem("langFilter", (langFilter ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<SearchResultOfFireteamResponse>(uri);
 		}
 
@@ -90,7 +90,7 @@ namespace BungieNet.Api
 		Task<Fireteam.FireteamResponse> IFireteamClient.GetClanFireteamAsync(long groupId, long fireteamId)
 		{
 			string[] pathSegments = new string[] { "Fireteam", "Clan", groupId.ToString(), "Summary", fireteamId.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<Fireteam.FireteamResponse>(uri);
 		}
 	}

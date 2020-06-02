@@ -65,7 +65,7 @@ namespace BungieNet.Api
 				new QueryStringItem("locales", (locales ?? "")),
 				new QueryStringItem("tagstring", (tagstring ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Forum.PostSearchResponse>(uri);
 		}
 
@@ -77,7 +77,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("locales", (locales ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Forum.PostSearchResponse>(uri);
 		}
 
@@ -89,7 +89,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("showbanned", (showbanned ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Forum.PostSearchResponse>(uri);
 		}
 
@@ -101,7 +101,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("showbanned", (showbanned ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Forum.PostSearchResponse>(uri);
 		}
 
@@ -113,7 +113,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("showbanned", (showbanned ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Forum.PostSearchResponse>(uri);
 		}
 
@@ -125,7 +125,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("showbanned", (showbanned ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Forum.PostSearchResponse>(uri);
 		}
 
@@ -133,7 +133,7 @@ namespace BungieNet.Api
 		Task<long> IForumClient.GetTopicForContentAsync(long contentId)
 		{
 			string[] pathSegments = new string[] { "Forum", "GetTopicForContent", contentId.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<long>(uri);
 		}
 
@@ -145,7 +145,7 @@ namespace BungieNet.Api
 			{
 				new QueryStringItem("partialtag", (partialtag ?? ""))
 			};
-			Uri uri = GetEndpointUri(pathSegments, true, queryItems);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityArrayAsync<Tags.Models.Contracts.TagResponse>(uri);
 		}
 
@@ -153,7 +153,7 @@ namespace BungieNet.Api
 		Task<Forum.PostSearchResponse> IForumClient.GetPollAsync(long topicId)
 		{
 			string[] pathSegments = new string[] { "Forum", "Poll", topicId.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<Forum.PostSearchResponse>(uri);
 		}
 
@@ -161,7 +161,7 @@ namespace BungieNet.Api
 		Task<Forum.ForumRecruitmentDetail[]> IForumClient.GetRecruitmentThreadSummariesAsync(long[] request)
 		{
 			string[] pathSegments = new string[] { "Forum", "Recruit", "Summaries" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityArrayAsync<long[], Forum.ForumRecruitmentDetail>(uri, request);
 		}
 	}

@@ -39,7 +39,7 @@ namespace BungieNet.Api
 		Task<bool> ITokensClient.ClaimPartnerOfferAsync(Tokens.PartnerOfferClaimRequest partnerOfferClaimRequest)
 		{
 			string[] pathSegments = new string[] { "Tokens", "Partner", "ClaimOffer" };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<Tokens.PartnerOfferClaimRequest, bool>(uri, partnerOfferClaimRequest);
 		}
 
@@ -47,7 +47,7 @@ namespace BungieNet.Api
 		Task<bool> ITokensClient.ApplyMissingPartnerOffersWithoutClaimAsync(int partnerApplicationId, long targetBnetMembershipId)
 		{
 			string[] pathSegments = new string[] { "Tokens", "Partner", "ApplyMissingOffers", partnerApplicationId.ToString(), targetBnetMembershipId.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<bool>(uri);
 		}
 
@@ -55,7 +55,7 @@ namespace BungieNet.Api
 		Task<Tokens.PartnerOfferSkuHistoryResponse[]> ITokensClient.GetPartnerOfferSkuHistoryAsync(int partnerApplicationId, long targetBnetMembershipId)
 		{
 			string[] pathSegments = new string[] { "Tokens", "Partner", "History", partnerApplicationId.ToString(), targetBnetMembershipId.ToString() };
-			Uri uri = GetEndpointUri(pathSegments, true, null);
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityArrayAsync<Tokens.PartnerOfferSkuHistoryResponse>(uri);
 		}
 	}
