@@ -61,6 +61,15 @@ namespace BungieNet.Api
 			{
 				HttpResponseMessage response = await client.GetAsync(uri.ToString());
 
+				if (response.StatusCode.IsRedirectCode())
+				{
+					uri = response.Headers.Location;
+					response = await client.GetAsync(uri.ToString());
+				}
+
+				if (response.StatusCode.IsRedirectCode())
+					throw new BungieClientException("Multiple redirects detected.");
+
 				return await response.Content.ReadAsStringAsync();
 			}
 		}
@@ -114,6 +123,15 @@ namespace BungieNet.Api
 			using (HttpClient client = GetHttpClient())
 			{
 				HttpResponseMessage response = await client.PostAsync(uri.ToString(), request);
+
+				if (response.StatusCode.IsRedirectCode())
+				{
+					uri = response.Headers.Location;
+					response = await client.GetAsync(uri.ToString());
+				}
+
+				if (response.StatusCode.IsRedirectCode())
+					throw new BungieClientException("Multiple redirects detected.");
 
 				return await response.Content.ReadAsStringAsync();
 			}

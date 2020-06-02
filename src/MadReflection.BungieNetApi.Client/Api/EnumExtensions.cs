@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 
 namespace BungieNet
@@ -33,5 +34,7 @@ namespace BungieNet
 
 			return string.Join(",", values.Select(v => v.ToString()));
 		}
+
+		public static bool IsRedirectCode(this HttpStatusCode hsc) => hsc == HttpStatusCode.Moved || hsc == HttpStatusCode.MovedPermanently || hsc == HttpStatusCode.RedirectKeepVerb;
 	}
 }

@@ -7,7 +7,7 @@ namespace BungieNet
 	[Serializable]
 	public sealed class BungieException : Exception
 	{
-		#region DestinyException members
+		#region BungieException members
 		public BungieException(Exceptions.PlatformErrorCodes errorCode, string errorStatus, string message, object messageData)
 			: base(message)
 		{
