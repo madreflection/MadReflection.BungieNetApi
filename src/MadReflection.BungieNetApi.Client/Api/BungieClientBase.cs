@@ -12,6 +12,7 @@ namespace BungieNet.Api
 {
 	public abstract class BungieClientBase
 	{
+		private readonly HttpClient _httpClient;
 		private readonly string _apiKey;
 		private string _bearerToken;
 
@@ -23,6 +24,7 @@ namespace BungieNet.Api
 			if (apiKey.Value == "")
 				throw new ArgumentException("API key value cannot be an empty string.", nameof(apiKey) + "." + nameof(apiKey.Value));
 
+			_httpClient = new HttpClient();
 			_apiKey = apiKey.Value;
 		}
 
@@ -40,38 +42,6 @@ namespace BungieNet.Api
 		public void ClearBearerToken()
 		{
 			_bearerToken = null;
-		}
-
-		private HttpClient GetHttpClient()
-		{
-			HttpClient client = new HttpClient();
-			client.DefaultRequestHeaders.Add("Accept", "text/json");
-			if (_bearerToken != null)
-				client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _bearerToken);
-			client.DefaultRequestHeaders.Add("X-API-Key", _apiKey);
-			return client;
-		}
-
-		private async Task<string> GetResourceAsync(Uri uri)
-		{
-			if (uri == null)
-				throw new ArgumentNullException(nameof(uri));
-
-			using (HttpClient client = GetHttpClient())
-			{
-				HttpResponseMessage response = await client.GetAsync(uri.ToString());
-
-				if (response.StatusCode.IsRedirectCode())
-				{
-					uri = response.Headers.Location;
-					response = await client.GetAsync(uri.ToString());
-				}
-
-				if (response.StatusCode.IsRedirectCode())
-					throw new BungieClientException("Multiple redirects detected.");
-
-				return await response.Content.ReadAsStringAsync();
-			}
 		}
 
 		internal Uri GetEndpointUri(BungieEndpointBase endpointBase, string[] pathSegments, bool includeTrailingSlash, IEnumerable<QueryStringItem> queryStringItems = null)
@@ -105,7 +75,7 @@ namespace BungieNet.Api
 			{
 				StringBuilder queryString = new StringBuilder();
 
-				foreach (var queryStringItem in queryStringItems)
+				foreach (QueryStringItem queryStringItem in queryStringItems)
 					queryString.Append(WebUtility.UrlEncode(queryStringItem.Name)).Append('=').Append(WebUtility.UrlEncode(queryStringItem.Value)).Append("&");
 
 				if (queryString.Length > 0 && queryString[queryString.Length - 1] == '&')
@@ -117,30 +87,68 @@ namespace BungieNet.Api
 			return builder.Uri;
 		}
 
-		private Task<string> PostResourceAsync(Uri uri) => PostResourceAsync(uri, "");
+		private HttpRequestMessage CreateRequestMessage(Uri uri, HttpMethod method, HttpContent content)
+		{
+			HttpRequestMessage request = new HttpRequestMessage()
+			{
+				Method = method,
+				Headers =
+				{
+					{ "Accept", "text/json" },
+					{ "X-API-Key", _apiKey }
+				},
+				RequestUri = uri,
+				Content = content
+			};
+
+			if (_bearerToken is object)
+				request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _bearerToken);
+
+			return request;
+		}
+
+		private async Task<string> GetResourceAsync(Uri uri)
+		{
+			if (uri == null)
+				throw new ArgumentNullException(nameof(uri));
+
+			HttpRequestMessage request = CreateRequestMessage(uri, HttpMethod.Get, null);
+
+			HttpResponseMessage response = await _httpClient.SendAsync(request);
+
+			if (response.StatusCode.IsRedirectCode())
+			{
+				request = CreateRequestMessage(response.Headers.Location, HttpMethod.Get, null);
+				response = await _httpClient.SendAsync(request);
+			}
+
+			if (response.StatusCode.IsRedirectCode())
+				throw new BungieClientException("Multiple redirects detected.");
+
+			return await response.Content.ReadAsStringAsync();
+		}
 
 		private async Task<string> PostResourceAsync(Uri uri, string postBody)
 		{
 			if (uri == null)
 				throw new ArgumentNullException(nameof(uri));
 
-			StringContent request = new StringContent(postBody);
+			StringContent content = new StringContent(postBody);
 
-			using (HttpClient client = GetHttpClient())
+			HttpRequestMessage request = CreateRequestMessage(uri, HttpMethod.Post, content);
+
+			HttpResponseMessage response = await _httpClient.SendAsync(request);
+
+			if (response.StatusCode.IsRedirectCode())
 			{
-				HttpResponseMessage response = await client.PostAsync(uri.ToString(), request);
-
-				if (response.StatusCode.IsRedirectCode())
-				{
-					uri = response.Headers.Location;
-					response = await client.GetAsync(uri.ToString());
-				}
-
-				if (response.StatusCode.IsRedirectCode())
-					throw new BungieClientException("Multiple redirects detected.");
-
-				return await response.Content.ReadAsStringAsync();
+				request = CreateRequestMessage(response.Headers.Location, HttpMethod.Post, content);
+				response = await _httpClient.SendAsync(request);
 			}
+
+			if (response.StatusCode.IsRedirectCode())
+				throw new BungieClientException("Multiple redirects detected.");
+
+			return await response.Content.ReadAsStringAsync();
 		}
 
 		private async Task<JToken> GetObjectAsync(Uri uri)
@@ -164,7 +172,7 @@ namespace BungieNet.Api
 			if (uri == null)
 				throw new ArgumentNullException(nameof(uri));
 
-			string response = await PostResourceAsync(uri);
+			string response = await PostResourceAsync(uri, "");
 
 			JObject jObject = JObject.Parse(response);
 
