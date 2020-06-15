@@ -61,5 +61,8 @@ namespace BungieNet.Destiny.Entities.Items
 
 		[JsonProperty("metricObjective")]
 		public Destiny.Quests.DestinyObjectiveProgress MetricObjective { get; set; }
+
+		[JsonProperty("versionNumber")]
+		public int? VersionNumber { get; set; }
 	}
 }

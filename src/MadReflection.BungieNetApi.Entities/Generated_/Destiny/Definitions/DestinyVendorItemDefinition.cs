@@ -91,5 +91,8 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("socketOverrides")]
 		public Destiny.Definitions.DestinyVendorItemSocketOverride[] SocketOverrides { get; set; }
+
+		[JsonProperty("unpurchasable")]
+		public bool? Unpurchasable { get; set; }
 	}
 }

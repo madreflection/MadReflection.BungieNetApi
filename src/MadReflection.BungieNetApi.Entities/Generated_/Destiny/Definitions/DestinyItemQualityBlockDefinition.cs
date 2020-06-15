@@ -35,5 +35,14 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("progressionLevelRequirementHash")]
 		public uint ProgressionLevelRequirementHash { get; set; }
+
+		[JsonProperty("currentVersion")]
+		public uint CurrentVersion { get; set; }
+
+		[JsonProperty("versions")]
+		public Destiny.Definitions.DestinyItemVersionDefinition[] Versions { get; set; }
+
+		[JsonProperty("displayVersionWatermarkIcons")]
+		public string[] DisplayVersionWatermarkIcons { get; set; }
 	}
 }

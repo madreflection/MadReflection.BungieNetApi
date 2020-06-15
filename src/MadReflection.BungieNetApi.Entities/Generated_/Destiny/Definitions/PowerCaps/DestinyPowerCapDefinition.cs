@@ -8,30 +8,16 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json;
 
-namespace BungieNet.User
+namespace BungieNet.Destiny.Definitions.PowerCaps
 {
-	[Flags]
-	public enum OptInFlags : long
+	/// <summary>
+	/// Defines a 'power cap' (limit) for gear items, based on the rarity tier and season of release.
+	/// </summary>
+	public partial class DestinyPowerCapDefinition : Destiny.Definitions.DestinyDefinition
 	{
-		None = 0x0,
-
-		Newsletter = 0x1,
-
-		System = 0x2,
-
-		Marketing = 0x4,
-
-		UserResearch = 0x8,
-
-		CustomerService = 0x10,
-
-		Social = 0x20,
-
-		PlayTests = 0x40,
-
-		PlayTestsLocal = 0x80,
-
-		Careers = 0x100
+		[JsonProperty("powerCap")]
+		public int PowerCap { get; set; }
 	}
 }

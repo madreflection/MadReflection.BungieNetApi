@@ -9,29 +9,13 @@
 
 using System;
 
-namespace BungieNet.User
+namespace BungieNet.Destiny
 {
-	[Flags]
-	public enum OptInFlags : long
+	/// <summary>
+	/// Indicates the type of filter to apply to Vendor results.
+	/// </summary>
+	public enum DestinyVendorFilter
 	{
-		None = 0x0,
-
-		Newsletter = 0x1,
-
-		System = 0x2,
-
-		Marketing = 0x4,
-
-		UserResearch = 0x8,
-
-		CustomerService = 0x10,
-
-		Social = 0x20,
-
-		PlayTests = 0x40,
-
-		PlayTestsLocal = 0x80,
-
-		Careers = 0x100
+		None = 0
 	}
 }

@@ -79,6 +79,11 @@ namespace BungieNet.Destiny
 		/// <summary>
 		/// This indicates that the item is a daily offer.
 		/// </summary>
-		DailyOffer = 0x1000
+		DailyOffer = 0x1000,
+
+		/// <summary>
+		/// This indicates that the item is for charity.
+		/// </summary>
+		Charity = 0x2000
 	}
 }

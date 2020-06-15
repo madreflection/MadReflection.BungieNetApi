@@ -1329,6 +1329,26 @@ namespace BungieNet.Exceptions
 
 		ApplicationTokenKeyIdDoesNotExist = 2116,
 
+		ProvidedTokenNotValidRefreshToken = 2117,
+
+		RefreshTokenExpired = 2118,
+
+		AuthorizationRecordInvalid = 2119,
+
+		TokenPreviouslyRevoked = 2120,
+
+		TokenInvalidMembership = 2121,
+
+		AuthorizationCodeStale = 2122,
+
+		AuthorizationRecordExpired = 2123,
+
+		AuthorizationRecordRevoked = 2124,
+
+		AuthorizationRecordInactiveApiKey = 2125,
+
+		AuthorizationRecordApiKeyMatching = 2126,
+
 		PartnershipInvalidType = 2200,
 
 		PartnershipValidationError = 2201,
@@ -1356,6 +1376,10 @@ namespace BungieNet.Exceptions
 		TwitchCouldNotRegisterUser = 2503,
 
 		TwitchCouldNotUnregisterUser = 2504,
+
+		TwitchRequiresRelinking = 2505,
+
+		TwitchNoPlatformChosen = 2506,
 
 		TrendingCategoryNotFound = 2600,
 
