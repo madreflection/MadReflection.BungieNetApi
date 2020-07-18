@@ -34,5 +34,8 @@ namespace BungieNet.Destiny.Entities.Profiles
 
 		[JsonProperty("currentSeasonHash")]
 		public uint? CurrentSeasonHash { get; set; }
+
+		[JsonProperty("currentSeasonRewardPowerCap")]
+		public int? CurrentSeasonRewardPowerCap { get; set; }
 	}
 }

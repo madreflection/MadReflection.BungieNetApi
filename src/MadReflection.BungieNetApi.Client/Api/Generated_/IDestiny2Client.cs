@@ -66,6 +66,9 @@ namespace BungieNet.Api
 		int SetItemLockState(Destiny.Requests.Actions.DestinyItemStateRequest destinyItemStateRequest);
 		Task<int> SetItemLockStateAsync(Destiny.Requests.Actions.DestinyItemStateRequest destinyItemStateRequest);
 
+		int SetQuestTrackedState(Destiny.Requests.Actions.DestinyItemStateRequest destinyItemStateRequest);
+		Task<int> SetQuestTrackedStateAsync(Destiny.Requests.Actions.DestinyItemStateRequest destinyItemStateRequest);
+
 		Destiny.Responses.DestinyItemChangeResponse InsertSocketPlug(Destiny.Requests.Actions.DestinyInsertPlugsActionRequest destinyInsertPlugsActionRequest);
 		Task<Destiny.Responses.DestinyItemChangeResponse> InsertSocketPlugAsync(Destiny.Requests.Actions.DestinyInsertPlugsActionRequest destinyInsertPlugsActionRequest);
 
@@ -307,6 +310,14 @@ namespace BungieNet.Api
 		Task<int> IDestiny2Client.SetItemLockStateAsync(Destiny.Requests.Actions.DestinyItemStateRequest destinyItemStateRequest)
 		{
 			string[] pathSegments = new string[] { "Destiny2", "Actions", "Items", "SetLockState" };
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
+			return PostEntityAsync<Destiny.Requests.Actions.DestinyItemStateRequest, int>(uri, destinyItemStateRequest);
+		}
+
+		int IDestiny2Client.SetQuestTrackedState(Destiny.Requests.Actions.DestinyItemStateRequest destinyItemStateRequest) => Destiny2.SetQuestTrackedStateAsync(destinyItemStateRequest).GetAwaiter().GetResult();
+		Task<int> IDestiny2Client.SetQuestTrackedStateAsync(Destiny.Requests.Actions.DestinyItemStateRequest destinyItemStateRequest)
+		{
+			string[] pathSegments = new string[] { "Destiny2", "Actions", "Items", "SetTrackedState" };
 			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<Destiny.Requests.Actions.DestinyItemStateRequest, int>(uri, destinyItemStateRequest);
 		}
