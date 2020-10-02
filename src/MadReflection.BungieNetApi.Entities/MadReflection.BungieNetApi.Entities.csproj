@@ -25,9 +25,8 @@
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Include="$(ProjectDir)..\Shared\CommonAssemblyInfo.cs" Link="Properties\CommonAssemblyInfo.cs" />
-    <Compile Include="$(ProjectDir)..\..\submodules\MadReflection.Shared\src\MadReflection.AssemblyInfo.cs" Link="Properties\MadReflection.AssemblyInfo.cs" />
-  </ItemGroup>
+  <Import Project="$(ProjectDir)..\..\submodules\MadReflection.Shared\src\MadReflection.AssemblyInfo.props" Condition="Exists('$(ProjectDir)..\..\submodules\MadReflection.Shared\src\MadReflection.AssemblyInfo.props')" />
+
+  <Import Project="$(ProjectDir)..\Shared\CommonAssemblyInfo.props" Condition="Exists('$(ProjectDir)..\Shared\CommonAssemblyInfo.props')" />
 
 </Project>

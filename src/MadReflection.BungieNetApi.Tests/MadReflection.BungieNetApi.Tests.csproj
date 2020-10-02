@@ -12,10 +12,9 @@
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
+  <Import Project="$(ProjectDir)..\Shared\UnitTestPackages.props" Condition="Exists('$(ProjectDir)..\Shared\UnitTestPackages.props')" />
+
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.2" />
-    <PackageReference Include="NUnit" Version="3.12.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.14.0" />
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
   </ItemGroup>
 

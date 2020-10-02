@@ -13,10 +13,10 @@
     <NoWarn>$(NoWarn);1591</NoWarn>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)' == 'Release' And Exists('$(ProjectDir)..\Shared\MadReflection.snk')">
+  <Import Project="$(ProjectDir)..\Shared\SignAssembly.props" Condition="Exists('$(ProjectDir)..\Shared\SignAssembly.props')" />
+
+  <PropertyGroup Condition="$(SignAssembly) == 'true'">
     <DefineConstants>$(DefineConstants);SIGNED</DefineConstants>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>$(ProjectDir)..\Shared\MadReflection.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <Import Project="$(ProjectDir)..\..\submodules\MadReflection.Shared\build\DocumentationFile.props" Condition="Exists('$(ProjectDir)..\..\submodules\MadReflection.Shared\build\DocumentationFile.props')" />
@@ -29,9 +29,8 @@
     <ProjectReference Include="..\MadReflection.BungieNetApi.Entities\MadReflection.BungieNetApi.Entities.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Include="$(ProjectDir)..\Shared\CommonAssemblyInfo.cs" Link="Properties\CommonAssemblyInfo.cs" />
-    <Compile Include="$(ProjectDir)..\..\submodules\MadReflection.Shared\src\MadReflection.AssemblyInfo.cs" Link="Properties\MadReflection.AssemblyInfo.cs" />
-  </ItemGroup>
+  <Import Project="$(ProjectDir)..\..\submodules\MadReflection.Shared\src\MadReflection.AssemblyInfo.props" Condition="Exists('$(ProjectDir)..\..\submodules\MadReflection.Shared\src\MadReflection.AssemblyInfo.props')" />
+
+  <Import Project="$(ProjectDir)..\Shared\CommonAssemblyInfo.props" Condition="Exists('$(ProjectDir)..\Shared\CommonAssemblyInfo.props')" />
 
 </Project>
