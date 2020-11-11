@@ -29,6 +29,27 @@ namespace BungieNet.Common.Models
 		[JsonProperty("metricsRootNode")]
 		public uint MetricsRootNode { get; set; }
 
+		[JsonProperty("activeTriumphsRootNodeHash")]
+		public uint ActiveTriumphsRootNodeHash { get; set; }
+
+		[JsonProperty("activeSealsRootNodeHash")]
+		public uint ActiveSealsRootNodeHash { get; set; }
+
+		[JsonProperty("legacyTriumphsRootNodeHash")]
+		public uint LegacyTriumphsRootNodeHash { get; set; }
+
+		[JsonProperty("legacySealsRootNodeHash")]
+		public uint LegacySealsRootNodeHash { get; set; }
+
+		[JsonProperty("medalsRootNodeHash")]
+		public uint MedalsRootNodeHash { get; set; }
+
+		[JsonProperty("exoticCatalystsRootNodeHash")]
+		public uint ExoticCatalystsRootNodeHash { get; set; }
+
+		[JsonProperty("loreRootNodeHash")]
+		public uint LoreRootNodeHash { get; set; }
+
 		[JsonProperty("currentRankProgressionHashes")]
 		public uint[] CurrentRankProgressionHashes { get; set; }
 

@@ -14,9 +14,6 @@ namespace BungieNet.Applications
 {
 	public partial class ApiUsage
 	{
-		[JsonProperty("range")]
-		public Dates.DateRange Range { get; set; }
-
 		[JsonProperty("apiCalls")]
 		public Applications.Series[] ApiCalls { get; set; }
 

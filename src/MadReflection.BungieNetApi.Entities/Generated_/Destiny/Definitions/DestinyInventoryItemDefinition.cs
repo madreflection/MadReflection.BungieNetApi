@@ -27,6 +27,12 @@ namespace BungieNet.Destiny.Definitions
 		[JsonProperty("collectibleHash")]
 		public uint? CollectibleHash { get; set; }
 
+		[JsonProperty("iconWatermark")]
+		public string IconWatermark { get; set; }
+
+		[JsonProperty("iconWatermarkShelved")]
+		public string IconWatermarkShelved { get; set; }
+
 		[JsonProperty("secondaryIcon")]
 		public string SecondaryIcon { get; set; }
 

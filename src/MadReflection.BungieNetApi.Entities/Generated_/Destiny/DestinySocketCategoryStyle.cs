@@ -28,6 +28,10 @@ namespace BungieNet.Destiny
 
 		EnergyMeter = 5,
 
-		LargePerk = 6
+		LargePerk = 6,
+
+		Abilities = 7,
+
+		Supers = 8
 	}
 }

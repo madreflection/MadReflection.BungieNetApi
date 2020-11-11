@@ -23,6 +23,8 @@ namespace BungieNet.Destiny
 
 		Void = 4,
 
-		Raid = 5
+		Raid = 5,
+
+		Stasis = 6
 	}
 }

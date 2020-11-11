@@ -17,6 +17,15 @@ namespace BungieNet.Destiny.Components.Records
 		[JsonProperty("score")]
 		public int Score { get; set; }
 
+		[JsonProperty("activeScore")]
+		public int ActiveScore { get; set; }
+
+		[JsonProperty("legacyScore")]
+		public int LegacyScore { get; set; }
+
+		[JsonProperty("lifetimeScore")]
+		public int LifetimeScore { get; set; }
+
 		[JsonProperty("trackedRecordHash")]
 		public uint? TrackedRecordHash { get; set; }
 

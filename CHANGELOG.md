@@ -1,13 +1,17 @@
 # Change Log
 
+## 0.1.8
+
+* Regenerated the code for version 2.9.0 of the API.
+
 ## 0.1.7
 
-* Regenerated the code for 2.8.2 of the API.
+* Regenerated the code for version 2.8.2 of the API.
 
 ## 0.1.6
 
 * Improved socket usage by changing how `HttpClient` is used.
-* Regenerated the code for 2.8.1 of the API.
+* Regenerated the code for version 2.8.1 of the API.
 
 ## 0.1.5
 
@@ -19,7 +23,7 @@
 
 ## 0.1.3
 
-* Regenerated the code for 2.8.0 of the API.
+* Regenerated the code for version 2.8.0 of the API.
 
 ## 0.1.2
 

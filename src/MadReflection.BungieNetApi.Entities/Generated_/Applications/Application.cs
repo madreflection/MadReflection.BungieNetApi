@@ -14,9 +14,6 @@ namespace BungieNet.Applications
 {
 	public partial class Application
 	{
-		[JsonProperty("applicationType")]
-		public Applications.OAuthApplicationType ApplicationType { get; set; }
-
 		[JsonProperty("applicationId")]
 		public int ApplicationId { get; set; }
 

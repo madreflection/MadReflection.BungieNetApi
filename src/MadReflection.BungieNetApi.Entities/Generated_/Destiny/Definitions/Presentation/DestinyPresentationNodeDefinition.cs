@@ -57,6 +57,9 @@ namespace BungieNet.Destiny.Definitions.Presentation
 		[JsonProperty("disableChildSubscreenNavigation")]
 		public bool DisableChildSubscreenNavigation { get; set; }
 
+		[JsonProperty("maxCategoryRecordScore")]
+		public int MaxCategoryRecordScore { get; set; }
+
 		[JsonProperty("presentationNodeType")]
 		public Destiny.DestinyPresentationNodeType PresentationNodeType { get; set; }
 

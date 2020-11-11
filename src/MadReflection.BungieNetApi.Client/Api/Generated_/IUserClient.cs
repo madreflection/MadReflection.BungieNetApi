@@ -21,6 +21,9 @@ namespace BungieNet.Api
 		User.GeneralUser[] SearchUsers(string q);
 		Task<User.GeneralUser[]> SearchUsersAsync(string q);
 
+		User.Models.GetCredentialTypesForAccountResponse[] GetCredentialTypesForTargetAccount(long membershipId);
+		Task<User.Models.GetCredentialTypesForAccountResponse[]> GetCredentialTypesForTargetAccountAsync(long membershipId);
+
 		Config.UserTheme[] GetAvailableThemes();
 		Task<Config.UserTheme[]> GetAvailableThemesAsync();
 
@@ -62,6 +65,14 @@ namespace BungieNet.Api
 			};
 			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityArrayAsync<User.GeneralUser>(uri);
+		}
+
+		User.Models.GetCredentialTypesForAccountResponse[] IUserClient.GetCredentialTypesForTargetAccount(long membershipId) => User.GetCredentialTypesForTargetAccountAsync(membershipId).GetAwaiter().GetResult();
+		Task<User.Models.GetCredentialTypesForAccountResponse[]> IUserClient.GetCredentialTypesForTargetAccountAsync(long membershipId)
+		{
+			string[] pathSegments = new string[] { "User", "GetCredentialTypesForTargetAccount", membershipId.ToString() };
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
+			return GetEntityArrayAsync<User.Models.GetCredentialTypesForAccountResponse>(uri);
 		}
 
 		Config.UserTheme[] IUserClient.GetAvailableThemes() => User.GetAvailableThemesAsync().GetAwaiter().GetResult();

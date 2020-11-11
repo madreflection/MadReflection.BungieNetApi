@@ -25,5 +25,8 @@ namespace BungieNet.Destiny.Components.Presentation
 
 		[JsonProperty("completionValue")]
 		public int CompletionValue { get; set; }
+
+		[JsonProperty("recordCategoryScore")]
+		public int? RecordCategoryScore { get; set; }
 	}
 }

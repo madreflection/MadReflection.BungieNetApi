@@ -86,6 +86,8 @@ namespace BungieNet.Destiny
 
 		ClassArmor = 30,
 
-		Bow = 31
+		Bow = 31,
+
+		DummyRepeatableBounty = 32
 	}
 }

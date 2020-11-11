@@ -1121,6 +1121,8 @@ namespace BungieNet.Exceptions
 
 		DestinyNotEnoughRoomForMultipleRewards = 1687,
 
+		DestinyDirectBabelClientTimeout = 1688,
+
 		FbInvalidRequest = 1800,
 
 		FbRedirectMismatch = 1801,

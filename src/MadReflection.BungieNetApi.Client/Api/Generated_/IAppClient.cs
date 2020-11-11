@@ -27,6 +27,9 @@ namespace BungieNet.Api
 		Common.Models.CoreSettingsConfiguration GetCommonSettings();
 		Task<Common.Models.CoreSettingsConfiguration> GetCommonSettingsAsync();
 
+		System.Collections.Generic.Dictionary<string, Common.Models.CoreSystem> GetUserSystemOverrides();
+		Task<System.Collections.Generic.Dictionary<string, Common.Models.CoreSystem>> GetUserSystemOverridesAsync();
+
 		GlobalAlert[] GetGlobalAlerts(bool includestreaming);
 		Task<GlobalAlert[]> GetGlobalAlertsAsync(bool includestreaming);
 	}
@@ -76,6 +79,14 @@ namespace BungieNet.Api
 			string[] pathSegments = new string[] { "Settings" };
 			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<Common.Models.CoreSettingsConfiguration>(uri);
+		}
+
+		System.Collections.Generic.Dictionary<string, Common.Models.CoreSystem> IAppClient.GetUserSystemOverrides() => App.GetUserSystemOverridesAsync().GetAwaiter().GetResult();
+		Task<System.Collections.Generic.Dictionary<string, Common.Models.CoreSystem>> IAppClient.GetUserSystemOverridesAsync()
+		{
+			string[] pathSegments = new string[] { "UserSystemOverrides" };
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
+			return GetEntityAsync<System.Collections.Generic.Dictionary<string, Common.Models.CoreSystem>>(uri);
 		}
 
 		GlobalAlert[] IAppClient.GetGlobalAlerts(bool includestreaming) => App.GetGlobalAlertsAsync(includestreaming).GetAwaiter().GetResult();

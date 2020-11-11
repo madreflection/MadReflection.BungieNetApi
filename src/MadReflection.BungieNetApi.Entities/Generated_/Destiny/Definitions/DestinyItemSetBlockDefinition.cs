@@ -31,5 +31,11 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("questLineName")]
 		public string QuestLineName { get; set; }
+
+		[JsonProperty("questLineDescription")]
+		public string QuestLineDescription { get; set; }
+
+		[JsonProperty("questStepSummary")]
+		public string QuestStepSummary { get; set; }
 	}
 }
