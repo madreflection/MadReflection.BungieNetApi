@@ -1549,6 +1549,14 @@ namespace BungieNet.Exceptions
 
 		UnsupportedBrowser = 3500,
 
-		StadiaAccountRequired = 3600
+		StadiaAccountRequired = 3600,
+
+		ErrorPhoneValidationTooManyUses = 3702,
+
+		ErrorPhoneValidationNoAssociatedPhone = 3703,
+
+		ErrorPhoneValidationCodeInvalid = 3705,
+
+		ErrorPhoneValidationBanned = 3706
 	}
 }

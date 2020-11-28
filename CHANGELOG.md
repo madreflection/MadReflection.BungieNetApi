@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.1.9
+
+* Regenerated the code for version 2.9.1 of the API.
+
 ## 0.1.8
 
 * Regenerated the code for version 2.9.0 of the API.

@@ -12,7 +12,7 @@ using System;
 namespace BungieNet.Destiny
 {
 	/// <summary>
-	/// Represents an Energy Type for systems that require payment of energy of certain types, such as with Armor 2.0.
+	/// Represents the socket energy types for Armor 2.0, Ghosts 2.0, and Stasis subclasses.
 	/// </summary>
 	public enum DestinyEnergyType
 	{
@@ -22,6 +22,10 @@ namespace BungieNet.Destiny
 
 		Thermal = 2,
 
-		Void = 3
+		Void = 3,
+
+		Ghost = 4,
+
+		Subclass = 5
 	}
 }
