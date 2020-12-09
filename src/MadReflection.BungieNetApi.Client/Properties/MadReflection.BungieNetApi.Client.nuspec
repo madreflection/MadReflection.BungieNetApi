@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>MadReflection.BungieNetApi.Client</id>
-    <version>0.1.9</version>
+    <version>0.1.10</version>
     <title>Bungie.net API Client</title>
     <authors>Benn Benson</authors>
     <owners>Benn Benson</owners>
@@ -18,7 +18,7 @@
     <dependencies>
       <group targetFramework="netstandard2.0">
         <dependency id="Newtonsoft.Json" version="9.0.1"/>
-        <dependency id="MadReflection.BungieNetApi.Entities" version="0.1.9"/>
+        <dependency id="MadReflection.BungieNetApi.Entities" version="0.1.10"/>
       </group>
     </dependencies>
     <!--<frameworkAssemblies></frameworkAssemblies>-->

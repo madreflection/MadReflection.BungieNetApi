@@ -14,6 +14,9 @@ namespace BungieNet.Destiny.Definitions
 {
 	public partial class DestinyItemSocketEntryPlugItemRandomizedDefinition
 	{
+		[JsonProperty("currentlyCanRoll")]
+		public bool CurrentlyCanRoll { get; set; }
+
 		[JsonProperty("plugItemHash")]
 		public uint PlugItemHash { get; set; }
 	}

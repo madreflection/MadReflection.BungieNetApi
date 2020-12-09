@@ -35,5 +35,8 @@ namespace BungieNet.Destiny.Components.Vendors
 
 		[JsonProperty("overrideNextRefreshDate")]
 		public DateTime? OverrideNextRefreshDate { get; set; }
+
+		[JsonProperty("apiPurchasable")]
+		public bool? ApiPurchasable { get; set; }
 	}
 }

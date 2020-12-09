@@ -16,6 +16,8 @@ namespace BungieNet.Destiny
 	/// </summary>
 	public enum DestinyVendorFilter
 	{
-		None = 0
+		None = 0,
+
+		ApiPurchasable = 1
 	}
 }
