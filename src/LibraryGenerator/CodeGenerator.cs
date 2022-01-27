@@ -313,6 +313,8 @@ namespace LibraryGenerator
 					enumFieldBuilder.NumericValue = integerValue.Value.ToString();
 				if (jsonNumericValue is OpenApiByte byteValue)
 					enumFieldBuilder.NumericValue = byteValue.Value.ToString();
+				if (jsonNumericValue is OpenApiString stringValue)
+					enumFieldBuilder.NumericValue = stringValue.Value;
 
 				if (jsonMemberDescription != null)
 					enumFieldBuilder.Description = ((OpenApiString)jsonMemberDescription).Value;
