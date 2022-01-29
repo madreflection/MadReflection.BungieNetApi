@@ -32,6 +32,9 @@ namespace BungieNet.Destiny.Entities.Characters
 		[JsonProperty("uninstancedItemObjectives")]
 		public System.Collections.Generic.Dictionary<uint, Destiny.Quests.DestinyObjectiveProgress[]> UninstancedItemObjectives { get; set; }
 
+		[JsonProperty("uninstancedItemPerks")]
+		public System.Collections.Generic.Dictionary<uint, Destiny.Entities.Items.DestinyItemPerksComponent> UninstancedItemPerks { get; set; }
+
 		[JsonProperty("checklists")]
 		public System.Collections.Generic.Dictionary<uint, System.Collections.Generic.Dictionary<uint, bool>> Checklists { get; set; }
 

@@ -186,6 +186,11 @@ namespace BungieNet.Destiny
 		/// <summary>
 		/// Returns summary status information about all "Metrics" (also known in the game as "Stat Trackers").
 		/// </summary>
-		Metrics = 1100
+		Metrics = 1100,
+
+		/// <summary>
+		/// Returns a mapping of localized string variable hashes to values, on a per-account or per-character basis.
+		/// </summary>
+		StringVariables = 1200
 	}
 }

@@ -32,6 +32,9 @@ namespace BungieNet.Destiny.Definitions.Records
 		[JsonProperty("recordValueStyle")]
 		public Destiny.DestinyRecordValueStyle RecordValueStyle { get; set; }
 
+		[JsonProperty("forTitleGilding")]
+		public bool ForTitleGilding { get; set; }
+
 		[JsonProperty("titleInfo")]
 		public Destiny.Definitions.Records.DestinyRecordTitleBlock TitleInfo { get; set; }
 

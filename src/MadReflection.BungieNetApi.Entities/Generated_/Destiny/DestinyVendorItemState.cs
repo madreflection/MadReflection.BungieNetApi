@@ -84,6 +84,26 @@ namespace BungieNet.Destiny
 		/// <summary>
 		/// This indicates that the item is for charity.
 		/// </summary>
-		Charity = 0x2000
+		Charity = 0x2000,
+
+		/// <summary>
+		/// This indicates that the item has a seasonal reward expiration.
+		/// </summary>
+		SeasonalRewardExpiration = 0x4000,
+
+		/// <summary>
+		/// This indicates that the sale item is the best deal among different choices.
+		/// </summary>
+		BestDeal = 0x8000,
+
+		/// <summary>
+		/// This indicates that the sale item is popular.
+		/// </summary>
+		Popular = 0x10000,
+
+		/// <summary>
+		/// This indicates that the sale item is free.
+		/// </summary>
+		Free = 0x20000
 	}
 }

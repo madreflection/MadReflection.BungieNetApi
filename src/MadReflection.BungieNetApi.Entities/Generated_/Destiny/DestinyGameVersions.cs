@@ -29,6 +29,12 @@ namespace BungieNet.Destiny
 
 		YearTwoAnnualPass = 0x10,
 
-		Shadowkeep = 0x20
+		Shadowkeep = 0x20,
+
+		BeyondLight = 0x40,
+
+		Anniversary30th = 0x80,
+
+		TheWitchQueen = 0x100
 	}
 }

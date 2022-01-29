@@ -378,6 +378,10 @@ namespace BungieNet.Exceptions
 
 		NonTransactionalEmailSendFailure = 235,
 
+		UnknownErrorSettingGlobalDisplayName = 236,
+
+		DuplicateGlobalDisplayName = 237,
+
 		MessagingUnknownError = 300,
 
 		MessagingSelfError = 301,
@@ -792,6 +796,10 @@ namespace BungieNet.Exceptions
 
 		ClanNameRestricted = 751,
 
+		ClanCreationBan = 752,
+
+		ClanCreationTenureRequirementsNotMet = 753,
+
 		ItemAlreadyFollowed = 801,
 
 		ItemNotFollowed = 802,
@@ -846,6 +854,8 @@ namespace BungieNet.Exceptions
 
 		IgnoreUserIgnored = 1009,
 
+		TargetUserIgnored = 1010,
+
 		NotificationSettingInvalid = 1100,
 
 		PsnApiExpiredAccessToken = 1204,
@@ -885,6 +895,12 @@ namespace BungieNet.Exceptions
 		PsnApiNoPermission = 1238,
 
 		PsnApiTargetUserBlocked = 1239,
+
+		PsnApiJwksMissing = 1240,
+
+		PsnApiJwtMalformedHeader = 1241,
+
+		PsnApiJwtMalformedPayload = 1242,
 
 		XblExSystemDisabled = 1300,
 
@@ -1413,6 +1429,10 @@ namespace BungieNet.Exceptions
 
 		SteamWebNullResponseError = 2901,
 
+		SteamAccountRequired = 2902,
+
+		SteamNotAuthorized = 2903,
+
 		ClanFireteamNotFound = 3000,
 
 		ClanFireteamAddNoAlternatesForImmediate = 3001,
@@ -1470,6 +1490,14 @@ namespace BungieNet.Exceptions
 		ClanFireteamInvalidAuthProvider = 3027,
 
 		ClanFireteamInvalidAuthProviderXuid = 3028,
+
+		ClanFireteamThrottle = 3029,
+
+		ClanFireteamTooManyOpenScheduledFireteams = 3030,
+
+		ClanFireteamCannotReopenScheduledFireteams = 3031,
+
+		ClanFireteamJoinNoAccountSpecified = 3032,
 
 		CrossSaveOverriddenAccountNotFound = 3200,
 
@@ -1557,6 +1585,52 @@ namespace BungieNet.Exceptions
 
 		ErrorPhoneValidationCodeInvalid = 3705,
 
-		ErrorPhoneValidationBanned = 3706
+		ErrorPhoneValidationBanned = 3706,
+
+		ErrorPhoneValidationCodeTooRecentlySent = 3707,
+
+		ErrorPhoneValidationCodeExpired = 3708,
+
+		ErrorPhoneValidationInvalidNumberType = 3709,
+
+		ErrorPhoneValidationCodeTooRecentlyChecked = 3710,
+
+		ApplePushErrorUnknown = 3800,
+
+		ApplePushErrorNull = 3801,
+
+		ApplePushErrorTimeout = 3802,
+
+		ApplePushBadRequest = 3803,
+
+		ApplePushFailedAuth = 3804,
+
+		ApplePushThrottled = 3805,
+
+		ApplePushServiceUnavailable = 3806,
+
+		NotAnImageOrVideo = 3807,
+
+		ErrorBungieFriendsBlockFailed = 3900,
+
+		ErrorBungieFriendsAutoReject = 3901,
+
+		ErrorBungieFriendsNoRequestFound = 3902,
+
+		ErrorBungieFriendsAlreadyFriends = 3903,
+
+		ErrorBungieFriendsUnableToRemoveRequest = 3904,
+
+		ErrorBungieFriendsUnableToRemove = 3905,
+
+		ErrorBungieFriendsIdenticalSourceTarget = 3906,
+
+		ErrorBungieFriendsSelf = 3907,
+
+		ErrorBungieBlockSelf = 3908,
+
+		ErrorBungieFriendsListFull = 3910,
+
+		ErrorBungieBlockListFull = 3911
 	}
 }

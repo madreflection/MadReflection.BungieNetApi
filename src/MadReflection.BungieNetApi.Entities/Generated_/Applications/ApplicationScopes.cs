@@ -77,6 +77,16 @@ namespace BungieNet.Applications
 		/// <summary>
 		/// Can user the partner offer api to claim rewards defined for a partner
 		/// </summary>
-		PartnerOfferGrant = 0x1000
+		PartnerOfferGrant = 0x1000,
+
+		/// <summary>
+		/// Allows an app to query sensitive information like unlock flags and values not available through normal methods.
+		/// </summary>
+		DestinyUnlockValueQuery = 0x2000,
+
+		/// <summary>
+		/// Allows an app to query sensitive user PII, most notably email information.
+		/// </summary>
+		UserPiiRead = 0x4000
 	}
 }

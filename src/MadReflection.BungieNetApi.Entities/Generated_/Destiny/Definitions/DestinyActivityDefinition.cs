@@ -37,9 +37,6 @@ namespace BungieNet.Destiny.Definitions
 		[JsonProperty("releaseTime")]
 		public int ReleaseTime { get; set; }
 
-		[JsonProperty("activityLevel")]
-		public int ActivityLevel { get; set; }
-
 		[JsonProperty("activityLightLevel")]
 		public int ActivityLightLevel { get; set; }
 

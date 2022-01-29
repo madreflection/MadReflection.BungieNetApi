@@ -28,6 +28,9 @@ namespace BungieNet.Destiny.Definitions
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.DestinyVendorDisplayPropertiesDefinition DisplayProperties { get; set; }
 
+		[JsonProperty("vendorProgressionType")]
+		public Destiny.DestinyVendorProgressionType VendorProgressionType { get; set; }
+
 		[JsonProperty("buyString")]
 		public string BuyString { get; set; }
 

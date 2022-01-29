@@ -46,5 +46,8 @@ namespace BungieNet.Applications
 
 		[JsonProperty("team")]
 		public Applications.ApplicationDeveloper[] Team { get; set; }
+
+		[JsonProperty("overrideAuthorizeViewName")]
+		public string OverrideAuthorizeViewName { get; set; }
 	}
 }

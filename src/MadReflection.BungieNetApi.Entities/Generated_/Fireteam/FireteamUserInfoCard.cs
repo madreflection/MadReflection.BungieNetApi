@@ -20,12 +20,6 @@ namespace BungieNet.Fireteam
 		[JsonProperty("FireteamMembershipType")]
 		public BungieMembershipType FireteamMembershipType { get; set; }
 
-		[JsonProperty("FireteamPlatformProfileUrl")]
-		public string FireteamPlatformProfileUrl { get; set; }
-
-		[JsonProperty("FireteamPlatformUniqueIdentifier")]
-		public string FireteamPlatformUniqueIdentifier { get; set; }
-
 		[JsonProperty("supplementalDisplayName")]
 		public string SupplementalDisplayName { get; set; }
 
@@ -49,5 +43,11 @@ namespace BungieNet.Fireteam
 
 		[JsonProperty("displayName")]
 		public string DisplayName { get; set; }
+
+		[JsonProperty("bungieGlobalDisplayName")]
+		public string BungieGlobalDisplayName { get; set; }
+
+		[JsonProperty("bungieGlobalDisplayNameCode")]
+		public short? BungieGlobalDisplayNameCode { get; set; }
 	}
 }

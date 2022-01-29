@@ -25,5 +25,8 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("quantity")]
 		public int Quantity { get; set; }
+
+		[JsonProperty("hasConditionalVisibility")]
+		public bool HasConditionalVisibility { get; set; }
 	}
 }

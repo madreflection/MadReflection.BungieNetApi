@@ -17,6 +17,9 @@ namespace BungieNet.Destiny.Definitions.Records
 		[JsonProperty("intervalObjectives")]
 		public Destiny.Definitions.Records.DestinyRecordIntervalObjective[] IntervalObjectives { get; set; }
 
+		[JsonProperty("intervalRewards")]
+		public Destiny.Definitions.Records.DestinyRecordIntervalRewards[] IntervalRewards { get; set; }
+
 		[JsonProperty("originalObjectiveArrayInsertionIndex")]
 		public int OriginalObjectiveArrayInsertionIndex { get; set; }
 	}

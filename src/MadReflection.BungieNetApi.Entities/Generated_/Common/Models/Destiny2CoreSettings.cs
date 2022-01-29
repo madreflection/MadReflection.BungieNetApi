@@ -53,6 +53,12 @@ namespace BungieNet.Common.Models
 		[JsonProperty("currentRankProgressionHashes")]
 		public uint[] CurrentRankProgressionHashes { get; set; }
 
+		[JsonProperty("insertPlugFreeProtectedPlugItemHashes")]
+		public uint[] InsertPlugFreeProtectedPlugItemHashes { get; set; }
+
+		[JsonProperty("insertPlugFreeBlockedSocketTypeHashes")]
+		public uint[] InsertPlugFreeBlockedSocketTypeHashes { get; set; }
+
 		[JsonProperty("undiscoveredCollectibleImage")]
 		public string UndiscoveredCollectibleImage { get; set; }
 
@@ -70,6 +76,9 @@ namespace BungieNet.Common.Models
 
 		[JsonProperty("currentSeasonHash")]
 		public uint? CurrentSeasonHash { get; set; }
+
+		[JsonProperty("seasonalChallengesPresentationNodeHash")]
+		public uint? SeasonalChallengesPresentationNodeHash { get; set; }
 
 		[JsonProperty("futureSeasonHashes")]
 		public uint[] FutureSeasonHashes { get; set; }

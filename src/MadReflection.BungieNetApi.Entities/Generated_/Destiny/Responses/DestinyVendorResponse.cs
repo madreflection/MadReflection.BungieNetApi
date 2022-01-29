@@ -31,5 +31,8 @@ namespace BungieNet.Destiny.Responses
 
 		[JsonProperty("currencyLookups")]
 		public SingleComponentResponseOfDestinyCurrenciesComponent CurrencyLookups { get; set; }
+
+		[JsonProperty("stringVariables")]
+		public SingleComponentResponseOfDestinyStringVariablesComponent StringVariables { get; set; }
 	}
 }

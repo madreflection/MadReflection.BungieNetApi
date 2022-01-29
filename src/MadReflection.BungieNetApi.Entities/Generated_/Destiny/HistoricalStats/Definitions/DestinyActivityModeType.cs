@@ -171,6 +171,8 @@ namespace BungieNet.Destiny.HistoricalStats.Definitions
 
 		Sundial = 83,
 
-		TrialsOfOsiris = 84
+		TrialsOfOsiris = 84,
+
+		Dares = 85
 	}
 }

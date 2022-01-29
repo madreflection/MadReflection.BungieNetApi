@@ -16,5 +16,8 @@ namespace BungieNet
 	{
 		[JsonProperty("objectives")]
 		public DictionaryComponentResponseOfint64AndDestinyItemObjectivesComponent Objectives { get; set; }
+
+		[JsonProperty("perks")]
+		public DictionaryComponentResponseOfint64AndDestinyItemPerksComponent Perks { get; set; }
 	}
 }

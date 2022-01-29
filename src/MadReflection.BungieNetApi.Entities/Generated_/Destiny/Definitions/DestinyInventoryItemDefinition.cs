@@ -51,6 +51,9 @@ namespace BungieNet.Destiny.Definitions
 		[JsonProperty("itemTypeDisplayName")]
 		public string ItemTypeDisplayName { get; set; }
 
+		[JsonProperty("flavorText")]
+		public string FlavorText { get; set; }
+
 		[JsonProperty("uiItemDisplayStyle")]
 		public string UIItemDisplayStyle { get; set; }
 
@@ -191,5 +194,8 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("traitIds")]
 		public string[] TraitIds { get; set; }
+
+		[JsonProperty("traitHashes")]
+		public uint[] TraitHashes { get; set; }
 	}
 }

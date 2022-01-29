@@ -33,6 +33,9 @@ namespace BungieNet.Destiny.Entities.Vendors
 		[JsonProperty("augments")]
 		public Destiny.DestinyVendorItemState Augments { get; set; }
 
+		[JsonProperty("itemValueVisibility")]
+		public bool[] ItemValueVisibility { get; set; }
+
 		[JsonProperty("vendorItemIndex")]
 		public int VendorItemIndex { get; set; }
 

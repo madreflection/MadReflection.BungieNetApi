@@ -26,6 +26,8 @@ namespace BungieNet.Destiny
 
 		Ghost = 4,
 
-		Subclass = 5
+		Subclass = 5,
+
+		Stasis = 6
 	}
 }

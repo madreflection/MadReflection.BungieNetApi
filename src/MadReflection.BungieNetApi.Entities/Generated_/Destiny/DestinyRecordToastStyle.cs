@@ -23,6 +23,10 @@ namespace BungieNet.Destiny
 
 		MetaRecord = 4,
 
-		MedalComplete = 5
+		MedalComplete = 5,
+
+		SeasonChallengeComplete = 6,
+
+		GildedTitleComplete = 7
 	}
 }

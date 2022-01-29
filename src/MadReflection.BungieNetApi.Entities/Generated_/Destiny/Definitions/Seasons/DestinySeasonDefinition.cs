@@ -43,5 +43,11 @@ namespace BungieNet.Destiny.Definitions.Seasons
 
 		[JsonProperty("sealPresentationNodeHash")]
 		public uint? SealPresentationNodeHash { get; set; }
+
+		[JsonProperty("seasonalChallengesPresentationNodeHash")]
+		public uint? SeasonalChallengesPresentationNodeHash { get; set; }
+
+		[JsonProperty("preview")]
+		public Destiny.Definitions.Seasons.DestinySeasonPreviewDefinition Preview { get; set; }
 	}
 }

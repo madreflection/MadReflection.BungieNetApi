@@ -30,5 +30,8 @@ namespace BungieNet.Destiny.Responses
 
 		[JsonProperty("sales")]
 		public DictionaryComponentResponseOfuint32AndPublicDestinyVendorSaleItemSetComponent Sales { get; set; }
+
+		[JsonProperty("stringVariables")]
+		public SingleComponentResponseOfDestinyStringVariablesComponent StringVariables { get; set; }
 	}
 }

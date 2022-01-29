@@ -43,5 +43,11 @@ namespace BungieNet.GroupsV2
 
 		[JsonProperty("displayName")]
 		public string DisplayName { get; set; }
+
+		[JsonProperty("bungieGlobalDisplayName")]
+		public string BungieGlobalDisplayName { get; set; }
+
+		[JsonProperty("bungieGlobalDisplayNameCode")]
+		public short? BungieGlobalDisplayNameCode { get; set; }
 	}
 }

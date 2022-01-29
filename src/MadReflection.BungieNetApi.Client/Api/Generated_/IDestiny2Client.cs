@@ -21,8 +21,8 @@ namespace BungieNet.Api
 		Destiny.Definitions.DestinyDefinition GetDestinyEntityDefinition(string entityType, uint hashIdentifier);
 		Task<Destiny.Definitions.DestinyDefinition> GetDestinyEntityDefinitionAsync(string entityType, uint hashIdentifier);
 
-		User.UserInfoCard[] SearchDestinyPlayer(BungieMembershipType membershipType, string displayName, bool returnOriginalProfile);
-		Task<User.UserInfoCard[]> SearchDestinyPlayerAsync(BungieMembershipType membershipType, string displayName, bool returnOriginalProfile);
+		User.UserInfoCard[] SearchDestinyPlayerByBungieName(User.ExactSearchRequest exactSearchRequest, BungieMembershipType membershipType);
+		Task<User.UserInfoCard[]> SearchDestinyPlayerByBungieNameAsync(User.ExactSearchRequest exactSearchRequest, BungieMembershipType membershipType);
 
 		Destiny.Responses.DestinyLinkedProfilesResponse GetLinkedProfiles(BungieMembershipType membershipType, long membershipId, bool getAllMemberships);
 		Task<Destiny.Responses.DestinyLinkedProfilesResponse> GetLinkedProfilesAsync(BungieMembershipType membershipType, long membershipId, bool getAllMemberships);
@@ -35,6 +35,9 @@ namespace BungieNet.Api
 
 		Destiny.Milestones.DestinyMilestone GetClanWeeklyRewardState(long groupId);
 		Task<Destiny.Milestones.DestinyMilestone> GetClanWeeklyRewardStateAsync(long groupId);
+
+		Config.ClanBanner.ClanBannerSource GetClanBannerSource();
+		Task<Config.ClanBanner.ClanBannerSource> GetClanBannerSourceAsync();
 
 		Destiny.Responses.DestinyItemResponse GetItem(BungieMembershipType membershipType, long destinyMembershipId, long itemInstanceId, params Destiny.DestinyComponentType[] components);
 		Task<Destiny.Responses.DestinyItemResponse> GetItemAsync(BungieMembershipType membershipType, long destinyMembershipId, long itemInstanceId, params Destiny.DestinyComponentType[] components);
@@ -71,6 +74,9 @@ namespace BungieNet.Api
 
 		Destiny.Responses.DestinyItemChangeResponse InsertSocketPlug(Destiny.Requests.Actions.DestinyInsertPlugsActionRequest destinyInsertPlugsActionRequest);
 		Task<Destiny.Responses.DestinyItemChangeResponse> InsertSocketPlugAsync(Destiny.Requests.Actions.DestinyInsertPlugsActionRequest destinyInsertPlugsActionRequest);
+
+		Destiny.Responses.DestinyItemChangeResponse InsertSocketPlugFree(Destiny.Requests.Actions.DestinyInsertPlugsFreeActionRequest destinyInsertPlugsFreeActionRequest);
+		Task<Destiny.Responses.DestinyItemChangeResponse> InsertSocketPlugFreeAsync(Destiny.Requests.Actions.DestinyInsertPlugsFreeActionRequest destinyInsertPlugsFreeActionRequest);
 
 		Destiny.HistoricalStats.DestinyPostGameCarnageReportData GetPostGameCarnageReport(long activityId);
 		Task<Destiny.HistoricalStats.DestinyPostGameCarnageReportData> GetPostGameCarnageReportAsync(long activityId);
@@ -155,18 +161,12 @@ namespace BungieNet.Api
 			return GetEntityAsync<Destiny.Definitions.DestinyDefinition>(uri);
 		}
 
-		User.UserInfoCard[] IDestiny2Client.SearchDestinyPlayer(BungieMembershipType membershipType, string displayName, bool returnOriginalProfile) => Destiny2.SearchDestinyPlayerAsync(membershipType, displayName, returnOriginalProfile).GetAwaiter().GetResult();
-		Task<User.UserInfoCard[]> IDestiny2Client.SearchDestinyPlayerAsync(BungieMembershipType membershipType, string displayName, bool returnOriginalProfile)
+		User.UserInfoCard[] IDestiny2Client.SearchDestinyPlayerByBungieName(User.ExactSearchRequest exactSearchRequest, BungieMembershipType membershipType) => Destiny2.SearchDestinyPlayerByBungieNameAsync(exactSearchRequest, membershipType).GetAwaiter().GetResult();
+		Task<User.UserInfoCard[]> IDestiny2Client.SearchDestinyPlayerByBungieNameAsync(User.ExactSearchRequest exactSearchRequest, BungieMembershipType membershipType)
 		{
-			if (displayName is null)
-				throw new ArgumentNullException(nameof(displayName));
-			string[] pathSegments = new string[] { "Destiny2", "SearchDestinyPlayer", ((int)membershipType).ToString(), displayName };
-			System.Collections.Generic.List<QueryStringItem> queryItems = new System.Collections.Generic.List<QueryStringItem>()
-			{
-				new QueryStringItem("returnOriginalProfile", returnOriginalProfile.ToString().ToLower())
-			};
-			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
-			return GetEntityArrayAsync<User.UserInfoCard>(uri);
+			string[] pathSegments = new string[] { "Destiny2", "SearchDestinyPlayerByBungieName", ((int)membershipType).ToString() };
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
+			return PostEntityArrayAsync<User.ExactSearchRequest, User.UserInfoCard>(uri, exactSearchRequest);
 		}
 
 		Destiny.Responses.DestinyLinkedProfilesResponse IDestiny2Client.GetLinkedProfiles(BungieMembershipType membershipType, long membershipId, bool getAllMemberships) => Destiny2.GetLinkedProfilesAsync(membershipType, membershipId, getAllMemberships).GetAwaiter().GetResult();
@@ -211,6 +211,14 @@ namespace BungieNet.Api
 			string[] pathSegments = new string[] { "Destiny2", "Clan", groupId.ToString(), "WeeklyRewardState" };
 			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<Destiny.Milestones.DestinyMilestone>(uri);
+		}
+
+		Config.ClanBanner.ClanBannerSource IDestiny2Client.GetClanBannerSource() => Destiny2.GetClanBannerSourceAsync().GetAwaiter().GetResult();
+		Task<Config.ClanBanner.ClanBannerSource> IDestiny2Client.GetClanBannerSourceAsync()
+		{
+			string[] pathSegments = new string[] { "Destiny2", "Clan", "ClanBannerDictionary" };
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
+			return GetEntityAsync<Config.ClanBanner.ClanBannerSource>(uri);
 		}
 
 		Destiny.Responses.DestinyItemResponse IDestiny2Client.GetItem(BungieMembershipType membershipType, long destinyMembershipId, long itemInstanceId, params Destiny.DestinyComponentType[] components) => Destiny2.GetItemAsync(membershipType, destinyMembershipId, itemInstanceId, components).GetAwaiter().GetResult();
@@ -328,6 +336,14 @@ namespace BungieNet.Api
 			string[] pathSegments = new string[] { "Destiny2", "Actions", "Items", "InsertSocketPlug" };
 			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return PostEntityAsync<Destiny.Requests.Actions.DestinyInsertPlugsActionRequest, Destiny.Responses.DestinyItemChangeResponse>(uri, destinyInsertPlugsActionRequest);
+		}
+
+		Destiny.Responses.DestinyItemChangeResponse IDestiny2Client.InsertSocketPlugFree(Destiny.Requests.Actions.DestinyInsertPlugsFreeActionRequest destinyInsertPlugsFreeActionRequest) => Destiny2.InsertSocketPlugFreeAsync(destinyInsertPlugsFreeActionRequest).GetAwaiter().GetResult();
+		Task<Destiny.Responses.DestinyItemChangeResponse> IDestiny2Client.InsertSocketPlugFreeAsync(Destiny.Requests.Actions.DestinyInsertPlugsFreeActionRequest destinyInsertPlugsFreeActionRequest)
+		{
+			string[] pathSegments = new string[] { "Destiny2", "Actions", "Items", "InsertSocketPlugFree" };
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
+			return PostEntityAsync<Destiny.Requests.Actions.DestinyInsertPlugsFreeActionRequest, Destiny.Responses.DestinyItemChangeResponse>(uri, destinyInsertPlugsFreeActionRequest);
 		}
 
 		Destiny.HistoricalStats.DestinyPostGameCarnageReportData IDestiny2Client.GetPostGameCarnageReport(long activityId) => Destiny2.GetPostGameCarnageReportAsync(activityId).GetAwaiter().GetResult();

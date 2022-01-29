@@ -22,5 +22,8 @@ namespace BungieNet.Destiny.Definitions.Records
 
 		[JsonProperty("titlesByGenderHash")]
 		public System.Collections.Generic.Dictionary<uint, string> TitlesByGenderHash { get; set; }
+
+		[JsonProperty("gildingTrackingRecordHash")]
+		public uint? GildingTrackingRecordHash { get; set; }
 	}
 }

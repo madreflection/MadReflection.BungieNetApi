@@ -56,6 +56,9 @@ namespace BungieNet.Destiny.Responses
 		[JsonProperty("metrics")]
 		public SingleComponentResponseOfDestinyMetricsComponent Metrics { get; set; }
 
+		[JsonProperty("profileStringVariables")]
+		public SingleComponentResponseOfDestinyStringVariablesComponent ProfileStringVariables { get; set; }
+
 		[JsonProperty("characters")]
 		public DictionaryComponentResponseOfint64AndDestinyCharacterComponent Characters { get; set; }
 
@@ -91,6 +94,9 @@ namespace BungieNet.Destiny.Responses
 
 		[JsonProperty("characterCollectibles")]
 		public DictionaryComponentResponseOfint64AndDestinyCollectiblesComponent CharacterCollectibles { get; set; }
+
+		[JsonProperty("characterStringVariables")]
+		public DictionaryComponentResponseOfint64AndDestinyStringVariablesComponent CharacterStringVariables { get; set; }
 
 		[JsonProperty("itemComponents")]
 		public DestinyItemComponentSetOfint64 ItemComponents { get; set; }

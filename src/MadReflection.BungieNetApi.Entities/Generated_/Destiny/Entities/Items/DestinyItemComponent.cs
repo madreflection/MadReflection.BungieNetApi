@@ -64,5 +64,8 @@ namespace BungieNet.Destiny.Entities.Items
 
 		[JsonProperty("versionNumber")]
 		public int? VersionNumber { get; set; }
+
+		[JsonProperty("itemValueVisibility")]
+		public bool[] ItemValueVisibility { get; set; }
 	}
 }

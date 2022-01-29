@@ -1,5 +1,16 @@
 # Change Log
 
+***Note:*** Expect breaking changes unrelated to service changes in upcoming versions:
+
+* Upgrading the minimum runtime to .NET Core 3.1, possibly higher.
+* Switching to `System.Text.Json` for serialization and deserialization.
+* Changing to a proper typed client.
+* Adding dependency injection registration for `Microsoft.Extensions.DependencyInjection`.
+
+## 0.1.11
+
+* Regenerated the code for version 2.13.1 of the API.
+
 ## 0.1.10
 
 * Regenerated the code for version 2.9.2 of the API.

@@ -25,5 +25,11 @@ namespace BungieNet.Destiny.Components.Records
 
 		[JsonProperty("intervalsRedeemedCount")]
 		public int IntervalsRedeemedCount { get; set; }
+
+		[JsonProperty("completedCount")]
+		public int? CompletedCount { get; set; }
+
+		[JsonProperty("rewardVisibilty")]
+		public bool[] RewardVisibilty { get; set; }
 	}
 }

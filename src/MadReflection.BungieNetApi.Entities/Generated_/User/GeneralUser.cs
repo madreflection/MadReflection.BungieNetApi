@@ -112,5 +112,11 @@ namespace BungieNet.User
 
 		[JsonProperty("twitchDisplayName")]
 		public string TwitchDisplayName { get; set; }
+
+		[JsonProperty("cachedBungieGlobalDisplayName")]
+		public string CachedBungieGlobalDisplayName { get; set; }
+
+		[JsonProperty("cachedBungieGlobalDisplayNameCode")]
+		public short? CachedBungieGlobalDisplayNameCode { get; set; }
 	}
 }

@@ -17,9 +17,6 @@ namespace BungieNet
 		[JsonProperty("instances")]
 		public DictionaryComponentResponseOfuint32AndDestinyItemInstanceComponent Instances { get; set; }
 
-		[JsonProperty("perks")]
-		public DictionaryComponentResponseOfuint32AndDestinyItemPerksComponent Perks { get; set; }
-
 		[JsonProperty("renderData")]
 		public DictionaryComponentResponseOfuint32AndDestinyItemRenderComponent RenderData { get; set; }
 
@@ -43,5 +40,8 @@ namespace BungieNet
 
 		[JsonProperty("objectives")]
 		public DictionaryComponentResponseOfuint32AndDestinyItemObjectivesComponent Objectives { get; set; }
+
+		[JsonProperty("perks")]
+		public DictionaryComponentResponseOfuint32AndDestinyItemPerksComponent Perks { get; set; }
 	}
 }

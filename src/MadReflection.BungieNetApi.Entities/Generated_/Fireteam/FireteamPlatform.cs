@@ -13,7 +13,7 @@ namespace BungieNet.Fireteam
 {
 	public enum FireteamPlatform : byte
 	{
-		Unknown = 0,
+		Any = 0,
 
 		Playstation4 = 1,
 
