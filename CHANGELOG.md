@@ -6,6 +6,7 @@
 * Switching to `System.Text.Json` for serialization and deserialization.
 * Changing to a proper typed client.
 * Adding dependency injection registration for `Microsoft.Extensions.DependencyInjection`.
+* Removing the sync methods.  The mechanism used is not the right pattern in most cases.  If consumers need to use the API in a non-async context, they should call the async methods and get the result using whatever mechanism is appropriate in their situation.
 
 ## 0.1.11
 
