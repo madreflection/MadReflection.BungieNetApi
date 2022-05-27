@@ -18,6 +18,9 @@ namespace BungieNet.Api
 		User.GeneralUser GetBungieNetUserById(long id);
 		Task<User.GeneralUser> GetBungieNetUserByIdAsync(long id);
 
+		System.Collections.Generic.Dictionary<BungieCredentialType, string> GetSanitizedPlatformDisplayNames(long membershipId);
+		Task<System.Collections.Generic.Dictionary<BungieCredentialType, string>> GetSanitizedPlatformDisplayNamesAsync(long membershipId);
+
 		User.Models.GetCredentialTypesForAccountResponse[] GetCredentialTypesForTargetAccount(long membershipId);
 		Task<User.Models.GetCredentialTypesForAccountResponse[]> GetCredentialTypesForTargetAccountAsync(long membershipId);
 
@@ -56,6 +59,14 @@ namespace BungieNet.Api
 			string[] pathSegments = new string[] { "User", "GetBungieNetUserById", id.ToString() };
 			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<User.GeneralUser>(uri);
+		}
+
+		System.Collections.Generic.Dictionary<BungieCredentialType, string> IUserClient.GetSanitizedPlatformDisplayNames(long membershipId) => User.GetSanitizedPlatformDisplayNamesAsync(membershipId).GetAwaiter().GetResult();
+		Task<System.Collections.Generic.Dictionary<BungieCredentialType, string>> IUserClient.GetSanitizedPlatformDisplayNamesAsync(long membershipId)
+		{
+			string[] pathSegments = new string[] { "User", "GetSanitizedPlatformDisplayNames", membershipId.ToString() };
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
+			return GetEntityAsync<System.Collections.Generic.Dictionary<BungieCredentialType, string>>(uri);
 		}
 
 		User.Models.GetCredentialTypesForAccountResponse[] IUserClient.GetCredentialTypesForTargetAccount(long membershipId) => User.GetCredentialTypesForTargetAccountAsync(membershipId).GetAwaiter().GetResult();

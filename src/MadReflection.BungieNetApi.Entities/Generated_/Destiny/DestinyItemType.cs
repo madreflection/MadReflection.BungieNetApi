@@ -71,6 +71,8 @@ namespace BungieNet.Destiny
 
 		SeasonalArtifact = 28,
 
-		Finisher = 29
+		Finisher = 29,
+
+		Pattern = 30
 	}
 }

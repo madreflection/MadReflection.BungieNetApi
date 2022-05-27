@@ -22,5 +22,8 @@ namespace BungieNet.Destiny.Definitions.Traits
 
 		[JsonProperty("traitCategoryHash")]
 		public uint TraitCategoryHash { get; set; }
+
+		[JsonProperty("displayHint")]
+		public string DisplayHint { get; set; }
 	}
 }

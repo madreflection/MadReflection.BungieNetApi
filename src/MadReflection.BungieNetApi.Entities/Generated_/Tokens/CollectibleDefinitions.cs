@@ -10,14 +10,14 @@
 using System;
 using Newtonsoft.Json;
 
-namespace BungieNet.Destiny.Definitions.Presentation
+namespace BungieNet.Tokens
 {
-	public partial class DestinyPresentationNodeRecordChildEntry
+	public partial class CollectibleDefinitions
 	{
-		[JsonProperty("recordHash")]
-		public uint RecordHash { get; set; }
+		[JsonProperty("CollectibleDefinition")]
+		public Destiny.Definitions.Collectibles.DestinyCollectibleDefinition CollectibleDefinition { get; set; }
 
-		[JsonProperty("nodeDisplayPriority")]
-		public uint NodeDisplayPriority { get; set; }
+		[JsonProperty("DestinyInventoryItemDefinition")]
+		public Destiny.Definitions.DestinyInventoryItemDefinition DestinyInventoryItemDefinition { get; set; }
 	}
 }

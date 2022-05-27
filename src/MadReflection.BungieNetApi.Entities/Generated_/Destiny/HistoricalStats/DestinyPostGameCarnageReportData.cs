@@ -20,6 +20,9 @@ namespace BungieNet.Destiny.HistoricalStats
 		[JsonProperty("startingPhaseIndex")]
 		public int? StartingPhaseIndex { get; set; }
 
+		[JsonProperty("activityWasStartedFromBeginning")]
+		public bool? ActivityWasStartedFromBeginning { get; set; }
+
 		[JsonProperty("activityDetails")]
 		public Destiny.HistoricalStats.DestinyHistoricalStatsActivity ActivityDetails { get; set; }
 

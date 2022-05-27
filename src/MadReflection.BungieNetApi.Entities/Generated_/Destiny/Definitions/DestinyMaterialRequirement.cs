@@ -26,6 +26,9 @@ namespace BungieNet.Destiny.Definitions
 		[JsonProperty("count")]
 		public int Count { get; set; }
 
+		[JsonProperty("countIsConstant")]
+		public bool CountIsConstant { get; set; }
+
 		[JsonProperty("omitFromRequirements")]
 		public bool OmitFromRequirements { get; set; }
 	}

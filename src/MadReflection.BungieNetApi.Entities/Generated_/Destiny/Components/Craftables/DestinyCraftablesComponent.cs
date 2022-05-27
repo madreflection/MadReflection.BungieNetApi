@@ -10,14 +10,14 @@
 using System;
 using Newtonsoft.Json;
 
-namespace BungieNet.Destiny.Definitions.Presentation
+namespace BungieNet.Destiny.Components.Craftables
 {
-	public partial class DestinyPresentationNodeRecordChildEntry
+	public partial class DestinyCraftablesComponent
 	{
-		[JsonProperty("recordHash")]
-		public uint RecordHash { get; set; }
+		[JsonProperty("craftables")]
+		public System.Collections.Generic.Dictionary<uint, Destiny.Components.Craftables.DestinyCraftableComponent> Craftables { get; set; }
 
-		[JsonProperty("nodeDisplayPriority")]
-		public uint NodeDisplayPriority { get; set; }
+		[JsonProperty("craftingRootNodeHash")]
+		public uint CraftingRootNodeHash { get; set; }
 	}
 }

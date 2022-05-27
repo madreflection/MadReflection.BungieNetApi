@@ -10,17 +10,20 @@
 using System;
 using Newtonsoft.Json;
 
-namespace BungieNet.Destiny.Definitions
+namespace BungieNet.Destiny.Artifacts
 {
-	public partial class DestinyItemSocketEntryPlugItemRandomizedDefinition
+	public partial class DestinyArtifactCharacterScoped
 	{
-		[JsonProperty("craftingRequirements")]
-		public Destiny.Definitions.DestinyPlugItemCraftingRequirements CraftingRequirements { get; set; }
+		[JsonProperty("artifactHash")]
+		public uint ArtifactHash { get; set; }
 
-		[JsonProperty("currentlyCanRoll")]
-		public bool CurrentlyCanRoll { get; set; }
+		[JsonProperty("pointsUsed")]
+		public int PointsUsed { get; set; }
 
-		[JsonProperty("plugItemHash")]
-		public uint PlugItemHash { get; set; }
+		[JsonProperty("resetCount")]
+		public int ResetCount { get; set; }
+
+		[JsonProperty("tiers")]
+		public Destiny.Artifacts.DestinyArtifactTier[] Tiers { get; set; }
 	}
 }

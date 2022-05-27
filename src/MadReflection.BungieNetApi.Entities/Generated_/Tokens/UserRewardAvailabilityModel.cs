@@ -10,17 +10,17 @@
 using System;
 using Newtonsoft.Json;
 
-namespace BungieNet.Destiny.Definitions
+namespace BungieNet.Tokens
 {
-	public partial class DestinyItemSocketEntryPlugItemRandomizedDefinition
+	public partial class UserRewardAvailabilityModel
 	{
-		[JsonProperty("craftingRequirements")]
-		public Destiny.Definitions.DestinyPlugItemCraftingRequirements CraftingRequirements { get; set; }
+		[JsonProperty("AvailabilityModel")]
+		public Tokens.RewardAvailabilityModel AvailabilityModel { get; set; }
 
-		[JsonProperty("currentlyCanRoll")]
-		public bool CurrentlyCanRoll { get; set; }
+		[JsonProperty("IsAvailableForUser")]
+		public bool IsAvailableForUser { get; set; }
 
-		[JsonProperty("plugItemHash")]
-		public uint PlugItemHash { get; set; }
+		[JsonProperty("IsUnlockedForUser")]
+		public bool IsUnlockedForUser { get; set; }
 	}
 }

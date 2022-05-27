@@ -32,6 +32,16 @@ namespace BungieNet.Destiny
 		/// <summary>
 		/// If this bit is set, the item has a Masterwork plug inserted. This usually coincides with having a special "glowing" effect applied to the item's icon.
 		/// </summary>
-		Masterwork = 0x4
+		Masterwork = 0x4,
+
+		/// <summary>
+		/// If this bit is set, the item has been 'crafted' by the player. You may want to represent this visually with a "crafted" icon overlay.
+		/// </summary>
+		Crafted = 0x8,
+
+		/// <summary>
+		/// If this bit is set, the item has a 'highlighted' objective. You may want to represent this with an orange-red icon border color.
+		/// </summary>
+		HighlightedObjective = 0x10
 	}
 }

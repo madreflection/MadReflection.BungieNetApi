@@ -173,6 +173,16 @@ namespace BungieNet.Destiny.HistoricalStats.Definitions
 
 		TrialsOfOsiris = 84,
 
-		Dares = 85
+		Dares = 85,
+
+		Offensive = 86,
+
+		LostSector = 87,
+
+		Rift = 88,
+
+		ZoneControl = 89,
+
+		IronBannerRift = 90
 	}
 }

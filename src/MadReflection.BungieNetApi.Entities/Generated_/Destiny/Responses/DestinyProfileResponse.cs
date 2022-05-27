@@ -98,6 +98,9 @@ namespace BungieNet.Destiny.Responses
 		[JsonProperty("characterStringVariables")]
 		public DictionaryComponentResponseOfint64AndDestinyStringVariablesComponent CharacterStringVariables { get; set; }
 
+		[JsonProperty("characterCraftables")]
+		public DictionaryComponentResponseOfint64AndDestinyCraftablesComponent CharacterCraftables { get; set; }
+
 		[JsonProperty("itemComponents")]
 		public DestinyItemComponentSetOfint64 ItemComponents { get; set; }
 

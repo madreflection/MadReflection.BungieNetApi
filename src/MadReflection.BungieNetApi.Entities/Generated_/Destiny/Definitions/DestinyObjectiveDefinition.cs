@@ -70,5 +70,11 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("inProgressValueStyle")]
 		public Destiny.DestinyUnlockValueUIStyle InProgressValueStyle { get; set; }
+
+		[JsonProperty("uiLabel")]
+		public string UILabel { get; set; }
+
+		[JsonProperty("uiStyle")]
+		public Destiny.DestinyObjectiveUiStyle UIStyle { get; set; }
 	}
 }

@@ -10,17 +10,17 @@
 using System;
 using Newtonsoft.Json;
 
-namespace BungieNet.Destiny.Definitions
+namespace BungieNet.Destiny.Components.Craftables
 {
-	public partial class DestinyItemSocketEntryPlugItemRandomizedDefinition
+	public partial class DestinyCraftableComponent
 	{
-		[JsonProperty("craftingRequirements")]
-		public Destiny.Definitions.DestinyPlugItemCraftingRequirements CraftingRequirements { get; set; }
+		[JsonProperty("visible")]
+		public bool Visible { get; set; }
 
-		[JsonProperty("currentlyCanRoll")]
-		public bool CurrentlyCanRoll { get; set; }
+		[JsonProperty("failedRequirementIndexes")]
+		public int[] FailedRequirementIndexes { get; set; }
 
-		[JsonProperty("plugItemHash")]
-		public uint PlugItemHash { get; set; }
+		[JsonProperty("sockets")]
+		public Destiny.Components.Craftables.DestinyCraftableSocketComponent[] Sockets { get; set; }
 	}
 }

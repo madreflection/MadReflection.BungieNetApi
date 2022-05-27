@@ -19,5 +19,11 @@ namespace BungieNet.Destiny.Definitions.ActivityModifiers
 	{
 		[JsonProperty("displayProperties")]
 		public Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition DisplayProperties { get; set; }
+
+		[JsonProperty("displayInNavMode")]
+		public bool DisplayInNavMode { get; set; }
+
+		[JsonProperty("displayInActivitySelection")]
+		public bool DisplayInActivitySelection { get; set; }
 	}
 }

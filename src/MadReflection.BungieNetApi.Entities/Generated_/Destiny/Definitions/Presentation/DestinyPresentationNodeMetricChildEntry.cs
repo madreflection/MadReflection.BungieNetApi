@@ -16,5 +16,8 @@ namespace BungieNet.Destiny.Definitions.Presentation
 	{
 		[JsonProperty("metricHash")]
 		public uint MetricHash { get; set; }
+
+		[JsonProperty("nodeDisplayPriority")]
+		public uint NodeDisplayPriority { get; set; }
 	}
 }

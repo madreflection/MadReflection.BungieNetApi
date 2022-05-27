@@ -21,6 +21,8 @@ namespace BungieNet.Destiny
 
 		Records = 3,
 
-		Metric = 4
+		Metric = 4,
+
+		Craftable = 5
 	}
 }

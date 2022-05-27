@@ -50,6 +50,9 @@ namespace BungieNet.Common.Models
 		[JsonProperty("loreRootNodeHash")]
 		public uint LoreRootNodeHash { get; set; }
 
+		[JsonProperty("craftingRootNodeHash")]
+		public uint CraftingRootNodeHash { get; set; }
+
 		[JsonProperty("currentRankProgressionHashes")]
 		public uint[] CurrentRankProgressionHashes { get; set; }
 

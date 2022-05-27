@@ -10,14 +10,14 @@
 using System;
 using Newtonsoft.Json;
 
-namespace BungieNet.Destiny.Definitions.Presentation
+namespace BungieNet.Destiny.Components.Craftables
 {
-	public partial class DestinyPresentationNodeRecordChildEntry
+	public partial class DestinyCraftableSocketComponent
 	{
-		[JsonProperty("recordHash")]
-		public uint RecordHash { get; set; }
+		[JsonProperty("plugSetHash")]
+		public uint PlugSetHash { get; set; }
 
-		[JsonProperty("nodeDisplayPriority")]
-		public uint NodeDisplayPriority { get; set; }
+		[JsonProperty("plugs")]
+		public Destiny.Components.Craftables.DestinyCraftableSocketPlugComponent[] Plugs { get; set; }
 	}
 }

@@ -104,6 +104,11 @@ namespace BungieNet.Destiny
 		/// <summary>
 		/// This indicates that the sale item is free.
 		/// </summary>
-		Free = 0x20000
+		Free = 0x20000,
+
+		/// <summary>
+		/// This indicates that the sale item is locked.
+		/// </summary>
+		Locked = 0x40000
 	}
 }

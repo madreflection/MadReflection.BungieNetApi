@@ -69,6 +69,9 @@ namespace BungieNet.Destiny.Definitions
 		[JsonProperty("action")]
 		public Destiny.Definitions.DestinyItemActionBlockDefinition Action { get; set; }
 
+		[JsonProperty("crafting")]
+		public Destiny.Definitions.DestinyItemCraftingBlockDefinition Crafting { get; set; }
+
 		[JsonProperty("inventory")]
 		public Destiny.Definitions.DestinyItemInventoryBlockDefinition Inventory { get; set; }
 

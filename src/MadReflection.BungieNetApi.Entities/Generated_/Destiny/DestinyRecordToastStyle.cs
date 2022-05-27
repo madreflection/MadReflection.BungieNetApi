@@ -27,6 +27,8 @@ namespace BungieNet.Destiny
 
 		SeasonChallengeComplete = 6,
 
-		GildedTitleComplete = 7
+		GildedTitleComplete = 7,
+
+		CraftingRecipeUnlocked = 8
 	}
 }

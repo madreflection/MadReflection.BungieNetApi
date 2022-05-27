@@ -10,14 +10,14 @@
 using System;
 using Newtonsoft.Json;
 
-namespace BungieNet.Destiny.Definitions.Presentation
+namespace BungieNet.Destiny.Artifacts
 {
-	public partial class DestinyPresentationNodeRecordChildEntry
+	public partial class DestinyArtifactTierItem
 	{
-		[JsonProperty("recordHash")]
-		public uint RecordHash { get; set; }
+		[JsonProperty("itemHash")]
+		public uint ItemHash { get; set; }
 
-		[JsonProperty("nodeDisplayPriority")]
-		public uint NodeDisplayPriority { get; set; }
+		[JsonProperty("isActive")]
+		public bool IsActive { get; set; }
 	}
 }

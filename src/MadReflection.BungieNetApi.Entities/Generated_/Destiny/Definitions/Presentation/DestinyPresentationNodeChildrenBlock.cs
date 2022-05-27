@@ -28,5 +28,8 @@ namespace BungieNet.Destiny.Definitions.Presentation
 
 		[JsonProperty("metrics")]
 		public Destiny.Definitions.Presentation.DestinyPresentationNodeMetricChildEntry[] Metrics { get; set; }
+
+		[JsonProperty("craftables")]
+		public Destiny.Definitions.Presentation.DestinyPresentationNodeCraftableChildEntry[] Craftables { get; set; }
 	}
 }

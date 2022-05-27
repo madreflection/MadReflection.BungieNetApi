@@ -52,5 +52,8 @@ namespace BungieNet.Destiny.Definitions
 
 		[JsonProperty("suppressExpirationWhenObjectivesComplete")]
 		public bool SuppressExpirationWhenObjectivesComplete { get; set; }
+
+		[JsonProperty("recipeItemHash")]
+		public uint? RecipeItemHash { get; set; }
 	}
 }

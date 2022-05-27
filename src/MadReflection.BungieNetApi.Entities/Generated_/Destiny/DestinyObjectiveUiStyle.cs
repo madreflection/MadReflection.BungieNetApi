@@ -8,16 +8,26 @@
 //------------------------------------------------------------------------------
 
 using System;
-using Newtonsoft.Json;
 
-namespace BungieNet.Destiny.Definitions.Presentation
+namespace BungieNet.Destiny
 {
-	public partial class DestinyPresentationNodeRecordChildEntry
+	/// <summary>
+	/// If the objective has a known UI label, this enumeration will represent it.
+	/// </summary>
+	public enum DestinyObjectiveUiStyle
 	{
-		[JsonProperty("recordHash")]
-		public uint RecordHash { get; set; }
+		None = 0,
 
-		[JsonProperty("nodeDisplayPriority")]
-		public uint NodeDisplayPriority { get; set; }
+		Highlighted = 1,
+
+		CraftingWeaponLevel = 2,
+
+		CraftingWeaponLevelProgress = 3,
+
+		CraftingWeaponTimestamp = 4,
+
+		CraftingMementos = 5,
+
+		CraftingMementoTitle = 6
 	}
 }

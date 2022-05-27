@@ -12,11 +12,8 @@ using Newtonsoft.Json;
 
 namespace BungieNet.Destiny.Definitions.Presentation
 {
-	public partial class DestinyPresentationNodeRecordChildEntry
+	public partial class DestinyPresentationNodeChildEntryBase
 	{
-		[JsonProperty("recordHash")]
-		public uint RecordHash { get; set; }
-
 		[JsonProperty("nodeDisplayPriority")]
 		public uint NodeDisplayPriority { get; set; }
 	}

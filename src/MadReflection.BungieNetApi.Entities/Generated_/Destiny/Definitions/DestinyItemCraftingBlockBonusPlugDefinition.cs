@@ -12,13 +12,10 @@ using Newtonsoft.Json;
 
 namespace BungieNet.Destiny.Definitions
 {
-	public partial class DestinyItemSocketEntryPlugItemRandomizedDefinition
+	public partial class DestinyItemCraftingBlockBonusPlugDefinition
 	{
-		[JsonProperty("craftingRequirements")]
-		public Destiny.Definitions.DestinyPlugItemCraftingRequirements CraftingRequirements { get; set; }
-
-		[JsonProperty("currentlyCanRoll")]
-		public bool CurrentlyCanRoll { get; set; }
+		[JsonProperty("socketTypeHash")]
+		public uint SocketTypeHash { get; set; }
 
 		[JsonProperty("plugItemHash")]
 		public uint PlugItemHash { get; set; }

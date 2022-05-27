@@ -35,6 +35,9 @@ namespace BungieNet.Destiny.Definitions.Records
 		[JsonProperty("forTitleGilding")]
 		public bool ForTitleGilding { get; set; }
 
+		[JsonProperty("shouldShowLargeIcons")]
+		public bool ShouldShowLargeIcons { get; set; }
+
 		[JsonProperty("titleInfo")]
 		public Destiny.Definitions.Records.DestinyRecordTitleBlock TitleInfo { get; set; }
 
