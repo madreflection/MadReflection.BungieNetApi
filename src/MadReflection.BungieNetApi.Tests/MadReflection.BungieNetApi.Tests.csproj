@@ -5,7 +5,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AssemblyName>MadReflection.BungieNetApi.Tests</AssemblyName>
     <RootNamespace>MadReflection.BungieNetApi.Tests</RootNamespace>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>10.0</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

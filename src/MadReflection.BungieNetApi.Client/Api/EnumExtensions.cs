@@ -20,7 +20,7 @@ namespace BungieNet
 		public static string ToNumericCsv<TEnum>(this IEnumerable<TEnum> values)
 			where TEnum : struct, Enum
 		{
-			if (values == null)
+			if (values is null)
 				throw new ArgumentNullException(nameof(values));
 
 			return string.Join(",", values.Select(v => v.GetUnderlyingValue()));
@@ -29,7 +29,7 @@ namespace BungieNet
 		public static string ToStringCsv<TEnum>(this IEnumerable<TEnum> values)
 			where TEnum : struct, Enum
 		{
-			if (values == null)
+			if (values is null)
 				return "";
 
 			return string.Join(",", values.Select(v => v.ToString()));

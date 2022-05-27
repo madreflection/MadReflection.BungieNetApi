@@ -5,7 +5,7 @@
     <RootNamespace>BungieNet</RootNamespace>
     <AssemblyName>MadReflection.BungieNetApi.Entities</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>10.0</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">

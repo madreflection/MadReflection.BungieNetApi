@@ -19,7 +19,7 @@ namespace BungieNet.Api
 
 		private protected BungieClientBase(IBungieApiKey apiKey)
 		{
-			if (apiKey == null)
+			if (apiKey is null)
 				throw new ArgumentNullException(nameof(apiKey));
 			if (apiKey.Value == "")
 				throw new ArgumentException("API key value cannot be an empty string.", nameof(apiKey) + "." + nameof(apiKey.Value));
@@ -31,7 +31,7 @@ namespace BungieNet.Api
 
 		public void SetBearerToken(string bearerToken)
 		{
-			if (bearerToken == null)
+			if (bearerToken is null)
 				throw new ArgumentNullException(nameof(bearerToken));
 			if (string.IsNullOrEmpty(bearerToken))
 				throw new ArgumentException("Bearer token cannot be an empty string.", nameof(bearerToken));
@@ -46,14 +46,14 @@ namespace BungieNet.Api
 
 		internal Uri GetEndpointUri(BungieEndpointBase endpointBase, string[] pathSegments, bool includeTrailingSlash, IEnumerable<QueryStringItem> queryStringItems = null)
 		{
-			if (pathSegments == null)
+			if (pathSegments is null)
 				throw new ArgumentNullException(nameof(pathSegments));
 			if (pathSegments.Length == 0)
 				throw new ArgumentException("No endpoint path.");
 
 			foreach (string pathSegment in pathSegments)
 			{
-				if (pathSegment == null)
+				if (pathSegment is null)
 					throw new ArgumentNullException(nameof(pathSegment), "Array elements cannot be null.");
 				if (pathSegments.Length == 0)
 					throw new ArgumentException("Array element is empty.", nameof(pathSegments));
@@ -101,7 +101,7 @@ namespace BungieNet.Api
 				Content = content
 			};
 
-			if (_bearerToken is object)
+			if (_bearerToken is not null)
 				request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _bearerToken);
 
 			return request;
@@ -109,7 +109,7 @@ namespace BungieNet.Api
 
 		private async Task<string> GetResourceAsync(Uri uri)
 		{
-			if (uri == null)
+			if (uri is null)
 				throw new ArgumentNullException(nameof(uri));
 
 			HttpRequestMessage request = CreateRequestMessage(uri, HttpMethod.Get, null);
@@ -130,7 +130,7 @@ namespace BungieNet.Api
 
 		private async Task<string> PostResourceAsync(Uri uri, string postBody)
 		{
-			if (uri == null)
+			if (uri is null)
 				throw new ArgumentNullException(nameof(uri));
 
 			StringContent content = new StringContent(postBody);
@@ -153,7 +153,7 @@ namespace BungieNet.Api
 
 		private async Task<JToken> GetObjectAsync(Uri uri)
 		{
-			if (uri == null)
+			if (uri is null)
 				throw new ArgumentNullException(nameof(uri));
 
 			string response = await GetResourceAsync(uri);
@@ -169,7 +169,7 @@ namespace BungieNet.Api
 
 		private async Task<JToken> PostObjectAsync(Uri uri)
 		{
-			if (uri == null)
+			if (uri is null)
 				throw new ArgumentNullException(nameof(uri));
 
 			string response = await PostResourceAsync(uri, "");
@@ -185,7 +185,7 @@ namespace BungieNet.Api
 
 		private async Task<JToken> PostObjectAsync(Uri uri, JToken inputObject)
 		{
-			if (uri == null)
+			if (uri is null)
 				throw new ArgumentNullException(nameof(uri));
 
 			string request = inputObject.ToString(Formatting.None);
@@ -203,7 +203,7 @@ namespace BungieNet.Api
 
 		protected async Task<TOutput> GetEntityAsync<TOutput>(Uri uri)
 		{
-			if (uri == null)
+			if (uri is null)
 				throw new ArgumentNullException(nameof(uri));
 
 			JObject response = (JObject)await GetObjectAsync(uri);
@@ -215,7 +215,7 @@ namespace BungieNet.Api
 
 		protected async Task<TOutput> PostEntityAsync<TOutput>(Uri uri)
 		{
-			if (uri == null)
+			if (uri is null)
 				throw new ArgumentNullException(nameof(uri));
 
 			JObject response = (JObject)await PostObjectAsync(uri);
@@ -225,7 +225,7 @@ namespace BungieNet.Api
 
 		protected async Task<TOutput> PostEntityAsync<TInput, TOutput>(Uri uri, TInput inputObject)
 		{
-			if (uri == null)
+			if (uri is null)
 				throw new ArgumentNullException(nameof(uri));
 
 			JToken request = JsonConvert.SerializeObject(inputObject, Formatting.None);
@@ -237,7 +237,7 @@ namespace BungieNet.Api
 
 		protected async Task<TOutput[]> GetEntityArrayAsync<TOutput>(Uri uri)
 		{
-			if (uri == null)
+			if (uri is null)
 				throw new ArgumentNullException(nameof(uri));
 
 			JArray response = (JArray)await GetObjectAsync(uri);
@@ -247,7 +247,7 @@ namespace BungieNet.Api
 
 		protected async Task<TOutput[]> PostEntityArrayAsync<TOutput>(Uri uri)
 		{
-			if (uri == null)
+			if (uri is null)
 				throw new ArgumentNullException(nameof(uri));
 
 			JArray response = (JArray)await PostObjectAsync(uri);
@@ -257,7 +257,7 @@ namespace BungieNet.Api
 
 		protected async Task<TOutput[]> PostEntityArrayAsync<TInput, TOutput>(Uri uri, TInput inputObject)
 		{
-			if (uri == null)
+			if (uri is null)
 				throw new ArgumentNullException(nameof(uri));
 
 			JToken request = JsonConvert.SerializeObject(inputObject, Formatting.None);
