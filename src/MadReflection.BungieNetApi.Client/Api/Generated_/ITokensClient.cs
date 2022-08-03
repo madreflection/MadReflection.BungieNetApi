@@ -27,6 +27,9 @@ namespace BungieNet.Api
 		System.Collections.Generic.Dictionary<string, Tokens.BungieRewardDisplay> GetBungieRewardsForUser(long membershipId);
 		Task<System.Collections.Generic.Dictionary<string, Tokens.BungieRewardDisplay>> GetBungieRewardsForUserAsync(long membershipId);
 
+		System.Collections.Generic.Dictionary<string, Tokens.BungieRewardDisplay> GetBungieRewardsForPlatformUser(long membershipId, BungieMembershipType membershipType);
+		Task<System.Collections.Generic.Dictionary<string, Tokens.BungieRewardDisplay>> GetBungieRewardsForPlatformUserAsync(long membershipId, BungieMembershipType membershipType);
+
 		System.Collections.Generic.Dictionary<string, Tokens.BungieRewardDisplay> GetBungieRewardsList();
 		Task<System.Collections.Generic.Dictionary<string, Tokens.BungieRewardDisplay>> GetBungieRewardsListAsync();
 	}
@@ -69,6 +72,14 @@ namespace BungieNet.Api
 		Task<System.Collections.Generic.Dictionary<string, Tokens.BungieRewardDisplay>> ITokensClient.GetBungieRewardsForUserAsync(long membershipId)
 		{
 			string[] pathSegments = new string[] { "Tokens", "Rewards", "GetRewardsForUser", membershipId.ToString() };
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
+			return GetEntityAsync<System.Collections.Generic.Dictionary<string, Tokens.BungieRewardDisplay>>(uri);
+		}
+
+		System.Collections.Generic.Dictionary<string, Tokens.BungieRewardDisplay> ITokensClient.GetBungieRewardsForPlatformUser(long membershipId, BungieMembershipType membershipType) => Tokens.GetBungieRewardsForPlatformUserAsync(membershipId, membershipType).GetAwaiter().GetResult();
+		Task<System.Collections.Generic.Dictionary<string, Tokens.BungieRewardDisplay>> ITokensClient.GetBungieRewardsForPlatformUserAsync(long membershipId, BungieMembershipType membershipType)
+		{
+			string[] pathSegments = new string[] { "Tokens", "Rewards", "GetRewardsForPlatformUser", membershipId.ToString(), ((int)membershipType).ToString() };
 			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityAsync<System.Collections.Generic.Dictionary<string, Tokens.BungieRewardDisplay>>(uri);
 		}

@@ -306,6 +306,18 @@ namespace BungieNet.Exceptions
 
 		ContentLocaleEditPermissionDenied = 175,
 
+		ContentStackUnknownError = 176,
+
+		ContentStackNotFound = 177,
+
+		ContentStackRateLimited = 178,
+
+		ContentStackTimeout = 179,
+
+		ContentStackServiceError = 180,
+
+		ContentStackDeserializationFailure = 181,
+
 		UserNonUniqueName = 200,
 
 		UserManualLinkingStepRequired = 201,

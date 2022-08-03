@@ -32,10 +32,16 @@ namespace BungieNet.Destiny.Entities.Profiles
 		[JsonProperty("seasonHashes")]
 		public uint[] SeasonHashes { get; set; }
 
+		[JsonProperty("eventCardHashesOwned")]
+		public uint[] EventCardHashesOwned { get; set; }
+
 		[JsonProperty("currentSeasonHash")]
 		public uint? CurrentSeasonHash { get; set; }
 
 		[JsonProperty("currentSeasonRewardPowerCap")]
 		public int? CurrentSeasonRewardPowerCap { get; set; }
+
+		[JsonProperty("activeEventCardHash")]
+		public uint? ActiveEventCardHash { get; set; }
 	}
 }

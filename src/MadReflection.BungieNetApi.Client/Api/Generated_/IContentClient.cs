@@ -32,6 +32,9 @@ namespace BungieNet.Api
 
 		Content.ContentItemPublicContract[] SearchHelpArticles(string searchtext, string size);
 		Task<Content.ContentItemPublicContract[]> SearchHelpArticlesAsync(string searchtext, string size);
+
+		Content.NewsArticleRssResponse RssNewsArticles(string pageToken);
+		Task<Content.NewsArticleRssResponse> RssNewsArticlesAsync(string pageToken);
 	}
 
 	partial interface IBungieClient
@@ -135,6 +138,16 @@ namespace BungieNet.Api
 			string[] pathSegments = new string[] { "Content", "SearchHelpArticles", searchtext, size };
 			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityArrayAsync<Content.ContentItemPublicContract>(uri);
+		}
+
+		Content.NewsArticleRssResponse IContentClient.RssNewsArticles(string pageToken) => Content.RssNewsArticlesAsync(pageToken).GetAwaiter().GetResult();
+		Task<Content.NewsArticleRssResponse> IContentClient.RssNewsArticlesAsync(string pageToken)
+		{
+			if (pageToken is null)
+				throw new ArgumentNullException(nameof(pageToken));
+			string[] pathSegments = new string[] { "Content", "Rss", "NewsArticles", pageToken };
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
+			return GetEntityAsync<Content.NewsArticleRssResponse>(uri);
 		}
 	}
 }
