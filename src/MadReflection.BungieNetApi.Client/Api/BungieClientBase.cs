@@ -12,6 +12,8 @@ namespace BungieNet.Api
 {
 	public abstract class BungieClientBase
 	{
+		private static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings() { MaxDepth = 128, Formatting = Formatting.None };
+
 		private readonly HttpClient _httpClient;
 		private readonly string _apiKey;
 		private string _bearerToken;
@@ -188,7 +190,7 @@ namespace BungieNet.Api
 			if (uri is null)
 				throw new ArgumentNullException(nameof(uri));
 
-			string request = inputObject.ToString(Formatting.None);
+			string request = JsonConvert.SerializeObject(inputObject, SerializerSettings);
 
 			string response = await PostResourceAsync(uri, request);
 
@@ -228,7 +230,7 @@ namespace BungieNet.Api
 			if (uri is null)
 				throw new ArgumentNullException(nameof(uri));
 
-			JToken request = JsonConvert.SerializeObject(inputObject, Formatting.None);
+			JToken request = JsonConvert.SerializeObject(inputObject, SerializerSettings);
 
 			JObject response = (JObject)await PostObjectAsync(uri, request);
 
@@ -260,7 +262,7 @@ namespace BungieNet.Api
 			if (uri is null)
 				throw new ArgumentNullException(nameof(uri));
 
-			JToken request = JsonConvert.SerializeObject(inputObject, Formatting.None);
+			JToken request = JsonConvert.SerializeObject(inputObject, SerializerSettings);
 
 			JArray response = (JArray)await PostObjectAsync(uri, request);
 
