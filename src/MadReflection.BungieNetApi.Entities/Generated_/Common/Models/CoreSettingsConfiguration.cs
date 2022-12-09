@@ -29,6 +29,9 @@ namespace BungieNet.Common.Models
 		[JsonProperty("groupAvatars")]
 		public Common.Models.CoreSetting[] GroupAvatars { get; set; }
 
+		[JsonProperty("defaultGroupTheme")]
+		public Common.Models.CoreSetting DefaultGroupTheme { get; set; }
+
 		[JsonProperty("destinyMembershipTypes")]
 		public Common.Models.CoreSetting[] DestinyMembershipTypes { get; set; }
 

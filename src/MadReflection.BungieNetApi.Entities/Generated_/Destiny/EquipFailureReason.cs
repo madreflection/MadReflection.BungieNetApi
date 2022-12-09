@@ -43,8 +43,23 @@ namespace BungieNet.Destiny
 		ItemFailedLevelCheck = 0x8,
 
 		/// <summary>
-		/// This item can't be equipped on the character requested, because it must be in that character's inventory first. Transfer the item to the character you want to equip it before you attempt to equip it.
+		/// This item is 'wrapped' and must be unwrapped before being equipped. NOTE: This value used to be called ItemNotOnCharacter but that is no longer accurate.
 		/// </summary>
-		ItemNotOnCharacter = 0x10
+		ItemWrapped = 0x10,
+
+		/// <summary>
+		/// This item is not yet loaded and cannot be equipped yet.
+		/// </summary>
+		ItemNotLoaded = 0x20,
+
+		/// <summary>
+		/// This item is block-listed and cannot be equipped.
+		/// </summary>
+		ItemEquipBlocklisted = 0x40,
+
+		/// <summary>
+		/// This item does not meet the loadout requirements for the current activity
+		/// </summary>
+		ItemLoadoutRequirementNotMet = 0x80
 	}
 }

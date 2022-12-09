@@ -118,5 +118,8 @@ namespace BungieNet.User
 
 		[JsonProperty("cachedBungieGlobalDisplayNameCode")]
 		public short? CachedBungieGlobalDisplayNameCode { get; set; }
+
+		[JsonProperty("egsDisplayName")]
+		public string EgsDisplayName { get; set; }
 	}
 }

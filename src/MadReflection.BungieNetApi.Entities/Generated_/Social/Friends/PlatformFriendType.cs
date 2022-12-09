@@ -19,6 +19,8 @@ namespace BungieNet.Social.Friends
 
 		PSN = 2,
 
-		Steam = 3
+		Steam = 3,
+
+		Egs = 4
 	}
 }

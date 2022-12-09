@@ -8,23 +8,16 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json;
 
-namespace BungieNet.Fireteam
+namespace BungieNet.Tokens
 {
-	public enum FireteamPlatform : byte
+	public partial class PartnerRewardHistoryResponse
 	{
-		Any = 0,
+		[JsonProperty("PartnerOffers")]
+		public Tokens.PartnerOfferSkuHistoryResponse[] PartnerOffers { get; set; }
 
-		Playstation4 = 1,
-
-		XboxOne = 2,
-
-		Blizzard = 3,
-
-		Steam = 4,
-
-		Stadia = 5,
-
-		Egs = 6
+		[JsonProperty("TwitchDrops")]
+		public Tokens.TwitchDropHistoryResponse[] TwitchDrops { get; set; }
 	}
 }

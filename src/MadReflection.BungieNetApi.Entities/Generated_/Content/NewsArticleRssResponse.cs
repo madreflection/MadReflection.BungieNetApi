@@ -25,5 +25,8 @@ namespace BungieNet.Content
 
 		[JsonProperty("ResultCountThisPage")]
 		public int ResultCountThisPage { get; set; }
+
+		[JsonProperty("CategoryFilter")]
+		public string CategoryFilter { get; set; }
 	}
 }

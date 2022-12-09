@@ -41,7 +41,6 @@ namespace BungieNet.Exceptions
 
 		Duplicate = 13,
 
-		[Obsolete("Deprecated, please do not check for this value anywhere.", true)]
 		UnknownSqlResult = 14,
 
 		ValidationError = 15,
@@ -402,6 +401,12 @@ namespace BungieNet.Exceptions
 
 		ErrorNameAlreadySetToInput = 241,
 
+		UserDisplayNameLessThanMinLength = 242,
+
+		UserDisplayNameGreaterThanMaxLength = 243,
+
+		UserDisplayNameContainsUnacceptableOrInvalidContent = 244,
+
 		MessagingUnknownError = 300,
 
 		MessagingSelfError = 301,
@@ -603,6 +608,8 @@ namespace BungieNet.Exceptions
 		ForumRecruitmentFireteamMembersOnly = 594,
 
 		ForumRequiresDestiny2Progress = 595,
+
+		ForumRequiresDestiny2EntitlementPurchase = 596,
 
 		GroupMembershipApplicationAlreadyResolved = 601,
 
@@ -819,6 +826,10 @@ namespace BungieNet.Exceptions
 		ClanCreationBan = 752,
 
 		ClanCreationTenureRequirementsNotMet = 753,
+
+		ClanFieldContainsReservedTerms = 754,
+
+		ClanFieldContainsInappropriateContent = 755,
 
 		ItemAlreadyFollowed = 801,
 
@@ -1419,6 +1430,14 @@ namespace BungieNet.Exceptions
 
 		TwitchNoPlatformChosen = 2506,
 
+		TwitchDropHistoryPermissionFailure = 2507,
+
+		TwitchDropsRepairPartialFailure = 2508,
+
+		TwitchNotAuthorized = 2509,
+
+		TwitchUnknownAuthorizationFailure = 2510,
+
 		TrendingCategoryNotFound = 2600,
 
 		TrendingEntryTypeNotSupported = 2601,
@@ -1663,6 +1682,26 @@ namespace BungieNet.Exceptions
 
 		ErrorBungieFriendsListFull = 3910,
 
-		ErrorBungieBlockListFull = 3911
+		ErrorBungieBlockListFull = 3911,
+
+		ErrorEgsUnknown = 4000,
+
+		ErrorEgsBadRequest = 4001,
+
+		ErrorEgsNotAuthorized = 4002,
+
+		ErrorEgsForbidden = 4003,
+
+		ErrorEgsAccountNotFound = 4004,
+
+		ErrorEgsWebException = 4005,
+
+		ErrorEgsUnavailable = 4006,
+
+		ErrorEgsJwksMissing = 4007,
+
+		ErrorEgsJwtMalformedHeader = 4008,
+
+		ErrorEgsJwtMalformedPayload = 4009
 	}
 }

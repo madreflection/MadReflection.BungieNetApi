@@ -183,6 +183,8 @@ namespace BungieNet.Destiny.HistoricalStats.Definitions
 
 		ZoneControl = 89,
 
-		IronBannerRift = 90
+		IronBannerRift = 90,
+
+		IronBannerZoneControl = 91
 	}
 }

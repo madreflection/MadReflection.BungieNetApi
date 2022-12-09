@@ -8,6 +8,9 @@
 * Adding dependency injection registration for `Microsoft.Extensions.DependencyInjection`.
 * Removing the sync methods.  The mechanism used is not the right pattern in most cases.  If consumers need to use the API in a non-async context, they should call the async methods and get the result using whatever mechanism is appropriate in their situation.
 
+## 0.1.14
+* Regenerated the code for version 2.17.0 of the API.
+
 ## 0.1.13
 * Regenerated the code for version 2.15.1 of the API.
 * Mitigated vulnerability [GHSA-5crp-9r3c-p9vr](https://github.com/advisories/GHSA-5crp-9r3c-p9vr) by setting the `MaxDepth` so that consumers are not forced upgrade Newtonsoft.Json to the absolute latest version.

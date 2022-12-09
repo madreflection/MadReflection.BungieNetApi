@@ -35,6 +35,8 @@ namespace BungieNet.Destiny
 
 		Anniversary30th = 0x80,
 
-		TheWitchQueen = 0x100
+		TheWitchQueen = 0x100,
+
+		Lightfall = 0x200
 	}
 }

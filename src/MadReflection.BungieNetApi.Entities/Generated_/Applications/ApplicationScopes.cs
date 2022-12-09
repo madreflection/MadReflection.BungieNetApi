@@ -75,7 +75,7 @@ namespace BungieNet.Applications
 		AdvancedWriteActions = 0x800,
 
 		/// <summary>
-		/// Can user the partner offer api to claim rewards defined for a partner
+		/// Can use the partner offer api to claim rewards defined for a partner
 		/// </summary>
 		PartnerOfferGrant = 0x1000,
 

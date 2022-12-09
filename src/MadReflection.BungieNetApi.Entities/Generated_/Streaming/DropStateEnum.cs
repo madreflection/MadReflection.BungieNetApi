@@ -9,22 +9,14 @@
 
 using System;
 
-namespace BungieNet.Fireteam
+namespace BungieNet.Streaming
 {
-	public enum FireteamPlatform : byte
+	public enum DropStateEnum : byte
 	{
-		Any = 0,
+		Claimed = 0,
 
-		Playstation4 = 1,
+		Applied = 1,
 
-		XboxOne = 2,
-
-		Blizzard = 3,
-
-		Steam = 4,
-
-		Stadia = 5,
-
-		Egs = 6
+		Fulfilled = 2
 	}
 }

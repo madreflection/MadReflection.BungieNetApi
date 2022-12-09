@@ -17,6 +17,12 @@ namespace BungieNet.Destiny.Responses
 	/// </summary>
 	public partial class DestinyProfileResponse
 	{
+		[JsonProperty("responseMintedTimestamp")]
+		public DateTime ResponseMintedTimestamp { get; set; }
+
+		[JsonProperty("secondaryComponentsMintedTimestamp")]
+		public DateTime SecondaryComponentsMintedTimestamp { get; set; }
+
 		[JsonProperty("vendorReceipts")]
 		public SingleComponentResponseOfDestinyVendorReceiptsComponent VendorReceipts { get; set; }
 

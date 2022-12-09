@@ -10,32 +10,20 @@
 using System;
 using Newtonsoft.Json;
 
-namespace BungieNet.Content
+namespace BungieNet.Tokens
 {
-	public partial class NewsArticleRssItem
+	public partial class TwitchDropHistoryResponse
 	{
 		[JsonProperty("Title")]
 		public string Title { get; set; }
 
-		[JsonProperty("Link")]
-		public string Link { get; set; }
-
-		[JsonProperty("PubDate")]
-		public DateTime PubDate { get; set; }
-
-		[JsonProperty("UniqueIdentifier")]
-		public string UniqueIdentifier { get; set; }
-
 		[JsonProperty("Description")]
 		public string Description { get; set; }
 
-		[JsonProperty("HtmlContent")]
-		public string HtmlContent { get; set; }
+		[JsonProperty("CreatedAt")]
+		public DateTime? CreatedAt { get; set; }
 
-		[JsonProperty("ImagePath")]
-		public string ImagePath { get; set; }
-
-		[JsonProperty("OptionalMobileImagePath")]
-		public string OptionalMobileImagePath { get; set; }
+		[JsonProperty("ClaimState")]
+		public Streaming.DropStateEnum? ClaimState { get; set; }
 	}
 }

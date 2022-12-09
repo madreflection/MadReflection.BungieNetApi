@@ -33,8 +33,8 @@ namespace BungieNet.Api
 		Content.ContentItemPublicContract[] SearchHelpArticles(string searchtext, string size);
 		Task<Content.ContentItemPublicContract[]> SearchHelpArticlesAsync(string searchtext, string size);
 
-		Content.NewsArticleRssResponse RssNewsArticles(string pageToken);
-		Task<Content.NewsArticleRssResponse> RssNewsArticlesAsync(string pageToken);
+		Content.NewsArticleRssResponse RssNewsArticles(string pageToken, string categoryfilter, bool includebody);
+		Task<Content.NewsArticleRssResponse> RssNewsArticlesAsync(string pageToken, string categoryfilter, bool includebody);
 	}
 
 	partial interface IBungieClient
@@ -140,13 +140,18 @@ namespace BungieNet.Api
 			return GetEntityArrayAsync<Content.ContentItemPublicContract>(uri);
 		}
 
-		Content.NewsArticleRssResponse IContentClient.RssNewsArticles(string pageToken) => Content.RssNewsArticlesAsync(pageToken).GetAwaiter().GetResult();
-		Task<Content.NewsArticleRssResponse> IContentClient.RssNewsArticlesAsync(string pageToken)
+		Content.NewsArticleRssResponse IContentClient.RssNewsArticles(string pageToken, string categoryfilter, bool includebody) => Content.RssNewsArticlesAsync(pageToken, categoryfilter, includebody).GetAwaiter().GetResult();
+		Task<Content.NewsArticleRssResponse> IContentClient.RssNewsArticlesAsync(string pageToken, string categoryfilter, bool includebody)
 		{
 			if (pageToken is null)
 				throw new ArgumentNullException(nameof(pageToken));
 			string[] pathSegments = new string[] { "Content", "Rss", "NewsArticles", pageToken };
-			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
+			System.Collections.Generic.List<QueryStringItem> queryItems = new System.Collections.Generic.List<QueryStringItem>()
+			{
+				new QueryStringItem("categoryfilter", (categoryfilter ?? "")),
+				new QueryStringItem("includebody", includebody.ToString().ToLower())
+			};
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, queryItems);
 			return GetEntityAsync<Content.NewsArticleRssResponse>(uri);
 		}
 	}

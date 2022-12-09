@@ -40,6 +40,8 @@ namespace BungieNet
 
 		StadiaId = 16,
 
-		TwitchId = 18
+		TwitchId = 18,
+
+		EgsId = 20
 	}
 }

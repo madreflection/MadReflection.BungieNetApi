@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>MadReflection.BungieNetApi.Client</id>
-    <version>0.1.13</version>
+    <version>0.1.14</version>
     <title>Bungie.net API Client</title>
     <authors>Benn Benson</authors>
     <owners>Benn Benson</owners>
@@ -13,12 +13,12 @@
     <projectUrl>https://github.com/madreflection/MadReflection.BungieNetApi</projectUrl>
     <!--<iconUrl></iconUrl>-->
     <license type="expression">BSD-3-Clause</license>
-    <copyright>Copyright (c) 2018-2020 Benn Benson</copyright>
+    <copyright>Copyright (c) 2018-2022 Benn Benson</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
       <group targetFramework="netstandard2.0">
         <dependency id="Newtonsoft.Json" version="9.0.1"/>
-        <dependency id="MadReflection.BungieNetApi.Entities" version="0.1.13"/>
+        <dependency id="MadReflection.BungieNetApi.Entities" version="0.1.14"/>
       </group>
     </dependencies>
     <!--<frameworkAssemblies></frameworkAssemblies>-->

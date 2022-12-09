@@ -15,6 +15,9 @@ namespace BungieNet.Api
 {
 	public interface ITokensClient
 	{
+		bool ForceDropsRepair();
+		Task<bool> ForceDropsRepairAsync();
+
 		bool ClaimPartnerOffer(Tokens.PartnerOfferClaimRequest partnerOfferClaimRequest);
 		Task<bool> ClaimPartnerOfferAsync(Tokens.PartnerOfferClaimRequest partnerOfferClaimRequest);
 
@@ -23,6 +26,9 @@ namespace BungieNet.Api
 
 		Tokens.PartnerOfferSkuHistoryResponse[] GetPartnerOfferSkuHistory(int partnerApplicationId, long targetBnetMembershipId);
 		Task<Tokens.PartnerOfferSkuHistoryResponse[]> GetPartnerOfferSkuHistoryAsync(int partnerApplicationId, long targetBnetMembershipId);
+
+		Tokens.PartnerRewardHistoryResponse GetPartnerRewardHistory(long targetBnetMembershipId, int partnerApplicationId);
+		Task<Tokens.PartnerRewardHistoryResponse> GetPartnerRewardHistoryAsync(long targetBnetMembershipId, int partnerApplicationId);
 
 		System.Collections.Generic.Dictionary<string, Tokens.BungieRewardDisplay> GetBungieRewardsForUser(long membershipId);
 		Task<System.Collections.Generic.Dictionary<string, Tokens.BungieRewardDisplay>> GetBungieRewardsForUserAsync(long membershipId);
@@ -43,6 +49,14 @@ namespace BungieNet.Api
 	{
 		public ITokensClient Tokens => this;
 
+
+		bool ITokensClient.ForceDropsRepair() => Tokens.ForceDropsRepairAsync().GetAwaiter().GetResult();
+		Task<bool> ITokensClient.ForceDropsRepairAsync()
+		{
+			string[] pathSegments = new string[] { "Tokens", "Partner", "ForceDropsRepair" };
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
+			return PostEntityAsync<bool>(uri);
+		}
 
 		bool ITokensClient.ClaimPartnerOffer(Tokens.PartnerOfferClaimRequest partnerOfferClaimRequest) => Tokens.ClaimPartnerOfferAsync(partnerOfferClaimRequest).GetAwaiter().GetResult();
 		Task<bool> ITokensClient.ClaimPartnerOfferAsync(Tokens.PartnerOfferClaimRequest partnerOfferClaimRequest)
@@ -66,6 +80,14 @@ namespace BungieNet.Api
 			string[] pathSegments = new string[] { "Tokens", "Partner", "History", partnerApplicationId.ToString(), targetBnetMembershipId.ToString() };
 			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
 			return GetEntityArrayAsync<Tokens.PartnerOfferSkuHistoryResponse>(uri);
+		}
+
+		Tokens.PartnerRewardHistoryResponse ITokensClient.GetPartnerRewardHistory(long targetBnetMembershipId, int partnerApplicationId) => Tokens.GetPartnerRewardHistoryAsync(targetBnetMembershipId, partnerApplicationId).GetAwaiter().GetResult();
+		Task<Tokens.PartnerRewardHistoryResponse> ITokensClient.GetPartnerRewardHistoryAsync(long targetBnetMembershipId, int partnerApplicationId)
+		{
+			string[] pathSegments = new string[] { "Tokens", "Partner", "History", targetBnetMembershipId.ToString(), "Application", partnerApplicationId.ToString() };
+			Uri uri = GetEndpointUri(BungieEndpointBase.Default, pathSegments, true, null);
+			return GetEntityAsync<Tokens.PartnerRewardHistoryResponse>(uri);
 		}
 
 		System.Collections.Generic.Dictionary<string, Tokens.BungieRewardDisplay> ITokensClient.GetBungieRewardsForUser(long membershipId) => Tokens.GetBungieRewardsForUserAsync(membershipId).GetAwaiter().GetResult();

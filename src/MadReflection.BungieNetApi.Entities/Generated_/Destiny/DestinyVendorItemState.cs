@@ -109,6 +109,13 @@ namespace BungieNet.Destiny
 		/// <summary>
 		/// This indicates that the sale item is locked.
 		/// </summary>
-		Locked = 0x40000
+		Locked = 0x40000,
+
+		/// <summary>
+		/// This indicates that the sale item is paracausal.
+		/// </summary>
+		Paracausal = 0x80000,
+
+		Cryptarch = 0x100000
 	}
 }
