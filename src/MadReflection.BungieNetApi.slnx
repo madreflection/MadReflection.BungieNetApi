@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Solution Files/">
+    <File Path="../CHANGELOG.md" />
+    <File Path="../submodules/bnetapi/openapi.json" />
+  </Folder>
+  <Project Path="MadReflection.BungieNetApi.Client/MadReflection.BungieNetApi.Client.csproj" />
+  <Project Path="MadReflection.BungieNetApi.Entities/MadReflection.BungieNetApi.Entities.csproj" />
+  <Project Path="MadReflection.BungieNetApi.Tests/MadReflection.BungieNetApi.Tests.csproj" />
+</Solution>
