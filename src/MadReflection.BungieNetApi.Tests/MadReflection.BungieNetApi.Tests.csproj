@@ -15,7 +15,7 @@
   <Import Project="$(ProjectDir)..\Shared\UnitTestPackages.props" Condition="Exists('$(ProjectDir)..\Shared\UnitTestPackages.props')" />
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
